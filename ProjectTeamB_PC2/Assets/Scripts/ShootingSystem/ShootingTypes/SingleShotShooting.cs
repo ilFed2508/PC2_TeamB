@@ -4,6 +4,12 @@ using UnityEngine;
 
 public class SingleShotShooting : Shooting
 {
+    public Animator anim;
+
+    private void Start()
+    {
+        anim = GetComponent<Animator>();
+    }
     public override void ShootingAction(RangedWeapon currentWeapon)
     {
         if(CanWeaponShoot == true && currentWeapon.CurrentAmmo > 0)
@@ -16,6 +22,7 @@ public class SingleShotShooting : Shooting
 
     public override void Shoot(RangedWeapon currentWeapon)
     {
+        
         Ray ray = Camera.main.ViewportPointToRay(new Vector3(0.5f, 0.5f, 0));
         RaycastHit hit;
 
@@ -35,7 +42,10 @@ public class SingleShotShooting : Shooting
         BulletInstance.transform.forward = ShootingDirection.normalized;
 
         BulletInstance.GetComponent<Rigidbody>().AddForce(ShootingDirection.normalized * currentWeapon.weaponData.ShootingForce, ForceMode.Impulse);
+        anim.Play("ShootAR");
     }
+
+   
 
     public override float CalculateFireRateo()
     {

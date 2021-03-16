@@ -6,6 +6,8 @@ using UnityEngine.UI;
 public class PlayerShooting : MonoBehaviour
 {
     public RangedWeapon CurrentRagedWeapon;
+    //Da eliminare più avanti
+    public Animator anim;
 
     //temporary UI Variable
     public Text AmmoText;
@@ -14,6 +16,7 @@ public class PlayerShooting : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        
         CurrentRagedWeapon.ShootingType.SetupCanWeaponShoot();
         CurrentRagedWeapon.SetupCurrentAmmo();
     }
@@ -21,6 +24,8 @@ public class PlayerShooting : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        //Da eliminare più avanti
+        anim = GameObject.FindGameObjectWithTag("Weapon").GetComponent<Animator>();
         CurrentRagedWeapon.UpdateFireRateoValue();
         CurrentRagedWeapon.UpdateTotalDamageValue();
         UpdateAmmoUI();
@@ -29,6 +34,8 @@ public class PlayerShooting : MonoBehaviour
         if (Input.GetMouseButtonDown(0) && CurrentRagedWeapon.ShootingType.IsAutomatic == false)
         {
             CurrentRagedWeapon.ShootingType.ShootingAction(CurrentRagedWeapon);
+            //Da eliminare più avanti
+            anim.Play("ShootAR");
         }
         if (Input.GetMouseButton(0) && CurrentRagedWeapon.ShootingType.IsAutomatic == true)
         {

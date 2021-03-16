@@ -42,7 +42,8 @@ GameObject:
   - component: {fileID: 5596386738465220155}
   - component: {fileID: 2295307763537824873}
   - component: {fileID: 6553608800325939929}
-  - component: {fileID: 4442284304610198533}
+  - component: {fileID: 5442533221384978865}
+  - component: {fileID: 7872491263727649884}
   m_Layer: 2
   m_Name: PompaContenitore
   m_TagString: Weapon
@@ -114,20 +115,42 @@ MonoBehaviour:
   IsAutomatic: 0
   PalletShotNumber: 5
   Bloom: 8
---- !u!114 &4442284304610198533
+--- !u!95 &5442533221384978865
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2864820959198554368}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: e42cc49e420d2fe4783448506e9941dc, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
+--- !u!114 &7872491263727649884
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2864820959198554368}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ae16db5701d0aaa47aa69e32bb137fd7, type: 3}
+  m_Script: {fileID: 11500000, guid: 67fe017acc0443b4db6b866a0c799a30, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  percentuale: 5
-  animazione: Melee
+  anim: {fileID: 5442533221384978865}
+  sparo: Sparo
+  vadoAvanti: 
+  destra: 
+  sinistra: 
 --- !u!1001 &7786933471054498918
 PrefabInstance:
   m_ObjectHideFlags: 0

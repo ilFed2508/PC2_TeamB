@@ -12,7 +12,8 @@ GameObject:
   - component: {fileID: 8399320458591277080}
   - component: {fileID: 5034120532906203429}
   - component: {fileID: 399277110786589498}
-  - component: {fileID: 1226913102297632900}
+  - component: {fileID: 1995519298548975425}
+  - component: {fileID: 9174773774365417163}
   m_Layer: 2
   m_Name: MitragliettaContenitore
   m_TagString: Weapon
@@ -84,20 +85,43 @@ MonoBehaviour:
   IsAutomatic: 0
   SingleBurstShotNumber: 3
   CooldownBetweenBursts: 0.5
---- !u!114 &1226913102297632900
+--- !u!114 &1995519298548975425
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6917982554982950557}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ae16db5701d0aaa47aa69e32bb137fd7, type: 3}
+  m_Script: {fileID: 11500000, guid: 67fe017acc0443b4db6b866a0c799a30, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  percentuale: 5
-  animazione: Melee
+  anim: {fileID: 9174773774365417163}
+  sparo: Sparo
+  vadoAvanti: 
+  destra: 
+  sinistra: 
+  Jump: 
+--- !u!95 &9174773774365417163
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6917982554982950557}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 886f147182c9d084f9b6a7262c462a9a, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!1 &7566486661910393231
 GameObject:
   m_ObjectHideFlags: 0
