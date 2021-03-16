@@ -9,25 +9,37 @@ public class WeaponPickup : MonoBehaviour
     private PlayerController playerController;
     public Text UipickupText;
 
+    //image "E" pick up - joe
+    public GameObject PickUpImage;
+
     private void Start()
     {
         playerController = FindObjectOfType<PlayerController>();
         UipickupText = playerController.UIPickup;
+        PickUpImage = playerController.PickUp;
     }
 
     private void OnTriggerEnter(Collider other)
     {
         if (other.CompareTag("Player") == true)
         {
-            playerController.UIPickup.gameObject.SetActive(true);
-        }        
+            //playerController.UIPickup.gameObject.SetActive(true);
+            //image "E" pick up - joe
+            playerController.PickUp.gameObject.SetActive(true);
+        }
+        else
+        {
+            //image "E" pick up
+            playerController.PickUp.gameObject.SetActive(false);
+        }
     }
-
     private void OnTriggerStay(Collider other)
     {
         if (other.gameObject.CompareTag("Player") && Input.GetKey(KeyCode.E)|| Input.GetKeyDown(KeyCode.Joystick1Button0))
         { 
             SwitchWeapon();
+            //image "E" pick up - joe
+            playerController.PickUp.gameObject.SetActive(false);
         }
     }
 
@@ -35,7 +47,9 @@ public class WeaponPickup : MonoBehaviour
     {
         if (other.CompareTag("Player") == true)
         {
-            playerController.UIPickup.gameObject.SetActive(false);
+            //playerController.UIPickup.gameObject.SetActive(false);
+            //image "E" pick up - joe
+            playerController.PickUp.gameObject.SetActive(false);
         }
     }
 

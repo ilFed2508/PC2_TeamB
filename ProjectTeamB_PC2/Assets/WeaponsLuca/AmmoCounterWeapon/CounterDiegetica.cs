@@ -15,13 +15,13 @@ public class CounterDiegetica : MonoBehaviour
     public Text AmmoText;
     public GameObject AmmoSwitchText;
 
-    //prototype ammo counter
+    //prototype ammo counter - joe
     [SerializeField] TextMeshProUGUI Ammo;
 
     // Start is called before the first frame update
     void Start()
     {
-        // prototype ammo counter
+        // prototype ammo counter - joe
         Ammo.enabled = true;
         CurrentRagedWeapon.ShootingType.SetupCanWeaponShoot();
         CurrentRagedWeapon.SetupCurrentAmmo();
