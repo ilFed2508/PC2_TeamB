@@ -53,4 +53,10 @@ public class PauseMenu : MonoBehaviour
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
     }
 
+    //aggiunta bottone quit game - Joe
+    public void Exit()
+    {
+        Application.Quit();
+    }
+
 }
