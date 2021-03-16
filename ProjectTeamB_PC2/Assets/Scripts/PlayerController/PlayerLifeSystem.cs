@@ -23,6 +23,9 @@ public class PlayerLifeSystem : MonoBehaviour
     public Text LifeText;
     public GameObject DeathPanel;
 
+    //LifeBar - joe
+    public Slider LifeBar;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -38,6 +41,10 @@ public class PlayerLifeSystem : MonoBehaviour
         {
             LifeText.text = PlayerCurrentHP.ToString("F0");
             PlayerCurrentHP -= Time.deltaTime;
+
+            //LifeBar - joe
+            LifeBar.maxValue = PlayerStartingHP;
+            LifeBar.value = PlayerCurrentHP;
         }
         else
         {
