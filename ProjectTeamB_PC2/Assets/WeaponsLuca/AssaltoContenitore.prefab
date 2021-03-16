@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 7454800249940452443}
   - component: {fileID: 4773969132860274558}
   - component: {fileID: 2183561558025374623}
-  - component: {fileID: 7694223064832951698}
+  - component: {fileID: 3375854023586276806}
   m_Layer: 2
   m_Name: AssaltoContenitore
   m_TagString: Weapon
@@ -81,8 +81,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 079ca0fe249761744b9525269e9aabd4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  ShotCooldown: 0.1
+  ShotCooldown: 0.15
   IsAutomatic: 0
+  anim: {fileID: 0}
 --- !u!95 &2183561558025374623
 Animator:
   serializedVersion: 3
@@ -102,20 +103,24 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
---- !u!114 &7694223064832951698
+--- !u!114 &3375854023586276806
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1128862741093143262}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ae16db5701d0aaa47aa69e32bb137fd7, type: 3}
+  m_Script: {fileID: 11500000, guid: 67fe017acc0443b4db6b866a0c799a30, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  percentuale: 5
-  animazione: Melee
+  anim: {fileID: 0}
+  sparo: Sparo
+  vadoAvanti: Move
+  destra: 
+  sinistra: 
+  Jump: 
 --- !u!1 &1128862741801262801
 GameObject:
   m_ObjectHideFlags: 0
