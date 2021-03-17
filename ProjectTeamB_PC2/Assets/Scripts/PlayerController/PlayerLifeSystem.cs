@@ -26,6 +26,9 @@ public class PlayerLifeSystem : MonoBehaviour
     //LifeBar - joe
     public Slider LifeBar;
 
+    //Warning Image_Animation - Joe
+    public Image Warning;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -52,6 +55,16 @@ public class PlayerLifeSystem : MonoBehaviour
             Cursor.visible = true;
             Time.timeScale = 0;
             DeathPanel.SetActive(true);
+        }
+
+        //Warning Image_Animation - Joe
+        if (PlayerCurrentHP <= 15)
+        {
+            Warning.enabled = true;
+        }
+        else
+        {
+            Warning.enabled = false;
         }
     }
 
