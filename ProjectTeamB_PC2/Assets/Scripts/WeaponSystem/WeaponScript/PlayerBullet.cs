@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class PlayerBullet : MonoBehaviour
 {
+    public GameObject Particle;
+
     // Update is called once per frame
     void Start()
     {
@@ -14,6 +16,9 @@ public class PlayerBullet : MonoBehaviour
     {
         if (other.CompareTag("Enemy"))
         {
+            Vector3 spawnPos = new Vector3(gameObject.transform.position.x, gameObject.transform.position.y, gameObject.transform.position.z);
+            Instantiate(Particle, spawnPos, gameObject.transform.rotation);
+
             EnemyBaseBehaviour Enemy = other.gameObject.GetComponentInChildren<EnemyBaseBehaviour>();
 
             Enemy.DamageEnemy();
