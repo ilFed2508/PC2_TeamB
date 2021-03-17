@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class EnemyBaseBehaviour : MonoBehaviour
 {
@@ -9,6 +10,10 @@ public class EnemyBaseBehaviour : MonoBehaviour
     public float HP;
     public RangedWeapon MyWeapon;
 
+    //image feed enemies in shooting - Joe
+    public Image Attention;
+    public Image RedEye;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -16,12 +21,26 @@ public class EnemyBaseBehaviour : MonoBehaviour
         MyWeapon = GetComponent<RangedWeapon>();
 
         StartCoroutine(ShootCoroutine());
+        StartCoroutine(ImageFeed());
     }
 
     // Update is called once per frame
     void Update()
     {
         WatchPlayer();
+    }
+
+    //image feed enemies in shooting - Joe
+    public IEnumerator ImageFeed()
+    {
+        Attention.enabled = true;
+        RedEye.enabled = false;
+        yield return new WaitForSeconds(1);
+        RedEye.enabled = true;
+        Attention.enabled = false;
+        yield return new WaitForSeconds(2);
+        RedEye.enabled = false;
+        Attention.enabled = true;
     }
 
     public void WatchPlayer()
@@ -36,7 +55,6 @@ public class EnemyBaseBehaviour : MonoBehaviour
             yield return new WaitForSeconds(MyWeapon.ShootingType.ShotCooldown);
             EnemyShooting();
         }
-
     }
 
     public void EnemyShooting()
