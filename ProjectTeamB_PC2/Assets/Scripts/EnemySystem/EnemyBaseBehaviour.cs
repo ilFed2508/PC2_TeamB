@@ -14,6 +14,10 @@ public class EnemyBaseBehaviour : MonoBehaviour
     public Image Attention;
     public Image RedEye;
 
+    //enemy life bar - Joe
+    public Slider EnemyLifeBar;
+    public float CurrentHP;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -28,17 +32,44 @@ public class EnemyBaseBehaviour : MonoBehaviour
     void Update()
     {
         WatchPlayer();
+
+        //enemy life bar - Joe
+        EnemyLifeBar.value = HP;
     }
 
     //image feed enemies in shooting - Joe
     public IEnumerator ImageFeed()
     {
-        Attention.enabled = true;
         RedEye.enabled = false;
-        yield return new WaitForSeconds(1);
+        Attention.enabled = true;
+        yield return new WaitForSeconds(2f);
         RedEye.enabled = true;
         Attention.enabled = false;
-        yield return new WaitForSeconds(2);
+        yield return new WaitForSeconds(2f);
+        RedEye.enabled = false;
+        Attention.enabled = true;
+        yield return new WaitForSeconds(1f);
+        RedEye.enabled = true;
+        Attention.enabled = false;
+        yield return new WaitForSeconds(2f);
+        RedEye.enabled = false;
+        Attention.enabled = true;
+        yield return new WaitForSeconds(1f);
+        RedEye.enabled = true;
+        Attention.enabled = false;
+        yield return new WaitForSeconds(2f);
+        RedEye.enabled = false;
+        Attention.enabled = true;
+        yield return new WaitForSeconds(1f);
+        RedEye.enabled = true;
+        Attention.enabled = false;
+        yield return new WaitForSeconds(2f);
+        RedEye.enabled = false;
+        Attention.enabled = true;
+        yield return new WaitForSeconds(1f);
+        RedEye.enabled = true;
+        Attention.enabled = false;
+        yield return new WaitForSeconds(2f);
         RedEye.enabled = false;
         Attention.enabled = true;
     }
