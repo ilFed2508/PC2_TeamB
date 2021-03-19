@@ -9,8 +9,15 @@ public class WeaponPickup : MonoBehaviour
     private PlayerController playerController;
     public Text UipickupText;
 
+
+    //Combo LucaDesign
+    private ComboManager combo;
+    //--------------------------------------
     private void Start()
     {
+        //Combo LucaDesign
+        combo = FindObjectOfType<ComboManager>();
+        //-------------------------------------------
         playerController = FindObjectOfType<PlayerController>();
         UipickupText = playerController.UIPickup;
     }
@@ -26,8 +33,13 @@ public class WeaponPickup : MonoBehaviour
     private void OnTriggerStay(Collider other)
     {
         if (other.gameObject.CompareTag("Player") && Input.GetKey(KeyCode.E)|| Input.GetKeyDown(KeyCode.Joystick1Button0))
-        { 
+        {
+            
             SwitchWeapon();
+            //Combo LucaDesign
+            combo.livelloCombo = combo.livelloCombo + 1f;
+            combo.tempoPerScalare = combo.tempoRestart;         
+            //-------------------------------------------
         }
     }
 
