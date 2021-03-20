@@ -34,9 +34,10 @@ public class PlayerShooting : MonoBehaviour
         //Execute shooting
         if (Input.GetMouseButtonDown(0) && CurrentRagedWeapon.ShootingType.IsAutomatic == false)
         {
-            CurrentRagedWeapon.ShootingType.ShootingAction(CurrentRagedWeapon);
             //Da eliminare più avanti
             anim.Play("ShootAR");
+            CurrentRagedWeapon.ShootingType.ShootingAction(CurrentRagedWeapon);
+            
         }
         if (Input.GetMouseButton(0) && CurrentRagedWeapon.ShootingType.IsAutomatic == true)
         {

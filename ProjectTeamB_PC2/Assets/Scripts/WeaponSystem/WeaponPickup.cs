@@ -38,7 +38,8 @@ public class WeaponPickup : MonoBehaviour
             SwitchWeapon();
             //Combo LucaDesign
             combo.livelloCombo = combo.livelloCombo + 1f;
-            combo.tempoPerScalare = combo.tempoRestart;         
+            combo.tempoPerScalare = combo.tempoRestart;
+            combo.ComboDamage();
             //-------------------------------------------
         }
     }

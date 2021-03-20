@@ -7,10 +7,10 @@ public class ComboManager : MonoBehaviour
 {
     public float livelloCombo;
     public float aggiuntaDanno;
-    private float danno;
-    private float dannoEffettivo;
+    public float danno;   
     public float tempoPerScalare;
     public float tempoRestart;
+    public float DannoIniziale;
 
     public Text LivelloCombo;
 
@@ -18,22 +18,24 @@ public class ComboManager : MonoBehaviour
 
     private PlayerController playerController;
 
-    public 
+    
     // Start is called before the first frame update
     void Start()
     {
-             
+        
         playerController = FindObjectOfType<PlayerController>();
+        CurrentRagedWeapon = FindObjectOfType<RangedWeapon>();
+        DannoIniziale = playerController.playerShooting.CurrentRagedWeapon.weaponData.Damage;
+
     }
 
     // Update is called once per frame
     void Update()
     {
-        CurrentRagedWeapon = FindObjectOfType<RangedWeapon>();
-        danno = CurrentRagedWeapon.weaponData.Damage;
-        dannoEffettivo = danno;
+        danno = playerController.playerShooting.CurrentRagedWeapon.weaponData.Damage;
         ComboSystem();
-        //ComboDamage();
+        ResetComboDamage();
+        
     }
 
 
@@ -71,17 +73,22 @@ public class ComboManager : MonoBehaviour
 
     public void ComboDamage()
     {
-        if(livelloCombo == 0)
+        
+        if(livelloCombo == 1 )
         {
-            
+            playerController.playerShooting.CurrentRagedWeapon.weaponData.Damage = danno + aggiuntaDanno;
         }
-        if(livelloCombo == 1 || livelloCombo == 2 || livelloCombo == 3)
+        if (livelloCombo ==4 )
         {
-            dannoEffettivo = dannoEffettivo + aggiuntaDanno;
+            playerController.playerShooting.CurrentRagedWeapon.weaponData.Damage = danno + aggiuntaDanno * 2;
         }
-        if (livelloCombo == 4 || livelloCombo == 5 || livelloCombo == 6)
+    }
+
+    public void ResetComboDamage()
+    {
+        if (livelloCombo == 0)
         {
-            dannoEffettivo = dannoEffettivo + aggiuntaDanno * 2;
+            playerController.playerShooting.CurrentRagedWeapon.weaponData.Damage = DannoIniziale;
         }
     }
 }
