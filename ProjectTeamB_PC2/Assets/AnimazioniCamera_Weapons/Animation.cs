@@ -11,9 +11,12 @@ public class Animation : MonoBehaviour
     public string destra;
     public string sinistra;
     public string Jump;
+    public string CameraShoot;
+    private Animator Camera;
 
     void Start()
     {
+        Camera = GameObject.Find("CamerasLogic").GetComponent<Animator>();
         anim = GetComponent<Animator>();
     }
 
@@ -23,13 +26,14 @@ public class Animation : MonoBehaviour
         if (Input.GetMouseButton(0))
         {
             anim.SetBool(sparo, true);
-            
+            Camera.SetBool(CameraShoot, true);
 
         }
         else
         {
             anim.SetBool(sparo, false);
             anim.SetBool(vadoAvanti, false);
+            Camera.SetBool(CameraShoot, false);
         }
 
         if (Input.GetKey(KeyCode.W))
