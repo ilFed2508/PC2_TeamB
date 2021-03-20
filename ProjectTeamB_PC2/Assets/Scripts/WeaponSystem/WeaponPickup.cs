@@ -11,6 +11,7 @@ public class WeaponPickup : MonoBehaviour
 
     //Combo LucaDesign
     private ComboManager combo;
+    private Animator Camera;
     //--------------------------------------
 
     //image "E" pick up - joe
@@ -20,6 +21,7 @@ public class WeaponPickup : MonoBehaviour
     {
         //Combo LucaDesign
         combo = FindObjectOfType<ComboManager>();
+        Camera = GameObject.Find("WeaponSlot").GetComponent<Animator>();
         //-------------------------------------------
 
         playerController = FindObjectOfType<PlayerController>();
@@ -69,6 +71,9 @@ public class WeaponPickup : MonoBehaviour
 
     void SwitchWeapon()
     {
+        //da eliminare
+        Camera.Play("SwitchWeapon");
+        //------------------------------
         //destroy current Weapon
         Destroy(playerController.playerShooting.CurrentRagedWeapon.gameObject);
         //instatiate new weapon at weapon Slot position
@@ -81,5 +86,6 @@ public class WeaponPickup : MonoBehaviour
         playerController.UIPickup.gameObject.SetActive(false);
         //destroy this gameobject
         Destroy(this.gameObject);
+        
     }
 }
