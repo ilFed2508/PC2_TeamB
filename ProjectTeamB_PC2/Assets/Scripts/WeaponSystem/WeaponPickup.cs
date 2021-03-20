@@ -9,11 +9,19 @@ public class WeaponPickup : MonoBehaviour
     private PlayerController playerController;
     public Text UipickupText;
 
+    //Combo LucaDesign
+    private ComboManager combo;
+    //--------------------------------------
+
     //image "E" pick up - joe
     public GameObject PickUpImage;
 
     private void Start()
     {
+        //Combo LucaDesign
+        combo = FindObjectOfType<ComboManager>();
+        //-------------------------------------------
+
         playerController = FindObjectOfType<PlayerController>();
         UipickupText = playerController.UIPickup;
         PickUpImage = playerController.PickUp;
@@ -40,6 +48,12 @@ public class WeaponPickup : MonoBehaviour
             SwitchWeapon();
             //image "E" pick up - joe
             playerController.PickUp.gameObject.SetActive(false);
+
+            //Combo LucaDesign
+            combo.livelloCombo = combo.livelloCombo + 1f;
+            combo.tempoPerScalare = combo.tempoRestart;
+            combo.ComboDamage();
+            //-------------------------------------------
         }
     }
 
