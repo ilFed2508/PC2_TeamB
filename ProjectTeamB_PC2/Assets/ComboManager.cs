@@ -7,10 +7,10 @@ public class ComboManager : MonoBehaviour
 {
     public float livelloCombo;
     public float aggiuntaDanno;
-    public float danno;   
+    private float danno;   
     public float tempoPerScalare;
     public float tempoRestart;
-    public float DannoIniziale;
+    private float DannoIniziale;
 
     public Text LivelloCombo;
 

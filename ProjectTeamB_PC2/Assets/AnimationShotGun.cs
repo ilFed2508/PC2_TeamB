@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Animation : MonoBehaviour
+public class AnimationShotGun : MonoBehaviour
 {
     public Animator anim;
 
@@ -25,14 +25,14 @@ public class Animation : MonoBehaviour
         if (Input.GetMouseButton(0))
         {
             anim.SetBool(sparo, true);
-            
+            Camera.Play("CameraShootgunShoot");
 
         }
         else
         {
             anim.SetBool(sparo, false);
             anim.SetBool(vadoAvanti, false);
-            
+
         }
 
         if (Input.GetKey(KeyCode.W))
@@ -73,3 +73,4 @@ public class Animation : MonoBehaviour
 
     }
 }
+
