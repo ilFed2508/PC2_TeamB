@@ -8,7 +8,11 @@ public class WeaponData : ScriptableObject
     /// <summary>
     /// Ammo Amount value of a weapon
     /// </summary>
-    public int Ammo;    
+    public int Ammo;
+    /// <summary>
+    /// Starting damage value at the start of the game
+    /// </summary>
+    public float StartingDamage;
     /// <summary>
     /// Damage value of a single projectile
     /// </summary>

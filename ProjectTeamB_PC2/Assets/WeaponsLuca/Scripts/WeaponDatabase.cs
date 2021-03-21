@@ -5,5 +5,7 @@ using UnityEngine;
 public class WeaponDatabase : MonoBehaviour
 {
     public GameObject[] Weapons;
+
+    public WeaponData[] LogicWeaponsDatabase;
     
 }

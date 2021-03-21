@@ -13,12 +13,21 @@ public class PlayerShooting : MonoBehaviour
     public Text AmmoText;
     public GameObject AmmoSwitchText;
 
+    //variabile da modificare
+    public WeaponDatabase weaponDatabase;
+
     // Start is called before the first frame update
     void Start()
     {
-        
+        weaponDatabase = FindObjectOfType<WeaponDatabase>();
         CurrentRagedWeapon.ShootingType.SetupCanWeaponShoot();
         CurrentRagedWeapon.SetupCurrentAmmo();
+
+        foreach(WeaponData weapon in weaponDatabase.LogicWeaponsDatabase)
+        {
+            weapon.Damage = weapon.StartingDamage;
+        }
+        
     }
 
     // Update is called once per frame
