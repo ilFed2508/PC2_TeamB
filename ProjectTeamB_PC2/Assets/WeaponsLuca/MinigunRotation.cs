@@ -10,9 +10,12 @@ public class MinigunRotation : MonoBehaviour
     private Vector3 toRotateV;
     private Transform toRotateT;
 
+    public Animator MiniGunAnim;
+
     // Start is called before the first frame update
     void Start()
     {
+        
         toRotateT = canne.GetComponent<Transform>();
         toRotateV = new Vector3(canne.transform.localRotation.x * 0, canne.transform.localRotation.y * 0, canne.transform.localRotation.z * speed);
     }
@@ -23,6 +26,12 @@ public class MinigunRotation : MonoBehaviour
         if (Input.GetMouseButton(0))
         {
             toRotateT.Rotate(toRotateV);
+            MiniGunAnim.SetBool("Shoot", true);
         }
+        else
+        {
+            MiniGunAnim.SetBool("Shoot", false);
+        }
+       
     }
 }
