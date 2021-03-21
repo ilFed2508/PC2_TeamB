@@ -98,7 +98,7 @@ LightmapSettings:
     m_TrainingDataDestination: TrainingData
     m_LightProbeSampleCountMultiplier: 4
   m_LightingDataAsset: {fileID: 0}
-  m_UseShadowmask: 0
+  m_UseShadowmask: 1
 --- !u!196 &4
 NavMeshSettings:
   serializedVersion: 2
@@ -5237,7 +5237,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   PlayerCurrentHP: 0
-  PlayerStartingHP: 20000
+  PlayerStartingHP: 20
   EnemyTimeGain: 0
   LifeText: {fileID: 732327198}
   DeathPanel: {fileID: 521835507}
@@ -5280,6 +5280,7 @@ MonoBehaviour:
   anim: {fileID: 0}
   AmmoText: {fileID: 481117593}
   AmmoSwitchText: {fileID: 219212721}
+  weaponDatabase: {fileID: 0}
 --- !u!114 &1508416558
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -7513,6 +7514,7 @@ MonoBehaviour:
   - {fileID: 6382762274532158819, guid: 5781b9ec19c8c0d4a8f56caa943dacda, type: 3}
   - {fileID: 6146607039865875478, guid: 61f0fb9cb9eef6c429f321e8e9670878, type: 3}
   - {fileID: 1689660782648541312, guid: e8d58fb8ec1d6d14bb5c3cf230fe73c1, type: 3}
+  LogicWeaponsDatabase: []
 --- !u!4 &2094582032
 Transform:
   m_ObjectHideFlags: 0
