@@ -12,6 +12,40 @@ public class PlayerBullet : MonoBehaviour
         Destroy(this.gameObject, 3f);
     }
 
+    //Prova con OnCollision Design
+    private void OnCollisionEnter(Collision collision)
+    {
+        if (collision.gameObject.CompareTag("Enemy"))
+        {
+            Vector3 spawnPos = new Vector3(gameObject.transform.position.x, gameObject.transform.position.y, gameObject.transform.position.z);
+            Instantiate(Particle, spawnPos, gameObject.transform.rotation);
+
+            EnemyBaseBehaviour Enemy = collision.gameObject.GetComponentInChildren<EnemyBaseBehaviour>();
+
+            Enemy.DamageEnemy();
+
+            if(Enemy.HP <= 0)
+            {
+                collision.gameObject.GetComponent<WeaponDrop>().DropWeapon();
+                Enemy.PlayerHealOnDeath();
+                Destroy(collision.gameObject);
+            }
+
+            Destroy(this.gameObject);
+        }
+
+        if (collision.gameObject.CompareTag("Walls"))
+        {
+            Destroy(this.gameObject);
+        }
+        Destroy(this.gameObject);
+
+    }
+    //-----------------------------------------------------
+
+
+    /*
+    }
     private void OnTriggerEnter(Collider other)
     {
         if (other.CompareTag("Enemy"))
@@ -38,5 +72,5 @@ public class PlayerBullet : MonoBehaviour
             Destroy(this.gameObject);
         }
 
-    }
+    }*/
 }
