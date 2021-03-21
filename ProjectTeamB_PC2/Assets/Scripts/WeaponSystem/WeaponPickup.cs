@@ -12,6 +12,7 @@ public class WeaponPickup : MonoBehaviour
     //Combo LucaDesign
     private ComboManager combo;
     private Animator Camera;
+    public float PlayerHpGain;
     //--------------------------------------
 
     //image "E" pick up - joe
@@ -74,6 +75,7 @@ public class WeaponPickup : MonoBehaviour
         //da eliminare
         Camera.Play("SwitchWeapon");
         //------------------------------
+
         //destroy current Weapon
         Destroy(playerController.playerShooting.CurrentRagedWeapon.gameObject);
         //instatiate new weapon at weapon Slot position
@@ -84,6 +86,10 @@ public class WeaponPickup : MonoBehaviour
         playerController.playerShooting.CurrentRagedWeapon.SetupCurrentAmmo();
         //deactive pickupUI
         playerController.UIPickup.gameObject.SetActive(false);
+
+        //da modificare
+        playerController.playerLife.PlayerCurrentHP += PlayerHpGain;
+
         //destroy this gameobject
         Destroy(this.gameObject);
         
