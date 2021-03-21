@@ -3621,6 +3621,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 614260315}
+  - component: {fileID: 614260316}
   m_Layer: 0
   m_Name: WeaponSlot
   m_TagString: Player
@@ -3643,6 +3644,25 @@ Transform:
   m_Father: {fileID: 2086695271}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: -2.063, y: 0, z: 1.72}
+--- !u!95 &614260316
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 614260314}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: ebaf144d8306dbc40a0d18d486cda41b, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!1 &620739779
 GameObject:
   m_ObjectHideFlags: 0
@@ -9988,7 +10008,6 @@ MonoBehaviour:
   destra: Destra
   sinistra: Sinistra
   Jump: Jump
-  CameraShoot: 
 --- !u!95 &2086695273
 Animator:
   serializedVersion: 3
