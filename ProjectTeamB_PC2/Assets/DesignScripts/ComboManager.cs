@@ -82,6 +82,10 @@ public class ComboManager : MonoBehaviour
         {
             playerController.playerShooting.CurrentRagedWeapon.weaponData.Damage = danno + aggiuntaDanno * 2;
         }
+        if (livelloCombo >= 7)
+        {
+            playerController.playerShooting.CurrentRagedWeapon.weaponData.Damage = danno + aggiuntaDanno * 2.1f;
+        }
     }
 
     public void ResetComboDamage()
