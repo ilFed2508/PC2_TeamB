@@ -45,7 +45,21 @@ public class SingleShotShooting : Shooting
         anim.Play("ShootAR");
     }
 
-   
+    public override void AIShoot(RangedWeapon currentWeapon)
+    {
+        GameObject BulletInstance = Instantiate(currentWeapon.WeaponBulletPrefab, currentWeapon.GunBarrel.position, Quaternion.identity);
+        BulletInstance.GetComponent<EnemyBullet>().Damage = currentWeapon.weaponData.Damage;
+        BulletInstance.GetComponent<Rigidbody>().AddForce(transform.forward * currentWeapon.weaponData.ShootingForce, ForceMode.Impulse);
+    }
+
+    public override IEnumerator AIShootCoroutine(RangedWeapon currentWeapon)
+    {
+        while (true)
+        {
+            yield return new WaitForSeconds(ShotCooldown);
+            AIShoot(currentWeapon);
+        }
+    }
 
     public override float CalculateFireRateo()
     {

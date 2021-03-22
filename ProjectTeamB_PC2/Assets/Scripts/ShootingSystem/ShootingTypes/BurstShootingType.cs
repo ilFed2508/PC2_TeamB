@@ -44,6 +44,13 @@ public class BurstShootingType : Shooting
         BulletInstance.GetComponent<Rigidbody>().AddForce(ShootingDirection.normalized * currentWeapon.weaponData.ShootingForce, ForceMode.Impulse);
     }
 
+    public override void AIShoot(RangedWeapon currentWeapon)
+    {
+        GameObject BulletInstance = Instantiate(currentWeapon.WeaponBulletPrefab, currentWeapon.GunBarrel.position, Quaternion.identity);
+        BulletInstance.GetComponent<EnemyBullet>().Damage = currentWeapon.weaponData.Damage;
+        BulletInstance.GetComponent<Rigidbody>().AddForce(transform.forward * currentWeapon.weaponData.ShootingForce, ForceMode.Impulse);
+    }
+
     /// <summary>
     /// coroutine that shoot a burst and wait the shot cooldown between them
     /// </summary>
@@ -62,6 +69,29 @@ public class BurstShootingType : Shooting
             }
         }
 
+    }
+
+    public IEnumerator AIShotBurst(float shotCooldown, RangedWeapon currentWeapon)
+    {
+        if (SingleBurstShotNumber >= 2)
+        {
+            for (int shots = 0; shots < SingleBurstShotNumber; shots++)
+            {
+                AIShoot(currentWeapon);
+                yield return new WaitForSeconds(shotCooldown);
+            }
+        }
+    }
+
+    public override IEnumerator AIShootCoroutine(RangedWeapon currentWeapon)
+    {
+        while (true)
+        {
+            StartCoroutine(AIShotBurst(ShotCooldown, currentWeapon));
+
+            yield return new WaitForSeconds(CooldownBetweenBursts);
+        }
+        
     }
 
     public override float CalculateFireRateo()

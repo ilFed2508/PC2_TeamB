@@ -29,11 +29,18 @@ public class Shooting : MonoBehaviour
     /// <param name="currentWeapon"></param>
     public virtual void Shoot(RangedWeapon currentWeapon) { }
 
+    public virtual void AIShoot(RangedWeapon currentWeapon) { }
+
     /// <summary>
     /// All the things that are performed in a single shooting action
     /// </summary>
     /// <param name="currentWeapon"></param>
     public virtual void ShootingAction(RangedWeapon currentWeapon) { }
+
+    public virtual IEnumerator AIShootCoroutine(RangedWeapon currentWeapon)
+    {
+        yield return new WaitForSeconds(0f);
+    }
 
     /// <summary>
     /// Methods that calculate the fire rateo of the current shooting type

@@ -34,4 +34,9 @@ public class PlayerBullet : MonoBehaviour
         }
 
     }
+
+    private void OnTriggerStay(Collider other)
+    {
+        
+    }
 }
