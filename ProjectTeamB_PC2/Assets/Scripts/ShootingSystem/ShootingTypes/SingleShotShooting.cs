@@ -4,11 +4,11 @@ using UnityEngine;
 
 public class SingleShotShooting : Shooting
 {
-    public Animator anim;
+    
 
     private void Start()
     {
-        anim = GetComponent<Animator>();
+        
     }
     public override void ShootingAction(RangedWeapon currentWeapon)
     {
@@ -42,7 +42,7 @@ public class SingleShotShooting : Shooting
         BulletInstance.transform.forward = ShootingDirection.normalized;
 
         BulletInstance.GetComponent<Rigidbody>().AddForce(ShootingDirection.normalized * currentWeapon.weaponData.ShootingForce, ForceMode.Impulse);
-        anim.Play("ShootAR");
+        
     }
 
    

@@ -12,6 +12,8 @@ public class PlayerBullet : MonoBehaviour
         Destroy(this.gameObject, 3f);
     }
 
+  
+
     private void OnTriggerEnter(Collider other)
     {
         if (other.CompareTag("Enemy"))
