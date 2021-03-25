@@ -109,4 +109,13 @@ public class EnemyBaseBehaviour : MonoBehaviour
     {
         HP -= Player.playerShooting.CurrentRagedWeapon.weaponData.Damage;
     }
+
+    //Melee Luca
+    public void DamageMelee()
+    {
+        HP -= HP;
+    }
+
+
+
 }
