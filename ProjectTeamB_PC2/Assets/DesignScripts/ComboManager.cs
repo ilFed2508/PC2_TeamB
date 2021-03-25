@@ -92,7 +92,7 @@ public class ComboManager : MonoBehaviour
     {
         if (livelloCombo == 0)
         {
-            playerController.playerShooting.CurrentRagedWeapon.weaponData.Damage = DannoIniziale;
+            playerController.playerShooting.CurrentRagedWeapon.weaponData.Damage = playerController.playerShooting.CurrentRagedWeapon.weaponData.StartingDamage;
         }
     }
 }
