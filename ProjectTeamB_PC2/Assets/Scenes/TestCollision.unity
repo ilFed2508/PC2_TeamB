@@ -9603,7 +9603,7 @@ PrefabInstance:
         type: 3}
       propertyPath: ShootingType
       value: 
-      objectReference: {fileID: 2123443580}
+      objectReference: {fileID: 2123443585}
     - target: {fileID: 7923269200869693499, guid: 27d5b10585c9be84b81853c8e0acfbaf,
         type: 3}
       propertyPath: WeaponBulletPrefab
@@ -9615,20 +9615,9 @@ PrefabInstance:
       propertyPath: m_TagString
       value: Enemy
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 7923269200869693498, guid: 27d5b10585c9be84b81853c8e0acfbaf, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: 27d5b10585c9be84b81853c8e0acfbaf, type: 3}
---- !u!114 &2123443580 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 7923269200869693498, guid: 27d5b10585c9be84b81853c8e0acfbaf,
-    type: 3}
-  m_PrefabInstance: {fileID: 2123443579}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2123443581}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 079ca0fe249761744b9525269e9aabd4, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &2123443581 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 7923269200869693503, guid: 27d5b10585c9be84b81853c8e0acfbaf,
@@ -9674,13 +9663,29 @@ MonoBehaviour:
   StartingDirectionPoint: {fileID: 1665662161}
   CurrentPathPosition: 0
   counterUP: 0
-  ShootingDuration: 5
+  ShootingDuration: 8
 --- !u!4 &2123443584 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 7923269200803733241, guid: 27d5b10585c9be84b81853c8e0acfbaf,
     type: 3}
   m_PrefabInstance: {fileID: 2123443579}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &2123443585
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2123443581}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 76857e946e81bb94fa600caa137a29a9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  ShotCooldown: 0.2
+  IsAutomatic: 0
+  SingleBurstShotNumber: 3
+  CooldownBetweenBursts: 2
 --- !u!1 &2134840154
 GameObject:
   m_ObjectHideFlags: 0

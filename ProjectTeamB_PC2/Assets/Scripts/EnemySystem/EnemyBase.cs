@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class EnemyBase : MonoBehaviour
 {
+    [Header("Base Enemy Fields")]
     public PlayerController Player;
     public float BonusLifeWhenKilled;
     public float HP;
@@ -12,9 +13,11 @@ public class EnemyBase : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        //picking reference
         Player = FindObjectOfType<PlayerController>();
         MyWeapon = GetComponent<RangedWeapon>();
 
+        //shoot
         StartCoroutine(MyWeapon.ShootingType.AIShootCoroutine(MyWeapon));
     }
 
@@ -23,46 +26,34 @@ public class EnemyBase : MonoBehaviour
     {
         WatchPlayer();
     }
-
+        
+    /// <summary>
+    /// keep Watching the player
+    /// </summary>
     public void WatchPlayer()
     {
         transform.LookAt(Player.gameObject.transform);
     }
 
+    /// <summary>
+    /// Shooting coroutine based on the AIshooting methods
+    /// </summary>
     public void Shoot()
     {
-        StartCoroutine(ShootCoroutine());
+        StartCoroutine(MyWeapon.ShootingType.AIShootCoroutine(MyWeapon));
     }
 
+    /// <summary>
+    /// Stop shooting coroutines
+    /// </summary>
     public void StopShooting()
     {
         StopAllCoroutines();
     }
 
-    public IEnumerator ShootCoroutine()
-    {
-        while (true)
-        {
-            yield return new WaitForSeconds(MyWeapon.ShootingType.ShotCooldown);
-
-            if (Physics.Raycast(this.transform.position, transform.forward,out RaycastHit hit, Mathf.Infinity))
-            {
-                if (hit.collider.CompareTag("Player"))
-                {
-                    EnemyShooting();
-                }
-            }           
-        }
-
-    }
-
-    public void EnemyShooting()
-    {
-        GameObject BulletInstance = Instantiate(MyWeapon.WeaponBulletPrefab, MyWeapon.GunBarrel.position, Quaternion.identity);
-        BulletInstance.GetComponent<EnemyBullet>().Damage = MyWeapon.weaponData.Damage;
-        BulletInstance.GetComponent<Rigidbody>().AddForce(transform.forward * MyWeapon.weaponData.ShootingForce, ForceMode.Impulse);
-    }
-
+    /// <summary>
+    /// Healing player method when the enemy die
+    /// </summary>
     public void PlayerHealOnDeath()
     {
         Player.playerLife.PlayerCurrentHP += BonusLifeWhenKilled;
@@ -73,6 +64,9 @@ public class EnemyBase : MonoBehaviour
         }
     }
 
+    /// <summary>
+    /// Damage enemy method
+    /// </summary>
     public void DamageEnemy()
     {
         HP -= Player.playerShooting.CurrentRagedWeapon.weaponData.Damage;

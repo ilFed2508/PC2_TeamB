@@ -46,6 +46,10 @@ public class SightState : State
         base.PhysicsUpdate();
     }
 
+    /// <summary>
+    /// return true if the player is on sight and enable shooting
+    /// </summary>
+    /// <returns></returns>
     public bool EnableShooting()
     {
         float youAndPlayerDistance = Vector3.Distance(enemyType1.gameObject.transform.position, enemyType1.Player.gameObject.transform.position);
