@@ -40,7 +40,7 @@ public class MeleePercentuale : MonoBehaviour
 
     private IEnumerator LateCall()
     {
-        yield return new WaitForSeconds(0.7f);
+        yield return new WaitForSeconds(1f);
         playerController.Melee.gameObject.SetActive(false);
     }
 
