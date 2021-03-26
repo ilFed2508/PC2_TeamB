@@ -44,7 +44,14 @@ public class EnemyBase : MonoBehaviour
         while (true)
         {
             yield return new WaitForSeconds(MyWeapon.ShootingType.ShotCooldown);
-            EnemyShooting();
+
+            if (Physics.Raycast(this.transform.position, transform.forward,out RaycastHit hit, Mathf.Infinity))
+            {
+                if (hit.collider.CompareTag("Player"))
+                {
+                    EnemyShooting();
+                }
+            }           
         }
 
     }

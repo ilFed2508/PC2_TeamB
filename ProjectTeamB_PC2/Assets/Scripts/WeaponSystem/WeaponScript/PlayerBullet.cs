@@ -14,7 +14,7 @@ public class PlayerBullet : MonoBehaviour
     {
         if (other.CompareTag("Enemy"))
         {
-            EnemyBaseBehaviour Enemy = other.gameObject.GetComponentInChildren<EnemyBaseBehaviour>();
+            EnemyBase Enemy = other.gameObject.GetComponentInChildren<EnemyBase>();
 
             Enemy.DamageEnemy();
 

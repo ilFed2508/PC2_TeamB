@@ -10,26 +10,40 @@ public class TestAIPath : MonoBehaviour
     public float PathAngle;
     public Vector3[] PathPoints = new Vector3[3];
     public NavMeshAgent agent;
+    public float Speed;
+    public PlayerController player;
+    public bool DrawPath;
 
     // Start is called before the first frame update
     void Start()
     {
+        player = FindObjectOfType<PlayerController>();
+
+        DrawPath = false;
         CalculatePath(PathPoints);
-        Debug.DrawLine(this.transform.position, PathPoints[0]);
-        Debug.DrawLine(PathPoints[0], PathPoints[1]);
-        Debug.DrawLine(PathPoints[1], PathPoints[2]);
+        //Debug.DrawLine(this.transform.position, PathPoints[0]);
+        //Debug.DrawLine(PathPoints[0], PathPoints[1]);
+        //Debug.DrawLine(PathPoints[1], PathPoints[2]);
         StartCoroutine(MoveCoroutine());
     }
 
     // Update is called once per frame
     void Update()
     {
-        
+        transform.LookAt(player.transform.position);
+        //transform.position = Vector3.MoveTowards(this.transform.position, PathPoints[0], Speed * Time.deltaTime);
     }
 
     private void OnDrawGizmos()
     {
-        
+        if(DrawPath == true)
+        {
+            CalculatePath(PathPoints);
+
+            Gizmos.DrawLine(this.transform.position, PathPoints[0]);
+            Gizmos.DrawLine(PathPoints[0], PathPoints[1]);
+            Gizmos.DrawLine(PathPoints[1], PathPoints[2]);
+        }
     }
 
     public Vector3 CalculateFirstPoint(float vectorLength, float vectorAngle)
@@ -92,13 +106,15 @@ public class TestAIPath : MonoBehaviour
         if(ArrayIndex % 2 == 1)
         {
             direction = Quaternion.AngleAxis(-vectorAngle, Vector3.up) * direction;
+            direction *= (vectorlength * 2);
         }
         else
         {
             direction = Quaternion.AngleAxis(vectorAngle, Vector3.up) * direction;
+            direction *= (vectorlength);
         }
 
-        direction *= vectorlength;
+        
 
         Vector3 finalvector3 = previouspoint + direction;
 
@@ -118,11 +134,11 @@ public class TestAIPath : MonoBehaviour
 
     public IEnumerator MoveCoroutine()
     {
-        agent.SetDestination(PathPoints[0]);
-        yield return new WaitForSeconds(2f);
+        agent.SetDestination(PathPoints[0]);       
+        yield return new WaitForSeconds(10f);
 
         agent.SetDestination(PathPoints[1]);
-        yield return new WaitForSeconds(2f);
+        yield return new WaitForSeconds(5f);
 
         agent.SetDestination(PathPoints[2]);
         yield return new WaitForSeconds(2f);
