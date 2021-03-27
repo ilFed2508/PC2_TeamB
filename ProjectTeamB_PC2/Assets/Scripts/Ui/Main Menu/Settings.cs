@@ -36,9 +36,11 @@ public class Settings : MonoBehaviour
         AugmentedMouseS = MouseSMin - 0;
         RangeMouseS = MouseSMax - MouseSMin;
         MouseS.value = (PlayerPrefs.GetFloat("MouseS") - AugmentedMouseS) / RangeMouseS;
+        PersistantObject.MouseS = MouseSens;
         AugmentedControllerS = ControllerSMin - 0;
         RangeControllerS = ControllerSMax - ControllerSMin;
         ControllerS.value = (PlayerPrefs.GetFloat("ControllerS") - AugmentedControllerS) / RangeControllerS;
+        PersistantObject.ControllerS = ControllerSens;
 
         Resolutions = Screen.resolutions;
         ResolutionDropdown.ClearOptions();
@@ -49,7 +51,7 @@ public class Settings : MonoBehaviour
             string option = Resolutions[i].width + "x" + Resolutions[i].height;
             options.Add(option);
 
-            if (Resolutions[i].width == Screen.width && Resolutions[i].height == Screen.height)
+            if (Resolutions[i].width == Screen.currentResolution.width && Resolutions[i].height == Screen.currentResolution.height)
             {
                 CurrentResolutionIndex = i;
             }
@@ -83,11 +85,13 @@ public class Settings : MonoBehaviour
     {
         MouseSens = (MouseS.value * RangeMouseS) + AugmentedMouseS;
         PlayerPrefs.SetFloat("MouseS", MouseSens);
+        PersistantObject.MouseS = MouseSens;
     }
     public void SetControllerS()
     {
         ControllerSens = (ControllerS.value * RangeControllerS) + AugmentedControllerS;
         PlayerPrefs.SetFloat("ControllerS", ControllerSens);
+        PersistantObject.ControllerS = ControllerSens;
     }
 
     public void SetResolution(int ResolutionIndex)
