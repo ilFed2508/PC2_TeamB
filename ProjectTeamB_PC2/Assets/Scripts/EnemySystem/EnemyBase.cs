@@ -18,7 +18,7 @@ public class EnemyBase : MonoBehaviour
         MyWeapon = GetComponent<RangedWeapon>();
 
         //shoot
-        StartCoroutine(MyWeapon.ShootingType.AIShootCoroutine(MyWeapon));
+        StartCoroutine(MyWeapon.ShootingType.AIShootCoroutine(MyWeapon, this));
     }
 
     // Update is called once per frame
@@ -40,7 +40,7 @@ public class EnemyBase : MonoBehaviour
     /// </summary>
     public void Shoot()
     {
-        StartCoroutine(MyWeapon.ShootingType.AIShootCoroutine(MyWeapon));
+        StartCoroutine(MyWeapon.ShootingType.AIShootCoroutine(MyWeapon, this));
     }
 
     /// <summary>
@@ -70,5 +70,27 @@ public class EnemyBase : MonoBehaviour
     public void DamageEnemy()
     {
         HP -= Player.playerShooting.CurrentRagedWeapon.weaponData.Damage;
+    }
+
+    /// <summary>
+    /// return true if the player is on sight and enable shooting
+    /// </summary>
+    /// <returns></returns>
+    public bool EnableShooting()
+    {
+        float youAndPlayerDistance = Vector3.Distance(this.gameObject.transform.position, transform.forward);
+
+        if (Physics.Raycast(this.gameObject.transform.position, transform.forward, out RaycastHit hit, 500f))
+        {
+            //Debug.DrawRay(enemyType1.transform.position, enemyType1.transform.forward * hit.distance, Color.blue);
+
+            if (hit.collider.CompareTag("Player"))
+            {
+                return true;
+            }
+        }
+
+        return false;
+
     }
 }

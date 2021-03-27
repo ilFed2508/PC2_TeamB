@@ -35,7 +35,7 @@ public class SightState : State
 
         enemyType1.WatchPlayer();
 
-        if(EnableShooting() == true)
+        if(enemyType1.EnableShooting() == true)
         {
             stateMachine.ChangeState(enemyType1.shootingState);
         }
@@ -44,32 +44,5 @@ public class SightState : State
     public override void PhysicsUpdate()
     {
         base.PhysicsUpdate();
-    }
-
-    /// <summary>
-    /// return true if the player is on sight and enable shooting
-    /// </summary>
-    /// <returns></returns>
-    public bool EnableShooting()
-    {
-        float youAndPlayerDistance = Vector3.Distance(enemyType1.gameObject.transform.position, enemyType1.Player.gameObject.transform.position);
-
-        if(Physics.Raycast(enemyType1.gameObject.transform.position, enemyType1.transform.forward, out RaycastHit hit, 200f))
-        {
-            Debug.DrawRay(enemyType1.transform.position, enemyType1.transform.forward * hit.distance, Color.blue);
-
-            if (hit.collider.CompareTag("Player"))
-            {
-                return true;
-            }
-        }
-        else
-        {
-            Debug.DrawRay(enemyType1.transform.position, enemyType1.transform.forward * 1000, Color.red);
-
-        }
-
-        return false;
-
-    }
+    }    
 }

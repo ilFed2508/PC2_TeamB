@@ -94,6 +94,20 @@ public class BurstShootingType : Shooting
         
     }
 
+    public override IEnumerator AIShootCoroutine(RangedWeapon currentWeapon, EnemyBase enemy)
+    {
+        while (true)
+        {                      
+            yield return new WaitForSeconds(CooldownBetweenBursts);
+
+            if (enemy.EnableShooting() == true)
+            {
+                StartCoroutine(AIShotBurst(ShotCooldown, currentWeapon));
+            }
+        }
+
+    }
+
     public override float CalculateFireRateo()
     {
         float OneBurstTime = ((SingleBurstShotNumber - 1) * ShotCooldown) + CooldownBetweenBursts;

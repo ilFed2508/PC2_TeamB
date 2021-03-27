@@ -61,6 +61,19 @@ public class SingleShotShooting : Shooting
         }
     }
 
+    public override IEnumerator AIShootCoroutine(RangedWeapon currentWeapon, EnemyBase enemy)
+    {
+        while (true)
+        {            
+            yield return new WaitForSeconds(ShotCooldown);
+            
+            if (enemy.EnableShooting() == true)
+            {
+                AIShoot(currentWeapon);
+            }
+        }
+    }
+
     public override float CalculateFireRateo()
     {
         float firerateo = 60 / ShotCooldown;

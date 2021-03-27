@@ -42,6 +42,11 @@ public class Shooting : MonoBehaviour
         yield return new WaitForSeconds(0f);
     }
 
+    public virtual IEnumerator AIShootCoroutine(RangedWeapon currentWeapon, EnemyBase enemy)
+    {
+        yield return new WaitForSeconds(0f);
+    }
+
     /// <summary>
     /// Methods that calculate the fire rateo of the current shooting type
     /// </summary>
