@@ -2,20 +2,22 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class PrinceOfPersia : MonoBehaviour
+public class InstantiateMuzzle : MonoBehaviour
 {
-    public float timer;
-
+    public ParticleSystem particlePrefab;
 
     // Start is called before the first frame update
     void Start()
     {
- 
+        
     }
 
     // Update is called once per frame
     void Update()
     {
-        timer -= Time.deltaTime;
+        if (Input.GetKeyDown(KeyCode.Mouse0))
+        {
+            particlePrefab.Play();
+        }
     }
 }
