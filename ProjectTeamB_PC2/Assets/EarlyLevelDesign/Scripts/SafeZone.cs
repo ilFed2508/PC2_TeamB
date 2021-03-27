@@ -22,9 +22,10 @@ public class SafeZone : MonoBehaviour
 
     private void OnTriggerStay(Collider other)
     {
-        if (other.CompareTag("Player"))
+        if (other.CompareTag("Player") && playerLife.PlayerCurrentHP < playerLife.PlayerStartingHP)
         {
-            playerLife.PlayerCurrentHP = playerLife.PlayerStartingHP;
+            //playerLife.PlayerCurrentHP = playerLife.PlayerStartingHP;
+            playerLife.PlayerCurrentHP += 5 * Time.deltaTime;
         }
     }
 
