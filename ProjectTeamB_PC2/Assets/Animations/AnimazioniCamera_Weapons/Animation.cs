@@ -62,9 +62,10 @@ public class Animation : MonoBehaviour
         {
             anim.SetBool(sinistra, false);
         }
-        if (Input.GetKey(KeyCode.Space))
+        if (Input.GetKeyDown(KeyCode.Space))
         {
-            anim.SetBool(Jump, true);
+            anim.Play("Camera-Jump");
+            
         }
         else
         {
