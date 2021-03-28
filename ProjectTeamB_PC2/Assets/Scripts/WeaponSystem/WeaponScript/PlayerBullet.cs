@@ -20,8 +20,7 @@ public class PlayerBullet : MonoBehaviour
         {
             Vector3 spawnPos = new Vector3(gameObject.transform.position.x, gameObject.transform.position.y, gameObject.transform.position.z);
             Instantiate(Particle, spawnPos, gameObject.transform.rotation);
-
-            EnemyBaseBehaviour Enemy = other.gameObject.GetComponentInChildren<EnemyBaseBehaviour>();
+            EnemyBase Enemy = other.gameObject.GetComponentInChildren<EnemyBase>();
 
             Enemy.DamageEnemy();
 
@@ -40,5 +39,10 @@ public class PlayerBullet : MonoBehaviour
             Destroy(this.gameObject);
         }
 
+    }
+
+    private void OnTriggerStay(Collider other)
+    {
+        
     }
 }
