@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using TMPro;
 
 public class PlayerShooting : MonoBehaviour
 {
@@ -12,6 +13,7 @@ public class PlayerShooting : MonoBehaviour
     //temporary UI Variable
     public Text AmmoText;
     public GameObject AmmoSwitchText;
+    public TextMeshProUGUI DiegeticAmmo;
 
     //variabile da modificare
     public WeaponDatabase weaponDatabase;
@@ -39,6 +41,7 @@ public class PlayerShooting : MonoBehaviour
         CurrentRagedWeapon.UpdateFireRateoValue();
         CurrentRagedWeapon.UpdateTotalDamageValue();
         UpdateAmmoUI();
+        UpdateDiegeticUI();
 
         //Execute shooting
         if (Input.GetMouseButtonDown(0) && CurrentRagedWeapon.ShootingType.IsAutomatic == false)
@@ -66,5 +69,10 @@ public class PlayerShooting : MonoBehaviour
         {
             AmmoSwitchText.SetActive(false);
         }
+    }
+
+    public void UpdateDiegeticUI()
+    {
+        DiegeticAmmo.SetText(CurrentRagedWeapon.CurrentAmmo.ToString("F0"));
     }
 }
