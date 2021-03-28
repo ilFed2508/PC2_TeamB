@@ -9,6 +9,8 @@ public class WeaponDrop : MonoBehaviour
     public LayerMask WeaponDropLayer;
     private int WeapondropCounter;
 
+    public GameObject dropWeapon;
+
     public void Start()
     {
         weaponDatabase = FindObjectOfType<WeaponDatabase>();
@@ -19,7 +21,7 @@ public class WeaponDrop : MonoBehaviour
     {
         if(WeapondropCounter == 0)
         {
-            Instantiate(RandomWeaponDrop(), CalculateWeaponPosition(), Quaternion.identity);
+            Instantiate(dropWeapon, CalculateWeaponPosition(), Quaternion.identity);
             WeapondropCounter++;
         }
         

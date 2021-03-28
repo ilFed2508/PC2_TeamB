@@ -4,17 +4,23 @@ using UnityEngine;
 
 public class PlayerBullet : MonoBehaviour
 {
+    public GameObject Particle;
+
     // Update is called once per frame
     void Start()
     {
         Destroy(this.gameObject, 3f);
     }
 
+  
+
     private void OnTriggerEnter(Collider other)
     {
         if (other.CompareTag("Enemy"))
         {
-            EnemyBaseBehaviour Enemy = other.gameObject.GetComponentInChildren<EnemyBaseBehaviour>();
+            Vector3 spawnPos = new Vector3(gameObject.transform.position.x, gameObject.transform.position.y, gameObject.transform.position.z);
+            Instantiate(Particle, spawnPos, gameObject.transform.rotation);
+            EnemyBase Enemy = other.gameObject.GetComponentInChildren<EnemyBase>();
 
             Enemy.DamageEnemy();
 
@@ -33,5 +39,10 @@ public class PlayerBullet : MonoBehaviour
             Destroy(this.gameObject);
         }
 
+    }
+
+    private void OnTriggerStay(Collider other)
+    {
+        
     }
 }

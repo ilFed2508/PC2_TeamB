@@ -4,26 +4,28 @@ using UnityEngine;
 
 public class EnemiesTrigger : MonoBehaviour
 {
-    public GameObject borderIn, borderOut, enemies;
-
-    private GameObject player;
+    public GameObject end;
 
     // Start is called before the first frame update
     void Start()
     {
-        player = GameObject.Find("Player");
+        end.SetActive(false);
     }
 
     // Update is called once per frame
     void Update()
     {
-        if (player.transform.position.z > borderIn.transform.position.z && player.transform.position.z < borderOut.transform.position.z)
+
+    }
+
+    private void OnTriggerEnter(Collider other)
+    {
+        if (other.CompareTag("Player"))
         {
-            enemies.SetActive(true);
-        }
-        else if (player.transform.position.z < borderIn.transform.position.z || player.transform.position.z > borderOut.transform.position.z)
-        {
-            enemies.SetActive(false);
+            end.SetActive(true);
+            Time.timeScale = 0;
+            Cursor.lockState = CursorLockMode.None;
+            Cursor.visible = true;
         }
     }
 }

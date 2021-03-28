@@ -5,37 +5,46 @@ using UnityEngine;
 public class MeleePercentuale : MonoBehaviour
 {
     
-    private PlayerLifeWIP playerLifeScript;
+    private PlayerLifeSystem playerLifeScript;
     public float percentuale;
     private float percentualeDaSottrarre;
-    private Animator anim;
-    public string animazione = "Melee";
     private PlayerController playerController;
+
+    private CharacterController Player;
+    public float mass = 50; 
+    Vector3 impact = Vector3.zero;
+
 
 
     public void Start()
     {
-        anim = GetComponent<Animator>();
+        Player = GameObject.Find("Player").GetComponent<CharacterController>();
         playerController = FindObjectOfType<PlayerController>();
-        playerLifeScript = GameObject.Find("Player").GetComponent<PlayerLifeWIP>();
+        playerLifeScript = GameObject.Find("Player").GetComponent<PlayerLifeSystem>();
     }
     public void Update()
     {
         
-        percentualeDaSottrarre = playerLifeScript.lifeTimer * percentuale / 100f;
+        percentualeDaSottrarre = playerLifeScript.PlayerCurrentHP * percentuale / 100f;
+        impact = Vector3.Lerp(impact, transform.forward, 5 * Time.deltaTime);
 
         if (Input.GetKeyDown(KeyCode.R))
         {
+            Player.Move(impact * mass * Time.deltaTime);
             playerController.Melee.gameObject.SetActive(true);
-            anim.SetBool(animazione, true);
-            playerLifeScript.lifeTimer = playerLifeScript.lifeTimer -  percentualeDaSottrarre;
+            StartCoroutine(LateCall());
+            playerLifeScript.PlayerCurrentHP = playerLifeScript.PlayerCurrentHP -  percentualeDaSottrarre;           
         }
-        else
-        {
-            playerController.Melee.gameObject.SetActive(false);
-            anim.SetBool(animazione, false);
-        }
+        
     }
+
+    private IEnumerator LateCall()
+    {
+        yield return new WaitForSeconds(1f);
+        playerController.Melee.gameObject.SetActive(false);
+    }
+
+    
 
 
 }

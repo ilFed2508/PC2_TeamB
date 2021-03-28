@@ -44,13 +44,24 @@ public class PauseMenu : MonoBehaviour
     public void BackToMenu()
     {
         Time.timeScale = 1;
-        SceneManager.LoadScene("Test Menu");
+        SceneManager.LoadScene("3dMainMenu");
     }
 
     public void Reload()
     {
         Time.timeScale = 1;
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
+    }
+
+    //aggiunta bottone quit game - Joe
+    public void Exit()
+    {
+        Application.Quit();
+    }
+
+    public void LoadScene(string scene)
+    {
+        SceneManager.LoadScene(scene);
     }
 
 }
