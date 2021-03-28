@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class EnemyBase : MonoBehaviour
 {
@@ -10,12 +11,22 @@ public class EnemyBase : MonoBehaviour
     public float HP;
     public RangedWeapon MyWeapon;
 
+    //image feed enemies in shooting - Joe
+    public Image Attention;
+    public Image RedEye;
+
+    //enemy life bar - Joe
+    public Slider EnemyLifeBar;
+    public float CurrentHP;
+
     // Start is called before the first frame update
     void Start()
     {
         //picking reference
         Player = FindObjectOfType<PlayerController>();
         MyWeapon = GetComponent<RangedWeapon>();
+
+        StartCoroutine(ImageFeed());
 
         //shoot
         StartCoroutine(MyWeapon.ShootingType.AIShootCoroutine(MyWeapon, this));
@@ -25,6 +36,9 @@ public class EnemyBase : MonoBehaviour
     void Update()
     {
         WatchPlayer();
+
+        //enemy life bar - Joe
+        EnemyLifeBar.value = HP;
     }
         
     /// <summary>
@@ -92,5 +106,48 @@ public class EnemyBase : MonoBehaviour
 
         return false;
 
+    }
+
+    //Melee Luca
+    public void DamageMelee()
+    {
+        HP -= HP;
+    }
+
+    //image feed enemies in shooting - Joe
+    public IEnumerator ImageFeed()
+    {
+        RedEye.enabled = false;
+        Attention.enabled = true;
+        yield return new WaitForSeconds(2f);
+        RedEye.enabled = true;
+        Attention.enabled = false;
+        yield return new WaitForSeconds(2f);
+        RedEye.enabled = false;
+        Attention.enabled = true;
+        yield return new WaitForSeconds(1f);
+        RedEye.enabled = true;
+        Attention.enabled = false;
+        yield return new WaitForSeconds(2f);
+        RedEye.enabled = false;
+        Attention.enabled = true;
+        yield return new WaitForSeconds(1f);
+        RedEye.enabled = true;
+        Attention.enabled = false;
+        yield return new WaitForSeconds(2f);
+        RedEye.enabled = false;
+        Attention.enabled = true;
+        yield return new WaitForSeconds(1f);
+        RedEye.enabled = true;
+        Attention.enabled = false;
+        yield return new WaitForSeconds(2f);
+        RedEye.enabled = false;
+        Attention.enabled = true;
+        yield return new WaitForSeconds(1f);
+        RedEye.enabled = true;
+        Attention.enabled = false;
+        yield return new WaitForSeconds(2f);
+        RedEye.enabled = false;
+        Attention.enabled = true;
     }
 }

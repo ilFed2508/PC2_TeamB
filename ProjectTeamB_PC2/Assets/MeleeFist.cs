@@ -12,7 +12,7 @@ public class MeleeFist : MonoBehaviour
             Vector3 spawnPos = new Vector3(gameObject.transform.position.x, gameObject.transform.position.y, gameObject.transform.position.z);
             Instantiate(Particle, spawnPos, other.transform.rotation);
 
-            EnemyBaseBehaviour Enemy = other.gameObject.GetComponentInChildren<EnemyBaseBehaviour>();
+            EnemyBase Enemy = other.gameObject.GetComponentInChildren<EnemyBase>();
 
             Enemy.DamageMelee();
 

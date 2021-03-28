@@ -442,9 +442,9 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 7670501483243815286}
-  - component: {fileID: 7670501483243815287}
   - component: {fileID: 7670501483243815285}
   - component: {fileID: 941033188433845919}
+  - component: {fileID: 7016668257561179689}
   m_Layer: 0
   m_Name: EnemyGraphics
   m_TagString: Untagged
@@ -470,26 +470,6 @@ Transform:
   m_Father: {fileID: 7670501482235971511}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &7670501483243815287
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7670501483243815281}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 04bdf2612ca1ac44d886fbde597e5128, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  Player: {fileID: 0}
-  BonusLifeWhenKilled: 0
-  HP: 15
-  MyWeapon: {fileID: 7670501483243815285}
-  Attention: {fileID: 7842931120260953112}
-  RedEye: {fileID: 1246701647721825099}
-  EnemyLifeBar: {fileID: 75395591075145489}
-  CurrentHP: 0
 --- !u!114 &7670501483243815285
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -524,6 +504,26 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   ShotCooldown: 2
   IsAutomatic: 0
+--- !u!114 &7016668257561179689
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7670501483243815281}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 322a8e492a99451439761250c121f335, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Player: {fileID: 0}
+  BonusLifeWhenKilled: 0
+  HP: 15
+  MyWeapon: {fileID: 7670501483243815285}
+  Attention: {fileID: 7842931120260953112}
+  RedEye: {fileID: 1246701647721825099}
+  EnemyLifeBar: {fileID: 75395591075145489}
+  CurrentHP: 0
 --- !u!1 &8436153540390831571
 GameObject:
   m_ObjectHideFlags: 0

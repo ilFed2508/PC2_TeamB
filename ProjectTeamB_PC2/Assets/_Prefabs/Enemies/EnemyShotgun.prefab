@@ -352,6 +352,36 @@ MonoBehaviour:
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
   m_PixelsPerUnitMultiplier: 1
+--- !u!1 &6066781070986599700
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 4921285072555938071}
+  m_Layer: 0
+  m_Name: DirectionPoint
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &4921285072555938071
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6066781070986599700}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -0.09, y: 0, z: -3.13}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 7923269200869693496}
+  m_RootOrder: 4
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &7923269200803733240
 GameObject:
   m_ObjectHideFlags: 0
@@ -364,6 +394,7 @@ GameObject:
   - component: {fileID: 7923269200803733242}
   - component: {fileID: 7923269200803733243}
   - component: {fileID: 7923269200803733220}
+  - component: {fileID: 5678631714852102604}
   m_Layer: 0
   m_Name: EnemyShotgun
   m_TagString: Enemy
@@ -433,6 +464,28 @@ MonoBehaviour:
     m_Bits: 256
   dropWeapon: {fileID: 6146607039865875478, guid: 61f0fb9cb9eef6c429f321e8e9670878,
     type: 3}
+--- !u!195 &5678631714852102604
+NavMeshAgent:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7923269200803733240}
+  m_Enabled: 1
+  m_AgentTypeID: 0
+  m_Radius: 1.38
+  m_Speed: 3.5
+  m_Acceleration: 8
+  avoidancePriority: 50
+  m_AngularSpeed: 120
+  m_StoppingDistance: 0
+  m_AutoTraverseOffMeshLink: 1
+  m_AutoBraking: 1
+  m_AutoRepath: 1
+  m_Height: 3.89
+  m_BaseOffset: 2.48
+  m_WalkableMask: 4294967295
+  m_ObstacleAvoidanceType: 4
 --- !u!1 &7923269200869693503
 GameObject:
   m_ObjectHideFlags: 0
@@ -442,9 +495,10 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 7923269200869693496}
-  - component: {fileID: 7923269200869693497}
   - component: {fileID: 7923269200869693499}
   - component: {fileID: 759203555168520145}
+  - component: {fileID: 6181238359582830399}
+  - component: {fileID: 8365074346099621235}
   m_Layer: 0
   m_Name: EnemyGraphics
   m_TagString: Untagged
@@ -467,29 +521,10 @@ Transform:
   - {fileID: 8634755015540047034}
   - {fileID: 3232975845595727677}
   - {fileID: 920135093632629035}
+  - {fileID: 4921285072555938071}
   m_Father: {fileID: 7923269200803733241}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &7923269200869693497
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7923269200869693503}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 04bdf2612ca1ac44d886fbde597e5128, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  Player: {fileID: 0}
-  BonusLifeWhenKilled: 0
-  HP: 15
-  MyWeapon: {fileID: 7923269200869693499}
-  Attention: {fileID: 4650591690395278049}
-  RedEye: {fileID: 2593482135561884417}
-  EnemyLifeBar: {fileID: 472271912598339167}
-  CurrentHP: 0
 --- !u!114 &7923269200869693499
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -524,6 +559,58 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   ShotCooldown: 5
   IsAutomatic: 0
+--- !u!114 &6181238359582830399
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7923269200869693503}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 322a8e492a99451439761250c121f335, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Player: {fileID: 0}
+  BonusLifeWhenKilled: 0
+  HP: 15
+  MyWeapon: {fileID: 7923269200869693499}
+  Attention: {fileID: 4650591690395278049}
+  RedEye: {fileID: 2593482135561884417}
+  EnemyLifeBar: {fileID: 472271912598339167}
+  CurrentHP: 0
+--- !u!114 &8365074346099621235
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7923269200869693503}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a5501a74a500a374b9b1e6133200ca26, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Player: {fileID: 0}
+  BonusLifeWhenKilled: 0
+  HP: 15
+  MyWeapon: {fileID: 7923269200869693499}
+  Attention: {fileID: 4650591690395278049}
+  RedEye: {fileID: 2593482135561884417}
+  EnemyLifeBar: {fileID: 472271912598339167}
+  CurrentHP: 0
+  PathLength: 0
+  PathAngle: 0
+  DrawPath: 0
+  PathPoints:
+  - {x: 0, y: 0, z: 0}
+  - {x: 0, y: 0, z: 0}
+  - {x: 0, y: 0, z: 0}
+  agent: {fileID: 0}
+  StartingDirectionPoint: {fileID: 0}
+  CurrentPathPosition: 0
+  counterUP: 0
+  ShootingDuration: 0
 --- !u!1 &8181551869136546870
 GameObject:
   m_ObjectHideFlags: 0
