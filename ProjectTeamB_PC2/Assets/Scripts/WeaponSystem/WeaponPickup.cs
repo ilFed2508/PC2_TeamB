@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using TMPro;
 
 public class WeaponPickup : MonoBehaviour
 {
@@ -84,6 +85,8 @@ public class WeaponPickup : MonoBehaviour
         playerController.playerShooting.CurrentRagedWeapon = CurrentNewWeapon.GetComponent<RangedWeapon>();
         //setup new current ammo
         playerController.playerShooting.CurrentRagedWeapon.SetupCurrentAmmo();
+        //update digetic ammo UI
+        playerController.playerShooting.DiegeticAmmo = playerController.playerShooting.CurrentRagedWeapon.GetComponentInChildren<TextMeshProUGUI>();
         //deactive pickupUI
         playerController.UIPickup.gameObject.SetActive(false);
 
