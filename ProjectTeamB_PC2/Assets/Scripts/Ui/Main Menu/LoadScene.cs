@@ -5,8 +5,8 @@ using UnityEngine.SceneManagement;
 
 public class LoadScene : MonoBehaviour
 {
-    public void loadScene()
+    public void loadScene(string scene)
     {
-        SceneManager.LoadScene("PrototypeThomas");
+        SceneManager.LoadScene(scene);
     }
 }
