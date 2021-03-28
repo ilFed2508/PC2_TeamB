@@ -44,7 +44,7 @@ public class PauseMenu : MonoBehaviour
     public void BackToMenu()
     {
         Time.timeScale = 1;
-        SceneManager.LoadScene("Test Menu");
+        SceneManager.LoadScene("3dMainMenu");
     }
 
     public void Reload()
