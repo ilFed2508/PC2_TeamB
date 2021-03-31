@@ -216,7 +216,6 @@ GameObject:
   - component: {fileID: 1062666445168922011}
   - component: {fileID: 8114603960560752605}
   - component: {fileID: 7942035697525685107}
-  - component: {fileID: 7055716745831493585}
   - component: {fileID: 9144630403282223414}
   - component: {fileID: 8496818911440417131}
   m_Layer: 9
@@ -304,20 +303,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   ShotCooldown: 0.01
   IsAutomatic: 1
---- !u!114 &7055716745831493585
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1743554235552740792}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ae16db5701d0aaa47aa69e32bb137fd7, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  percentuale: 5
-  mass: 50
 --- !u!114 &9144630403282223414
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -333,6 +318,11 @@ MonoBehaviour:
   speed: 15
   canne: {fileID: 9103119202430056880}
   MiniGunAnim: {fileID: 8496818911440417131}
+  sparo: 
+  vadoAvanti: Move
+  destra: 
+  sinistra: 
+  Jump: 
 --- !u!95 &8496818911440417131
 Animator:
   serializedVersion: 3

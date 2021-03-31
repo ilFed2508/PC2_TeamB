@@ -8,7 +8,7 @@ public class PlayerShooting : MonoBehaviour
 {
     public RangedWeapon CurrentRagedWeapon;
     //Da eliminare più avanti
-    public Animator anim;
+    private Animator anim;
     //-------------------------
     //temporary UI Variable
     public Text AmmoText;
@@ -46,10 +46,11 @@ public class PlayerShooting : MonoBehaviour
         //Execute shooting
         if (Input.GetMouseButtonDown(0) && CurrentRagedWeapon.ShootingType.IsAutomatic == false)
         {
-            //Da eliminare più avanti
-            anim.Play("ShootAR");
-            CurrentRagedWeapon.ShootingType.ShootingAction(CurrentRagedWeapon);
             
+            CurrentRagedWeapon.ShootingType.ShootingAction(CurrentRagedWeapon);
+            //Da eliminare più avanti
+            anim.Play("ShootAR(Def)");
+
         }
         if (Input.GetMouseButton(0) && CurrentRagedWeapon.ShootingType.IsAutomatic == true)
         {
