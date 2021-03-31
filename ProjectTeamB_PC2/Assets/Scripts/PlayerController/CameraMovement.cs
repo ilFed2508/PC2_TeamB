@@ -24,7 +24,7 @@ public class CameraMovement : MonoBehaviour
     private void Awake()
     {
         Cursor.lockState = CursorLockMode.Locked;
-        ViewSensitivity = PersistantObject.MouseS;
+        //ViewSensitivity = PersistantObject.MouseS;
     }
     // Start is called before the first frame update
     //void Start()
