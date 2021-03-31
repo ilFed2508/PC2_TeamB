@@ -14,10 +14,13 @@ public class MeleePercentuale : MonoBehaviour
     public float mass = 50; 
     Vector3 impact = Vector3.zero;
 
+    private Animator WeaponSlot;
+
 
 
     public void Start()
     {
+        WeaponSlot = GameObject.Find("WeaponSlot").GetComponent<Animator>();
         Player = GameObject.Find("Player").GetComponent<CharacterController>();
         playerController = FindObjectOfType<PlayerController>();
         playerLifeScript = GameObject.Find("Player").GetComponent<PlayerLifeSystem>();
@@ -31,6 +34,7 @@ public class MeleePercentuale : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.R))
         {
             Player.Move(impact * mass * Time.deltaTime);
+            WeaponSlot.Play("Melee-WeaponSlot");
             playerController.Melee.gameObject.SetActive(true);
             StartCoroutine(LateCall());
             playerLifeScript.PlayerCurrentHP = playerLifeScript.PlayerCurrentHP -  percentualeDaSottrarre;           
