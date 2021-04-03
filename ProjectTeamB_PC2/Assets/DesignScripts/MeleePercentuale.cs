@@ -31,7 +31,7 @@ public class MeleePercentuale : MonoBehaviour
         percentualeDaSottrarre = playerLifeScript.PlayerCurrentHP * percentuale / 100f;
         impact = Vector3.Lerp(impact, transform.forward, 5 * Time.deltaTime);
 
-        if (Input.GetKeyDown(KeyCode.R))
+        if (Input.GetKeyDown(KeyCode.Q))
         {
             Player.Move(impact * mass * Time.deltaTime);
             WeaponSlot.Play("Melee-WeaponSlot");
