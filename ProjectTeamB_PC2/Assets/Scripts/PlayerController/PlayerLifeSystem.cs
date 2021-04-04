@@ -58,7 +58,7 @@ public class PlayerLifeSystem : MonoBehaviour
         }
 
         //Warning Image_Animation - Joe
-        if (PlayerCurrentHP <= 7)
+        if (PlayerCurrentHP <= 6)
         {
             Warning.enabled = true;
         }
