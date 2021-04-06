@@ -6,7 +6,7 @@ using UnityEngine.SceneManagement;
 
 public class MainMenu2 : MonoBehaviour
 {
-    public GameObject Opening, MainMenu, Play, Exit, Settings, Credits, Sound, Controls, Video;
+    public GameObject Opening, MainMenu, Play, Exit, Settings, Credits, Sound, Controls, Video, PauseMenu;
     Settings settings;
     public bool isOpening;
     // Start is called before the first frame update
@@ -33,8 +33,9 @@ public class MainMenu2 : MonoBehaviour
 
     public void GoToSettings()
     {
-        MainMenu.SetActive(false);
+        //MainMenu.SetActive(false);
         Settings.SetActive(true);
+        PauseMenu.SetActive(false);
         GoToSound();
     }
     public void GoToCredits()
@@ -60,6 +61,13 @@ public class MainMenu2 : MonoBehaviour
         Play.SetActive(false);
         MainMenu.SetActive(true);
     }
+
+    public void BacktoPause()
+    {
+        Settings.SetActive(false);
+        PauseMenu.SetActive(true);
+    }
+
     public void GoToSound()
     {
         Sound.SetActive(true);
