@@ -27,11 +27,11 @@ public class CameraMovement : MonoBehaviour
         //ViewSensitivity = PersistantObject.MouseS;
     }
     // Start is called before the first frame update
-    //void Start()
-    //{
-    //    //lock the cursor in the game
-    //    Cursor.lockState = CursorLockMode.Locked;
-    //}
+    void Start()
+    {
+        //lock the cursor in the game
+        Cursor.lockState = CursorLockMode.Locked;
+    }
 
     // Update is called once per frame
     void Update()
