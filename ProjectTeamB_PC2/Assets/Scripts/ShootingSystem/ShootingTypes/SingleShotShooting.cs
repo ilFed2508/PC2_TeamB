@@ -4,7 +4,8 @@ using UnityEngine;
 
 public class SingleShotShooting : Shooting
 {
-    
+
+    public CameraShake.Properties testProperties;
 
     private void Start()
     {
@@ -40,6 +41,8 @@ public class SingleShotShooting : Shooting
         GameObject BulletInstance = Instantiate(currentWeapon.WeaponBulletPrefab , currentWeapon.GunBarrel.position, Quaternion.identity);
 
         BulletInstance.transform.forward = ShootingDirection.normalized;
+
+        FindObjectOfType<CameraShake>().StartShake(testProperties);
 
         BulletInstance.GetComponent<Rigidbody>().AddForce(ShootingDirection.normalized * currentWeapon.weaponData.ShootingForce, ForceMode.Impulse);
         
