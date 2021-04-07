@@ -5,19 +5,20 @@ using UnityEngine;
 public class SafeZone : MonoBehaviour
 {
     public GameObject mapIn, mapOut;
+    public int playerPrefs;
 
-    private PlayerLifeSystem playerLife;
+    public PlayerLifeSystem playerLife;
 
     // Start is called before the first frame update
     void Start()
     {
-        playerLife = GameObject.Find("Player").GetComponent<PlayerLifeSystem>();
+
     }
 
     // Update is called once per frame
     void Update()
     {
-        
+
     }
 
     private void OnTriggerStay(Collider other)
@@ -35,6 +36,7 @@ public class SafeZone : MonoBehaviour
         {
             mapIn.SetActive(false);
             mapOut.SetActive(true);
+            PlayerPrefs.SetInt("Checkpoint", playerPrefs);
         }
     }
 }

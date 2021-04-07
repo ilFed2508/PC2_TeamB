@@ -5,6 +5,11 @@ using UnityEngine.UI;
 
 public class PlayerLifeSystem : MonoBehaviour
 {
+    //Davide
+    private SafeZone safe;
+    private SafeZone safe2;
+
+
     /// <summary>
     /// Player current Hp
     /// </summary>
@@ -33,6 +38,12 @@ public class PlayerLifeSystem : MonoBehaviour
     void Start()
     {
         PlayerCurrentHP = PlayerStartingHP;
+
+        //Davide
+        safe = GameObject.Find("SafeArea1").GetComponent<SafeZone>();
+        safe.playerLife = this;
+        safe2 = GameObject.Find("SafeArea2").GetComponent<SafeZone>();
+        safe2.playerLife = this;
     }
 
     /// <summary>
