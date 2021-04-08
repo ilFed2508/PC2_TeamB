@@ -25,7 +25,7 @@ public class AnimationShotGun : MonoBehaviour
         if (Input.GetMouseButton(0))
         {
             anim.SetBool(sparo, true);
-            Camera.Play("CameraShootgunShoot");
+            //Camera.Play("CameraShootgunShoot");
 
         }
         else

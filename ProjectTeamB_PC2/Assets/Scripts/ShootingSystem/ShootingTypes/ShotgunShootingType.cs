@@ -13,6 +13,19 @@ public class ShotgunShootingType : Shooting
     /// </summary>
     public float Bloom;
 
+
+    // Shake Luca
+    public CameraShake.Properties testProperties;
+    public Animator Pompa;
+
+
+
+    private void Start()
+    {
+        //Luca Animazione Pompa
+        Pompa.GetComponent<Animator>();
+    }
+
     public override void ShootingAction(RangedWeapon currentWeapon)
     {
         if (CanWeaponShoot == true && currentWeapon.CurrentAmmo > 0)
@@ -27,6 +40,7 @@ public class ShotgunShootingType : Shooting
     {
         for (int palletsShot = 0; palletsShot < PalletShotNumber; palletsShot++)
         {
+                     
             Vector2 randomBloom = new Vector2(GetRandomBloomValue(Bloom), GetRandomBloomValue(Bloom));
 
             Ray ray = Camera.main.ViewportPointToRay(new Vector3(randomBloom.x, randomBloom.y, 0));
@@ -46,7 +60,13 @@ public class ShotgunShootingType : Shooting
 
             BulletInstance.transform.forward = ShootingDirection.normalized;
 
+            //Luca Animazione Pompa
+            Pompa.Play("PompaShoot");
+
             BulletInstance.GetComponent<Rigidbody>().AddForce(ShootingDirection.normalized * currentWeapon.weaponData.ShootingForce, ForceMode.Impulse);
+
+            //Shake Luca
+            FindObjectOfType<CameraShake>().StartShake(testProperties);
         }        
     }
 
