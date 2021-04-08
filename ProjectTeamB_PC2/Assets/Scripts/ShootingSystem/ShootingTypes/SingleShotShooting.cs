@@ -40,12 +40,11 @@ public class SingleShotShooting : Shooting
 
         GameObject BulletInstance = Instantiate(currentWeapon.WeaponBulletPrefab , currentWeapon.GunBarrel.position, Quaternion.identity);
 
-        BulletInstance.transform.forward = ShootingDirection.normalized;
-
-        FindObjectOfType<CameraShake>().StartShake(testProperties);
+        BulletInstance.transform.forward = ShootingDirection.normalized;       
 
         BulletInstance.GetComponent<Rigidbody>().AddForce(ShootingDirection.normalized * currentWeapon.weaponData.ShootingForce, ForceMode.Impulse);
-        
+
+        FindObjectOfType<CameraShake>().StartShake(testProperties);
     }
 
     public override void AIShoot(RangedWeapon currentWeapon)

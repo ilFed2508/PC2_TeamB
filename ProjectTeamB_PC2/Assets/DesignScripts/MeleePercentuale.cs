@@ -17,6 +17,8 @@ public class MeleePercentuale : MonoBehaviour
 
     private Animator WeaponSlot;
 
+    public CameraShake.Properties testProperties;
+
 
 
     public void Start()
@@ -37,6 +39,7 @@ public class MeleePercentuale : MonoBehaviour
             //Player.Move(impact * mass * Time.deltaTime);
             WeaponSlot.Play("Melee-WeaponSlot");
             playerController.Melee.gameObject.SetActive(true);
+            FindObjectOfType<CameraShake>().StartShake(testProperties);
             StartCoroutine(LateCall());
             //playerLifeScript.PlayerCurrentHP = playerLifeScript.PlayerCurrentHP -  percentualeDaSottrarre;           
         }
