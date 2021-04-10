@@ -13,6 +13,9 @@ public class BurstShootingType : Shooting
     /// </summary>
     public float CooldownBetweenBursts;
 
+    //Shake Luca
+    public CameraShake.Properties testProperties;
+
     public override void ShootingAction(RangedWeapon currentWeapon)
     {
         if(CanWeaponShoot == true && currentWeapon.CurrentAmmo > 0)
@@ -42,6 +45,9 @@ public class BurstShootingType : Shooting
         BulletInstance.transform.forward = ShootingDirection.normalized;
 
         BulletInstance.GetComponent<Rigidbody>().AddForce(ShootingDirection.normalized * currentWeapon.weaponData.ShootingForce, ForceMode.Impulse);
+
+        //Shake Luca
+        FindObjectOfType<CameraShake>().StartShake(testProperties);
     }
 
     public override void AIShoot(RangedWeapon currentWeapon)
