@@ -11,9 +11,9 @@ GameObject:
   - component: {fileID: 3424243815347623671}
   - component: {fileID: 3424243815347623670}
   - component: {fileID: 3424243815347623665}
-  - component: {fileID: 3424243815347623664}
   - component: {fileID: 3424243815347623667}
   - component: {fileID: 3424243815347623668}
+  - component: {fileID: 4235341490736312464}
   m_Layer: 10
   m_Name: PlayerBulletPrefab
   m_TagString: Untagged
@@ -30,7 +30,7 @@ Transform:
   m_GameObject: {fileID: 3424243815347623666}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 0.3, y: 0.3, z: 0.3}
+  m_LocalScale: {x: 0.1, y: 0.1, z: 4}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
@@ -82,19 +82,6 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
---- !u!135 &3424243815347623664
-SphereCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3424243815347623666}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 1
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Radius: 0.5
-  m_Center: {x: 0, y: 0, z: 0}
 --- !u!54 &3424243815347623667
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -125,3 +112,16 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Particle: {fileID: 6772490525415757158, guid: 8cb2b362a84231c45b1f1c545f74e983,
     type: 3}
+--- !u!65 &4235341490736312464
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3424243815347623666}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 3.1099951, y: 2.8583777, z: 0.20874608}
+  m_Center: {x: -0.034918785, y: 0.061984062, z: 0.39562696}
