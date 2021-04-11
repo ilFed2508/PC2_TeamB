@@ -474,8 +474,8 @@ NavMeshAgent:
   m_Enabled: 1
   m_AgentTypeID: 0
   m_Radius: 1.38
-  m_Speed: 75
-  m_Acceleration: 8
+  m_Speed: 105
+  m_Acceleration: 9
   avoidancePriority: 50
   m_AngularSpeed: 120
   m_StoppingDistance: 0
@@ -559,6 +559,16 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   ShotCooldown: 1
   IsAutomatic: 0
+  testProperties:
+    angle: 0
+    strength: 0
+    speed: 0
+    duration: 0
+    noisePercent: 0
+    dampingPercent: 0
+    rotationPercent: 0
+  Flash: {fileID: 0}
+  Parent: {fileID: 0}
 --- !u!114 &6181238359582830399
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -572,7 +582,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Player: {fileID: 0}
-  BonusLifeWhenKilled: 0
+  BonusLifeWhenKilled: 4
   HP: 15
   MyWeapon: {fileID: 7923269200869693499}
   Attention: {fileID: 4650591690395278049}

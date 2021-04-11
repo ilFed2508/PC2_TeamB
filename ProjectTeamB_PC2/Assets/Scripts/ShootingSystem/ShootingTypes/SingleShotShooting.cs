@@ -40,17 +40,18 @@ public class SingleShotShooting : Shooting
             ShootingTargetPoint = ray.GetPoint(80);
         }
 
+        
+
         Vector3 ShootingDirection = ShootingTargetPoint - currentWeapon.GunBarrel.position;
 
-        
+        FindObjectOfType<CameraShake>().StartShake(testProperties);
+
         GameObject BulletInstance = Instantiate(currentWeapon.WeaponBulletPrefab , currentWeapon.GunBarrel.position, Quaternion.identity);
 
         BulletInstance.transform.forward = ShootingDirection.normalized;       
 
         BulletInstance.GetComponent<Rigidbody>().AddForce(ShootingDirection.normalized * currentWeapon.weaponData.ShootingForce, ForceMode.Impulse);
-
-        FindObjectOfType<CameraShake>().StartShake(testProperties);
-
+      
         //Luca
         Instantiate(Flash, Parent);
     }
