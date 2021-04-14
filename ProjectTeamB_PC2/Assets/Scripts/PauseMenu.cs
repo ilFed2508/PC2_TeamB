@@ -6,13 +6,13 @@ using UnityEngine.SceneManagement;
 public class PauseMenu : MonoBehaviour
 {
     public GameObject PauseMenuPanel;
-    public GameObject LifeBar, WeaponIcon, AmmoCounter, Combo;
+    public GameObject LifeBar, WeaponIcon, AmmoCounter, Combo, Warning;
 
     public bool IsStopped;
     // Start is called before the first frame update
     void Start()
     {
-        
+
     }
 
     // Update is called once per frame
@@ -32,6 +32,7 @@ public class PauseMenu : MonoBehaviour
                 WeaponIcon.SetActive(false);
                 AmmoCounter.SetActive(false);
                 Combo.SetActive(false);
+                Warning.SetActive(false);
             }
             else
             {

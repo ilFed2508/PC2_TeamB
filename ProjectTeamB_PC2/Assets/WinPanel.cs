@@ -5,16 +5,16 @@ using UnityEngine;
 public class WinPanel : MonoBehaviour
 {
     private EnemiesTrigger WinDoor;
-    public GameObject Winpanel;
+    public GameObject Winpanel, LifeBar, WeaponIcon, AmmoCounter, Combo, Warning;
     void Start()
     {
         WinDoor = GameObject.Find("EndDoor").GetComponent<EnemiesTrigger>();
         WinDoor.end = Winpanel;
-    }
 
-    // Update is called once per frame
-    void Update()
-    {
-        
+        LifeBar.SetActive(true);
+        WeaponIcon.SetActive(true);
+        AmmoCounter.SetActive(true);
+        Combo.SetActive(true);
+        Warning.SetActive(true);
     }
 }
