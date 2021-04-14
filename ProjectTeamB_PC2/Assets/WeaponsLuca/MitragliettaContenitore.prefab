@@ -224,6 +224,36 @@ MonoBehaviour:
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
   m_PixelsPerUnitMultiplier: 1
+--- !u!1 &6350013823700467811
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 6543449262065166978}
+  m_Layer: 9
+  m_Name: VFXparent
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &6543449262065166978
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6350013823700467811}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0.13, y: 19.99, z: 77.66}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 2105331511170063213}
+  m_RootOrder: 2
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &6516033407023847345
 GameObject:
   m_ObjectHideFlags: 0
@@ -424,7 +454,7 @@ MonoBehaviour:
   FireRateo: 0
   CurrentAmmo: 0
   GunBarrel: {fileID: 1897663186759056786}
-  WeaponBulletPrefab: {fileID: 3424243815347623666, guid: a732663bd14f13f459017f75ad8e7330,
+  WeaponBulletPrefab: {fileID: 1509866190927931873, guid: ceaf90e93841d604fae485649d79be1e,
     type: 3}
   ShootingType: {fileID: 399277110786589498}
 --- !u!114 &399277110786589498
@@ -451,6 +481,8 @@ MonoBehaviour:
     noisePercent: 0.1
     dampingPercent: 0
     rotationPercent: 0
+  Flash: {fileID: 5966885966409258062, guid: 95a1d087e3d902b4caa06c0ecafa1e95, type: 3}
+  Parent: {fileID: 6543449262065166978}
 --- !u!114 &1995519298548975425
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -590,7 +622,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 2105331511170063213}
-  m_RootOrder: 2
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &8141062491219471409
 GameObject:
@@ -627,7 +659,7 @@ RectTransform:
   - {fileID: 2879979722875647372}
   - {fileID: 8126633262238958035}
   m_Father: {fileID: 2105331511170063213}
-  m_RootOrder: 3
+  m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
