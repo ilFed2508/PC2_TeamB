@@ -18,6 +18,18 @@ public class BurstShootingType : Shooting
     public GameObject Flash;
     public Transform Parent;
 
+
+    //Da eliminare più avanti
+    private Animator anim;
+    //-------------------------
+
+    private void Start()
+    {
+        //Da eliminare più avanti
+        anim = GetComponent<Animator>();
+        //-----------------------
+    }
+
     public override void ShootingAction(RangedWeapon currentWeapon)
     {
         if(CanWeaponShoot == true && currentWeapon.CurrentAmmo > 0)
@@ -46,7 +58,7 @@ public class BurstShootingType : Shooting
 
         BulletInstance.transform.forward = ShootingDirection.normalized;
 
-        
+        anim.SetBool("Sparo",true);
 
         BulletInstance.GetComponent<Rigidbody>().AddForce(ShootingDirection.normalized * currentWeapon.weaponData.ShootingForce, ForceMode.Impulse);
 

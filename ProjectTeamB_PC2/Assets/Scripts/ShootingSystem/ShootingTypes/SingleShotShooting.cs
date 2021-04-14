@@ -11,9 +11,15 @@ public class SingleShotShooting : Shooting
 
     public Transform Parent;
 
+    //Da eliminare più avanti
+    private Animator anim;
+    //-------------------------
+
     private void Start()
     {
-        
+        //Da eliminare più avanti
+        anim = GetComponent<Animator>();
+        //-----------------------
     }
     public override void ShootingAction(RangedWeapon currentWeapon)
     {
@@ -22,7 +28,12 @@ public class SingleShotShooting : Shooting
             Shoot(currentWeapon);
             currentWeapon.CurrentAmmo -= 1;
             StartCoroutine(WaitShotCooldown(ShotCooldown));
-        }       
+        }
+        //else
+        //{
+        //    //luca da eliminare
+        //    anim.SetBool("Shoot", false);
+        //}
     }
 
     public override void Shoot(RangedWeapon currentWeapon)
@@ -50,10 +61,12 @@ public class SingleShotShooting : Shooting
 
         BulletInstance.transform.forward = ShootingDirection.normalized;       
 
-        BulletInstance.GetComponent<Rigidbody>().AddForce(ShootingDirection.normalized * currentWeapon.weaponData.ShootingForce, ForceMode.Impulse);
-      
-        //Luca
+        BulletInstance.GetComponent<Rigidbody>().AddForce(ShootingDirection.normalized * currentWeapon.weaponData.ShootingForce, ForceMode.Impulse);       
         Instantiate(Flash, Parent);
+        //Da eliminare più avanti
+        anim.Play("ShootAR(Def)");
+        anim.SetBool("Shoot", true);
+        //Luca
     }
 
     public override void AIShoot(RangedWeapon currentWeapon)
