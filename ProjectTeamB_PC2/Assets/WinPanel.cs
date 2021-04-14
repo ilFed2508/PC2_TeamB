@@ -5,7 +5,7 @@ using UnityEngine;
 public class WinPanel : MonoBehaviour
 {
     private EnemiesTrigger WinDoor;
-    public GameObject Winpanel, LifeBar, WeaponIcon, AmmoCounter, Combo, Warning;
+    public GameObject Winpanel, LifeBar, WeaponIcon, AmmoCounter, Combo;
     void Start()
     {
         WinDoor = GameObject.Find("EndDoor").GetComponent<EnemiesTrigger>();
@@ -15,6 +15,5 @@ public class WinPanel : MonoBehaviour
         WeaponIcon.SetActive(true);
         AmmoCounter.SetActive(true);
         Combo.SetActive(true);
-        Warning.SetActive(true);
     }
 }

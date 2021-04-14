@@ -10,6 +10,7 @@ public class EnemiesTrigger : MonoBehaviour
     void Start()
     {
         end.SetActive(false);
+
     }
 
     // Update is called once per frame
