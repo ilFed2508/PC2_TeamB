@@ -11,29 +11,34 @@ public class MainMenuDavide : MonoBehaviour
         cameraSuper.SetInteger("Page", 0);
     }
 
-    public void Opzioni()
+    public void LevelSelection()
     {
         cameraSuper.SetInteger("Page", 1);
     }
 
-    public void OpzioniControlli()
+    public void Opzioni()
     {
         cameraSuper.SetInteger("Page", 2);
     }
 
-    public void OpzioniVideo()
+    public void OpzioniControlli()
     {
         cameraSuper.SetInteger("Page", 3);
     }
 
-    public void Tastiera()
+    public void OpzioniVideo()
     {
         cameraSuper.SetInteger("Page", 4);
     }
 
-    public void Controller()
+    public void Tastiera()
     {
         cameraSuper.SetInteger("Page", 5);
+    }
+
+    public void Controller()
+    {
+        cameraSuper.SetInteger("Page", 6);
     }
 
     public void ExitGame()
