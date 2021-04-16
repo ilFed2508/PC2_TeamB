@@ -23,7 +23,7 @@ public class ComputerSafeZone : MonoBehaviour
             EpickUp.PickUp.SetActive(true);
 
         }
-        if (other.CompareTag("Player") && Input.GetKeyDown(KeyCode.E))
+        if (other.CompareTag("Player") && Input.GetKey(KeyCode.E))
         {          
             Cursor.lockState = CursorLockMode.None;
             Cursor.visible = true;

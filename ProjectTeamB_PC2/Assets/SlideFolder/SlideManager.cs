@@ -22,7 +22,7 @@ public class SlideManager : MonoBehaviour
     {
         controller = GetComponent<CharacterController>();
         weaponSlotCam = GameObject.Find("WeaponSlot").GetComponent<Animator>();
-        isSliding = true;
+        isSliding = false;
     }
 
     

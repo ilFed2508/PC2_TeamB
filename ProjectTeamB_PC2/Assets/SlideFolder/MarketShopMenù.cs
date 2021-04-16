@@ -5,15 +5,15 @@ using UnityEngine.UI;
 
 public class MarketShopMenù : MonoBehaviour
 {
-    public GameObject marketPanel;
-    public GameObject SlidePanel;
+    public GameObject marketPanel;   
     private SlideManager slideScript;
+    public GameObject SlideButton;
     
 
     
     void Start()
     {
-        slideScript = GameObject.FindGameObjectWithTag("Player").GetComponent<SlideManager>();
+        slideScript = FindObjectOfType<SlideManager>();
     }
 
     
@@ -21,21 +21,17 @@ public class MarketShopMenù : MonoBehaviour
     {
         
     }
-
-    public void ResumeGame()
-    {
-        Time.timeScale = 1;
-        marketPanel.SetActive(false);
-        SlidePanel.SetActive(false);
-        Cursor.lockState = CursorLockMode.Locked;
-        Cursor.visible = false;
-    }
-
+    
     public void AddSlide()
     {
-        
+        slideScript.isSliding = true;
+        SlideButton.SetActive(false);
+    }
+    public void Exit()
+    {
+        Time.timeScale = 1;        
         marketPanel.SetActive(false);
-        slideScript.enabled = true;
-        SlidePanel.SetActive(true);
+        Cursor.lockState = CursorLockMode.Locked;
+        Cursor.visible = false;
     }
 }
