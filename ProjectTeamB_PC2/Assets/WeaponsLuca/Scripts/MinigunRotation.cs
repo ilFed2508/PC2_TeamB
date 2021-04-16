@@ -32,8 +32,7 @@ public class MinigunRotation : MonoBehaviour
     {
         if (Input.GetMouseButton(0))
         {
-            toRotateT.Rotate(toRotateV);
-            MiniGunAnim.SetBool("Shoot", true);
+            toRotateT.Rotate(toRotateV);          
         }
         else
         {

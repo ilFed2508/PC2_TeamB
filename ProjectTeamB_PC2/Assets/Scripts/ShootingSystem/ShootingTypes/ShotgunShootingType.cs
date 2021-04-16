@@ -17,6 +17,8 @@ public class ShotgunShootingType : Shooting
     // Shake Luca
     public CameraShake.Properties testProperties;
     public Animator Pompa;
+    public GameObject Flash;
+    public Transform Parent;
 
 
 
@@ -67,6 +69,8 @@ public class ShotgunShootingType : Shooting
 
             //Shake Luca
             FindObjectOfType<CameraShake>().StartShake(testProperties);
+            //Luca
+            Instantiate(Flash, Parent);
         }        
     }
 
