@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
-public class LoadinToGame : MonoBehaviour
+public class LoadingToGame : MonoBehaviour
 {
     // Start is called before the first frame update
     void Start()
@@ -14,7 +14,7 @@ public class LoadinToGame : MonoBehaviour
     // Update is called once per frame
     IEnumerator LoadAsynOperation()
     {
-        yield return new WaitForSeconds(2);
+        yield return new WaitForSeconds(3);
         AsyncOperation gameLevel = SceneManager.LoadSceneAsync(2);
     }
 }
