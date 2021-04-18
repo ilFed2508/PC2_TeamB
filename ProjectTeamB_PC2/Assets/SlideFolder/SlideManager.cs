@@ -16,7 +16,7 @@ public class SlideManager : MonoBehaviour
 
     private Animator weaponSlotCam;
 
-    public GameObject MarketPanel;
+    public GameObject MarketPanel,SlideIcon;
 
     
    
@@ -32,6 +32,7 @@ public class SlideManager : MonoBehaviour
     {     
         if (isSliding && TimeSlide>0f && controller.isGrounded)
         {
+            SlideIcon.SetActive(true);
             if (Input.GetKey(KeyCode.LeftShift))
             {
                 Slide();
@@ -39,6 +40,7 @@ public class SlideManager : MonoBehaviour
         }
         if(TimeSlide <= 0f)
         {
+            SlideIcon.SetActive(false);
             TimeToSlide -= Time.deltaTime;
             if(TimeToSlide <= 0f)
             {
