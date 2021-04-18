@@ -17,6 +17,8 @@ public class SlideManager : MonoBehaviour
     private Animator weaponSlotCam;
 
     public GameObject MarketPanel;
+
+    
    
     void Start()
     {
