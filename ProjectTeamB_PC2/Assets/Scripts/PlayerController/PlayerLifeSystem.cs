@@ -8,6 +8,7 @@ public class PlayerLifeSystem : MonoBehaviour
     //Davide
     private SafeZone safe;
     private SafeZone safe2;
+    private SafeZone safe3;
 
 
     /// <summary>
@@ -47,6 +48,8 @@ public class PlayerLifeSystem : MonoBehaviour
        safe.playerLife = this;
        safe2 = GameObject.Find("SafeArea2").GetComponent<SafeZone>();
        safe2.playerLife = this;
+       safe3 = GameObject.Find("SafeArea3").GetComponent<SafeZone>();
+       safe3.playerLife = this;
     }
 
     /// <summary>
