@@ -8,9 +8,10 @@ public class MarketShopMenù : MonoBehaviour
     public GameObject marketPanel;   
     private SlideManager slideScript;
     public GameObject SlideButton;
-    
+    public GameObject HUD;
 
-    
+
+
     void Start()
     {
         slideScript = FindObjectOfType<SlideManager>();
@@ -29,6 +30,7 @@ public class MarketShopMenù : MonoBehaviour
     }
     public void Exit()
     {
+        HUD.SetActive(true);
         Time.timeScale = 1;        
         marketPanel.SetActive(false);
         Cursor.lockState = CursorLockMode.Locked;

@@ -6,7 +6,7 @@ using UnityEngine.SceneManagement;
 public class PauseMenu : MonoBehaviour
 {
     public GameObject PauseMenuPanel;
-    public GameObject LifeBar, WeaponIcon, AmmoCounter, Combo;
+    public GameObject HUD;
 
     public bool IsStopped;
     // Start is called before the first frame update
@@ -28,10 +28,8 @@ public class PauseMenu : MonoBehaviour
                 Cursor.lockState = CursorLockMode.None;
                 Cursor.visible = true;
 
-                LifeBar.SetActive(false);
-                WeaponIcon.SetActive(false);
-                AmmoCounter.SetActive(false);
-                Combo.SetActive(false);
+                HUD.SetActive(false);
+                
             }
             else
             {
@@ -48,10 +46,8 @@ public class PauseMenu : MonoBehaviour
         Cursor.lockState = CursorLockMode.Locked;
         Cursor.visible = false;
 
-        LifeBar.SetActive(true);
-        WeaponIcon.SetActive(true);
-        AmmoCounter.SetActive(true);
-        Combo.SetActive(true);
+        HUD.SetActive(true);
+        
     }
     public void BackToMenu()
     {

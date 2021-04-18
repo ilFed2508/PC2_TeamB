@@ -8,10 +8,10 @@ public class ComputerSafeZone : MonoBehaviour
     
     private PlayerController EpickUp;
     private SlideManager marketPanel;
-    // Start is called before the first frame update
+    public GameObject HUD;
     void Update()
     {
-       
+        HUD = GameObject.Find("HUD");
         EpickUp = FindObjectOfType<PlayerController>();
         marketPanel = FindObjectOfType<SlideManager>();
     }
@@ -24,7 +24,8 @@ public class ComputerSafeZone : MonoBehaviour
 
         }
         if (other.CompareTag("Player") && Input.GetKey(KeyCode.E))
-        {          
+        {
+            HUD.SetActive(false);
             Cursor.lockState = CursorLockMode.None;
             Cursor.visible = true;
             marketPanel.MarketPanel.SetActive(true);
