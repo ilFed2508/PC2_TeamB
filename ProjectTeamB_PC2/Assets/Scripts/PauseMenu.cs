@@ -6,7 +6,7 @@ using UnityEngine.SceneManagement;
 public class PauseMenu : MonoBehaviour
 {
     public GameObject PauseMenuPanel;
-    public GameObject HUD;
+    public GameObject HUD, CrossHair, EPickUp;
 
     public bool IsStopped;
     // Start is called before the first frame update
@@ -29,6 +29,8 @@ public class PauseMenu : MonoBehaviour
                 Cursor.visible = true;
 
                 HUD.SetActive(false);
+                CrossHair.SetActive(false);
+                EPickUp.SetActive(false);
                 
             }
             else
@@ -47,6 +49,7 @@ public class PauseMenu : MonoBehaviour
         Cursor.visible = false;
 
         HUD.SetActive(true);
+        CrossHair.SetActive(true);
         
     }
     public void BackToMenu()

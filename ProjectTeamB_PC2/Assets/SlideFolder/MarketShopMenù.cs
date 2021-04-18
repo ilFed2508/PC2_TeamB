@@ -8,7 +8,7 @@ public class MarketShopMenù : MonoBehaviour
     public GameObject marketPanel;   
     private SlideManager slideScript;
     public GameObject SlideButton;
-    public GameObject HUD;
+    public GameObject HUD, CrossHair;
 
 
 

@@ -5,16 +5,17 @@ using UnityEngine;
 public class OpenPanelSafe : MonoBehaviour
 {
 
-    public GameObject SafePanel;
+    public GameObject SafePanel, HUD, CrossHair;
     // Start is called before the first frame update
     private void OnTriggerEnter(Collider other)
     {
         if (other.CompareTag("Open"))
         {
             SafePanel.SetActive(true);
+            HUD.SetActive(false);
+            CrossHair.SetActive(false);
             StartCoroutine(MyCoroutine());
         }
-
     }
 
     // Update is called once per frame
@@ -22,5 +23,7 @@ public class OpenPanelSafe : MonoBehaviour
     {
         yield return new WaitForSeconds(2.0f);
         SafePanel.SetActive(false);
+        HUD.SetActive(true);
+        CrossHair.SetActive(true);
     }
 }
