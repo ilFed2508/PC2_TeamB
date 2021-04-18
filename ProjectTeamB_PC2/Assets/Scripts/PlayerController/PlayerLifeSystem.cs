@@ -40,7 +40,7 @@ public class PlayerLifeSystem : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        PlayerCurrentHP = PlayerStartingHP;
+        PlayerCurrentHP = PlayerCurrentHP;
 
         //Davide
        safe = GameObject.Find("SafeArea1").GetComponent<SafeZone>();
