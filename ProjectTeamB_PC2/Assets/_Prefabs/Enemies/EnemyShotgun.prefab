@@ -474,10 +474,10 @@ NavMeshAgent:
   m_Enabled: 1
   m_AgentTypeID: 0
   m_Radius: 1.38
-  m_Speed: 75
-  m_Acceleration: 8
+  m_Speed: 200
+  m_Acceleration: 50
   avoidancePriority: 50
-  m_AngularSpeed: 120
+  m_AngularSpeed: 200
   m_StoppingDistance: 0
   m_AutoTraverseOffMeshLink: 1
   m_AutoBraking: 1
@@ -537,7 +537,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9dd30bda2924e624abca15b479ec55bd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  weaponData: {fileID: 11400000, guid: d9f742d6e6883c748896e7294050dcc9, type: 2}
+  weaponData: {fileID: 11400000, guid: 10e6815cb39585b428cade0a3f479345, type: 2}
   TotalDamage: 0
   FireRateo: 0
   CurrentAmmo: 0
@@ -559,6 +559,16 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   ShotCooldown: 1
   IsAutomatic: 0
+  testProperties:
+    angle: 0
+    strength: 0
+    speed: 0
+    duration: 0
+    noisePercent: 0
+    dampingPercent: 0
+    rotationPercent: 0
+  Flash: {fileID: 0}
+  Parent: {fileID: 0}
 --- !u!114 &6181238359582830399
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -572,7 +582,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Player: {fileID: 0}
-  BonusLifeWhenKilled: 0
+  BonusLifeWhenKilled: 3
   HP: 15
   MyWeapon: {fileID: 7923269200869693499}
   Attention: {fileID: 4650591690395278049}
@@ -592,20 +602,20 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Player: {fileID: 0}
-  BonusLifeWhenKilled: 0
+  BonusLifeWhenKilled: 3
   HP: 15
   MyWeapon: {fileID: 7923269200869693499}
   Attention: {fileID: 4650591690395278049}
   RedEye: {fileID: 2593482135561884417}
   EnemyLifeBar: {fileID: 472271912598339167}
   CurrentHP: 0
-  PathLength: 0
-  PathAngle: 0
-  DrawPath: 0
+  PathLength: 3
+  PathAngle: 50
+  DrawPath: 1
   PathPoints:
-  - {x: 0, y: 0, z: 0}
-  - {x: 0, y: 0, z: 0}
-  - {x: 0, y: 0, z: 0}
+  - {x: -2.3526094, y: 0, z: -1.8615128}
+  - {x: 2.1309083, y: 0, z: -5.848751}
+  - {x: -0.22170115, y: 0, z: -7.7102637}
   agent: {fileID: 5678631714852102604}
   StartingDirectionPoint: {fileID: 4921285072555938071}
   CurrentPathPosition: 0

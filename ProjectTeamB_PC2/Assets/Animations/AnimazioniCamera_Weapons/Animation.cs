@@ -24,7 +24,7 @@ public class Animation : MonoBehaviour
     {
         if (Input.GetMouseButton(0))
         {
-            anim.SetBool(sparo, true);
+            //anim.SetBool(sparo, true);
             
 
         }

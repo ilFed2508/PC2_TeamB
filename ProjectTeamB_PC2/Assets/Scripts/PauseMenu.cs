@@ -6,11 +6,13 @@ using UnityEngine.SceneManagement;
 public class PauseMenu : MonoBehaviour
 {
     public GameObject PauseMenuPanel;
+    public GameObject HUD, CrossHair, EPickUp;
+
     public bool IsStopped;
     // Start is called before the first frame update
     void Start()
     {
-        
+
     }
 
     // Update is called once per frame
@@ -25,6 +27,11 @@ public class PauseMenu : MonoBehaviour
                 IsStopped = true;
                 Cursor.lockState = CursorLockMode.None;
                 Cursor.visible = true;
+
+                HUD.SetActive(false);
+                CrossHair.SetActive(false);
+                EPickUp.SetActive(false);
+                
             }
             else
             {
@@ -40,11 +47,15 @@ public class PauseMenu : MonoBehaviour
         IsStopped = false;
         Cursor.lockState = CursorLockMode.Locked;
         Cursor.visible = false;
+
+        HUD.SetActive(true);
+        CrossHair.SetActive(true);
+        
     }
     public void BackToMenu()
     {
         Time.timeScale = 1;
-        SceneManager.LoadScene("3dMainMenu");
+        SceneManager.LoadScene("3DMenuTestP");
     }
 
     public void Reload()

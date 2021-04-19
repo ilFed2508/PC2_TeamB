@@ -13,6 +13,23 @@ public class BurstShootingType : Shooting
     /// </summary>
     public float CooldownBetweenBursts;
 
+    //Shake Luca
+    public CameraShake.Properties testProperties;
+    public GameObject Flash;
+    public Transform Parent;
+
+
+    //Da eliminare più avanti
+    private Animator anim;
+    //-------------------------
+
+    private void Start()
+    {
+        //Da eliminare più avanti
+        anim = GetComponent<Animator>();
+        //-----------------------
+    }
+
     public override void ShootingAction(RangedWeapon currentWeapon)
     {
         if(CanWeaponShoot == true && currentWeapon.CurrentAmmo > 0)
@@ -41,7 +58,13 @@ public class BurstShootingType : Shooting
 
         BulletInstance.transform.forward = ShootingDirection.normalized;
 
+        anim.SetBool("Sparo",true);
+
         BulletInstance.GetComponent<Rigidbody>().AddForce(ShootingDirection.normalized * currentWeapon.weaponData.ShootingForce, ForceMode.Impulse);
+
+        //Shake Luca
+        FindObjectOfType<CameraShake>().StartShake(testProperties);
+        
     }
 
     public override void AIShoot(RangedWeapon currentWeapon)
@@ -64,6 +87,8 @@ public class BurstShootingType : Shooting
             for (int shots = 0; shots < SingleBurstShotNumber; shots++)
             {
                 Shoot(currentWeapon);
+                //Luca
+                Instantiate(Flash, Parent);
                 currentWeapon.CurrentAmmo -= 1;
                 yield return new WaitForSeconds(shotCooldown);
             }

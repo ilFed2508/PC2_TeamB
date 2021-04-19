@@ -12,10 +12,17 @@ public class MinigunRotation : MonoBehaviour
 
     public Animator MiniGunAnim;
 
+    public string sparo;
+    public string vadoAvanti;
+    public string destra;
+    public string sinistra;
+    public string Jump;
+    private Animator Camera;
+
     // Start is called before the first frame update
     void Start()
     {
-        
+        Camera = GameObject.Find("CamerasLogic").GetComponent<Animator>();
         toRotateT = canne.GetComponent<Transform>();
         toRotateV = new Vector3(canne.transform.localRotation.x * 0, canne.transform.localRotation.y * 0, canne.transform.localRotation.z * speed);
     }
@@ -25,13 +32,47 @@ public class MinigunRotation : MonoBehaviour
     {
         if (Input.GetMouseButton(0))
         {
-            toRotateT.Rotate(toRotateV);
-            MiniGunAnim.SetBool("Shoot", true);
+            toRotateT.Rotate(toRotateV);          
         }
         else
         {
             MiniGunAnim.SetBool("Shoot", false);
         }
-       
+
+        if (Input.GetKey(KeyCode.W))
+        {
+            MiniGunAnim.SetBool(vadoAvanti, true);
+        }
+        else
+        {
+            MiniGunAnim.SetBool(vadoAvanti, false);
+
+        }
+        if (Input.GetKey(KeyCode.D))
+        {
+            MiniGunAnim.SetBool(destra, true);
+            MiniGunAnim.SetBool(vadoAvanti, true);
+        }
+        else
+        {
+            MiniGunAnim.SetBool(destra, false);
+        }
+        if (Input.GetKey(KeyCode.A))
+        {
+            MiniGunAnim.SetBool(sinistra, true);
+            MiniGunAnim.SetBool(vadoAvanti, true);
+        }
+        else
+        {
+            Camera.SetBool(sinistra, false);
+        }
+        if (Input.GetKeyDown(KeyCode.Space))
+        {
+            MiniGunAnim.Play("Camera-Jump");
+        }
+        else
+        {
+            MiniGunAnim.SetBool(Jump, false);
+        }
     }
 }

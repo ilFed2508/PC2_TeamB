@@ -4,11 +4,22 @@ using UnityEngine;
 
 public class SingleShotShooting : Shooting
 {
-    
+    //Luca
+    public CameraShake.Properties testProperties;
+
+    public GameObject Flash;
+
+    public Transform Parent;
+
+    //Da eliminare più avanti
+    private Animator anim;
+    //-------------------------
 
     private void Start()
     {
-        
+        //Da eliminare più avanti
+        anim = GetComponent<Animator>();
+        //-----------------------
     }
     public override void ShootingAction(RangedWeapon currentWeapon)
     {
@@ -17,7 +28,12 @@ public class SingleShotShooting : Shooting
             Shoot(currentWeapon);
             currentWeapon.CurrentAmmo -= 1;
             StartCoroutine(WaitShotCooldown(ShotCooldown));
-        }       
+        }
+        //else
+        //{
+        //    //luca da eliminare
+        //    anim.SetBool("Shoot", false);
+        //}
     }
 
     public override void Shoot(RangedWeapon currentWeapon)
@@ -35,14 +51,22 @@ public class SingleShotShooting : Shooting
             ShootingTargetPoint = ray.GetPoint(80);
         }
 
+        
+
         Vector3 ShootingDirection = ShootingTargetPoint - currentWeapon.GunBarrel.position;
+
+        FindObjectOfType<CameraShake>().StartShake(testProperties);
 
         GameObject BulletInstance = Instantiate(currentWeapon.WeaponBulletPrefab , currentWeapon.GunBarrel.position, Quaternion.identity);
 
-        BulletInstance.transform.forward = ShootingDirection.normalized;
+        BulletInstance.transform.forward = ShootingDirection.normalized;       
 
-        BulletInstance.GetComponent<Rigidbody>().AddForce(ShootingDirection.normalized * currentWeapon.weaponData.ShootingForce, ForceMode.Impulse);
-        
+        BulletInstance.GetComponent<Rigidbody>().AddForce(ShootingDirection.normalized * currentWeapon.weaponData.ShootingForce, ForceMode.Impulse);       
+        Instantiate(Flash, Parent);
+        //Da eliminare più avanti
+        anim.Play("ShootAR(Def)");
+        anim.SetBool("Shoot", true);
+        //Luca
     }
 
     public override void AIShoot(RangedWeapon currentWeapon)

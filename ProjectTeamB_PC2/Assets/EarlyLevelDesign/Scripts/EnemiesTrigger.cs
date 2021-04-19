@@ -4,12 +4,13 @@ using UnityEngine;
 
 public class EnemiesTrigger : MonoBehaviour
 {
-    public GameObject end;
+    public GameObject end, HUD;
 
     // Start is called before the first frame update
     void Start()
     {
         end.SetActive(false);
+
     }
 
     // Update is called once per frame
@@ -26,6 +27,7 @@ public class EnemiesTrigger : MonoBehaviour
             Time.timeScale = 0;
             Cursor.lockState = CursorLockMode.None;
             Cursor.visible = true;
+            HUD.SetActive(false);
         }
     }
 }
