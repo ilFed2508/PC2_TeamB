@@ -6,9 +6,12 @@ public class PlayerBullet : MonoBehaviour
 {
     public GameObject Particle;
 
+    private PlayerController Playercontroller;
+
     // Update is called once per frame
     void Start()
     {
+        Playercontroller = GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerController>();
         Destroy(this.gameObject, 3f);
     }
 
@@ -19,6 +22,7 @@ public class PlayerBullet : MonoBehaviour
         if (other.CompareTag("Enemy"))
         {
             Vector3 spawnPos = new Vector3(gameObject.transform.position.x, gameObject.transform.position.y, gameObject.transform.position.z);
+            Playercontroller.HitMarker.SetActive(true);
             Instantiate(Particle, spawnPos, gameObject.transform.rotation);
             EnemyBase Enemy = other.gameObject.GetComponentInChildren<EnemyBase>();
 

@@ -19,6 +19,10 @@ public class PlayerController : MonoBehaviour
     public GameObject PickUp;
 
 
+
+	public GameObject HitMarker;
+
+
 	void Start()
 	{
 		Time.timeScale = 1f;
