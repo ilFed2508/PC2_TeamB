@@ -19,8 +19,9 @@ public class PlayerController : MonoBehaviour
     public GameObject PickUp;
 
 
-
+    //Luca
 	public GameObject HitMarker;
+	public GameObject PanelKill;
 
 
 	void Start()

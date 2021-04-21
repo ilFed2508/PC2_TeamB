@@ -33,6 +33,7 @@ public class PlayerBullet : MonoBehaviour
                 other.gameObject.GetComponent<WeaponDrop>().DropWeapon();
                 Enemy.PlayerHealOnDeath();
                 Destroy(other.gameObject);
+                Playercontroller.PanelKill.SetActive(true);
             }
 
             Destroy(this.gameObject);
