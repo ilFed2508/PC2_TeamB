@@ -21,6 +21,7 @@ public class PlayerController : MonoBehaviour
 
     //Luca
 	public GameObject HitMarker;
+	public GameObject HitMarkerKill;
 	public GameObject PanelKill;
 
 
