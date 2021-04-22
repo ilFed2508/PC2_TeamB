@@ -30,6 +30,7 @@ public class MarketShopMenù : MonoBehaviour
     }
     public void Exit()
     {
+        CrossHair.SetActive(true);
         HUD.SetActive(true);
         Time.timeScale = 1;        
         marketPanel.SetActive(false);
