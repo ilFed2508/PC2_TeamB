@@ -8,7 +8,12 @@ public class SafeZone : MonoBehaviour
     public float recoverdLife;
     public int checkpoint;
 
-    public PlayerLifeSystem playerLife;
+    private PlayerLifeSystem playerLife;
+
+    public void Start()
+    {
+        playerLife = FindObjectOfType<PlayerLifeSystem>();
+    }
 
     private void OnTriggerStay(Collider other)
     {

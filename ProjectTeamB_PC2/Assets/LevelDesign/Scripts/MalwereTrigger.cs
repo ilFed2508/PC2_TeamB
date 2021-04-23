@@ -4,12 +4,13 @@ using UnityEngine;
 
 public class MalwereTrigger : MonoBehaviour
 {
-    public DetectedActDeact malwereDetected;
-    public GameObject Safe1;
+    public string toFind;
+    private DetectedActDeact tutorial;
+
     // Start is called before the first frame update
     void Start()
     {
-        
+        tutorial = GameObject.Find(toFind).GetComponent<DetectedActDeact>();
     }
 
     // Update is called once per frame
@@ -22,8 +23,8 @@ public class MalwereTrigger : MonoBehaviour
     {
         if (other.tag == "Player")
         {
-            malwereDetected.isActive = true;
-            Destroy(Safe1);
+            tutorial.thing.SetActive(true);
+
             Destroy(gameObject, 1);
         }
     }
