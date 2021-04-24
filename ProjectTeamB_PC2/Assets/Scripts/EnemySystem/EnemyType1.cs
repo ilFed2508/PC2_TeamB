@@ -2,14 +2,12 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.AI;
+using System;
 
 public class EnemyType1 : EnemyBase
 {
     //state machine variables
-    public SightState sightState;
-    public ShootingState shootingState;
-    public ZigZagMoveState zigZagMoveState;
-    public StateMachine EnemyStateMachine;
+    private StateMachine _stateMachine;
 
     [Header("Ai Path Manipulation")]
     public float PathLength;
@@ -26,39 +24,48 @@ public class EnemyType1 : EnemyBase
 
     [Header("Shooting State Timer")]
     public float ShootingDuration;
+    [HideInInspector]
+    public float ShootingTimer;
 
-    // Start is called before the first frame update
-    void Start()
+    private void Awake()
     {
         //pick reference
         Player = FindObjectOfType<PlayerController>();
         MyWeapon = GetComponent<RangedWeapon>();
 
+        //state machine setup
+        _stateMachine = new StateMachine();
+        var Sight = new SightPlayer(this);
+        var Shoot = new ShootPlayer(this);
+        var ZigZag = new ZigZagMovement(this);
+
+        //add transition between state
+        AddTransition(Sight, Shoot, SpottedPlayer());
+        AddTransition(Shoot, ZigZag, HasShooted());
+        AddTransition(ZigZag, Shoot, ReachedNextPoint());
+
+        //set conidtions
+        Func<bool> SpottedPlayer() => () => EnableShooting();
+        Func<bool> HasShooted() => () => ShootingTimer >= ShootingDuration;
+        Func<bool> ReachedNextPoint() => () => agent.remainingDistance <= agent.stoppingDistance;
+
+        _stateMachine.SetState(Sight);
+    }
+
+    // Start is called before the first frame update
+    void Start()
+    {
         //setup and path calculation
         DrawPath = false;
         CurrentPathPosition = 0;
         counterUP = true;
         CalculatePath(PathPoints);
-
-        //creating states and itialize the state machine
-        EnemyStateMachine = new StateMachine();
-        sightState = new SightState(this, EnemyStateMachine);
-        shootingState = new ShootingState(this, EnemyStateMachine);
-        zigZagMoveState = new ZigZagMoveState(this, EnemyStateMachine);
-        EnemyStateMachine.Initialize(sightState);
     }
 
     // Update is called once per frame
     void Update()
     {
-        EnemyStateMachine.CurrentState.HandleInput();
-
-        EnemyStateMachine.CurrentState.LogicUpdate();
-    }
-
-    private void FixedUpdate()
-    {
-        EnemyStateMachine.CurrentState.PhysicsUpdate();
+        _stateMachine.Tick();
     }
 
     public void OnDrawGizmos()
@@ -168,4 +175,6 @@ public class EnemyType1 : EnemyBase
             CurrentPathPosition--;
         }
     }
+
+    public void AddTransition(IState from, IState to, Func<bool> predicate) => _stateMachine.AddTransition(from, to, predicate);
 }
