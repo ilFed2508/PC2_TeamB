@@ -89,7 +89,7 @@ public class Settings : MonoBehaviour
     }
     public void SetControllerS()
     {
-        ControllerSens = (ControllerS.value * RangeControllerS) + AugmentedControllerS;
+        //ControllerSens = (ControllerS.value * RangeControllerS) + AugmentedControllerS;
         PlayerPrefs.SetFloat("ControllerS", ControllerSens);
         PersistantObject.ControllerS = ControllerSens;
     }

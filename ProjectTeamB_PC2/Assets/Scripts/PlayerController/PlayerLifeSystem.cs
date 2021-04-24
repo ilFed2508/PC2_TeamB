@@ -42,14 +42,6 @@ public class PlayerLifeSystem : MonoBehaviour
     void Start()
     {
         PlayerCurrentHP = PlayerCurrentHP;
-
-        //Davide
-       safe = GameObject.Find("SafeArea1").GetComponent<SafeZone>();
-       safe.playerLife = this;
-       safe2 = GameObject.Find("SafeArea2").GetComponent<SafeZone>();
-       safe2.playerLife = this;
-       safe3 = GameObject.Find("SafeArea3").GetComponent<SafeZone>();
-       safe3.playerLife = this;
     }
 
     /// <summary>
