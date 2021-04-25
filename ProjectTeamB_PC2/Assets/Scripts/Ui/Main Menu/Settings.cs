@@ -11,7 +11,7 @@ public class Settings : MonoBehaviour
 
     public AudioMixer AudioMixer;
     public Slider AudioSlider;
-    public Dropdown ResolutionDropdown;
+    //public Dropdown ResolutionDropdown;
     Resolution[] Resolutions;
     [Header("Mouse Sensibility")]
     public Slider MouseS;
@@ -20,13 +20,13 @@ public class Settings : MonoBehaviour
     public float AugmentedMouseS;
     public float RangeMouseS;
     public float MouseSens;
-    [Header("Controller Sensibility")]
-    public Slider ControllerS;
-    public float ControllerSMin;
-    public float ControllerSMax;
-    public float AugmentedControllerS;
-    public float RangeControllerS;
-    public float ControllerSens;
+    //[Header("Controller Sensibility")]
+    // public Slider ControllerS;
+    // public float ControllerSMin;
+    //public float ControllerSMax;
+    //public float AugmentedControllerS;
+    //public float RangeControllerS;
+    //public float ControllerSens;
 
     // Start is called before the first frame update
     void Start()
@@ -37,13 +37,13 @@ public class Settings : MonoBehaviour
         RangeMouseS = MouseSMax - MouseSMin;
         MouseS.value = (PlayerPrefs.GetFloat("MouseS") - AugmentedMouseS) / RangeMouseS;
         PersistantObject.MouseS = MouseSens;
-        AugmentedControllerS = ControllerSMin - 0;
-        RangeControllerS = ControllerSMax - ControllerSMin;
-        ControllerS.value = (PlayerPrefs.GetFloat("ControllerS") - AugmentedControllerS) / RangeControllerS;
-        PersistantObject.ControllerS = ControllerSens;
+        //AugmentedControllerS = ControllerSMin - 0;
+        //RangeControllerS = ControllerSMax - ControllerSMin;
+        //ControllerS.value = (PlayerPrefs.GetFloat("ControllerS") - AugmentedControllerS) / RangeControllerS;
+        //PersistantObject.ControllerS = ControllerSens;
 
         Resolutions = Screen.resolutions;
-        ResolutionDropdown.ClearOptions();
+        //ResolutionDropdown.ClearOptions();
         List<string> options = new List<string>();
         int CurrentResolutionIndex = 0;
         for (int i = 0; i < Resolutions.Length; i++)
@@ -56,9 +56,9 @@ public class Settings : MonoBehaviour
                 CurrentResolutionIndex = i;
             }
         }
-        ResolutionDropdown.AddOptions(options);
-        ResolutionDropdown.value = CurrentResolutionIndex;
-        ResolutionDropdown.RefreshShownValue();
+        //ResolutionDropdown.AddOptions(options);
+        //ResolutionDropdown.value = CurrentResolutionIndex;
+        //ResolutionDropdown.RefreshShownValue();
 
     }
 
@@ -67,7 +67,7 @@ public class Settings : MonoBehaviour
     {
         PlayerPrefs.SetFloat("GeneraL", AudioSlider.value);
         SetMouseS();
-        SetControllerS();
+        //SetControllerS();
         //CheckBools();
     }
 
@@ -90,19 +90,19 @@ public class Settings : MonoBehaviour
     public void SetControllerS()
     {
         //ControllerSens = (ControllerS.value * RangeControllerS) + AugmentedControllerS;
-        PlayerPrefs.SetFloat("ControllerS", ControllerSens);
-        PersistantObject.ControllerS = ControllerSens;
+        //PlayerPrefs.SetFloat("ControllerS", ControllerSens);
+        //PersistantObject.ControllerS = ControllerSens;
     }
 
     public void SetResolution(int ResolutionIndex)
     {
-        Resolution resolution = Resolutions[ResolutionIndex];
-        Screen.SetResolution(resolution.width, resolution.height, Screen.fullScreen);
+        //Resolution resolution = Resolutions[ResolutionIndex];
+        //Screen.SetResolution(resolution.width, resolution.height, Screen.fullScreen);
     }
 
     public void SetQuality(int QualityIndex)
     {
-        QualitySettings.SetQualityLevel(QualityIndex);
+        //QualitySettings.SetQualityLevel(QualityIndex);
     }
 
     //public void CheckBools()

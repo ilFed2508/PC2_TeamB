@@ -99,7 +99,7 @@ LightmapSettings:
     m_LightProbeSampleCountMultiplier: 4
   m_LightingDataAsset: {fileID: 112000000, guid: 627ae9e6896d3de41adc8b6845dafd57,
     type: 2}
-  m_UseShadowmask: 0
+  m_UseShadowmask: 1
 --- !u!196 &4
 NavMeshSettings:
   serializedVersion: 2
@@ -35828,7 +35828,6 @@ GameObject:
   m_Component:
   - component: {fileID: 1561593281}
   - component: {fileID: 1561593280}
-  - component: {fileID: 1561593279}
   m_Layer: 8
   m_Name: MaxSecurityRoom
   m_TagString: Untagged
@@ -35836,19 +35835,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!114 &1561593279
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1561593278}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4f0fc5f1902b8bf4c80a246ac0608720, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  enemies: {fileID: 0}
 --- !u!65 &1561593280
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -47085,19 +47071,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   AudioMixer: {fileID: 0}
   AudioSlider: {fileID: 1162286246}
-  ResolutionDropdown: {fileID: 0}
   MouseS: {fileID: 1693823759}
   MouseSMin: 50
   MouseSMax: 500
   AugmentedMouseS: 0
   RangeMouseS: 0
   MouseSens: 0
-  ControllerS: {fileID: 328964679}
-  ControllerSMin: 10
-  ControllerSMax: 100
-  AugmentedControllerS: 0
-  RangeControllerS: 0
-  ControllerSens: 0
 --- !u!1 &2019121417
 GameObject:
   m_ObjectHideFlags: 0
