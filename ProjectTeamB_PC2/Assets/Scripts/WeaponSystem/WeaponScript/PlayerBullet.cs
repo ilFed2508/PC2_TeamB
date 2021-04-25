@@ -6,12 +6,12 @@ public class PlayerBullet : MonoBehaviour
 {
     public GameObject Particle;
 
-    private PlayerController Playercontroller;
+    private HitmarkerFather playerC;
 
     // Update is called once per frame
     void Start()
     {
-        Playercontroller = GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerController>();
+        playerC = GameObject.Find("HitContainer").GetComponent<HitmarkerFather>();
         Destroy(this.gameObject, 3f);
     }
 
@@ -22,8 +22,7 @@ public class PlayerBullet : MonoBehaviour
         if (other.CompareTag("Enemy"))
         {
             Vector3 spawnPos = new Vector3(gameObject.transform.position.x, gameObject.transform.position.y, gameObject.transform.position.z);
-            Playercontroller.HitMarker.SetActive(true);
-            //Instantiate(Particle, spawnPos, gameObject.transform.rotation);
+            playerC.hit.SetActive(true);
             EnemyBase Enemy = other.gameObject.GetComponentInChildren<EnemyBase>();
 
             Enemy.DamageEnemy();
@@ -34,8 +33,8 @@ public class PlayerBullet : MonoBehaviour
                 other.gameObject.GetComponent<WeaponDrop>().DropWeapon();
                 Enemy.PlayerHealOnDeath();
                 Destroy(other.gameObject);
-                Playercontroller.HitMarkerKill.SetActive(true);
-                Playercontroller.PanelKill.SetActive(true);
+                playerC.hitDeath.SetActive(true);
+                playerC.hitPanel.SetActive(true);
             }
 
             Destroy(this.gameObject);

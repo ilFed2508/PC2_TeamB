@@ -18,13 +18,6 @@ public class PlayerController : MonoBehaviour
     //image "E" pick up - joe
     public GameObject PickUp;
 
-
-    //Luca
-	public GameObject HitMarker;
-	public GameObject HitMarkerKill;
-	public GameObject PanelKill;
-
-
 	void Start()
 	{
 		Time.timeScale = 1f;
