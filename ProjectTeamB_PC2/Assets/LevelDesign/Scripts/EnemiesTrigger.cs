@@ -4,12 +4,16 @@ using UnityEngine;
 
 public class EnemiesTrigger : MonoBehaviour
 {
-    public GameObject end, HUD;
+    private DetectedActDeact end, hud;
+    private GameObject guns;
+   
 
     // Start is called before the first frame update
     void Start()
     {
-        end.SetActive(false);
+        end = GameObject.Find("WIN").GetComponent<DetectedActDeact>();
+        hud = GameObject.Find("HUD").GetComponent<DetectedActDeact>();
+        guns = GameObject.Find("WeaponSlot");
 
     }
 
@@ -23,11 +27,12 @@ public class EnemiesTrigger : MonoBehaviour
     {
         if (other.CompareTag("Player"))
         {
-            end.SetActive(true);
+            end.thing.SetActive(true);
+            hud.thing.SetActive(false);
+            guns.SetActive(false);
             Time.timeScale = 0;
             Cursor.lockState = CursorLockMode.None;
             Cursor.visible = true;
-            HUD.SetActive(false);
         }
     }
 }
