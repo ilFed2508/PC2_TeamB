@@ -48,8 +48,9 @@ public class EnemyType2 : EnemyBase
 
     public void FollowPlayer()
     {
-        Vector3 playerDestinantion = new Vector3(Player.transform.position.x, this.transform.position.y, Player.transform.position.z);
+        //Vector3 playerDestinantion = new Vector3(Player.transform.position.x, this.transform.position.y, Player.transform.position.z);
 
+        Vector3 playerDestinantion = Player.transform.position;
         agent.SetDestination(playerDestinantion);
     }
 
