@@ -35,7 +35,7 @@ public class PlayerLifeSystem : MonoBehaviour
     //Warning Image_Animation - Joe
     public Image Warning;
 
-    public GameObject HUD, WarningDeactiveted;
+    public GameObject HUD, WarningDeactiveted,WeaponSlots;
 
 
     // Start is called before the first frame update
@@ -65,7 +65,8 @@ public class PlayerLifeSystem : MonoBehaviour
             Time.timeScale = 0;
             DeathPanel.SetActive(true);
 
-            HUD.SetActive(false);            
+            HUD.SetActive(false);
+            WeaponSlots.SetActive(false);
             WarningDeactiveted.SetActive(false);
         }
 
