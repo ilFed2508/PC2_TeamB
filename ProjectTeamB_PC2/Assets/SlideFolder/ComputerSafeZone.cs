@@ -11,7 +11,7 @@ public class ComputerSafeZone : MonoBehaviour
     public GameObject HUD;
     void Update()
     {
-        HUD = GameObject.Find("HUD");
+        HUD = GameObject.Find("WeaponSlot");
         EpickUp = FindObjectOfType<PlayerController>();
         marketPanel = FindObjectOfType<SlideManager>();
     }

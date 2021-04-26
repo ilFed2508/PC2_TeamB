@@ -84,6 +84,9 @@ public class EnemyBase : MonoBehaviour
     public void DamageEnemy()
     {
         HP -= Player.playerShooting.CurrentRagedWeapon.weaponData.Damage;
+
+        //enemy life bar - Joe
+        EnemyLifeBar.value = HP;
     }
 
     /// <summary>

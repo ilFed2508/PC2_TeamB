@@ -1,0 +1,38 @@
+﻿using System.Collections;
+using System.Collections.Generic;
+using UnityEngine;
+
+public class EnemiesTrigger : MonoBehaviour
+{
+    private DetectedActDeact end, hud;
+    private GameObject guns;
+   
+
+    // Start is called before the first frame update
+    void Start()
+    {
+        end = GameObject.Find("WIN").GetComponent<DetectedActDeact>();
+        hud = GameObject.Find("HUD").GetComponent<DetectedActDeact>();
+        guns = GameObject.Find("WeaponSlot");
+
+    }
+
+    // Update is called once per frame
+    void Update()
+    {
+
+    }
+
+    private void OnTriggerEnter(Collider other)
+    {
+        if (other.CompareTag("Player"))
+        {
+            end.thing.SetActive(true);
+            hud.thing.SetActive(false);
+            guns.SetActive(false);
+            Time.timeScale = 0;
+            Cursor.lockState = CursorLockMode.None;
+            Cursor.visible = true;
+        }
+    }
+}

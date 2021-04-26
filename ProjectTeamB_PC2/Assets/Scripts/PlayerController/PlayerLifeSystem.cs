@@ -35,21 +35,13 @@ public class PlayerLifeSystem : MonoBehaviour
     //Warning Image_Animation - Joe
     public Image Warning;
 
-    public GameObject HUD, WarningDeactiveted;
+    public GameObject HUD, WarningDeactiveted,WeaponSlots;
 
 
     // Start is called before the first frame update
     void Start()
     {
         PlayerCurrentHP = PlayerCurrentHP;
-
-        //Davide
-       safe = GameObject.Find("SafeArea1").GetComponent<SafeZone>();
-       safe.playerLife = this;
-       safe2 = GameObject.Find("SafeArea2").GetComponent<SafeZone>();
-       safe2.playerLife = this;
-       safe3 = GameObject.Find("SafeArea3").GetComponent<SafeZone>();
-       safe3.playerLife = this;
     }
 
     /// <summary>
@@ -73,7 +65,8 @@ public class PlayerLifeSystem : MonoBehaviour
             Time.timeScale = 0;
             DeathPanel.SetActive(true);
 
-            HUD.SetActive(false);            
+            HUD.SetActive(false);
+            WeaponSlots.SetActive(false);
             WarningDeactiveted.SetActive(false);
         }
 

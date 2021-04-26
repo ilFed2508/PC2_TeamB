@@ -18,7 +18,6 @@ public class PlayerController : MonoBehaviour
     //image "E" pick up - joe
     public GameObject PickUp;
 
-
 	void Start()
 	{
 		Time.timeScale = 1f;

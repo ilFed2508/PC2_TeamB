@@ -48,7 +48,7 @@ public class ComboManager : MonoBehaviour
             livelloCombo = 0f;
         }
 
-        Debug.Log("Scalo" + tempoPerScalare);
+        //Debug.Log("Scalo" + tempoPerScalare);
         LivelloCombo.text = livelloCombo.ToString("F0");
 
         if (livelloCombo > 0f)
