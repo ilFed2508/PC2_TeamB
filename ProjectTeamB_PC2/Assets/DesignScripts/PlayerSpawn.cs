@@ -21,7 +21,7 @@ public class PlayerSpawn : MonoBehaviour
         if (PlayerPrefs.GetInt("Checkpoint") == 1)
         {
             Vector3 position1 = new Vector3(spawn1.transform.position.x, spawn1.transform.position.y, spawn1.transform.position.z);
-            Instantiate(playerDisarmato, position1, spawn2.transform.rotation);
+            Instantiate(playerDisarmato, position1, spawn1.transform.rotation);
         }
 
         if (PlayerPrefs.GetInt("Checkpoint") == 2)
