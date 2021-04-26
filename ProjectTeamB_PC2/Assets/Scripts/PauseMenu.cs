@@ -50,7 +50,6 @@ public class PauseMenu : MonoBehaviour
 
         HUD.SetActive(true);
         CrossHair.SetActive(true);
-        
     }
     public void BackToMenu()
     {
