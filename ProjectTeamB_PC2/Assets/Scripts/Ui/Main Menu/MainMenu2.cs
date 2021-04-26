@@ -6,7 +6,7 @@ using UnityEngine.SceneManagement;
 
 public class MainMenu2 : MonoBehaviour
 {
-    public GameObject Opening, MainMenu, Play, Exit, Settings, Credits, Sound, Controls, Video, PauseMenu;
+    public GameObject Opening, MainMenu, Play, Exit, Settings, Credits, Sound, Controls, Video, PauseMenu, Gamepad, KeyBoard, MainButtons;
     Settings settings;
     public bool isOpening;
     // Start is called before the first frame update
@@ -86,11 +86,43 @@ public class MainMenu2 : MonoBehaviour
         Controls.SetActive(false);
         Video.SetActive(true);
     }
+
+    public void BackToControls()
+    {
+        Sound.SetActive(false);
+        Controls.SetActive(true);
+        MainButtons.SetActive(true);
+        Video.SetActive(false);
+        KeyBoard.SetActive(false);
+        Gamepad.SetActive(false);
+    }
+
+    public void GoToKeyBoard()
+    {
+        Sound.SetActive(false);
+        Controls.SetActive(false);
+        Video.SetActive(false);
+        MainButtons.SetActive(false);
+        KeyBoard.SetActive(true);
+        Gamepad.SetActive(false);
+    }
+
+    public void GoToGamePad()
+    {
+        Sound.SetActive(false);
+        Controls.SetActive(false);
+        Video.SetActive(false);
+        MainButtons.SetActive(false);
+        KeyBoard.SetActive(false);
+        Gamepad.SetActive(true);     
+    }
+
     public void CloseGame()
     {
         Application.Quit();
         Debug.Log("Game Closed");
     }
+
     public void StartGame()
     {
         SceneManager.LoadScene(1);
