@@ -6,7 +6,7 @@ using UnityEngine.SceneManagement;
 
 public class MainMenu2 : MonoBehaviour
 {
-    public GameObject Settings, Sound, Controls, Video, PauseMenu, Gamepad, KeyBoard, MainButtons;
+    public GameObject Settings, Sound, Controls, Video, PauseMenu, Gamepad, KeyBoard;
     //public GameObject Opening, Credits, MainMenu, Exit, Play;
     Settings settings;
     public bool isOpening;
@@ -92,7 +92,6 @@ public class MainMenu2 : MonoBehaviour
     {
         Sound.SetActive(false);
         Controls.SetActive(true);
-        MainButtons.SetActive(true);
         Video.SetActive(false);
         KeyBoard.SetActive(false);
         Gamepad.SetActive(false);
@@ -103,7 +102,6 @@ public class MainMenu2 : MonoBehaviour
         Sound.SetActive(false);
         Controls.SetActive(false);
         Video.SetActive(false);
-        MainButtons.SetActive(false);
         KeyBoard.SetActive(true);
         Gamepad.SetActive(false);
     }
@@ -113,7 +111,6 @@ public class MainMenu2 : MonoBehaviour
         Sound.SetActive(false);
         Controls.SetActive(false);
         Video.SetActive(false);
-        MainButtons.SetActive(false);
         KeyBoard.SetActive(false);
         Gamepad.SetActive(true);     
     }
