@@ -5,6 +5,7 @@ using UnityEngine;
 public class PlayerSpawn : MonoBehaviour
 {
     public GameObject player;
+    public GameObject playerDisarmato;
     public GameObject spawn1, spawn2, spawn3;
 
     private DetectedActDeact hudOn;
@@ -20,7 +21,7 @@ public class PlayerSpawn : MonoBehaviour
         if (PlayerPrefs.GetInt("Checkpoint") == 1)
         {
             Vector3 position1 = new Vector3(spawn1.transform.position.x, spawn1.transform.position.y, spawn1.transform.position.z);
-            Instantiate(player, position1, spawn2.transform.rotation);
+            Instantiate(playerDisarmato, position1, spawn2.transform.rotation);
         }
 
         if (PlayerPrefs.GetInt("Checkpoint") == 2)
