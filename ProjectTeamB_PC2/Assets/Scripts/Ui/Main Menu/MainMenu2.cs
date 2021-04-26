@@ -6,7 +6,8 @@ using UnityEngine.SceneManagement;
 
 public class MainMenu2 : MonoBehaviour
 {
-    public GameObject Opening, MainMenu, Play, Exit, Settings, Credits, Sound, Controls, Video, PauseMenu, Gamepad, KeyBoard, MainButtons;
+    public GameObject Settings, Sound, Controls, Video, PauseMenu, Gamepad, KeyBoard, MainButtons;
+    //public GameObject Opening, Credits, MainMenu, Exit, Play;
     Settings settings;
     public bool isOpening;
     // Start is called before the first frame update
@@ -25,8 +26,8 @@ public class MainMenu2 : MonoBehaviour
     {
         if(Input.anyKeyDown&&isOpening==true)
         {
-            Opening.SetActive(false);
-            MainMenu.SetActive(true);
+            //Opening.SetActive(false);
+            //MainMenu.SetActive(true);
             isOpening = false;
         }
     }
@@ -40,26 +41,26 @@ public class MainMenu2 : MonoBehaviour
     }
     public void GoToCredits()
     {
-        MainMenu.SetActive(false);
-        Credits.SetActive(true);
+        //MainMenu.SetActive(false);
+        //Credits.SetActive(true);
     }
     public void GoToExit()
     {
-        MainMenu.SetActive(false);
-        Exit.SetActive(true);
+        //MainMenu.SetActive(false);
+        //Exit.SetActive(true);
     }
     public void GoToPlay()
     {
-        MainMenu.SetActive(false);
-        Play.SetActive(true);
+        //MainMenu.SetActive(false);
+        //Play.SetActive(true);
     }
     public void BackToMenu()
     {
         Settings.SetActive(false);
-        Credits.SetActive(false);
-        Exit.SetActive(false);
-        Play.SetActive(false);
-        MainMenu.SetActive(true);
+        //Credits.SetActive(false);
+        //Exit.SetActive(false);
+        //Play.SetActive(false);
+        //MainMenu.SetActive(true);
     }
 
     public void BacktoPause()
