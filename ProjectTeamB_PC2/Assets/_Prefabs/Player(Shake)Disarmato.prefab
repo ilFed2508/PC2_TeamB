@@ -6155,8 +6155,8 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2799104327707668729}
-  - component: {fileID: 7013872373508117749}
   - component: {fileID: 6884039267786368973}
+  - component: {fileID: 133094778031406471}
   m_Layer: 9
   m_Name: hand1_Do_Not_Touch
   m_TagString: Melee
@@ -6179,19 +6179,6 @@ Transform:
   m_Father: {fileID: 4997689485064847372}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!135 &7013872373508117749
-SphereCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3743222168049959470}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 1
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Radius: 0.2
-  m_Center: {x: 0, y: 0, z: 0}
 --- !u!114 &6884039267786368973
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -6206,6 +6193,19 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Particle: {fileID: 6772490525415757152, guid: 850ca9ec21207574d8bbd56bce8bf4ec,
     type: 3}
+--- !u!65 &133094778031406471
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3743222168049959470}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 1.6129115, y: 1, z: 1}
+  m_Center: {x: -0.3064554, y: -0.000000040525464, z: 0.000000089762786}
 --- !u!1 &3795292418659765445
 GameObject:
   m_ObjectHideFlags: 0
