@@ -9,9 +9,11 @@ public class ComputerSafeZone : MonoBehaviour
     private PlayerController EpickUp;
     private SlideManager marketPanel;
     public GameObject HUD;
+    public DetectedActDeact HUDReal;
     void Update()
     {
         HUD = GameObject.Find("WeaponSlot");
+        HUDReal = GameObject.Find("HUD").GetComponent<DetectedActDeact>();
         EpickUp = FindObjectOfType<PlayerController>();
         marketPanel = FindObjectOfType<SlideManager>();
     }
@@ -26,6 +28,7 @@ public class ComputerSafeZone : MonoBehaviour
         if (other.CompareTag("Player") && Input.GetKey(KeyCode.E))
         {
             HUD.SetActive(false);
+            HUDReal.thing.SetActive(false);
             Cursor.lockState = CursorLockMode.None;
             Cursor.visible = true;
             marketPanel.MarketPanel.SetActive(true);
@@ -38,7 +41,6 @@ public class ComputerSafeZone : MonoBehaviour
         if (other.CompareTag("Player"))
         {
             EpickUp.PickUp.SetActive(false);
-
         }
     }
 }

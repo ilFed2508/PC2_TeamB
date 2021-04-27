@@ -8,13 +8,15 @@ public class MarketShopMenù : MonoBehaviour
     public GameObject marketPanel;   
     private SlideManager slideScript;
     public GameObject SlideButton;
-    public GameObject HUD, CrossHair;
+    public DetectedActDeact HUD;
+    public GameObject CrossHair;
 
 
 
     void Start()
     {
         slideScript = FindObjectOfType<SlideManager>();
+        HUD = GameObject.Find("HUD").GetComponent<DetectedActDeact>();
     }
 
     
@@ -31,7 +33,7 @@ public class MarketShopMenù : MonoBehaviour
     public void Exit()
     {
         CrossHair.SetActive(true);
-        HUD.SetActive(true);
+        HUD.thing.SetActive(true);
         Time.timeScale = 1;        
         marketPanel.SetActive(false);
         Cursor.lockState = CursorLockMode.Locked;
