@@ -34,7 +34,10 @@ public class RangedWeapon : MonoBehaviour
     public Shooting ShootingType;
 
 
-
+    //Variabili prova per seconda canna Da ELIMINARE
+    public Transform GunBarrel2;
+    public GameObject WeaponBulletPrefab2;
+    //----------------------------------------------
 
     /// <summary>
     /// Calculate the hit Damage of the weapon after a Range
