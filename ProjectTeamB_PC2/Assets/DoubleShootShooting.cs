@@ -2,44 +2,40 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class SingleShotShooting : Shooting
+public class DoubleShootShooting : Shooting
 {
-    //Luca
+   
     public CameraShake.Properties testProperties;
 
     public GameObject Flash;
-    
-    public Transform Parent;
-    
+    public GameObject Flash2;
 
-    //Da eliminare più avanti
+    public Transform Parent;
+    public Transform Parent2;
+
+    
     private Animator anim;
-    //-------------------------
+    
 
     private void Start()
     {
-        //Da eliminare più avanti
+        
         anim = GetComponent<Animator>();
-        //-----------------------
+        
     }
     public override void ShootingAction(RangedWeapon currentWeapon)
     {
-        if(CanWeaponShoot == true && currentWeapon.CurrentAmmo > 0)
+        if (CanWeaponShoot == true && currentWeapon.CurrentAmmo > 0)
         {
             Shoot(currentWeapon);
             currentWeapon.CurrentAmmo -= 1;
             StartCoroutine(WaitShotCooldown(ShotCooldown));
-        }
-        //else
-        //{
-        //    //luca da eliminare
-        //    anim.SetBool("Shoot", false);
-        //}
+        }      
     }
 
     public override void Shoot(RangedWeapon currentWeapon)
     {
-        
+
         Ray ray = Camera.main.ViewportPointToRay(new Vector3(0.5f, 0.5f, 0));
         RaycastHit hit;
 
@@ -52,23 +48,32 @@ public class SingleShotShooting : Shooting
             ShootingTargetPoint = ray.GetPoint(80);
         }
 
-        
+
 
         Vector3 ShootingDirection = ShootingTargetPoint - currentWeapon.GunBarrel.position;
 
         FindObjectOfType<CameraShake>().StartShake(testProperties);
 
-        GameObject BulletInstance = Instantiate(currentWeapon.WeaponBulletPrefab , currentWeapon.GunBarrel.position, Quaternion.identity);
+        GameObject BulletInstance = Instantiate(currentWeapon.WeaponBulletPrefab, currentWeapon.GunBarrel.position, Quaternion.identity);
 
-        BulletInstance.transform.forward = ShootingDirection.normalized;       
+        BulletInstance.transform.forward = ShootingDirection.normalized;
 
         BulletInstance.GetComponent<Rigidbody>().AddForce(ShootingDirection.normalized * currentWeapon.weaponData.ShootingForce, ForceMode.Impulse);
-        
+
         //da giù in poi Da eliminare 
         Instantiate(Flash, Parent);
         //Da eliminare più avanti
         anim.Play("ShootAR(Def)");
         anim.SetBool("Shoot", true);
+
+        Vector3 ShootingDirection2 = ShootingTargetPoint - currentWeapon.GunBarrel2.position;
+
+        GameObject BulletInstance2 = Instantiate(currentWeapon.WeaponBulletPrefab2, currentWeapon.GunBarrel2.position, Quaternion.identity);
+
+        BulletInstance2.transform.forward = ShootingDirection.normalized;
+
+        BulletInstance2.GetComponent<Rigidbody>().AddForce(ShootingDirection.normalized * currentWeapon.weaponData.ShootingForce, ForceMode.Impulse);
+        //Luca
     }
 
     public override void AIShoot(RangedWeapon currentWeapon)
@@ -90,9 +95,9 @@ public class SingleShotShooting : Shooting
     public override IEnumerator AIShootCoroutine(RangedWeapon currentWeapon, EnemyBase enemy)
     {
         while (true)
-        {            
+        {
             yield return new WaitForSeconds(ShotCooldown);
-            
+
             if (enemy.EnableShooting() == true)
             {
                 AIShoot(currentWeapon);

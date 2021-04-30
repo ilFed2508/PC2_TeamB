@@ -18,6 +18,8 @@ public class PlayerController : MonoBehaviour
     //image "E" pick up - joe
     public GameObject PickUp;
 
+	public Transform WeaponSlotAkimbo;
+
 	void Start()
 	{
 		Time.timeScale = 1f;
