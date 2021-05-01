@@ -42,12 +42,12 @@ public class SingleShotShooting : Shooting
 
     public override void Shoot(RangedWeapon currentWeapon)
     {
-        int layer_mask = LayerMask.GetMask("Player");
+        
 
         Ray ray = Camera.main.ViewportPointToRay(new Vector3(0.5f, 0.5f, 0));
         RaycastHit hit;
 
-        if (Physics.Raycast(ray, out hit, layer_mask))
+        if (Physics.Raycast(ray, out hit))
         {
             ShootingTargetPoint = hit.point;
         }

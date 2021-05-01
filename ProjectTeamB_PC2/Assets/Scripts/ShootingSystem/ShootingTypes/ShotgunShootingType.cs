@@ -42,12 +42,12 @@ public class ShotgunShootingType : Shooting
     {
         for (int palletsShot = 0; palletsShot < PalletShotNumber; palletsShot++)
         {
-            int layer_mask = LayerMask.GetMask("Player");
+            
             Vector2 randomBloom = new Vector2(GetRandomBloomValue(Bloom), GetRandomBloomValue(Bloom));
 
             Ray ray = Camera.main.ViewportPointToRay(new Vector3(randomBloom.x, randomBloom.y, 0));
 
-            if (Physics.Raycast(ray, out RaycastHit hit,layer_mask))
+            if (Physics.Raycast(ray, out RaycastHit hit))
             {
                 ShootingTargetPoint = hit.point;
             }
