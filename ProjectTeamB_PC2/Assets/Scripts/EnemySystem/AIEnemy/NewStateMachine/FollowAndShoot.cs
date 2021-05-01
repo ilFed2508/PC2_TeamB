@@ -20,7 +20,7 @@ public class FollowAndShoot : IState
     {        
         _enemyType2.WatchPlayer();
 
-        _enemyType2.UpdateFollow();     
+        _enemyType2.UpdateFollow();
     }
 
     public void OnExit()

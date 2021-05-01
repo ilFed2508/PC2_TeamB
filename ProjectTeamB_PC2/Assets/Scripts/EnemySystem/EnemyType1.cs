@@ -40,7 +40,7 @@ public class EnemyType1 : EnemyBase
         var ZigZag = new ZigZagMovement(this);
 
         //add transition between state
-        AddTransition(Sight, Shoot, SpottedPlayer());
+        AddTransition(Sight, ZigZag, SpottedPlayer());
         AddTransition(Shoot, ZigZag, HasShooted());
         AddTransition(ZigZag, Shoot, ReachedNextPoint());
 
