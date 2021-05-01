@@ -10,6 +10,7 @@ public class SingleShotShooting : Shooting
     public GameObject Flash;
     
     public Transform Parent;
+
     
 
     //Da eliminare più avanti
@@ -18,12 +19,14 @@ public class SingleShotShooting : Shooting
 
     private void Start()
     {
+        
         //Da eliminare più avanti
         anim = GetComponent<Animator>();
         //-----------------------
     }
     public override void ShootingAction(RangedWeapon currentWeapon)
     {
+
         if(CanWeaponShoot == true && currentWeapon.CurrentAmmo > 0)
         {
             Shoot(currentWeapon);
@@ -39,11 +42,12 @@ public class SingleShotShooting : Shooting
 
     public override void Shoot(RangedWeapon currentWeapon)
     {
-        
+        int layer_mask = LayerMask.GetMask("Player");
+
         Ray ray = Camera.main.ViewportPointToRay(new Vector3(0.5f, 0.5f, 0));
         RaycastHit hit;
 
-        if (Physics.Raycast(ray, out hit))
+        if (Physics.Raycast(ray, out hit, layer_mask))
         {
             ShootingTargetPoint = hit.point;
         }

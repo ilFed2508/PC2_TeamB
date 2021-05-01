@@ -41,9 +41,10 @@ public class BurstShootingType : Shooting
 
     public override void Shoot(RangedWeapon currentWeapon)
     {
+        int layer_mask = LayerMask.GetMask("Player");
         Ray ray = Camera.main.ViewportPointToRay(new Vector3(0.5f, 0.5f, 0));
 
-        if (Physics.Raycast(ray, out RaycastHit hit))
+        if (Physics.Raycast(ray, out RaycastHit hit, layer_mask))
         {
             ShootingTargetPoint = hit.point;
         }
