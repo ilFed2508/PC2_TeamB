@@ -11,6 +11,8 @@ public class SingleShotShooting : Shooting
     
     public Transform Parent;
 
+    public string Suono;
+
     
 
     //Da eliminare più avanti
@@ -63,6 +65,9 @@ public class SingleShotShooting : Shooting
         FindObjectOfType<CameraShake>().StartShake(testProperties);
 
         GameObject BulletInstance = Instantiate(currentWeapon.WeaponBulletPrefab , currentWeapon.GunBarrel.position, Quaternion.identity);
+
+        //Audio Luca
+        AudioManager.instance.Play(Suono);
 
         BulletInstance.transform.forward = ShootingDirection.normalized;       
 

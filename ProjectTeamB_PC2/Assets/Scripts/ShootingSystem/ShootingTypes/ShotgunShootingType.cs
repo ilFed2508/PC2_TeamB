@@ -19,6 +19,7 @@ public class ShotgunShootingType : Shooting
     public Animator Pompa;
     public GameObject Flash;
     public Transform Parent;
+    public string Suono;
 
 
 
@@ -58,6 +59,7 @@ public class ShotgunShootingType : Shooting
 
             Vector3 ShootingDirection = ShootingTargetPoint - currentWeapon.GunBarrel.position;
 
+            AudioManager.instance.Play(Suono);
             GameObject BulletInstance = Instantiate(currentWeapon.WeaponBulletPrefab, currentWeapon.GunBarrel.position, Quaternion.identity);
 
             BulletInstance.transform.forward = ShootingDirection.normalized;

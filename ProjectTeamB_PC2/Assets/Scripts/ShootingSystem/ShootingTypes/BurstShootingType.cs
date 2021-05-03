@@ -17,6 +17,7 @@ public class BurstShootingType : Shooting
     public CameraShake.Properties testProperties;
     public GameObject Flash;
     public Transform Parent;
+    public string Suono;
 
 
     //Da eliminare più avanti
