@@ -17,7 +17,10 @@ public class EnemyBase : MonoBehaviour
 
     //enemy life bar - Joe
     public Slider EnemyLifeBar;
+    public Slider EnemyLifeBar2;
     public float CurrentHP;
+    public float HpSmooth;
+    public float TimeLateCall;
 
     // Start is called before the first frame update
     void Start()
@@ -25,7 +28,7 @@ public class EnemyBase : MonoBehaviour
         //picking reference
         Player = FindObjectOfType<PlayerController>();
         MyWeapon = GetComponent<RangedWeapon>();
-
+        CurrentHP = HP;
         StartCoroutine(ImageFeed());
 
         //shoot
@@ -36,9 +39,10 @@ public class EnemyBase : MonoBehaviour
     void Update()
     {
         WatchPlayer();
-
         //enemy life bar - Joe
-        EnemyLifeBar.value = HP;
+        EnemyLifeBar2.value = CurrentHP * 10;
+        Invoke("LateCall", TimeLateCall);
+
     }
         
     /// <summary>
@@ -83,10 +87,9 @@ public class EnemyBase : MonoBehaviour
     /// </summary>
     public void DamageEnemy()
     {
-        HP -= Player.playerShooting.CurrentRagedWeapon.weaponData.Damage;
-
+        HP -= Player.playerShooting.CurrentRagedWeapon.weaponData.Damage;        
         //enemy life bar - Joe
-        EnemyLifeBar.value = HP;
+        EnemyLifeBar.value = HP * 10;        
     }
 
     /// <summary>
@@ -153,4 +156,11 @@ public class EnemyBase : MonoBehaviour
         RedEye.enabled = false;
         Attention.enabled = true;
     }
+
+    public void LateCall()
+    {            
+        CurrentHP = Mathf.Lerp(CurrentHP, HP, Time.deltaTime * HpSmooth);
+    }
+
+   
 }
