@@ -22,6 +22,9 @@ public class EnemyBase : MonoBehaviour
     public float HpSmooth;
     public float TimeLateCall;
 
+    //Animazioni
+    public Animator EnemyAnim;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -30,6 +33,9 @@ public class EnemyBase : MonoBehaviour
         MyWeapon = GetComponent<RangedWeapon>();
         CurrentHP = HP;
         StartCoroutine(ImageFeed());
+
+        
+        EnemyAnim = GameObject.Find("Droni_vivande").GetComponent<Animator>();
 
         //shoot
         StartCoroutine(MyWeapon.ShootingType.AIShootCoroutine(MyWeapon, this));
@@ -87,7 +93,9 @@ public class EnemyBase : MonoBehaviour
     /// </summary>
     public void DamageEnemy()
     {
-        HP -= Player.playerShooting.CurrentRagedWeapon.weaponData.Damage;        
+        HP -= Player.playerShooting.CurrentRagedWeapon.weaponData.Damage;
+
+        EnemyAnim.SetBool("Hit",true);
         //enemy life bar - Joe
         EnemyLifeBar.value = HP * 10;        
     }
@@ -161,6 +169,8 @@ public class EnemyBase : MonoBehaviour
     {            
         CurrentHP = Mathf.Lerp(CurrentHP, HP, Time.deltaTime * HpSmooth);
     }
+
+    
 
    
 }
