@@ -64,6 +64,9 @@ public class BurstShootingType : Shooting
 
         BulletInstance.GetComponent<Rigidbody>().AddForce(ShootingDirection.normalized * currentWeapon.weaponData.ShootingForce, ForceMode.Impulse);
 
+        //Audio Luca
+        AudioManager.instance.Play(Suono);
+
         //Shake Luca
         FindObjectOfType<CameraShake>().StartShake(testProperties);
         

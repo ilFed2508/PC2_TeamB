@@ -35,11 +35,7 @@ public class SingleShotShooting : Shooting
             currentWeapon.CurrentAmmo -= 1;
             StartCoroutine(WaitShotCooldown(ShotCooldown));
         }
-        //else
-        //{
-        //    //luca da eliminare
-        //    anim.SetBool("Shoot", false);
-        //}
+        
     }
 
     public override void Shoot(RangedWeapon currentWeapon)
@@ -57,27 +53,27 @@ public class SingleShotShooting : Shooting
         {
             ShootingTargetPoint = ray.GetPoint(80);
         }
-
-        
-
+     
         Vector3 ShootingDirection = ShootingTargetPoint - currentWeapon.GunBarrel.position;
 
         FindObjectOfType<CameraShake>().StartShake(testProperties);
 
-        GameObject BulletInstance = Instantiate(currentWeapon.WeaponBulletPrefab , currentWeapon.GunBarrel.position, Quaternion.identity);
-
-        //Audio Luca
-        AudioManager.instance.Play(Suono);
+        GameObject BulletInstance = Instantiate(currentWeapon.WeaponBulletPrefab , currentWeapon.GunBarrel.position, Quaternion.identity);       
 
         BulletInstance.transform.forward = ShootingDirection.normalized;       
 
         BulletInstance.GetComponent<Rigidbody>().AddForce(ShootingDirection.normalized * currentWeapon.weaponData.ShootingForce, ForceMode.Impulse);
-        
+
+       
+
         //da giù in poi Da eliminare 
         Instantiate(Flash, Parent);
         //Da eliminare più avanti
         anim.Play("ShootAR(Def)");
         anim.SetBool("Shoot", true);
+
+        //Audio Luca
+        AudioManager.instance.Play(Suono);
     }
 
     public override void AIShoot(RangedWeapon currentWeapon)
