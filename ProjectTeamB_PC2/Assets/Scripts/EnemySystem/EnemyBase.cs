@@ -23,7 +23,7 @@ public class EnemyBase : MonoBehaviour
     public float TimeLateCall;
 
     //Animazioni
-    public Animator EnemyAnim;
+    //public Animator EnemyAnim;
 
     // Start is called before the first frame update
     void Start()
@@ -35,7 +35,7 @@ public class EnemyBase : MonoBehaviour
         StartCoroutine(ImageFeed());
 
         
-        EnemyAnim = GameObject.Find("Droni_vivande").GetComponent<Animator>();
+        //EnemyAnim = GameObject.Find("Droni_vivande").GetComponent<Animator>();
 
         //shoot
         StartCoroutine(MyWeapon.ShootingType.AIShootCoroutine(MyWeapon, this));
@@ -95,7 +95,7 @@ public class EnemyBase : MonoBehaviour
     {
         HP -= Player.playerShooting.CurrentRagedWeapon.weaponData.Damage;
 
-        EnemyAnim.SetBool("Hit",true);
+        //EnemyAnim.SetBool("Hit",true);
         //enemy life bar - Joe
         EnemyLifeBar.value = HP * 10;        
     }
