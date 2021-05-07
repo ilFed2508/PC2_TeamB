@@ -4,8 +4,7 @@ using UnityEngine;
 
 public class Closecamera_Safe : MonoBehaviour
 {
-    public GameObject cameraSafe;
-    private GameObject Player;
+    public GameObject cameraSafe, Player;
 
     public void Start()
     {
@@ -14,7 +13,6 @@ public class Closecamera_Safe : MonoBehaviour
 
     public void CloseCamera()
     {
-        
         Player.SetActive(true);
         cameraSafe.SetActive(false);
         Cursor.lockState = CursorLockMode.Locked;

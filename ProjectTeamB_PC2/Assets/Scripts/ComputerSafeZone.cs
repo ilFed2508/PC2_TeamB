@@ -8,9 +8,8 @@ public class ComputerSafeZone : MonoBehaviour
     
     private PlayerController EpickUp;
     private SlideManager marketPanel;
-    public GameObject HUD;
+    public GameObject HUD, cameraSafe, powerUP, leaderBoard;
     public DetectedActDeact HUDReal;
-    public GameObject cameraSafe;
 
     void Update()
     {
@@ -32,6 +31,8 @@ public class ComputerSafeZone : MonoBehaviour
         {
             
             other.gameObject.SetActive(false);
+            powerUP.SetActive(true);
+            leaderBoard.SetActive(true);
             cameraSafe.SetActive(true);
             //HUD.SetActive(false);
             //HUDReal.thing.SetActive(false);
@@ -41,7 +42,15 @@ public class ComputerSafeZone : MonoBehaviour
             EpickUp.PickUp.SetActive(false);
             //Time.timeScale = 0f;           
         }
+
+        else
+
+        {
+            powerUP.SetActive(false);
+            leaderBoard.SetActive(false);
+        }
     }
+
     private void OnTriggerExit(Collider other)
     {
         if (other.CompareTag("Player"))
