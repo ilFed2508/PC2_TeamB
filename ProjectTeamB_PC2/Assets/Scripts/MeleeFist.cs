@@ -5,6 +5,8 @@ using UnityEngine;
 public class MeleeFist : MonoBehaviour
 {
     public ParticleSystem Particle;
+    public string HitKill;
+
     private void OnTriggerEnter(Collider other)
     {
         if (other.CompareTag("Enemy"))
@@ -20,6 +22,7 @@ public class MeleeFist : MonoBehaviour
             {
                 other.gameObject.GetComponent<WeaponDrop>().DropWeapon();
                 Enemy.PlayerHealOnDeath();
+                AudioManager.instance.Play(HitKill);
                 Destroy(other.gameObject);
             }
 

@@ -19,6 +19,10 @@ public class MeleePercentuale : MonoBehaviour
 
     public CameraShake.Properties testProperties;
 
+    public string Suono;
+
+    
+
 
 
     public void Start()
@@ -38,6 +42,7 @@ public class MeleePercentuale : MonoBehaviour
         {
             //Player.Move(impact * mass * Time.deltaTime);
             WeaponSlot.Play("Melee-WeaponSlot");
+            AudioManager.instance.Play(Suono);
             playerController.Melee.gameObject.SetActive(true);
             FindObjectOfType<CameraShake>().StartShake(testProperties);
             StartCoroutine(LateCall());

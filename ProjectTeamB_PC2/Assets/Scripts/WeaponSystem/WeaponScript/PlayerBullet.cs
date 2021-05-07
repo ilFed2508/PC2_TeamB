@@ -10,6 +10,7 @@ public class PlayerBullet : MonoBehaviour
 
     public string Hit;
     public string HitKill;
+    public string SFXBullet;
 
 
     // Update is called once per frame
@@ -17,6 +18,7 @@ public class PlayerBullet : MonoBehaviour
     {
         playerC = GameObject.Find("HitContainer").GetComponent<HitmarkerFather>();
         Destroy(this.gameObject, 3f);
+        AudioManager.instance.Play(SFXBullet);
     }
 
   
