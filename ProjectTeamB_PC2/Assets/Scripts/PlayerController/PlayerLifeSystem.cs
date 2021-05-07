@@ -41,7 +41,7 @@ public class PlayerLifeSystem : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        PlayerCurrentHP = PlayerCurrentHP;
+        //PlayerCurrentHP = PlayerCurrentHP;
     }
 
     /// <summary>
