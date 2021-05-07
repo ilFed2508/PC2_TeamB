@@ -14,7 +14,10 @@ public class Closecamera_Safe : MonoBehaviour
 
     public void CloseCamera()
     {
-        //cameraSafe.SetActive(false);
+        
         Player.SetActive(true);
+        cameraSafe.SetActive(false);
+        Cursor.lockState = CursorLockMode.Locked;
+        Cursor.visible = false;
     }
 }

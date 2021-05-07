@@ -2338,6 +2338,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   HUD: {fileID: 0}
   HUDReal: {fileID: 0}
+  cameraSafe: {fileID: 0}
 --- !u!1 &3533070485620995597
 GameObject:
   m_ObjectHideFlags: 0
@@ -3562,7 +3563,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d0db27708d917184dab94843c3726f26, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  cameraSafe: {fileID: 2981401582966604768}
+  cameraSafe: {fileID: 6324518579958722924}
 --- !u!1 &5266162368430950432
 GameObject:
   m_ObjectHideFlags: 0
@@ -3971,7 +3972,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &5800757166876541441
 Transform:
   m_ObjectHideFlags: 0
@@ -4149,8 +4150,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   mapIn: {fileID: 0}
   mapOut: {fileID: 0}
-  safeIn: {fileID: 0}
-  safeOut: {fileID: 0}
   recoverdLife: 0
   checkpoint: 0
 --- !u!1 &6565462996157925093
@@ -15662,6 +15661,11 @@ PrefabInstance:
       propertyPath: m_Layer
       value: 8
       objectReference: {fileID: 0}
+    - target: {fileID: 1974683410491132764, guid: 8ac13547c02d8804ba4763c1d5b46671,
+        type: 3}
+      propertyPath: cameraSafe
+      value: 
+      objectReference: {fileID: 6324518579958722924}
     - target: {fileID: 2384105825294144137, guid: 8ac13547c02d8804ba4763c1d5b46671,
         type: 3}
       propertyPath: m_Size.y
