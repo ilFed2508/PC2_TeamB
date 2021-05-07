@@ -4,7 +4,10 @@ using UnityEngine;
 
 public class SafeZone : MonoBehaviour
 {
-    public GameObject mapIn, mapOut;
+    [Header("Maps")]
+    public GameObject mapIn;
+    public GameObject mapOut;
+    [Header("Other Things")]
     public float recoverdLife;
     public int checkpoint;
 
@@ -27,8 +30,8 @@ public class SafeZone : MonoBehaviour
     {
         if (other.CompareTag("Player"))
         {
-            mapIn.SetActive(false);
             mapOut.SetActive(true);
+            mapIn.SetActive(false);
             PlayerPrefs.SetInt("Checkpoint", checkpoint);
         }
     }
