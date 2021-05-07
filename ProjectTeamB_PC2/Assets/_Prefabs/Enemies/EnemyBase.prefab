@@ -368,6 +368,85 @@ Transform:
   m_Father: {fileID: 7670501483243815286}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &3137514419208276228
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 2776205410051461047}
+  - component: {fileID: 8634466354266662385}
+  - component: {fileID: 4735968189404113230}
+  m_Layer: 0
+  m_Name: Drone(Shader)
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 0
+--- !u!4 &2776205410051461047
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3137514419208276228}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: -0.026917234}
+  m_LocalScale: {x: 1.1, y: 1.1, z: 1.1}
+  m_Children: []
+  m_Father: {fileID: 5754055081783935586}
+  m_RootOrder: 4
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!33 &8634466354266662385
+MeshFilter:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3137514419208276228}
+  m_Mesh: {fileID: 6584344559913423150, guid: 056a8a8c03a0af242944d4920591e7c8, type: 3}
+--- !u!23 &4735968189404113230
+MeshRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3137514419208276228}
+  m_Enabled: 1
+  m_CastShadows: 1
+  m_ReceiveShadows: 1
+  m_DynamicOccludee: 1
+  m_MotionVectors: 1
+  m_LightProbeUsage: 1
+  m_ReflectionProbeUsage: 1
+  m_RayTracingMode: 2
+  m_RenderingLayerMask: 1
+  m_RendererPriority: 0
+  m_Materials:
+  - {fileID: 2100000, guid: dccafc16f8c058740b8c986c716565cf, type: 2}
+  m_StaticBatchInfo:
+    firstSubMesh: 0
+    subMeshCount: 0
+  m_StaticBatchRoot: {fileID: 0}
+  m_ProbeAnchor: {fileID: 0}
+  m_LightProbeVolumeOverride: {fileID: 0}
+  m_ScaleInLightmap: 1
+  m_ReceiveGI: 1
+  m_PreserveUVs: 0
+  m_IgnoreNormalsForChartDetection: 0
+  m_ImportantGI: 0
+  m_StitchLightmapSeams: 1
+  m_SelectedEditorRenderState: 3
+  m_MinimumChartSize: 4
+  m_AutoUVMaxDistance: 0.5
+  m_AutoUVMaxAngle: 89
+  m_LightmapParameters: {fileID: 0}
+  m_SortingLayerID: 0
+  m_SortingLayer: 0
+  m_SortingOrder: 0
 --- !u!1 &3226942456183872767
 GameObject:
   m_ObjectHideFlags: 0
@@ -631,6 +710,7 @@ Transform:
   - {fileID: 3182458183427139870}
   - {fileID: 5631254087984482350}
   - {fileID: 1606073705566670060}
+  - {fileID: 2776205410051461047}
   m_Father: {fileID: 9217478120985660318}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -1000,7 +1080,8 @@ MonoBehaviour:
   CurrentHP: 0
   HpSmooth: 3
   TimeLateCall: 0
-  EnemyAnim: {fileID: 0}
+  EnemyAnim: {fileID: 5698417856281991519}
+  Animazione: Hit
 --- !u!95 &4910829534421276227
 Animator:
   serializedVersion: 3
@@ -1109,7 +1190,7 @@ GameObject:
   m_Component:
   - component: {fileID: 9217478120985660318}
   - component: {fileID: 5698417856281991519}
-  - component: {fileID: 703821143380027080}
+  - component: {fileID: 4746493712278135741}
   m_Layer: 0
   m_Name: Droni_vivande
   m_TagString: Untagged
@@ -1151,7 +1232,7 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
---- !u!114 &703821143380027080
+--- !u!114 &4746493712278135741
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}

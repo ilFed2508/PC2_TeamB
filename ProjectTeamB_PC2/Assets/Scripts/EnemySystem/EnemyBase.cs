@@ -23,7 +23,8 @@ public class EnemyBase : MonoBehaviour
     public float TimeLateCall;
 
     //Animazioni
-    //public Animator EnemyAnim;
+    public Animator EnemyAnim;
+    public string Animazione;
 
     // Start is called before the first frame update
     void Start()
@@ -93,11 +94,10 @@ public class EnemyBase : MonoBehaviour
     /// </summary>
     public void DamageEnemy()
     {
-        HP -= Player.playerShooting.CurrentRagedWeapon.weaponData.Damage;
-
-        //EnemyAnim.SetBool("Hit",true);
+        HP -= Player.playerShooting.CurrentRagedWeapon.weaponData.Damage;           
         //enemy life bar - Joe
-        EnemyLifeBar.value = HP * 10;        
+        EnemyLifeBar.value = HP * 10;
+        EnemyAnim.SetBool(Animazione, true);
     }
 
     /// <summary>
