@@ -10,6 +10,9 @@ public class OpenDoor : MonoBehaviour
 
     private bool isOpen;
 
+    public string SuonoApertura;
+    public string SuonoChiusura;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -34,6 +37,7 @@ public class OpenDoor : MonoBehaviour
         if (other.gameObject.CompareTag("Player"))
         {
             isOpen = true;
+            AudioManager.instance.Play(SuonoApertura);
         }
         
     }
@@ -43,6 +47,7 @@ public class OpenDoor : MonoBehaviour
         if (other.gameObject.CompareTag("Player"))
         {
             isOpen = false;
+            AudioManager.instance.Play(SuonoChiusura);
         }
     }
 }
