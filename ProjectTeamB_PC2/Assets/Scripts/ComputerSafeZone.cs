@@ -10,8 +10,11 @@ public class ComputerSafeZone : MonoBehaviour
     private SlideManager marketPanel;
     public GameObject HUD;
     public DetectedActDeact HUDReal;
+    private GameObject cameraSafe;
+
     void Update()
     {
+        cameraSafe = GameObject.Find("Camera_SafeZone");
         HUD = GameObject.Find("WeaponSlot");
         HUDReal = GameObject.Find("HUD").GetComponent<DetectedActDeact>();
         EpickUp = FindObjectOfType<PlayerController>();
@@ -27,13 +30,15 @@ public class ComputerSafeZone : MonoBehaviour
         }
         if (other.CompareTag("Player") && Input.GetKey(KeyCode.E))
         {
-            HUD.SetActive(false);
-            HUDReal.thing.SetActive(false);
+            //cameraSafe.SetActive(true);
+            other.gameObject.SetActive(false);
+            //HUD.SetActive(false);
+            //HUDReal.thing.SetActive(false);
             Cursor.lockState = CursorLockMode.None;
             Cursor.visible = true;
-            marketPanel.MarketPanel.SetActive(true);
+            //marketPanel.MarketPanel.SetActive(true);
             EpickUp.PickUp.SetActive(false);
-            Time.timeScale = 0f;           
+            //Time.timeScale = 0f;           
         }
     }
     private void OnTriggerExit(Collider other)
