@@ -8,11 +8,17 @@ public class PlayerBullet : MonoBehaviour
 
     private HitmarkerFather playerC;
 
+    public string Hit;
+    public string HitKill;
+    public string SFXBullet;
+
+
     // Update is called once per frame
     void Start()
     {
         playerC = GameObject.Find("HitContainer").GetComponent<HitmarkerFather>();
         Destroy(this.gameObject, 3f);
+        AudioManager.instance.Play(SFXBullet);
     }
 
   
@@ -23,6 +29,7 @@ public class PlayerBullet : MonoBehaviour
         {
             Vector3 spawnPos = new Vector3(gameObject.transform.position.x, gameObject.transform.position.y, gameObject.transform.position.z);
             playerC.hit.SetActive(true);
+            AudioManager.instance.Play(Hit);
             EnemyBase Enemy = other.gameObject.GetComponentInChildren<EnemyBase>();
 
             Enemy.DamageEnemy();
@@ -33,6 +40,7 @@ public class PlayerBullet : MonoBehaviour
                 other.gameObject.GetComponent<WeaponDrop>().DropWeapon();
                 Enemy.PlayerHealOnDeath();
                 Destroy(other.gameObject);
+                AudioManager.instance.Play(HitKill);
                 playerC.hitDeath.SetActive(true);
                 playerC.hitPanel.SetActive(true);
             }

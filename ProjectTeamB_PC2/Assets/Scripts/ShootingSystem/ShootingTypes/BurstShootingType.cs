@@ -17,6 +17,7 @@ public class BurstShootingType : Shooting
     public CameraShake.Properties testProperties;
     public GameObject Flash;
     public Transform Parent;
+    public string Suono;
 
 
     //Da eliminare più avanti
@@ -62,6 +63,9 @@ public class BurstShootingType : Shooting
         anim.SetBool("Sparo",true);
 
         BulletInstance.GetComponent<Rigidbody>().AddForce(ShootingDirection.normalized * currentWeapon.weaponData.ShootingForce, ForceMode.Impulse);
+
+        //Audio Luca
+        AudioManager.instance.Play(Suono);
 
         //Shake Luca
         FindObjectOfType<CameraShake>().StartShake(testProperties);
