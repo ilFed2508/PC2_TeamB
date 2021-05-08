@@ -4,16 +4,17 @@ using UnityEngine;
 
 public class Closecamera_Safe : MonoBehaviour
 {
-    public GameObject cameraSafe, Player;
+    public GameObject cameraSafe;
 
+    private PorcaTroiaProviamo Player;
     public void Start()
     {
-        Player = GameObject.FindGameObjectWithTag("Player");
+        Player = GameObject.Find("QuellaTroia").GetComponent<PorcaTroiaProviamo>();
     }
 
     public void CloseCamera()
     {
-        Player.SetActive(true);
+        Player.Player.SetActive(true);
         cameraSafe.SetActive(false);
         Cursor.lockState = CursorLockMode.Locked;
         Cursor.visible = false;

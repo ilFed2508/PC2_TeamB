@@ -13,7 +13,7 @@ public class PlayerController : MonoBehaviour
 	public Transform WeaponSlot;
 	public Text UIPickup;
 	public GameObject Melee;
-	
+	public GameObject Player;
 
     //image "E" pick up - joe
     public GameObject PickUp;
