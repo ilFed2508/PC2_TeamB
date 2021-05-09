@@ -5,7 +5,7 @@ using UnityEngine;
 public class EnemiesTrigger : MonoBehaviour
 {
     private DetectedActDeact end, hud;
-    private GameObject guns, hitContainer, ePickUp;
+    private GameObject guns, hitContainer, ePickUp, pausePanel, deathPanel, HUD;
    
 
     // Start is called before the first frame update
@@ -16,7 +16,9 @@ public class EnemiesTrigger : MonoBehaviour
         guns = GameObject.Find("WeaponSlot");
         hitContainer = GameObject.Find("HitContainer");
         ePickUp = GameObject.Find("E-Pickup");
-
+        pausePanel = GameObject.Find("Pause Panel");
+        deathPanel = GameObject.Find("DeathPanel");
+        HUD = GameObject.Find("HUD");
     }
 
     // Update is called once per frame
@@ -29,14 +31,19 @@ public class EnemiesTrigger : MonoBehaviour
     {
         if (other.CompareTag("Player"))
         {
+            Destroy(pausePanel);
+            Destroy(deathPanel);
+            Destroy(HUD);
+            Destroy(hitContainer);
+            Destroy(guns);
             end.thing.SetActive(true);
-            hud.thing.SetActive(false);
-            guns.SetActive(false);
-            hitContainer.SetActive(false);
-            ePickUp.SetActive(false);
             Time.timeScale = 0;
             Cursor.lockState = CursorLockMode.None;
             Cursor.visible = true;
+            hud.thing.SetActive(false);
+            //guns.SetActive(false);
+            //hitContainer.SetActive(false);
+            ePickUp.SetActive(false);
         }
     }
 }
