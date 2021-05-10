@@ -22,11 +22,11 @@ public class PauseMenu : MonoBehaviour
         {
             if (IsStopped == false)
             {
+                Cursor.lockState = CursorLockMode.None;
+                Cursor.visible = true;
                 Time.timeScale = 0;
                 PauseMenuPanel.SetActive(true);
                 IsStopped = true;
-                Cursor.lockState = CursorLockMode.None;
-                Cursor.visible = true;
 
                 HUD.SetActive(false);
                 CrossHair.SetActive(false);
@@ -35,7 +35,7 @@ public class PauseMenu : MonoBehaviour
             }
             else
             {
-                ResumeGame();
+                    ResumeGame();
             }
         }
     }
@@ -50,7 +50,6 @@ public class PauseMenu : MonoBehaviour
 
         HUD.SetActive(true);
         CrossHair.SetActive(true);
-        
     }
     public void BackToMenu()
     {

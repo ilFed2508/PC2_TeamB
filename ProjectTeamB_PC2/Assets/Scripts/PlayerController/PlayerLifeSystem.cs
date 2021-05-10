@@ -35,13 +35,13 @@ public class PlayerLifeSystem : MonoBehaviour
     //Warning Image_Animation - Joe
     public Image Warning;
 
-    public GameObject HUD, WarningDeactiveted,WeaponSlots;
+    public GameObject HUD, WarningDeactiveted, WeaponSlots, EPickUP, HitContainer, PausePanel;
 
 
     // Start is called before the first frame update
     void Start()
     {
-        PlayerCurrentHP = PlayerCurrentHP;
+        //PlayerCurrentHP = PlayerCurrentHP;
     }
 
     /// <summary>
@@ -65,9 +65,14 @@ public class PlayerLifeSystem : MonoBehaviour
             Time.timeScale = 0;
             DeathPanel.SetActive(true);
 
-            HUD.SetActive(false);
+            //HUD.SetActive(false);
+            //PausePanel.SetActive(false);
+            Destroy(this.HUD);
+            Destroy(this.PausePanel);
             WeaponSlots.SetActive(false);
             WarningDeactiveted.SetActive(false);
+            EPickUP.SetActive(false);
+            HitContainer.SetActive(false);
         }
 
         //Warning Image_Animation - Joe

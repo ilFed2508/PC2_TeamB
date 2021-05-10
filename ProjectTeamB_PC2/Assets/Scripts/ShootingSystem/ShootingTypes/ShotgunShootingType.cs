@@ -19,6 +19,7 @@ public class ShotgunShootingType : Shooting
     public Animator Pompa;
     public GameObject Flash;
     public Transform Parent;
+    public string Suono;
 
 
 
@@ -42,7 +43,7 @@ public class ShotgunShootingType : Shooting
     {
         for (int palletsShot = 0; palletsShot < PalletShotNumber; palletsShot++)
         {
-                     
+            
             Vector2 randomBloom = new Vector2(GetRandomBloomValue(Bloom), GetRandomBloomValue(Bloom));
 
             Ray ray = Camera.main.ViewportPointToRay(new Vector3(randomBloom.x, randomBloom.y, 0));
@@ -58,6 +59,7 @@ public class ShotgunShootingType : Shooting
 
             Vector3 ShootingDirection = ShootingTargetPoint - currentWeapon.GunBarrel.position;
 
+            AudioManager.instance.Play(Suono);
             GameObject BulletInstance = Instantiate(currentWeapon.WeaponBulletPrefab, currentWeapon.GunBarrel.position, Quaternion.identity);
 
             BulletInstance.transform.forward = ShootingDirection.normalized;

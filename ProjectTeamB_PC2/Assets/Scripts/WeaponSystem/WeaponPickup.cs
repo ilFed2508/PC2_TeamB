@@ -14,6 +14,7 @@ public class WeaponPickup : MonoBehaviour
     private ComboManager combo;
     private Animator Camera;
     public float PlayerHpGain;
+    public string Suono;
     //--------------------------------------
 
     //image "E" pick up - joe
@@ -82,7 +83,7 @@ public class WeaponPickup : MonoBehaviour
         //da eliminare
         Camera.Play("SwitchWeapon");
         //------------------------------
-
+        AudioManager.instance.Play(Suono);
         //destroy current Weapon
         Destroy(playerController.playerShooting.CurrentRagedWeapon.gameObject);
         //instatiate new weapon at weapon Slot position
