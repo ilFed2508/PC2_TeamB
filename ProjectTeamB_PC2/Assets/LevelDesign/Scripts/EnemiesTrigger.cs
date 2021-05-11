@@ -16,7 +16,7 @@ public class EnemiesTrigger : MonoBehaviour
         guns = GameObject.Find("WeaponSlot");
         hitContainer = GameObject.Find("HitContainer");
         ePickUp = GameObject.Find("E-Pickup");
-        pausePanel = GameObject.Find("Pause Panel");
+        pausePanel = GameObject.Find("Main_PausePanel");
         deathPanel = GameObject.Find("DeathPanel");
         HUD = GameObject.Find("HUD");
     }
