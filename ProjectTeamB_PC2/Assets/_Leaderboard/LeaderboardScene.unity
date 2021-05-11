@@ -1587,7 +1587,6 @@ GameObject:
   - component: {fileID: 1887646214}
   - component: {fileID: 1887646215}
   - component: {fileID: 1887646216}
-  - component: {fileID: 1887646217}
   m_Layer: 0
   m_Name: Highscores
   m_TagString: Untagged
@@ -1644,19 +1643,6 @@ MonoBehaviour:
   - {fileID: 742626540}
   - {fileID: 1852277596}
   - {fileID: 1730625732}
---- !u!114 &1887646217
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1887646213}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: debde41b1afc03d4fb6340322118422e, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  myField: {fileID: 0}
 --- !u!1 &1981520992
 GameObject:
   m_ObjectHideFlags: 0
@@ -1786,7 +1772,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 2059507404}
-        m_MethodName: LeaderboardButton
+        m_MethodName: AddingScore
         m_Mode: 5
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -1854,7 +1840,7 @@ GameObject:
   - component: {fileID: 2059507405}
   - component: {fileID: 2059507404}
   m_Layer: 0
-  m_Name: ComeVuoiTu
+  m_Name: InputFieldManager
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1869,12 +1855,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 2059507403}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a76da0f2e7158ff4fb483be059b550ae, type: 3}
+  m_Script: {fileID: 11500000, guid: debde41b1afc03d4fb6340322118422e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  timerText: {fileID: 0}
-  iField: {fileID: 1984530270}
-  scriptRef: {fileID: 1887646213}
+  myField: {fileID: 1984530270}
 --- !u!4 &2059507405
 Transform:
   m_ObjectHideFlags: 0

@@ -7,15 +7,13 @@ public class AddHighscore : MonoBehaviour
 {
 
     public InputField myField;
-    private string user;
+    
 
-    public void AddingScore(string username) {
-
-        user = myField.text;
-        username = user;
+    public void AddingScore(string username) 
+    {
+        username = myField.text;
 
         Highscores.AddNewHighscore(username, 150000);
-
     }
 
 }
