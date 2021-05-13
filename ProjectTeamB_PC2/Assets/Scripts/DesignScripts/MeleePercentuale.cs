@@ -7,7 +7,7 @@ public class MeleePercentuale : MonoBehaviour
     
     
     private Animator WeaponSlot;
-    public Animator Melee;
+    private Animator Melee;
     public CameraShake.Properties testProperties;
     public string Suono;
 
@@ -18,7 +18,8 @@ public class MeleePercentuale : MonoBehaviour
     public void Start()
     {
         PossoMenare = true;
-        WeaponSlot = GameObject.Find("WeaponSlot").GetComponent<Animator>();              
+        WeaponSlot = GameObject.Find("WeaponSlot").GetComponent<Animator>();
+        Melee = GameObject.Find("Mecha_arm_sx_rigged(Pugno)").GetComponent<Animator>();
     }
     public void Update()
     {
