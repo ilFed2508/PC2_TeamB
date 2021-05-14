@@ -14,6 +14,6 @@ public class OnMouseClick_2 : MonoBehaviour
         //backCanvas.SetActive(false);
         //LevelSelectionopen.Play();
         SceneManager.LoadScene("Loading");
-        PlayerPrefs.SetInt("Checkpoint", 3);
+        PlayerPrefs.SetInt("Checkpoint", 2);
     }
 }

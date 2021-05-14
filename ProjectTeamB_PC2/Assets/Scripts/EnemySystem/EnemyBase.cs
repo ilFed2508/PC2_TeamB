@@ -26,6 +26,9 @@ public class EnemyBase : MonoBehaviour
     public Animator EnemyAnim;
     public string Animazione;
 
+    //Melee
+    public float MeleeDamage;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -125,7 +128,7 @@ public class EnemyBase : MonoBehaviour
     //Melee Luca
     public void DamageMelee()
     {
-        HP -= HP;
+        HP -= MeleeDamage;
     }
 
     //image feed enemies in shooting - Joe

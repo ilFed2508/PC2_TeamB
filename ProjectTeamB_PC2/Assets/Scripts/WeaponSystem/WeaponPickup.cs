@@ -61,7 +61,17 @@ public class WeaponPickup : MonoBehaviour
             playerController.PickUp.gameObject.SetActive(false);
 
             //Combo LucaDesign
-            combo.livelloCombo = combo.livelloCombo + 1f;
+            combo.livelloCombo = combo.livelloCombo + 1;
+
+            if(combo.livelloCombo > 0)
+            {
+                if(combo.livelloCombo > 1)
+                {
+                  combo.Sprite[combo.i - 1].SetActive(false);
+                }
+                
+                combo.Sprite[combo.i].SetActive(true);
+            }
             combo.tempoPerScalare = combo.tempoRestart;
             combo.ComboDamage();
             //-------------------------------------------
