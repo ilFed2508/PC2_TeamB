@@ -38,7 +38,7 @@ public class PlayerLifeSystem : MonoBehaviour
 
     public GameObject HUD, WarningDeactiveted, WeaponSlots, EPickUP, HitContainer, PausePanel;
     //public PlayableDirector ScreenNoise;
-    private GameObject comboCounter, timeLineScreenNoise, crosshair;
+    private GameObject comboCounter, timeLineScreenNoise, timeLineScreenNoise_ , crosshair;
 
 
     // Start is called before the first frame update
@@ -48,6 +48,9 @@ public class PlayerLifeSystem : MonoBehaviour
         comboCounter = GameObject.Find("Canvas(Sprite-Combo)");
 
         timeLineScreenNoise = GameObject.Find("timeLine_screenNoise");
+        timeLineScreenNoise_ = GameObject.Find("DeathAnimation_2");
+        timeLineScreenNoise_.SetActive(false);
+
         crosshair = GameObject.Find("Canvas Cross");
 
       //ScreenNoise = GetComponent<PlayableDirector>();
@@ -64,8 +67,9 @@ public class PlayerLifeSystem : MonoBehaviour
             LifeText.text = PlayerCurrentHP.ToString("F0");
             PlayerCurrentHP -= Time.deltaTime;
 
-          //screenNoise.SetActive(false);
+            //screenNoise.SetActive(false);
             timeLineScreenNoise.SetActive(false);
+            timeLineScreenNoise_.SetActive(false);
 
             //LifeBar - joe
             LifeBar.maxValue = PlayerStartingHP;
@@ -76,7 +80,7 @@ public class PlayerLifeSystem : MonoBehaviour
             Cursor.lockState = CursorLockMode.None;
             Cursor.visible = true;
 
-          //screenNoise.SetActive(true);
+            //screenNoise.SetActive(true);
             timeLineScreenNoise.SetActive(true);
             StartCoroutine(NoiseScreen());
             Time.timeScale = 0;
@@ -108,11 +112,13 @@ public class PlayerLifeSystem : MonoBehaviour
 
     public IEnumerator NoiseScreen()
     {
-        yield return new WaitForSecondsRealtime(1.5f);
+        yield return new WaitForSecondsRealtime(1.0f);
         timeLineScreenNoise.SetActive(false);
+        timeLineScreenNoise_.SetActive(true);
+
+        yield return new WaitForSecondsRealtime(1.0f);
+        timeLineScreenNoise_.SetActive(false);
         DeathPanel.SetActive(true);
-
-
     }
 
     public void DamagePlayer(float Amount)
