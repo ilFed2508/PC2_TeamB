@@ -37,7 +37,9 @@ public class PlayerLifeSystem : MonoBehaviour
     public Image Warning;
 
     public GameObject HUD, WarningDeactiveted, WeaponSlots, EPickUP, HitContainer, PausePanel;
+    
     //public PlayableDirector ScreenNoise;
+
     private GameObject comboCounter, timeLineScreenNoise, timeLineScreenNoise_ , crosshair;
 
 
@@ -46,12 +48,11 @@ public class PlayerLifeSystem : MonoBehaviour
     {
         //PlayerCurrentHP = PlayerCurrentHP;
         comboCounter = GameObject.Find("Canvas(Sprite-Combo)");
+        crosshair = GameObject.Find("Canvas Cross");
 
         timeLineScreenNoise = GameObject.Find("timeLine_screenNoise");
         timeLineScreenNoise_ = GameObject.Find("DeathAnimation_2");
         timeLineScreenNoise_.SetActive(false);
-
-        crosshair = GameObject.Find("Canvas Cross");
 
       //ScreenNoise = GetComponent<PlayableDirector>();
       //ScreenNoise.Stop();
@@ -89,9 +90,9 @@ public class PlayerLifeSystem : MonoBehaviour
 
             //HUD.SetActive(false);
             //PausePanel.SetActive(false);
-            Destroy(this.HUD);
-            Destroy(this.PausePanel);
-            Destroy(this.comboCounter);
+            Destroy(HUD);
+            Destroy(PausePanel);
+            Destroy(comboCounter);
             Destroy(crosshair);
             WeaponSlots.SetActive(false);
             WarningDeactiveted.SetActive(false);
@@ -113,11 +114,11 @@ public class PlayerLifeSystem : MonoBehaviour
     public IEnumerator NoiseScreen()
     {
         yield return new WaitForSecondsRealtime(1.0f);
-        timeLineScreenNoise.SetActive(false);
+        Destroy(timeLineScreenNoise);
         timeLineScreenNoise_.SetActive(true);
 
         yield return new WaitForSecondsRealtime(1.0f);
-        timeLineScreenNoise_.SetActive(false);
+        Destroy(timeLineScreenNoise_);
         DeathPanel.SetActive(true);
     }
 
