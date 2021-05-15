@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.Playables;
 
 public class PlayerLifeSystem : MonoBehaviour
 {
@@ -36,7 +37,8 @@ public class PlayerLifeSystem : MonoBehaviour
     public Image Warning;
 
     public GameObject HUD, WarningDeactiveted, WeaponSlots, EPickUP, HitContainer, PausePanel;
-    private GameObject comboCounter;
+    //public PlayableDirector ScreenNoise;
+    private GameObject comboCounter, timeLineScreenNoise, crosshair;
 
 
     // Start is called before the first frame update
@@ -44,6 +46,12 @@ public class PlayerLifeSystem : MonoBehaviour
     {
         //PlayerCurrentHP = PlayerCurrentHP;
         comboCounter = GameObject.Find("Canvas(Sprite-Combo)");
+
+        timeLineScreenNoise = GameObject.Find("timeLine_screenNoise");
+        crosshair = GameObject.Find("Canvas Cross");
+
+      //ScreenNoise = GetComponent<PlayableDirector>();
+      //ScreenNoise.Stop();
     }
 
     /// <summary>
@@ -56,6 +64,9 @@ public class PlayerLifeSystem : MonoBehaviour
             LifeText.text = PlayerCurrentHP.ToString("F0");
             PlayerCurrentHP -= Time.deltaTime;
 
+          //screenNoise.SetActive(false);
+            timeLineScreenNoise.SetActive(false);
+
             //LifeBar - joe
             LifeBar.maxValue = PlayerStartingHP;
             LifeBar.value = PlayerCurrentHP;
@@ -64,14 +75,20 @@ public class PlayerLifeSystem : MonoBehaviour
         {
             Cursor.lockState = CursorLockMode.None;
             Cursor.visible = true;
+
+          //screenNoise.SetActive(true);
+            timeLineScreenNoise.SetActive(true);
+            StartCoroutine(NoiseScreen());
             Time.timeScale = 0;
-            DeathPanel.SetActive(true);
+            //DeathPanel.SetActive(true);
+
 
             //HUD.SetActive(false);
             //PausePanel.SetActive(false);
             Destroy(this.HUD);
             Destroy(this.PausePanel);
             Destroy(this.comboCounter);
+            Destroy(crosshair);
             WeaponSlots.SetActive(false);
             WarningDeactiveted.SetActive(false);
             EPickUP.SetActive(false);
@@ -87,6 +104,15 @@ public class PlayerLifeSystem : MonoBehaviour
         {
             Warning.enabled = false;
         }
+    }
+
+    public IEnumerator NoiseScreen()
+    {
+        yield return new WaitForSecondsRealtime(1.5f);
+        timeLineScreenNoise.SetActive(false);
+        DeathPanel.SetActive(true);
+
+
     }
 
     public void DamagePlayer(float Amount)
