@@ -129,6 +129,8 @@ public class EnemyBase : MonoBehaviour
     public void DamageMelee()
     {
         HP -= MeleeDamage;
+        EnemyLifeBar.value = HP * 10;
+        EnemyAnim.SetBool(Animazione, true);
     }
 
     //image feed enemies in shooting - Joe
