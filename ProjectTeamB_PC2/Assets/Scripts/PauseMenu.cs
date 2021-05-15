@@ -30,12 +30,11 @@ public class PauseMenu : MonoBehaviour
 
                 HUD.SetActive(false);
                 CrossHair.SetActive(false);
-                EPickUp.SetActive(false);
-                
+                EPickUp.SetActive(false);               
             }
             else
             {
-                    ResumeGame();
+                ResumeGame();
             }
         }
     }
