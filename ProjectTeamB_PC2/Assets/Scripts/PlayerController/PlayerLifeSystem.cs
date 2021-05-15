@@ -36,12 +36,14 @@ public class PlayerLifeSystem : MonoBehaviour
     public Image Warning;
 
     public GameObject HUD, WarningDeactiveted, WeaponSlots, EPickUP, HitContainer, PausePanel;
+    private GameObject comboCounter;
 
 
     // Start is called before the first frame update
     void Start()
     {
         //PlayerCurrentHP = PlayerCurrentHP;
+        comboCounter = GameObject.Find("Canvas(Sprite-Combo)");
     }
 
     /// <summary>
@@ -69,6 +71,7 @@ public class PlayerLifeSystem : MonoBehaviour
             //PausePanel.SetActive(false);
             Destroy(this.HUD);
             Destroy(this.PausePanel);
+            Destroy(this.comboCounter);
             WeaponSlots.SetActive(false);
             WarningDeactiveted.SetActive(false);
             EPickUP.SetActive(false);
