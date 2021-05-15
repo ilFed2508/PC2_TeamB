@@ -5,7 +5,7 @@ using UnityEngine;
 public class EnemiesTrigger : MonoBehaviour
 {
     private DetectedActDeact end, hud;
-    private GameObject guns, hitContainer, ePickUp, pausePanel, deathPanel, HUD;
+    private GameObject guns, hitContainer, ePickUp, pausePanel, deathPanel, HUD, crosshair;
    
 
     // Start is called before the first frame update
@@ -14,6 +14,7 @@ public class EnemiesTrigger : MonoBehaviour
         end = GameObject.Find("WIN").GetComponent<DetectedActDeact>();
         hud = GameObject.Find("HUD").GetComponent<DetectedActDeact>();
         guns = GameObject.Find("WeaponSlot");
+        crosshair = GameObject.Find("Canvas Cross");
         hitContainer = GameObject.Find("HitContainer");
         ePickUp = GameObject.Find("E-Pickup");
         pausePanel = GameObject.Find("Main_PausePanel");
@@ -36,6 +37,7 @@ public class EnemiesTrigger : MonoBehaviour
             Destroy(HUD);
             Destroy(hitContainer);
             Destroy(guns);
+            Destroy(crosshair);
             end.thing.SetActive(true);
             Time.timeScale = 0;
             Cursor.lockState = CursorLockMode.None;
