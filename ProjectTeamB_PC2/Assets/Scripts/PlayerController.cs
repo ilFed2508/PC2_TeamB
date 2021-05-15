@@ -14,6 +14,7 @@ public class PlayerController : MonoBehaviour
 	public Text UIPickup;
 	public GameObject Melee;
 	public GameObject Player;
+	public GameObject CanvasCombo;
 
     //image "E" pick up - joe
     public GameObject PickUp;
