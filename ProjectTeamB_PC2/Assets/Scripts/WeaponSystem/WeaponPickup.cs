@@ -106,7 +106,8 @@ public class WeaponPickup : MonoBehaviour
         playerController.playerShooting.DiegeticAmmo = playerController.playerShooting.CurrentRagedWeapon.GetComponentInChildren<TextMeshProUGUI>();
         //deactive pickupUI
         playerController.UIPickup.gameObject.SetActive(false);
-
+        //guadagna punti per lo score
+        playerController.playerScore.AddScore(1);
         //da modificare
         playerController.playerLife.PlayerCurrentHP += PlayerHpGain;
 

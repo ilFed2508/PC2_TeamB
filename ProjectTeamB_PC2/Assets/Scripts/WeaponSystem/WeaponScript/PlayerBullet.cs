@@ -39,6 +39,18 @@ public class PlayerBullet : MonoBehaviour
                 Instantiate(Particle, spawnPos, gameObject.transform.rotation);
                 other.gameObject.GetComponent<WeaponDrop>().DropWeapon();
                 Enemy.PlayerHealOnDeath();
+                if((int)Enemy.enemyType == 1)
+                {
+                    Enemy.Player.playerScore.AddScore(2);
+                }
+                if ((int)Enemy.enemyType == 2)
+                {
+                    Enemy.Player.playerScore.AddScore(3);
+                }
+                if((int)Enemy.enemyType == 3)
+                {
+                    Enemy.Player.playerScore.AddScore(4);
+                }
                 Destroy(other.gameObject);
                 AudioManager.instance.Play(HitKill);
                 playerC.hitDeath.SetActive(true);

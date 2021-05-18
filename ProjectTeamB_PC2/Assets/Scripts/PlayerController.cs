@@ -8,6 +8,7 @@ public class PlayerController : MonoBehaviour
 	public PlayerShooting playerShooting;
 	public PlayerMovement playerMovement;
 	public PlayerLifeSystem playerLife;
+	public ScoreController playerScore;
 
 	//temporary variable
 	public Transform WeaponSlot;
@@ -25,9 +26,11 @@ public class PlayerController : MonoBehaviour
 	{
 		Time.timeScale = 1f;
 
+		//Add null check
 		playerShooting = GetComponent<PlayerShooting>();
 		playerMovement = GetComponent<PlayerMovement>();
 		playerLife = GetComponent<PlayerLifeSystem>();
+		playerScore = GetComponent<ScoreController>();
 	}
 
 	void Update()

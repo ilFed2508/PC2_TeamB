@@ -10,6 +10,7 @@ public class EnemyBase : MonoBehaviour
     public float BonusLifeWhenKilled;
     public float HP;
     public RangedWeapon MyWeapon;
+    public EnemyType enemyType;
 
     //image feed enemies in shooting - Joe
     public Image Attention;
@@ -36,6 +37,7 @@ public class EnemyBase : MonoBehaviour
         Player = FindObjectOfType<PlayerController>();
         MyWeapon = GetComponent<RangedWeapon>();
         CurrentHP = HP;
+        enemyType = EnemyType.typeA;
         StartCoroutine(ImageFeed());
 
         
