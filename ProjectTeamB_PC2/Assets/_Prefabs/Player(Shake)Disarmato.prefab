@@ -510,6 +510,7 @@ GameObject:
   - component: {fileID: 8263558162992660277}
   - component: {fileID: 1557438462073680732}
   - component: {fileID: -175088949122024726}
+  - component: {fileID: 1544636475649453236}
   m_Layer: 11
   m_Name: Player(Shake)Disarmato
   m_TagString: Player
@@ -613,6 +614,8 @@ MonoBehaviour:
   playerShooting: {fileID: 0}
   playerMovement: {fileID: 0}
   playerLife: {fileID: 0}
+  playerScore: {fileID: 0}
+  SafeZoneReached: 0
   WeaponSlot: {fileID: 6175602133008166426}
   UIPickup: {fileID: 3360950824984911132}
   Melee: {fileID: 5349891555582011379}
@@ -839,6 +842,21 @@ MonoBehaviour:
   waitBeforeStartFadeIn: 0
   timeToFadeIn: 0.01
   timeToFadeOut: 0.7
+--- !u!114 &1544636475649453236
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6175602133310355486}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 95fdbeb66366a56489c76b6fbc41ec3d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Database: {fileID: 0}
+  CurrentScore: 0
+  TotalScore: 0
 --- !u!1 &6175602134515835523
 GameObject:
   m_ObjectHideFlags: 0

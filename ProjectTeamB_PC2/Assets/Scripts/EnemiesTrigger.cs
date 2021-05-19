@@ -32,6 +32,13 @@ public class EnemiesTrigger : MonoBehaviour
     {
         if (other.CompareTag("Player"))
         {
+            PlayerController playerController = other.gameObject.GetComponent<PlayerController>();
+            playerController.playerScore.AddValueScore((int)playerController.playerLife.PlayerCurrentHP * (3 * 100));
+            playerController.playerScore.AddValueScore(playerController.playerScore.GetCurrentScore());
+            if (playerController.playerScore.GetHighScore() < playerController.playerScore.GetTotalScore())
+            {
+                PlayerPrefs.SetInt("PlayerHighScore", playerController.playerScore.GetHighScore());
+            }
             Destroy(pausePanel);
             Destroy(deathPanel);
             Destroy(HUD);

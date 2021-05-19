@@ -7,12 +7,15 @@ public class ScoreController : MonoBehaviour
 {
     [SerializeField]
     private ScoreDatabase Database;
-    [SerializeField]
-    private int StartingScore;
+    //[SerializeField]
+    //private int StartingScore;
     [SerializeField]
     private int CurrentScore;
     [SerializeField]
     private int TotalScore;
+    [HideInInspector]
+    private int HighScore;
+
 
     // Start is called before the first frame update
     void Start()
@@ -24,19 +27,28 @@ public class ScoreController : MonoBehaviour
 
     public void Initialize()
     {
-        //set Current score => starting score
-        CurrentScore = StartingScore;
-        TotalScore = StartingScore;
+        //set Current score = 0 and save totalScore if doesnt exist also highscore
+        CurrentScore = 0;       
+        if (PlayerPrefs.HasKey("PlayerTotalScore") == false)
+        {
+            TotalScore = 0;
+            PlayerPrefs.SetInt("PlayerTotalScore", TotalScore);
+        }
+        if (PlayerPrefs.HasKey("PlayerHighScore") == false)
+        {
+            HighScore = 0;
+            PlayerPrefs.SetInt("PlayerHighScore", HighScore);
+        }
 
         //controllo variabili
-        if(Database == null)
+        if (Database == null)
         {
             Debug.LogError("Non hai messo la referenza al database nello ScoreController!");
         }
         else
         {
             //controllo database corretto
-            for (int i = 1; i < 4; i++)
+            for (int i = 1; i < 13; i++)
             {
                 int ActionCounter = Database.ScoreRecipes.Count(act => (int)act.Action == i);
 
@@ -46,14 +58,17 @@ public class ScoreController : MonoBehaviour
                 }
             }
         }
-        
-        
+       
     }
 
     public void AddScore(int ActionID)
     {
         CurrentScore += GetActionValue(ActionID);
-        TotalScore += GetActionValue(ActionID);
+    }
+
+    public void AddValueScore(int value)
+    {
+        CurrentScore += value;
     }
 
     public void RemoveScore(int ActionID)
@@ -63,13 +78,6 @@ public class ScoreController : MonoBehaviour
         if(CurrentScore < 0)
         {
             CurrentScore = 0;
-        }
-
-        TotalScore -= GetActionValue(ActionID);
-
-        if(TotalScore < 0)
-        {
-            TotalScore = 0;
         }
     }
 
@@ -88,7 +96,7 @@ public class ScoreController : MonoBehaviour
 
     public ScoreDatabase GetDatabase() => Database;
 
-    public int GetStartingScore() => StartingScore;
+    public int GetHighScore() => HighScore;
 
     public int GetCurrentScore() => CurrentScore;
 
