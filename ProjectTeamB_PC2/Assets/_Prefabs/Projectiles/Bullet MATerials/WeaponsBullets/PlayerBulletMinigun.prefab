@@ -14,6 +14,7 @@ GameObject:
   - component: {fileID: 6533579310648999570}
   - component: {fileID: 6547053928187099483}
   - component: {fileID: 2826825763394136790}
+  - component: {fileID: -1596649911438129309}
   m_Layer: 10
   m_Name: PlayerBulletMinigun
   m_TagString: Untagged
@@ -97,7 +98,7 @@ Rigidbody:
   m_IsKinematic: 0
   m_Interpolate: 0
   m_Constraints: 0
-  m_CollisionDetection: 3
+  m_CollisionDetection: 1
 --- !u!114 &6547053928187099483
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -115,6 +116,7 @@ MonoBehaviour:
   Hit: Hit1
   HitKill: KillHit
   SFXBullet: MiniGun
+  VFXhit: {fileID: 5384433921030213390, guid: 95d3ab4153ca85e4983ed3b16761f3f5, type: 3}
 --- !u!65 &2826825763394136790
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -124,6 +126,19 @@ BoxCollider:
   m_GameObject: {fileID: 1354596417471114814}
   m_Material: {fileID: 0}
   m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 3.1099951, y: 2.8583777, z: 0.20874608}
+  m_Center: {x: -0.034918785, y: 0.061984062, z: 0.39562696}
+--- !u!65 &-1596649911438129309
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1354596417471114814}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
   m_Size: {x: 3.1099951, y: 2.8583777, z: 0.20874608}
