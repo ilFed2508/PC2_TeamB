@@ -41,6 +41,9 @@ public class ShotgunShootingType : Shooting
 
     public override void Shoot(RangedWeapon currentWeapon)
     {
+        //Luca Animazione Pompa
+        Pompa.Play("PompaShoot");
+
         for (int palletsShot = 0; palletsShot < PalletShotNumber; palletsShot++)
         {
             
@@ -63,9 +66,6 @@ public class ShotgunShootingType : Shooting
             GameObject BulletInstance = Instantiate(currentWeapon.WeaponBulletPrefab, currentWeapon.GunBarrel.position, Quaternion.identity);
 
             BulletInstance.transform.forward = ShootingDirection.normalized;
-
-            //Luca Animazione Pompa
-            Pompa.Play("PompaShoot");
 
             BulletInstance.GetComponent<Rigidbody>().AddForce(ShootingDirection.normalized * currentWeapon.weaponData.ShootingForce, ForceMode.Impulse);
 
