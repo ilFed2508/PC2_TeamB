@@ -38,7 +38,7 @@ public class ComboManager : MonoBehaviour
     void Update()
     {
         i = livelloCombo;
-        danno = playerController.playerShooting.CurrentRagedWeapon.weaponData.Damage;
+        danno = playerController.playerShooting.CurrentRagedWeapon.weaponData.StartingDamage;
         ComboSystem();
         ResetComboDamage();
 
