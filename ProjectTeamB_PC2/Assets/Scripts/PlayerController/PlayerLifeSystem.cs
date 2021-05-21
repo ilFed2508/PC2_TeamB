@@ -6,12 +6,6 @@ using UnityEngine.Playables;
 
 public class PlayerLifeSystem : MonoBehaviour
 {
-    //Davide
-    private SafeZone safe;
-    private SafeZone safe2;
-    private SafeZone safe3;
-
-
     /// <summary>
     /// Player current Hp
     /// </summary>
@@ -86,7 +80,6 @@ public class PlayerLifeSystem : MonoBehaviour
             StartCoroutine(NoiseScreen());
             Time.timeScale = 0;
             //DeathPanel.SetActive(true);
-
 
             //HUD.SetActive(false);
             //PausePanel.SetActive(false);
