@@ -108,6 +108,11 @@ public class ScoreController : MonoBehaviour
     {
         TotalScore = value;
     }
+
+    public void AddHighScoreToLeaderboard()
+    {
+        Highscores.AddNewHighscore(PlayerPrefs.GetString("PlayerName"), PlayerPrefs.GetInt("PlayerHighScore"));
+    }
     #endregion
 
     #region DebugAPI

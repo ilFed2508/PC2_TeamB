@@ -42,6 +42,7 @@ public class EnemiesTrigger : MonoBehaviour
             {
                 PlayerPrefs.SetInt("PlayerHighScore", playerController.playerScore.GetTotalScore());
                 PlayerPrefs.Save();
+                playerController.playerScore.AddHighScoreToLeaderboard();
             }
             Destroy(pausePanel);
             Destroy(deathPanel);
