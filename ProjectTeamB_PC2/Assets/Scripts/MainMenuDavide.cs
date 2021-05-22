@@ -41,6 +41,12 @@ public class MainMenuDavide : MonoBehaviour
         cameraSuper.SetInteger("Page", 6);
     }
 
+    public void Credits()
+    {
+        cameraSuper.SetInteger("Page", 7);
+    }
+
+
     public void ExitGame()
     {
         Application.Quit();
