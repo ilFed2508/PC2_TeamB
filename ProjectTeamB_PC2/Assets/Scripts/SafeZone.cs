@@ -37,8 +37,8 @@ public class SafeZone : MonoBehaviour
             mapOut.SetActive(true);
             mapIn.SetActive(false);
             playerController.SafeZoneReached = checkpoint;
-            playerController.playerScore.AddValueScore((int)playerController.playerLife.PlayerCurrentHP * ((checkpoint - 1) * 100));
-            playerController.playerScore.AddValueScore(playerController.playerScore.GetCurrentScore());
+            playerController.playerScore.AddValueScore((int)playerController.playerLife.PlayerCurrentHP * ((checkpoint - 1) * (int)ScoreAction.EndLevelLifeGain));
+            playerController.playerScore.AddTotalScore(playerController.playerScore.GetCurrentScore());
             PlayerPrefs.SetInt("Checkpoint", checkpoint);
         }
         else if(other.CompareTag("Player") && playerController.SafeZoneReached == checkpoint)

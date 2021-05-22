@@ -53,14 +53,17 @@ public class PauseMenu : MonoBehaviour
     public void BackToMenu()
     {
         Time.timeScale = 1;
-        PlayerPrefs.SetInt("TotalScore", 0);
+        PlayerPrefs.SetInt("PlayerTotalScore", 0);
+        PlayerPrefs.Save();
         SceneManager.LoadScene("3DMenuTestP");
     }
 
     public void Reload()
     {
         Time.timeScale = 1;
-        PlayerPrefs.SetInt("TotalScore", playerController.playerScore.GetTotalScore());
+        int TotalScore = playerController.playerScore.GetTotalScore();
+        PlayerPrefs.SetInt("PlayerTotalScore", TotalScore);
+        PlayerPrefs.Save();
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
     }
 

@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using System.Linq;
+using UnityEngine.UI;
 
 public class ScoreController : MonoBehaviour
 {
@@ -16,6 +17,8 @@ public class ScoreController : MonoBehaviour
     [HideInInspector]
     private int HighScore;
 
+    //text momentaneo
+    public Text CurrentScoreText;
 
     // Start is called before the first frame update
     void Start()
@@ -23,12 +26,17 @@ public class ScoreController : MonoBehaviour
         Initialize();   
     }
 
+    private void Update()
+    {
+        CurrentScoreText.text = CurrentScore.ToString();
+    }
+
     #region BehaviourAPI
 
     public void Initialize()
     {
         //set Current score = 0 and save totalScore if doesnt exist also highscore
-        CurrentScore = 0;       
+        CurrentScore = 0;
         if (PlayerPrefs.HasKey("PlayerTotalScore") == false)
         {
             TotalScore = 0;
@@ -58,6 +66,11 @@ public class ScoreController : MonoBehaviour
                 }
             }
         }
+
+        if(CurrentScoreText == null)
+        {
+            Debug.LogError("Non hai messo la referenza allo score text nello ScoreController!");
+        }
        
     }
 
@@ -69,6 +82,11 @@ public class ScoreController : MonoBehaviour
     public void AddValueScore(int value)
     {
         CurrentScore += value;
+    }
+
+    public void AddTotalScore(int value)
+    {
+        TotalScore += value;
     }
 
     public void RemoveScore(int ActionID)

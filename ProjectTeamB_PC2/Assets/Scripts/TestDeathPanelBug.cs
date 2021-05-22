@@ -5,8 +5,6 @@ using UnityEngine.SceneManagement;
 
 public class TestDeathPanelBug : MonoBehaviour
 {
-
-
     public void BackToMenu()
     {
         Time.timeScale = 1;
