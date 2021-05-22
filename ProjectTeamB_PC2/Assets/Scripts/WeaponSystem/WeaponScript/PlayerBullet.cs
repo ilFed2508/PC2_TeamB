@@ -12,6 +12,8 @@ public class PlayerBullet : MonoBehaviour
     public string HitKill;
     public string SFXBullet;
 
+    public GameObject VFXhit;
+
 
     // Update is called once per frame
     void Start()
@@ -67,8 +69,14 @@ public class PlayerBullet : MonoBehaviour
 
     }
 
-    private void OnTriggerStay(Collider other)
+    private void OnCollisionEnter(Collision collision)
     {
-        
+        if (collision.other.CompareTag("Walls"))
+        {
+            ContactPoint contact = collision.contacts[0];
+            Vector3 pos = contact.point;           
+            Instantiate(VFXhit,pos,Quaternion.identity);
+            Destroy(this.gameObject);
+        }
     }
 }

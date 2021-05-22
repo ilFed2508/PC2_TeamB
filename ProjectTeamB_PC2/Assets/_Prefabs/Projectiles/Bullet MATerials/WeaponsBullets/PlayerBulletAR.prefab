@@ -14,6 +14,7 @@ GameObject:
   - component: {fileID: 8744507200160144944}
   - component: {fileID: 8744507200160144951}
   - component: {fileID: 7789280984464373843}
+  - component: {fileID: 7312522817561386288}
   m_Layer: 10
   m_Name: PlayerBulletAR
   m_TagString: Untagged
@@ -97,7 +98,7 @@ Rigidbody:
   m_IsKinematic: 0
   m_Interpolate: 0
   m_Constraints: 0
-  m_CollisionDetection: 3
+  m_CollisionDetection: 1
 --- !u!114 &8744507200160144951
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -114,6 +115,8 @@ MonoBehaviour:
     type: 3}
   Hit: Hit1
   HitKill: KillHit
+  SFXBullet: 
+  VFXhit: {fileID: 5384433921030213390, guid: 95d3ab4153ca85e4983ed3b16761f3f5, type: 3}
 --- !u!65 &7789280984464373843
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -125,5 +128,18 @@ BoxCollider:
   m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 3.1099951, y: 2.8583777, z: 0.20874608}
-  m_Center: {x: -0.034918785, y: 0.061984062, z: 0.39562696}
+  m_Size: {x: 3.1099951, y: 2.8583777, z: 1.0166007}
+  m_Center: {x: -0.034918785, y: 0.061984062, z: -0.008300468}
+--- !u!65 &7312522817561386288
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8744507200160144945}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 3.1099951, y: 2.8583777, z: 1.0166007}
+  m_Center: {x: -0.034918785, y: 0.061984062, z: -0.008300468}
