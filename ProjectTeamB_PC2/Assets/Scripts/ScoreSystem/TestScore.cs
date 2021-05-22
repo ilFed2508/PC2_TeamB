@@ -17,15 +17,17 @@ public class TestScore : MonoBehaviour
     {
         if (Input.GetKeyDown(KeyCode.L))
         {
-            TestScoreController.AddScore(1);
+            int totalScore = PlayerPrefs.GetInt("PlayerTotalScore");
+            Debug.Log(PlayerPrefs.GetInt("PlayerTotalScore"));
         }
         if (Input.GetKeyDown(KeyCode.K))
         {
-            TestScoreController.RemoveScore(2);
+            int totalScore = PlayerPrefs.GetInt("PlayerHighScore");
+            Debug.Log(PlayerPrefs.GetInt("PlayerHighScore"));
         }
         if (Input.GetKeyDown(KeyCode.J))
         {
-            TestScoreController.SetScore(100);
+            
         }
     }
 }

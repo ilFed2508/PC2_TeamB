@@ -10,6 +10,9 @@ public class PlayerController : MonoBehaviour
 	public PlayerLifeSystem playerLife;
 	public ScoreController playerScore;
 
+	[HideInInspector]
+	public int SafeZoneReached;
+
 	//temporary variable
 	public Transform WeaponSlot;
 	public Text UIPickup;

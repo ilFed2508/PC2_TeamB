@@ -32,6 +32,17 @@ public class EnemiesTrigger : MonoBehaviour
     {
         if (other.CompareTag("Player"))
         {
+            //get player reference
+            PlayerController playerController = other.gameObject.GetComponent<PlayerController>();
+            //save life for the end of level 3 and add the relative score
+            playerController.playerScore.AddValueScore((int)playerController.playerLife.PlayerCurrentHP * (3 * (int)ScoreAction.EndLevelLifeGain));
+            //add the current points to the totalscore
+            playerController.playerScore.AddTotalScore(playerController.playerScore.GetCurrentScore());
+            if (playerController.playerScore.GetHighScore() < playerController.playerScore.GetTotalScore())
+            {
+                PlayerPrefs.SetInt("PlayerHighScore", playerController.playerScore.GetTotalScore());
+                PlayerPrefs.Save();
+            }
             Destroy(pausePanel);
             Destroy(deathPanel);
             Destroy(HUD);
