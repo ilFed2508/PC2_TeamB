@@ -22,8 +22,6 @@ public class TestScore : MonoBehaviour
         }
         if (Input.GetKeyDown(KeyCode.K))
         {
-            PlayerPrefs.SetInt("PlayerHighScore", 0);
-            PlayerPrefs.Save();
             Debug.Log(PlayerPrefs.GetInt("PlayerHighScore"));
         }
         if (Input.GetKeyDown(KeyCode.J))
