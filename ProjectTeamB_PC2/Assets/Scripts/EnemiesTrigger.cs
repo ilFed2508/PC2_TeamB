@@ -44,11 +44,11 @@ public class EnemiesTrigger : MonoBehaviour
                 PlayerPrefs.Save();
                 playerController.playerScore.AddHighScoreToLeaderboard();
             }
+            Destroy(guns);
+            Destroy(HUD);
             Destroy(pausePanel);
             Destroy(deathPanel);
-            Destroy(HUD);
             Destroy(hitContainer);
-            Destroy(guns);
             Destroy(crosshair);
             end.thing.SetActive(true);
             Time.timeScale = 0;
