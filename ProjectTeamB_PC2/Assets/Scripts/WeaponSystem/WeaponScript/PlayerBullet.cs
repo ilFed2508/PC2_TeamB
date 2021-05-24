@@ -71,7 +71,7 @@ public class PlayerBullet : MonoBehaviour
 
     private void OnCollisionEnter(Collision collision)
     {
-        if (collision.other.CompareTag("Walls"))
+        if (collision.gameObject.CompareTag("Walls"))
         {
             ContactPoint contact = collision.contacts[0];
             Vector3 pos = contact.point;           
