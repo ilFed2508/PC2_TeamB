@@ -11008,6 +11008,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 747ed5479bc673e4c8c3b1d75bd49438, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  godModeUI: {fileID: 606146124}
 --- !u!65 &415896290
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -12695,6 +12696,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b4fec263e37f60045ab91685f55ea8c5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  godModeUI: {fileID: 0}
 --- !u!95 &479058402
 Animator:
   serializedVersion: 3
@@ -15452,8 +15454,9 @@ GameObject:
   m_Component:
   - component: {fileID: 606146122}
   - component: {fileID: 606146123}
+  - component: {fileID: 606146124}
   m_Layer: 5
-  m_Name: Toggle
+  m_Name: ToggleGodMode
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -15527,6 +15530,19 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls: []
   m_IsOn: 1
+--- !u!114 &606146124
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 606146121}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: daed1e213d113fc40a6c8e03a457c170, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  GodModeToggle: {fileID: 606146123}
 --- !u!1 &612644443
 GameObject:
   m_ObjectHideFlags: 0
@@ -37671,6 +37687,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 747ed5479bc673e4c8c3b1d75bd49438, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  godModeUI: {fileID: 0}
 --- !u!95 &1257678836
 Animator:
   serializedVersion: 3
@@ -41860,6 +41877,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b4fec263e37f60045ab91685f55ea8c5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  godModeUI: {fileID: 606146124}
 --- !u!65 &1422074373
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -46798,6 +46816,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e9ef2b06cb407ee47ba2cd9a640dd38e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  godModeUI: {fileID: 0}
 --- !u!1 &1604235667
 GameObject:
   m_ObjectHideFlags: 0
@@ -57517,6 +57536,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e9ef2b06cb407ee47ba2cd9a640dd38e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  godModeUI: {fileID: 606146124}
 --- !u!65 &1958946691
 BoxCollider:
   m_ObjectHideFlags: 0

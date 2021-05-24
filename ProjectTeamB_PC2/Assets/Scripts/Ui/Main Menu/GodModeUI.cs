@@ -13,6 +13,7 @@ public class GodModeUI : MonoBehaviour
         if(PlayerPrefs.HasKey("GodmodeActivated") == false)
         {
             PlayerPrefs.SetInt("GodmodeActivated", 0);
+            PlayerPrefs.Save();
         }
     }
 
@@ -28,13 +29,13 @@ public class GodModeUI : MonoBehaviour
 
         if(GodModeToggle.isOn == true)
         {
-            //PlayerPrefs.SetInt("GodmodeActivated", 1);
-            //PlayerPrefs.Save();
+            PlayerPrefs.SetInt("GodmodeActivated", 1);
+            PlayerPrefs.Save();
         }
         else 
         {
-            //PlayerPrefs.SetInt("GodmodeActivated", 0);
-            //PlayerPrefs.Save();
+            PlayerPrefs.SetInt("GodmodeActivated", 0);
+            PlayerPrefs.Save();
         }
     }
 }
