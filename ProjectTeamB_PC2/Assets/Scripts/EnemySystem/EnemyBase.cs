@@ -10,6 +10,7 @@ public class EnemyBase : MonoBehaviour
     public float BonusLifeWhenKilled;
     public float HP;
     public RangedWeapon MyWeapon;
+    public EnemyType enemyType;
 
     //image feed enemies in shooting - Joe
     public Image Attention;
@@ -26,6 +27,9 @@ public class EnemyBase : MonoBehaviour
     public Animator EnemyAnim;
     public string Animazione;
 
+    //Melee
+    public float MeleeDamage;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -33,6 +37,7 @@ public class EnemyBase : MonoBehaviour
         Player = FindObjectOfType<PlayerController>();
         MyWeapon = GetComponent<RangedWeapon>();
         CurrentHP = HP;
+        enemyType = EnemyType.typeA;
         StartCoroutine(ImageFeed());
 
         
@@ -125,7 +130,9 @@ public class EnemyBase : MonoBehaviour
     //Melee Luca
     public void DamageMelee()
     {
-        HP -= HP;
+        HP -= MeleeDamage;
+        EnemyLifeBar.value = HP * 10;
+        EnemyAnim.SetBool(Animazione, true);
     }
 
     //image feed enemies in shooting - Joe

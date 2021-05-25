@@ -313,8 +313,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 079ca0fe249761744b9525269e9aabd4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  ShotCooldown: 0.3
-  IsAutomatic: 0
+  ShotCooldown: 0.28
+  IsAutomatic: 1
   testProperties:
     angle: 0
     strength: 0
@@ -339,9 +339,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Player: {fileID: 0}
-  BonusLifeWhenKilled: 2
+  BonusLifeWhenKilled: 4
   HP: 25
   MyWeapon: {fileID: 1350470162954226203}
+  enemyType: 0
   Attention: {fileID: 1448326524414394230}
   RedEye: {fileID: 7603168583822526501}
   EnemyLifeBar: {fileID: 1032945564112458}
@@ -351,6 +352,7 @@ MonoBehaviour:
   TimeLateCall: 0
   EnemyAnim: {fileID: 4589930290611737173}
   Animazione: Hit
+  MeleeDamage: 8
 --- !u!95 &4653714341376529086
 Animator:
   serializedVersion: 3
@@ -431,8 +433,8 @@ Rigidbody:
   m_UseGravity: 0
   m_IsKinematic: 0
   m_Interpolate: 0
-  m_Constraints: 0
-  m_CollisionDetection: 0
+  m_Constraints: 126
+  m_CollisionDetection: 1
 --- !u!114 &1350470163827526852
 MonoBehaviour:
   m_ObjectHideFlags: 0

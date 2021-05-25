@@ -953,8 +953,8 @@ Rigidbody:
   m_UseGravity: 0
   m_IsKinematic: 0
   m_Interpolate: 0
-  m_Constraints: 0
-  m_CollisionDetection: 0
+  m_Constraints: 126
+  m_CollisionDetection: 1
 --- !u!114 &7670501482235971498
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1045,7 +1045,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 079ca0fe249761744b9525269e9aabd4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  ShotCooldown: 2
+  ShotCooldown: 1.9
   IsAutomatic: 0
   testProperties:
     angle: 0
@@ -1057,6 +1057,7 @@ MonoBehaviour:
     rotationPercent: 0
   Flash: {fileID: 0}
   Parent: {fileID: 0}
+  Suono: 
 --- !u!114 &7016668257561179689
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1070,9 +1071,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Player: {fileID: 0}
-  BonusLifeWhenKilled: 2
-  HP: 15
+  BonusLifeWhenKilled: 4
+  HP: 16
   MyWeapon: {fileID: 7670501483243815285}
+  enemyType: 0
   Attention: {fileID: 7842931120260953112}
   RedEye: {fileID: 1246701647721825099}
   EnemyLifeBar: {fileID: 75395591075145489}
@@ -1082,6 +1084,7 @@ MonoBehaviour:
   TimeLateCall: 0
   EnemyAnim: {fileID: 5698417856281991519}
   Animazione: Hit
+  MeleeDamage: 8
 --- !u!95 &4910829534421276227
 Animator:
   serializedVersion: 3

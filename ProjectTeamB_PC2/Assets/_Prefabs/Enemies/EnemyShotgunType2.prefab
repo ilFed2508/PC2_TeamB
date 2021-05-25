@@ -152,7 +152,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 079ca0fe249761744b9525269e9aabd4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  ShotCooldown: 0.8
+  ShotCooldown: 0.7
   IsAutomatic: 0
   testProperties:
     angle: 0
@@ -178,9 +178,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Player: {fileID: 0}
-  BonusLifeWhenKilled: 3
-  HP: 15
+  BonusLifeWhenKilled: 4
+  HP: 16
   MyWeapon: {fileID: 2092284164050402162}
+  enemyType: 0
   Attention: {fileID: 3492095692810451368}
   RedEye: {fileID: 5981259991049007176}
   EnemyLifeBar: {fileID: 8401524035444168595}
@@ -190,6 +191,7 @@ MonoBehaviour:
   TimeLateCall: 0
   EnemyAnim: {fileID: 6338919170294756885}
   Animazione: Hit
+  MeleeDamage: 8
   agent: {fileID: 4481890260992737925}
   PlayerStopDistance: 10
 --- !u!95 &5296247372320289734
@@ -254,7 +256,7 @@ BoxCollider:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2092284164118461873}
   m_Material: {fileID: 0}
-  m_IsTrigger: 1
+  m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
   m_Size: {x: 2.338192, y: 2.9287152, z: 3.9586825}
@@ -273,8 +275,8 @@ Rigidbody:
   m_UseGravity: 0
   m_IsKinematic: 0
   m_Interpolate: 0
-  m_Constraints: 0
-  m_CollisionDetection: 0
+  m_Constraints: 126
+  m_CollisionDetection: 1
 --- !u!114 &2092284164118461869
 MonoBehaviour:
   m_ObjectHideFlags: 0

@@ -7,12 +7,12 @@ public class PauseMenu : MonoBehaviour
 {
     public GameObject PauseMenuPanel;
     public GameObject HUD, CrossHair, EPickUp;
-
+    public PlayerController playerController;
     public bool IsStopped;
     // Start is called before the first frame update
     void Start()
     {
-
+        playerController = GetComponentInParent<PlayerController>();
     }
 
     // Update is called once per frame
@@ -30,12 +30,11 @@ public class PauseMenu : MonoBehaviour
 
                 HUD.SetActive(false);
                 CrossHair.SetActive(false);
-                EPickUp.SetActive(false);
-                
+                EPickUp.SetActive(false);               
             }
             else
             {
-                    ResumeGame();
+                ResumeGame();
             }
         }
     }
@@ -54,12 +53,17 @@ public class PauseMenu : MonoBehaviour
     public void BackToMenu()
     {
         Time.timeScale = 1;
+        PlayerPrefs.SetInt("PlayerTotalScore", 0);
+        PlayerPrefs.Save();
         SceneManager.LoadScene("3DMenuTestP");
     }
 
     public void Reload()
     {
         Time.timeScale = 1;
+        int TotalScore = playerController.playerScore.GetTotalScore();
+        PlayerPrefs.SetInt("PlayerTotalScore", TotalScore);
+        PlayerPrefs.Save();
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
     }
 

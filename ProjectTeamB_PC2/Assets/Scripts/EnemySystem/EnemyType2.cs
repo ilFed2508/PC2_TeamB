@@ -19,6 +19,9 @@ public class EnemyType2 : EnemyBase
         Player = FindObjectOfType<PlayerController>();
         MyWeapon = GetComponent<RangedWeapon>();
 
+        //SetupEnemyType
+        enemyType = EnemyType.typeC;
+
         //state machine setup
         _stateMachine = new StateMachine();
         var Sight = new SightPlayer(this);

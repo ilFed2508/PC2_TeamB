@@ -12,6 +12,8 @@ public class PlayerBullet : MonoBehaviour
     public string HitKill;
     public string SFXBullet;
 
+    public GameObject VFXhit;
+
 
     // Update is called once per frame
     void Start()
@@ -39,6 +41,18 @@ public class PlayerBullet : MonoBehaviour
                 Instantiate(Particle, spawnPos, gameObject.transform.rotation);
                 other.gameObject.GetComponent<WeaponDrop>().DropWeapon();
                 Enemy.PlayerHealOnDeath();
+                if((int)Enemy.enemyType == 1)
+                {
+                    Enemy.Player.playerScore.AddScore(2);
+                }
+                if ((int)Enemy.enemyType == 2)
+                {
+                    Enemy.Player.playerScore.AddScore(3);
+                }
+                if((int)Enemy.enemyType == 3)
+                {
+                    Enemy.Player.playerScore.AddScore(4);
+                }
                 Destroy(other.gameObject);
                 AudioManager.instance.Play(HitKill);
                 playerC.hitDeath.SetActive(true);
@@ -55,8 +69,14 @@ public class PlayerBullet : MonoBehaviour
 
     }
 
-    private void OnTriggerStay(Collider other)
+    private void OnCollisionEnter(Collision collision)
     {
-        
+        if (collision.gameObject.CompareTag("Walls"))
+        {
+            ContactPoint contact = collision.contacts[0];
+            Vector3 pos = contact.point;           
+            Instantiate(VFXhit,pos,Quaternion.identity);
+            Destroy(this.gameObject);
+        }
     }
 }

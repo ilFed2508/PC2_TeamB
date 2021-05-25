@@ -7,13 +7,15 @@ public class OnMouseClick_2 : MonoBehaviour
 {
     //public GameObject LevelSelectionCanvas, backCanvas;
     //public AudioSource LevelSelectionopen;
+    public GodModeUI godModeUI;
 
     private void OnMouseDown()
     {
         //LevelSelectionCanvas.SetActive(true);
         //backCanvas.SetActive(false);
         //LevelSelectionopen.Play();
+        godModeUI.ActiveGodmode();
         SceneManager.LoadScene("Loading");
-        PlayerPrefs.SetInt("Checkpoint", 3);
+        PlayerPrefs.SetInt("Checkpoint", 2);
     }
 }

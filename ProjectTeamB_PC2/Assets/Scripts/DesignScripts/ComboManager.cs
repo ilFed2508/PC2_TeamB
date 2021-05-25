@@ -5,9 +5,9 @@ using UnityEngine.UI;
 
 public class ComboManager : MonoBehaviour
 {
-    public float livelloCombo;
+    public int livelloCombo;
     public float aggiuntaDanno;
-    private float danno;   
+    private float danno;
     public float tempoPerScalare;
     public float tempoRestart;
     private float DannoIniziale;
@@ -18,11 +18,16 @@ public class ComboManager : MonoBehaviour
 
     private PlayerController playerController;
 
-    
+    public GameObject[] Sprite;
+
+    [HideInInspector]
+    public int i;
+
+
     // Start is called before the first frame update
     void Start()
     {
-        
+             
         playerController = FindObjectOfType<PlayerController>();
         CurrentRagedWeapon = FindObjectOfType<RangedWeapon>();
         DannoIniziale = playerController.playerShooting.CurrentRagedWeapon.weaponData.Damage;
@@ -32,10 +37,12 @@ public class ComboManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        danno = playerController.playerShooting.CurrentRagedWeapon.weaponData.Damage;
+        i = livelloCombo;
+        danno = playerController.playerShooting.CurrentRagedWeapon.weaponData.StartingDamage;
         ComboSystem();
         ResetComboDamage();
-        
+
+        Debug.Log("cazzo" + i);
     }
 
 
@@ -45,7 +52,7 @@ public class ComboManager : MonoBehaviour
 
         if (CurrentRagedWeapon.CurrentAmmo <= 0)
         {
-            livelloCombo = 0f;
+            livelloCombo = 0;
         }
 
         //Debug.Log("Scalo" + tempoPerScalare);
@@ -53,17 +60,16 @@ public class ComboManager : MonoBehaviour
 
         if (livelloCombo > 0f)
         {
-            
 
             tempoPerScalare -= Time.deltaTime;
             if (tempoPerScalare < 0f)
             {
-                livelloCombo = livelloCombo - 1f;
+                livelloCombo = livelloCombo - 1;
                 tempoPerScalare = tempoRestart;
 
                 if (livelloCombo <= 0f)
                 {
-                    livelloCombo = 0f;
+                    livelloCombo = 0;
                 }
 
             }
@@ -73,12 +79,12 @@ public class ComboManager : MonoBehaviour
 
     public void ComboDamage()
     {
-        
-        if(livelloCombo == 1 )
+
+        if (livelloCombo == 1)
         {
             playerController.playerShooting.CurrentRagedWeapon.weaponData.Damage = danno + aggiuntaDanno;
         }
-        if (livelloCombo ==4 )
+        if (livelloCombo == 4)
         {
             playerController.playerShooting.CurrentRagedWeapon.weaponData.Damage = danno + aggiuntaDanno * 2;
         }
@@ -95,4 +101,7 @@ public class ComboManager : MonoBehaviour
             playerController.playerShooting.CurrentRagedWeapon.weaponData.Damage = playerController.playerShooting.CurrentRagedWeapon.weaponData.StartingDamage;
         }
     }
+
+
+   
 }
