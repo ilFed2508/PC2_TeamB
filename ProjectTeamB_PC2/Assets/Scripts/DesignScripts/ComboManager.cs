@@ -18,6 +18,8 @@ public class ComboManager : MonoBehaviour
 
     public RangedWeapon CurrentRagedWeapon;
 
+    public WeaponData AR,SMG,MINIGUN,SHOTGUN;
+
     private PlayerController playerController;
 
     public GameObject[] Sprite;
@@ -73,7 +75,11 @@ public class ComboManager : MonoBehaviour
                 
                 if (System.Array.IndexOf(Livellocombo, livelloCombo) != -1)
                 {
-                    playerController.playerShooting.CurrentRagedWeapon.weaponData.Damage -= aggiuntaDanno;
+                    AR.Damage -= aggiuntaDanno;
+                    SMG.Damage -= aggiuntaDanno;
+                    MINIGUN.Damage -= aggiuntaDanno;
+                    SHOTGUN.Damage -= aggiuntaDanno;
+                    //playerController.playerShooting.CurrentRagedWeapon.weaponData.Damage -= aggiuntaDanno;
                 }               
                 tempoPerScalare = tempoRestart;
 
@@ -92,7 +98,11 @@ public class ComboManager : MonoBehaviour
       
         if (System.Array.IndexOf(Livellocombo, livelloCombo) != -1)
         {
-            playerController.playerShooting.CurrentRagedWeapon.weaponData.Damage  += aggiuntaDanno;
+            AR.Damage += aggiuntaDanno;
+            SMG.Damage += aggiuntaDanno;
+            MINIGUN.Damage += aggiuntaDanno;
+            SHOTGUN.Damage += aggiuntaDanno;
+            //playerController.playerShooting.CurrentRagedWeapon.weaponData.Damage  += aggiuntaDanno;
         }
 
         //if (livelloCombo == 1)
@@ -113,7 +123,12 @@ public class ComboManager : MonoBehaviour
     {
         if (livelloCombo == 0)
         {
-            playerController.playerShooting.CurrentRagedWeapon.weaponData.Damage = playerController.playerShooting.CurrentRagedWeapon.weaponData.StartingDamage;
+            AR.Damage = AR.StartingDamage;
+            SMG.Damage = SMG.StartingDamage;
+            MINIGUN.Damage = MINIGUN.StartingDamage;
+            SHOTGUN.Damage = SHOTGUN.StartingDamage;
+
+            //playerController.playerShooting.CurrentRagedWeapon.weaponData.Damage = playerController.playerShooting.CurrentRagedWeapon.weaponData.StartingDamage;
         }
     }
 
