@@ -8,7 +8,7 @@ public class PlayerSpawn : MonoBehaviour
     public GameObject playerDisarmato;
     public GameObject playerGOD;
     public GameObject playerDisarmatoGOD;
-    public GameObject spawn1, spawn2, spawn3;
+    public GameObject spawn1, spawn2, spawn3, spawn4;
 
     private DetectedActDeact hudOn;
 
@@ -83,6 +83,26 @@ public class PlayerSpawn : MonoBehaviour
             {
                 //GodmodeDisattiva
                 PlayerSpawned = Instantiate(player, position2, spawn3.transform.rotation);
+            }
+            hudOn = GameObject.Find("HUD").GetComponent<DetectedActDeact>();
+            hudOn.thing.SetActive(true);
+            //set new totalscore
+            PlayerSpawned.GetComponent<ScoreController>().SetTotalScore(PlayerPrefs.GetInt("PlayerTotalScore"));
+        }
+
+        if (PlayerPrefs.GetInt("Checkpoint") == 4)
+        {
+            Vector3 position2 = new Vector3(spawn4.transform.position.x, spawn4.transform.position.y, spawn4.transform.position.z);
+            GameObject PlayerSpawned;
+            if (PlayerPrefs.GetInt("GodmodeActivated") == 1)
+            {
+                //godmodeAttiva
+                PlayerSpawned = Instantiate(playerGOD, position2, spawn4.transform.rotation);
+            }
+            else
+            {
+                //GodmodeDisattiva
+                PlayerSpawned = Instantiate(player, position2, spawn4.transform.rotation);
             }
             hudOn = GameObject.Find("HUD").GetComponent<DetectedActDeact>();
             hudOn.thing.SetActive(true);
