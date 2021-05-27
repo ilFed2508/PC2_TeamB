@@ -14,7 +14,11 @@ public class ComboManager : MonoBehaviour
 
     public Text LivelloCombo;
 
+    public int[]Livellocombo;
+
     public RangedWeapon CurrentRagedWeapon;
+
+    public WeaponData AR,SMG,MINIGUN,SHOTGUN;
 
     private PlayerController playerController;
 
@@ -22,6 +26,8 @@ public class ComboManager : MonoBehaviour
 
     [HideInInspector]
     public int i;
+
+    
 
 
     // Start is called before the first frame update
@@ -37,6 +43,7 @@ public class ComboManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        
         i = livelloCombo;
         danno = playerController.playerShooting.CurrentRagedWeapon.weaponData.StartingDamage;
         ComboSystem();
@@ -65,6 +72,15 @@ public class ComboManager : MonoBehaviour
             if (tempoPerScalare < 0f)
             {
                 livelloCombo = livelloCombo - 1;
+                
+                if (System.Array.IndexOf(Livellocombo, livelloCombo) != -1)
+                {
+                    AR.Damage -= aggiuntaDanno;
+                    SMG.Damage -= aggiuntaDanno;
+                    MINIGUN.Damage -= aggiuntaDanno;
+                    SHOTGUN.Damage -= aggiuntaDanno;
+                    //playerController.playerShooting.CurrentRagedWeapon.weaponData.Damage -= aggiuntaDanno;
+                }               
                 tempoPerScalare = tempoRestart;
 
                 if (livelloCombo <= 0f)
@@ -79,26 +95,40 @@ public class ComboManager : MonoBehaviour
 
     public void ComboDamage()
     {
+      
+        if (System.Array.IndexOf(Livellocombo, livelloCombo) != -1)
+        {
+            AR.Damage += aggiuntaDanno;
+            SMG.Damage += aggiuntaDanno;
+            MINIGUN.Damage += aggiuntaDanno;
+            SHOTGUN.Damage += aggiuntaDanno;
+            //playerController.playerShooting.CurrentRagedWeapon.weaponData.Damage  += aggiuntaDanno;
+        }
 
-        if (livelloCombo == 1)
-        {
-            playerController.playerShooting.CurrentRagedWeapon.weaponData.Damage = danno + aggiuntaDanno;
-        }
-        if (livelloCombo == 4)
-        {
-            playerController.playerShooting.CurrentRagedWeapon.weaponData.Damage = danno + aggiuntaDanno * 2;
-        }
-        if (livelloCombo >= 7)
-        {
-            playerController.playerShooting.CurrentRagedWeapon.weaponData.Damage = danno + aggiuntaDanno * 2.1f;
-        }
+        //if (livelloCombo == 1)
+        //{
+        //    playerController.playerShooting.CurrentRagedWeapon.weaponData.Damage += aggiuntaDanno;
+        //}
+        //if (livelloCombo == 2)
+        //{
+        //    playerController.playerShooting.CurrentRagedWeapon.weaponData.Damage += aggiuntaDanno;
+        //}
+        //if (livelloCombo == 3)
+        //{
+        //    playerController.playerShooting.CurrentRagedWeapon.weaponData.Damage += aggiuntaDanno;
+        //}
     }
 
     public void ResetComboDamage()
     {
         if (livelloCombo == 0)
         {
-            playerController.playerShooting.CurrentRagedWeapon.weaponData.Damage = playerController.playerShooting.CurrentRagedWeapon.weaponData.StartingDamage;
+            AR.Damage = AR.StartingDamage;
+            SMG.Damage = SMG.StartingDamage;
+            MINIGUN.Damage = MINIGUN.StartingDamage;
+            SHOTGUN.Damage = SHOTGUN.StartingDamage;
+
+            //playerController.playerShooting.CurrentRagedWeapon.weaponData.Damage = playerController.playerShooting.CurrentRagedWeapon.weaponData.StartingDamage;
         }
     }
 
