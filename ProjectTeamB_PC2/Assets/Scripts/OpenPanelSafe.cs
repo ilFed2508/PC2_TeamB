@@ -21,10 +21,9 @@ public class OpenPanelSafe : MonoBehaviour
     // Update is called once per frame
     IEnumerator MyCoroutine()
     {
-        yield return new WaitForSeconds(2.0f);
+        yield return new WaitForSeconds(1.0f);
         SafePanel.SetActive(false);
         WeaponSlot.SetActive(true);
-        HUD.SetActive(true);
-        
+        HUD.SetActive(true);        
     }
 }
