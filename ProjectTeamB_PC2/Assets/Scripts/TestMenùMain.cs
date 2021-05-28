@@ -9,6 +9,4 @@ public class TestMenùMain : MonoBehaviour
     {
         Time.timeScale = 1;
     }
-
-
 }
