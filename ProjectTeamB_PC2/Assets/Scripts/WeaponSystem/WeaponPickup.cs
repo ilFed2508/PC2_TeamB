@@ -90,6 +90,10 @@ public class WeaponPickup : MonoBehaviour
 
     void SwitchWeapon()
     {
+        //playerController.WeaponSlotObject.SetActive(true);
+        //playerController.WeaponSlotAkimboObject.SetActive(false);
+
+        playerController.AkimboController.DestroyAkimbo();
         //da eliminare
         Camera.Play("SwitchWeapon");
         //------------------------------

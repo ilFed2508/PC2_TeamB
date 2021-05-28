@@ -19,11 +19,14 @@ public class PlayerController : MonoBehaviour
 	public GameObject Melee;
 	public GameObject Player;
 	public GameObject CanvasCombo;
-
-    //image "E" pick up - joe
-    public GameObject PickUp;
-
 	public Transform WeaponSlotAkimbo;
+	public GameObject WeaponSlotObject;
+	public GameObject WeaponSlotAkimboObject;
+	public AkimboManager AkimboController;
+	//image "E" pick up - joe
+	public GameObject PickUp;
+
+	
 
 	void Start()
 	{
@@ -34,6 +37,7 @@ public class PlayerController : MonoBehaviour
 		playerMovement = GetComponent<PlayerMovement>();
 		playerLife = GetComponent<PlayerLifeSystem>();
 		playerScore = GetComponent<ScoreController>();
+		AkimboController = GetComponent<AkimboManager>();
 	}
 
 	void Update()

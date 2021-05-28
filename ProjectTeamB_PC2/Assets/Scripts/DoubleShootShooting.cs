@@ -49,6 +49,10 @@ public class DoubleShootShooting : Shooting
         }
 
 
+        //da giù in poi Da eliminare 
+        Instantiate(Flash, Parent);
+        //Da eliminare più avanti
+        anim.Play("Akimbo_Shoot");
 
         Vector3 ShootingDirection = ShootingTargetPoint - currentWeapon.GunBarrel.position;
 
@@ -60,19 +64,16 @@ public class DoubleShootShooting : Shooting
 
         BulletInstance.GetComponent<Rigidbody>().AddForce(ShootingDirection.normalized * currentWeapon.weaponData.ShootingForce, ForceMode.Impulse);
 
-        //da giù in poi Da eliminare 
-        Instantiate(Flash, Parent);
-        //Da eliminare più avanti
-        anim.Play("ShootAR(Def)");
-        anim.SetBool("Shoot", true);
+
+        
 
         Vector3 ShootingDirection2 = ShootingTargetPoint - currentWeapon.GunBarrel2.position;
 
         GameObject BulletInstance2 = Instantiate(currentWeapon.WeaponBulletPrefab2, currentWeapon.GunBarrel2.position, Quaternion.identity);
 
-        BulletInstance2.transform.forward = ShootingDirection.normalized;
+        BulletInstance2.transform.forward = ShootingDirection2.normalized;
 
-        BulletInstance2.GetComponent<Rigidbody>().AddForce(ShootingDirection.normalized * currentWeapon.weaponData.ShootingForce, ForceMode.Impulse);
+        BulletInstance2.GetComponent<Rigidbody>().AddForce(ShootingDirection2.normalized * currentWeapon.weaponData.ShootingForce, ForceMode.Impulse);
         //Luca
     }
 
