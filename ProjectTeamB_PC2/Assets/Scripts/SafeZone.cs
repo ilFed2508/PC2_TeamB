@@ -6,6 +6,7 @@ public class SafeZone : MonoBehaviour
 {
     [Header("Maps")]
     public GameObject mapIn;
+    public GameObject mapIn2;
     public GameObject mapOut;
     [Header("Other Things")]
     public float recoverdLife;

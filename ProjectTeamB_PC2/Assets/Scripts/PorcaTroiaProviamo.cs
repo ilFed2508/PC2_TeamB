@@ -13,6 +13,4 @@ public class PorcaTroiaProviamo : MonoBehaviour
         Test = FindObjectOfType<PlayerController>();
         Player = Test.Player;
     }
-
-   
 }
