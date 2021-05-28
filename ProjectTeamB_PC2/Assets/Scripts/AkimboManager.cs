@@ -39,7 +39,7 @@ public class AkimboManager : MonoBehaviour
         }
         if (AddAkimbo && Timer > 0)
         {
-            if (Input.GetKeyDown(KeyCode.F))
+            if (Input.GetKeyDown(KeyCode.K))
             {
                 AkimboWeapon(); 
                 if(StartTimer == true)
@@ -88,13 +88,15 @@ public class AkimboManager : MonoBehaviour
 
     public void DestroyAkimbo()
     {
+        
        AddAkimbo = false;
        StartTimer = false;
        StartRefresh = true;
        ArmaSlot.SetActive(true);
        AkimboSlot.SetActive(false);
        Camera.Play("SwitchWeapon");
-       //destroy current Weapon
+       Timer = CopyTimer;
+        //destroy current Weapon
        Destroy(playerController.playerShooting.CurrentRagedWeapon.gameObject);
        playerController.playerShooting.CurrentRagedWeapon = playerController.WeaponSlot.GetComponentInChildren<RangedWeapon>();
        //setup new current ammo
