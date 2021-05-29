@@ -9,6 +9,10 @@ public class CameraMovement : MonoBehaviour
     /// </summary>
     public float ViewSensitivity;
     /// <summary>
+    /// Joystick view Sensitivity
+    /// </summary>
+    public float JoystickSensitivity;
+    /// <summary>
     /// Player Reference
     /// </summary>
     public Transform Player;
@@ -17,9 +21,13 @@ public class CameraMovement : MonoBehaviour
     /// </summary>
     private float cameraXrotation;
     /// <summary>
-    /// vector2 that stores the inputs
+    /// vector2 that stores the inputs for mouse
     /// </summary>
     private Vector2 mouseInputs;
+    /// <summary>
+    /// vector2 that stores the inputs for joystick
+    /// </summary>
+    private Vector2 JoystickInputs;
 
     private void Awake()
     {
@@ -42,8 +50,14 @@ public class CameraMovement : MonoBehaviour
         //get the mouse inputs
         GetMouseInputs();
 
+        //get the joystick inputs
+        GetJoystickInputs();
+
         //apply camera rotation
         ApplyCameraRotation(mouseInputs.x, mouseInputs.y);
+
+        //apply camera rotation joystick
+        ApplyJoystickCameraRotation(JoystickInputs.x, JoystickInputs.y);
     }
 
     /// <summary>
@@ -58,6 +72,15 @@ public class CameraMovement : MonoBehaviour
         mouseInputs.y = mouseY;
     }
 
+    public void GetJoystickInputs()
+    {
+        float mouseX = Input.GetAxis("Xbox_RightStickHorizontal") * JoystickSensitivity * Time.deltaTime;
+        float mouseY = Input.GetAxis("Xbox_RightStickVertical") * JoystickSensitivity * Time.deltaTime;
+
+        JoystickInputs.x = mouseX;
+        JoystickInputs.y = mouseY;
+    }
+
     /// <summary>
     /// Apply Camera rotation based on inputs
     /// </summary>
@@ -69,6 +92,21 @@ public class CameraMovement : MonoBehaviour
         Player.Rotate(Vector3.up * mouseX);
 
         cameraXrotation -= mouseY;
+        cameraXrotation = Mathf.Clamp(cameraXrotation, -90f, 90f);
+        transform.localRotation = Quaternion.Euler(cameraXrotation, 0f, 0f);
+    }
+
+    /// <summary>
+    /// Apply Camera rotation based on joystick inputs
+    /// </summary>
+    /// <param name="mouseX"></param>
+    /// <param name="mouseY"></param>
+    public void ApplyJoystickCameraRotation(float mouseX, float mouseY)
+    {
+        //player rotation
+        Player.Rotate(Vector3.up * mouseX);
+
+        cameraXrotation += mouseY;
         cameraXrotation = Mathf.Clamp(cameraXrotation, -90f, 90f);
         transform.localRotation = Quaternion.Euler(cameraXrotation, 0f, 0f);
     }

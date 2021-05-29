@@ -54,7 +54,7 @@ public class WeaponPickup : MonoBehaviour
             //image "E" pick up - joe
             playerController.PickUp.gameObject.SetActive(true);
         }
-        if (other.gameObject.CompareTag("Player") && Input.GetKey(KeyCode.E)|| Input.GetKeyDown(KeyCode.Joystick1Button0))
+        if (other.gameObject.CompareTag("Player") && Input.GetKey(KeyCode.E)|| Input.GetButtonDown("Xbox_X"))
         { 
             SwitchWeapon();
             //image "E" pick up - joe
