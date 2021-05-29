@@ -50,7 +50,7 @@ public class PlayerMovement : MonoBehaviour
 
         if (isGrounded == true)
         {
-            if (Input.GetButtonDown("Jump"))
+            if (Input.GetButtonDown("Jump") || Input.GetButton("Joystick_Cross"))
             {
                 Jump();
             }

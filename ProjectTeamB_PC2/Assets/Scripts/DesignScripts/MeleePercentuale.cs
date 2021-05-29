@@ -33,7 +33,7 @@ public class MeleePercentuale : MonoBehaviour
             PossoMenare = true;
         }
 
-        if (Input.GetKeyDown(KeyCode.Q) && PossoMenare)
+        if ((Input.GetButtonDown("Joystick_Circle") || Input.GetKeyDown(KeyCode.Q)) && PossoMenare)
         {            
             Melee.Play("Melee");
             WeaponSlot.Play("Melee-WeaponSlot");

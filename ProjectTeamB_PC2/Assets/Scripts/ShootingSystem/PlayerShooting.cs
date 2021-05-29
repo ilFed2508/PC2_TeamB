@@ -7,6 +7,7 @@ using TMPro;
 public class PlayerShooting : MonoBehaviour
 {
     public RangedWeapon CurrentRagedWeapon;
+    private bool JoystickInputActivated;
     //Da eliminare più avanti
     private Animator anim;
     //-------------------------
@@ -44,17 +45,24 @@ public class PlayerShooting : MonoBehaviour
         UpdateDiegeticUI();
 
         //Execute shooting
-        if (Input.GetMouseButtonDown(0) && CurrentRagedWeapon.ShootingType.IsAutomatic == false)
+        if ((Input.GetAxis("Joystick_R2") > 0 || Input.GetMouseButtonDown(0)) && CurrentRagedWeapon.ShootingType.IsAutomatic == false)
         {
-            
-            CurrentRagedWeapon.ShootingType.ShootingAction(CurrentRagedWeapon);
+            if(JoystickInputActivated == false)
+            {
+                CurrentRagedWeapon.ShootingType.ShootingAction(CurrentRagedWeapon);
+                JoystickInputActivated = true;
+            }            
             //Da eliminare più avanti
             //anim.Play("ShootAR(Def)");
 
         }
-        if (Input.GetMouseButton(0) && CurrentRagedWeapon.ShootingType.IsAutomatic == true)
+        if ((Input.GetAxis("Joystick_R2") > 0 || Input.GetMouseButton(0)) && CurrentRagedWeapon.ShootingType.IsAutomatic == true)
         {
             CurrentRagedWeapon.ShootingType.ShootingAction(CurrentRagedWeapon);
+        }
+        if(Input.GetAxis("Joystick_R2") <= 0)
+        {
+            JoystickInputActivated = false;
         }
     }
 
