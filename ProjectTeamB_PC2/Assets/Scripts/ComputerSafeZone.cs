@@ -26,7 +26,7 @@ public class ComputerSafeZone : MonoBehaviour
         {
             EpickUp.PickUp.SetActive(true);
         }
-        if (other.CompareTag("Player") && (Input.GetKey(KeyCode.E) || Input.GetButton("Joystick_Square")))
+        if (other.CompareTag("Player") && (Input.GetKey(KeyCode.E) || Input.GetButton("Xbox_X")))
         {
             
             other.gameObject.SetActive(false);

@@ -33,7 +33,7 @@ public class SlideManager : MonoBehaviour
         if (isSliding && TimeSlide>0f && controller.isGrounded)
         {
             SlideIcon.SetActive(true);
-            if (Input.GetKey(KeyCode.LeftShift))
+            if (Input.GetKey(KeyCode.LeftShift) || Input.GetButtonDown("Xbox_LB"))
             {
                 Slide();
             }

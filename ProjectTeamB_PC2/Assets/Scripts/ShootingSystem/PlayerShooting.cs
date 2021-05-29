@@ -45,7 +45,7 @@ public class PlayerShooting : MonoBehaviour
         UpdateDiegeticUI();
 
         //Execute shooting
-        if ((Input.GetAxis("Joystick_R2") > 0 || Input.GetMouseButtonDown(0)) && CurrentRagedWeapon.ShootingType.IsAutomatic == false)
+        if ((Input.GetAxis("Xbox_RT") > 0 || Input.GetMouseButtonDown(0)) && CurrentRagedWeapon.ShootingType.IsAutomatic == false)
         {
             if(JoystickInputActivated == false)
             {
@@ -56,11 +56,11 @@ public class PlayerShooting : MonoBehaviour
             //anim.Play("ShootAR(Def)");
 
         }
-        if ((Input.GetAxis("Joystick_R2") > 0 || Input.GetMouseButton(0)) && CurrentRagedWeapon.ShootingType.IsAutomatic == true)
+        if ((Input.GetAxis("Xbox_RT") > 0 || Input.GetMouseButton(0)) && CurrentRagedWeapon.ShootingType.IsAutomatic == true)
         {
             CurrentRagedWeapon.ShootingType.ShootingAction(CurrentRagedWeapon);
         }
-        if(Input.GetAxis("Joystick_R2") <= 0)
+        if(Input.GetAxis("Xbox_RT") <= 0)
         {
             JoystickInputActivated = false;
         }

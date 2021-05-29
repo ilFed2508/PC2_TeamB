@@ -74,8 +74,8 @@ public class CameraMovement : MonoBehaviour
 
     public void GetJoystickInputs()
     {
-        float mouseX = Input.GetAxis("Right_Analog_Horizontal") * JoystickSensitivity * Time.deltaTime;
-        float mouseY = Input.GetAxis("Right_Analog_Vertical") * JoystickSensitivity * Time.deltaTime;
+        float mouseX = Input.GetAxis("Xbox_RightStickHorizontal") * JoystickSensitivity * Time.deltaTime;
+        float mouseY = Input.GetAxis("Xbox_RightStickVertical") * JoystickSensitivity * Time.deltaTime;
 
         JoystickInputs.x = mouseX;
         JoystickInputs.y = mouseY;
