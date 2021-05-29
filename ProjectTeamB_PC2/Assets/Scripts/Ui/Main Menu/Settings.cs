@@ -20,13 +20,13 @@ public class Settings : MonoBehaviour
     public float AugmentedMouseS;
     public float RangeMouseS;
     public float MouseSens;
-    //[Header("Controller Sensibility")]
-    // public Slider ControllerS;
-    // public float ControllerSMin;
-    //public float ControllerSMax;
-    //public float AugmentedControllerS;
-    //public float RangeControllerS;
-    //public float ControllerSens;
+    [Header("Controller Sensibility")]
+    public Slider ControllerS;
+    public float ControllerSMin;
+    public float ControllerSMax;
+    public float AugmentedControllerS;
+    public float RangeControllerS;
+    public float ControllerSens;
 
     // Start is called before the first frame update
     void Start()
@@ -37,10 +37,10 @@ public class Settings : MonoBehaviour
         RangeMouseS = MouseSMax - MouseSMin;
         MouseS.value = (PlayerPrefs.GetFloat("MouseS") - AugmentedMouseS) / RangeMouseS;
         PersistantObject.MouseS = MouseSens;
-        //AugmentedControllerS = ControllerSMin - 0;
-        //RangeControllerS = ControllerSMax - ControllerSMin;
-        //ControllerS.value = (PlayerPrefs.GetFloat("ControllerS") - AugmentedControllerS) / RangeControllerS;
-        //PersistantObject.ControllerS = ControllerSens;
+        AugmentedControllerS = ControllerSMin - 0;
+        RangeControllerS = ControllerSMax - ControllerSMin;
+        ControllerS.value = (PlayerPrefs.GetFloat("ControllerS") - AugmentedControllerS) / RangeControllerS;
+        PersistantObject.ControllerS = ControllerSens;
 
         Resolutions = Screen.resolutions;
         //ResolutionDropdown.ClearOptions();
@@ -59,7 +59,6 @@ public class Settings : MonoBehaviour
         //ResolutionDropdown.AddOptions(options);
         //ResolutionDropdown.value = CurrentResolutionIndex;
         //ResolutionDropdown.RefreshShownValue();
-
     }
 
     // Update is called once per frame
@@ -67,7 +66,7 @@ public class Settings : MonoBehaviour
     {
         PlayerPrefs.SetFloat("GeneraL", AudioSlider.value);
         SetMouseS();
-        //SetControllerS();
+        SetControllerS();
         //CheckBools();
     }
 
@@ -89,9 +88,9 @@ public class Settings : MonoBehaviour
     }
     public void SetControllerS()
     {
-        //ControllerSens = (ControllerS.value * RangeControllerS) + AugmentedControllerS;
-        //PlayerPrefs.SetFloat("ControllerS", ControllerSens);
-        //PersistantObject.ControllerS = ControllerSens;
+        ControllerSens = (ControllerS.value * RangeControllerS) + AugmentedControllerS;
+        PlayerPrefs.SetFloat("ControllerS", ControllerSens);
+        PersistantObject.ControllerS = ControllerSens;
     }
 
     public void SetResolution(int ResolutionIndex)
