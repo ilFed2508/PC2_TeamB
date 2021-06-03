@@ -10,12 +10,14 @@ public class MarketShopMenù : MonoBehaviour
     public GameObject SlideButton;
     public DetectedActDeact HUD;
     public GameObject CrossHair;
+    private PowerUpController MyPowerUp;
 
 
 
     void Start()
     {
-        slideScript = FindObjectOfType<SlideManager>();
+        MyPowerUp = FindObjectOfType<PowerUpController>();
+        //slideScript = FindObjectOfType<SlideManager>();
         HUD = GameObject.Find("HUD").GetComponent<DetectedActDeact>();
     }
 
@@ -27,8 +29,9 @@ public class MarketShopMenù : MonoBehaviour
     
     public void AddSlide()
     {
-        slideScript.isSliding = true;
-        SlideButton.SetActive(false);
+        MyPowerUp.ActiveSlide();
+        //slideScript.isSliding = true;
+        //SlideButton.SetActive(false);
     }
     public void Exit()
     {

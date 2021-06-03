@@ -16,6 +16,10 @@ public class ScoreController : MonoBehaviour
     private int TotalScore;
     [HideInInspector]
     private int HighScore;
+    [HideInInspector]
+    public int CostScore;
+
+
 
     //text momentaneo
     public Text CurrentScoreText;
@@ -29,6 +33,7 @@ public class ScoreController : MonoBehaviour
     private void Update()
     {
         CurrentScoreText.text = CurrentScore.ToString();
+        CostScore = CurrentScore;
     }
 
     #region BehaviourAPI
@@ -94,6 +99,15 @@ public class ScoreController : MonoBehaviour
         CurrentScore -= GetActionValue(ActionID);
 
         if(CurrentScore < 0)
+        {
+            CurrentScore = 0;
+        }
+    }
+    public void PurchasePowerUp(int Cost)
+    {
+        CostScore -= Cost;
+
+        if (CurrentScore < 0)
         {
             CurrentScore = 0;
         }
