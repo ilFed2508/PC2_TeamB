@@ -28,6 +28,13 @@ public class PowerUpController : MonoBehaviour
         }
         
     }
+    public void DeactivePowerUp()
+    {
+            
+        SlideScript.isSliding = false;
+        MyMarket.SlideButton.SetActive(true);
+
+    }
 
 
 }

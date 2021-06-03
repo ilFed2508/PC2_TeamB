@@ -10,7 +10,11 @@ public class ComputerSafeZone : MonoBehaviour
     private SlideManager marketPanel;
     public GameObject HUD, cameraSafe, powerUP;
     public DetectedActDeact HUDReal;
-
+    private PorcaTroiaProviamo MyCameraMovemant;
+    private void Start()
+    {
+        MyCameraMovemant = FindObjectOfType<PorcaTroiaProviamo>();
+    }
     void Update()
     {
         
@@ -28,24 +32,24 @@ public class ComputerSafeZone : MonoBehaviour
         }
         if (other.CompareTag("Player") && (Input.GetKey(KeyCode.E) || Input.GetButton("Xbox_X")))
         {
-            
-            other.gameObject.SetActive(false);
-            powerUP.SetActive(true);
+
+            MyCameraMovemant.Player.SetActive(false);
             cameraSafe.SetActive(true);
+            powerUP.SetActive(true);            
             //leaderBoard.SetActive(true);
             //HUD.SetActive(false);
             //HUDReal.thing.SetActive(false);
             Cursor.lockState = CursorLockMode.None;
             Cursor.visible = true;
             //marketPanel.MarketPanel.SetActive(true);
-            EpickUp.PickUp.SetActive(false);
+            //EpickUp.PickUp.SetActive(false);
             //Time.timeScale = 0f;           
         }
 
         else
 
         {
-            powerUP.SetActive(false);
+            //powerUP.SetActive(false);
             //leaderBoard.SetActive(false);
         }
     }
