@@ -14,9 +14,13 @@ public class SafeZone : MonoBehaviour
 
     private PlayerController playerController;
     private PowerUpController MyPoweUp;
+    public GameObject SlideButton;
+    
+    
 
     public void Start()
     {
+        
         MyPoweUp = FindObjectOfType<PowerUpController>();
         playerController = FindObjectOfType<PlayerController>();
     }
@@ -64,4 +68,8 @@ public class SafeZone : MonoBehaviour
             playerController.playerScore.SetScore(0);
         }
     }
+
+
+
+
 }

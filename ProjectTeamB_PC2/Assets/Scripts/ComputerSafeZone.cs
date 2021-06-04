@@ -16,12 +16,8 @@ public class ComputerSafeZone : MonoBehaviour
         MyCameraMovemant = FindObjectOfType<PorcaTroiaProviamo>();
     }
     void Update()
-    {
-        
-        HUD = GameObject.Find("WeaponSlot");
-        HUDReal = GameObject.Find("HUD").GetComponent<DetectedActDeact>();
-        EpickUp = FindObjectOfType<PlayerController>();
-        marketPanel = FindObjectOfType<SlideManager>();
+    {      
+        EpickUp = FindObjectOfType<PlayerController>();       
     }
 
     private void OnTriggerStay(Collider other)
@@ -36,16 +32,9 @@ public class ComputerSafeZone : MonoBehaviour
             MyCameraMovemant.Player.SetActive(false);
             cameraSafe.SetActive(true);
             powerUP.SetActive(true);            
-            //leaderBoard.SetActive(true);
-            //HUD.SetActive(false);
-            //HUDReal.thing.SetActive(false);
             Cursor.lockState = CursorLockMode.None;
-            Cursor.visible = true;
-            //marketPanel.MarketPanel.SetActive(true);
-            //EpickUp.PickUp.SetActive(false);
-            //Time.timeScale = 0f;           
+            Cursor.visible = true;         
         }
-
         else
 
         {

@@ -2,17 +2,21 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+
 public class PowerUpController : MonoBehaviour
 {
     private ScoreController MyScore;
     private SlideManager SlideScript;
-    private MarketShopMenù MyMarket;
+    private SafeZone MyButtons;
+    
+
 
     public int SlideCost;
 
     void Start()
     {
-        MyMarket = FindObjectOfType<MarketShopMenù>();
+        
+        MyButtons = FindObjectOfType<SafeZone>();
         SlideScript = FindObjectOfType<SlideManager>();
         MyScore = FindObjectOfType<ScoreController>();
     }
@@ -21,20 +25,18 @@ public class PowerUpController : MonoBehaviour
     public void ActiveSlide()
     {
         if(MyScore.CostScore > SlideCost)
-        {
+        {          
             MyScore.PurchasePowerUp(SlideCost);
-            SlideScript.isSliding = true;
-            MyMarket.SlideButton.SetActive(false);
+            MyButtons.SlideButton.SetActive(false);
+            SlideScript.isSliding = true;           
         }
         
     }
     public void DeactivePowerUp()
-    {
-            
+    {           
         SlideScript.isSliding = false;
-        MyMarket.SlideButton.SetActive(true);
-
+        MyButtons.SlideButton.SetActive(true);
+        //MyMarker.SlideButton.SetActive(true);
     }
-
 
 }

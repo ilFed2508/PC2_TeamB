@@ -6,7 +6,6 @@ using UnityEngine.UI;
 public class MarketShopMenù : MonoBehaviour
 {
     public GameObject marketPanel;   
-    private SlideManager slideScript;
     public GameObject SlideButton;
     public DetectedActDeact HUD;
     public GameObject CrossHair;
@@ -17,29 +16,21 @@ public class MarketShopMenù : MonoBehaviour
     void Start()
     {
         MyPowerUp = FindObjectOfType<PowerUpController>();
-        //slideScript = FindObjectOfType<SlideManager>();
         HUD = GameObject.Find("HUD").GetComponent<DetectedActDeact>();
-    }
-
-    
-    void Update()
-    {
-        
     }
     
     public void AddSlide()
     {
-        MyPowerUp.ActiveSlide();
-        //slideScript.isSliding = true;
-        //SlideButton.SetActive(false);
+        MyPowerUp.ActiveSlide();             
     }
     public void Exit()
     {
         CrossHair.SetActive(true);
         HUD.thing.SetActive(true);
-        Time.timeScale = 1;        
         marketPanel.SetActive(false);
+        Time.timeScale = 1;               
         Cursor.lockState = CursorLockMode.Locked;
         Cursor.visible = false;
     }
+
 }
