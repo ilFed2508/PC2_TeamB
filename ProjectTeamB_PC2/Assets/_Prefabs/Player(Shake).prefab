@@ -434,6 +434,7 @@ Transform:
   - {fileID: 6013409925819239219}
   - {fileID: 5701586239556080427}
   - {fileID: 8674159026345813521}
+  - {fileID: 2910372006893760129}
   m_Father: {fileID: 6013409926121037101}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 90, z: 0}
@@ -512,6 +513,7 @@ GameObject:
   - component: {fileID: 1394685538274219637}
   - component: {fileID: 7438314310266415895}
   - component: {fileID: 7409826260674102429}
+  - component: {fileID: -1076129151287885437}
   m_Layer: 11
   m_Name: Player(Shake)
   m_TagString: Player
@@ -531,7 +533,6 @@ Transform:
   m_LocalScale: {x: 2, y: 2, z: 2}
   m_Children:
   - {fileID: 6013409926028563506}
-  - {fileID: 2910372006893760129}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: -90, z: 0}
@@ -865,6 +866,21 @@ MonoBehaviour:
   TotalScore: 0
   CostScore: 0
   CurrentScoreText: {fileID: 4519783702630557493}
+--- !u!114 &-1076129151287885437
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6013409926121037111}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d08214f5a8f06854489c6702bf5e20e5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  CanUseMedikit: 1
+  NumberOfMedikit: 5
+  MedikitEffect: 3
 --- !u!1 &6013409927285884842
 GameObject:
   m_ObjectHideFlags: 0
@@ -976,7 +992,7 @@ PrefabInstance:
   m_ObjectHideFlags: 0
   serializedVersion: 2
   m_Modification:
-    m_TransformParent: {fileID: 6013409926121037101}
+    m_TransformParent: {fileID: 6013409926028563506}
     m_Modifications:
     - target: {fileID: 185689082017765774, guid: c9c19ee9a2458754d81292c1cb7fb8e3,
         type: 3}
@@ -1557,7 +1573,7 @@ PrefabInstance:
     - target: {fileID: 2798419203836831285, guid: c9c19ee9a2458754d81292c1cb7fb8e3,
         type: 3}
       propertyPath: m_RootOrder
-      value: 1
+      value: 7
       objectReference: {fileID: 0}
     - target: {fileID: 2798419203836831285, guid: c9c19ee9a2458754d81292c1cb7fb8e3,
         type: 3}
