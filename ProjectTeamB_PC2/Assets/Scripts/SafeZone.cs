@@ -19,8 +19,7 @@ public class SafeZone : MonoBehaviour
     
 
     public void Start()
-    {
-        
+    {        
         MyPoweUp = FindObjectOfType<PowerUpController>();
         playerController = FindObjectOfType<PlayerController>();
     }
@@ -39,13 +38,9 @@ public class SafeZone : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        if (other.CompareTag("Player"))
-        {
-            MyPoweUp.DeactivePowerUp();
-        }
+
         if (other.CompareTag("Player") && playerController.SafeZoneReached != checkpoint)
-        {
-            
+        {          
             mapOut.SetActive(true);
             mapIn.SetActive(false);
             playerController.SafeZoneReached = checkpoint;
@@ -58,7 +53,11 @@ public class SafeZone : MonoBehaviour
             mapOut.SetActive(true);
             mapIn.SetActive(false);
             PlayerPrefs.SetInt("Checkpoint", checkpoint);
-        }    
+        }
+        if (other.CompareTag("Player"))
+        {
+            MyPoweUp.DeactivePowerUp();
+        }
     }
 
     private void OnTriggerExit(Collider other)

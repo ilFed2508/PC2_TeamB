@@ -15,8 +15,8 @@ public class PowerUpController : MonoBehaviour
 
     void Start()
     {
-        
-        MyButtons = FindObjectOfType<SafeZone>();
+
+        MyButtons = GameObject.Find("EndRoom").GetComponent<SafeZone>();
         SlideScript = FindObjectOfType<SlideManager>();
         MyScore = FindObjectOfType<ScoreController>();
     }
@@ -27,8 +27,8 @@ public class PowerUpController : MonoBehaviour
         if(MyScore.CostScore > SlideCost)
         {          
             MyScore.PurchasePowerUp(SlideCost);
-            MyButtons.SlideButton.SetActive(false);
-            SlideScript.isSliding = true;           
+            SlideScript.isSliding = true;
+            MyButtons.SlideButton.SetActive(false);                     
         }
         
     }
@@ -36,7 +36,6 @@ public class PowerUpController : MonoBehaviour
     {           
         SlideScript.isSliding = false;
         MyButtons.SlideButton.SetActive(true);
-        //MyMarker.SlideButton.SetActive(true);
     }
 
 }

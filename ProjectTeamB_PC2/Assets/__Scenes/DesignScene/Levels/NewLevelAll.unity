@@ -2991,6 +2991,7 @@ MonoBehaviour:
   mapOut: {fileID: 1677543367}
   recoverdLife: 1
   checkpoint: 1
+  SlideButton: {fileID: 0}
 --- !u!1001 &156643396
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -19042,6 +19043,50 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 602375075}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &610027056
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 610027058}
+  - component: {fileID: 610027057}
+  m_Layer: 0
+  m_Name: GameManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &610027057
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 610027056}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 647ab20ce36c1a648913d98015ae1712, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  SlideButtonCopy: {fileID: 0}
+--- !u!4 &610027058
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 610027056}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 14
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &613011488
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -43984,6 +44029,7 @@ MonoBehaviour:
   mapOut: {fileID: 1619959850}
   recoverdLife: 5
   checkpoint: 3
+  SlideButton: {fileID: 1298285175}
 --- !u!65 &1298285174
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -43997,6 +44043,12 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 59, y: 26, z: 59}
   m_Center: {x: 0, y: 12.5, z: 20}
+--- !u!1 &1298285175 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 7277087881416336604, guid: 4ab9012e5bfc03a4fa06997763dc5e7a,
+    type: 3}
+  m_PrefabInstance: {fileID: 1298285170}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &1302429204
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -50275,7 +50327,7 @@ PrefabInstance:
     - target: {fileID: 4056183839591004755, guid: 4ab9012e5bfc03a4fa06997763dc5e7a,
         type: 3}
       propertyPath: m_Name
-      value: Safe2AndBeyond
+      value: Safe2AndBeyond2
       objectReference: {fileID: 0}
     - target: {fileID: 4056183839591004755, guid: 4ab9012e5bfc03a4fa06997763dc5e7a,
         type: 3}
@@ -50593,6 +50645,7 @@ MonoBehaviour:
   mapOut: {fileID: 1292177467}
   recoverdLife: 5
   checkpoint: 4
+  SlideButton: {fileID: 1369056282}
 --- !u!65 &1369056281
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -50606,6 +50659,12 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 59, y: 26, z: 59}
   m_Center: {x: 0, y: 12.5, z: 20}
+--- !u!1 &1369056282 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 7277087881416336604, guid: 4ab9012e5bfc03a4fa06997763dc5e7a,
+    type: 3}
+  m_PrefabInstance: {fileID: 1369056277}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1391894128
 GameObject:
   m_ObjectHideFlags: 0
@@ -50950,7 +51009,7 @@ PrefabInstance:
     - target: {fileID: 6508808202678085583, guid: e08c22acce1b90f40a5ce3d3a9d2ed7f,
         type: 3}
       propertyPath: m_Name
-      value: EndRoom (1)
+      value: EndRoom
       objectReference: {fileID: 0}
     - target: {fileID: 6508808202678085583, guid: e08c22acce1b90f40a5ce3d3a9d2ed7f,
         type: 3}
