@@ -14,7 +14,7 @@ public class SafeZone : MonoBehaviour
 
     private PlayerController playerController;
     private PowerUpController MyPoweUp;
-    public GameObject SlideButton;
+    public GameObject[]Buttons;
     
     
 
@@ -56,6 +56,10 @@ public class SafeZone : MonoBehaviour
         }
         if (other.CompareTag("Player"))
         {
+            for (int i = 0; i < Buttons.Length; i++)
+            {
+                Buttons[i].SetActive(true);
+            }
             MyPoweUp.DeactivePowerUp();
         }
     }

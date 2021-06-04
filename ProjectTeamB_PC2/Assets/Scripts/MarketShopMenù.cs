@@ -10,18 +10,24 @@ public class MarketShopMenù : MonoBehaviour
     public DetectedActDeact HUD;
     public GameObject CrossHair;
     private PowerUpController MyPowerUp;
+    private ScoreController MyScore;
 
 
 
     void Start()
     {
+        MyScore = FindObjectOfType<ScoreController>();
         MyPowerUp = FindObjectOfType<PowerUpController>();
         HUD = GameObject.Find("HUD").GetComponent<DetectedActDeact>();
     }
     
     public void AddSlide()
     {
-        MyPowerUp.ActiveSlide();             
+        if (MyScore.CostScore > MyPowerUp.SlideCost)
+        {
+            MyPowerUp.ActiveSlide();
+            SlideButton.SetActive(false);
+        }           
     }
     public void Exit()
     {
