@@ -13,14 +13,13 @@ public class SafeZone : MonoBehaviour
     public int checkpoint;
 
     private PlayerController playerController;
-    private PowerUpController MyPoweUp;
+
     public GameObject[]Buttons;
     
     
 
     public void Start()
     {        
-        MyPoweUp = FindObjectOfType<PowerUpController>();
         playerController = FindObjectOfType<PlayerController>();
     }
 
@@ -54,14 +53,7 @@ public class SafeZone : MonoBehaviour
             mapIn.SetActive(false);
             PlayerPrefs.SetInt("Checkpoint", checkpoint);
         }
-        if (other.CompareTag("Player"))
-        {
-            for (int i = 0; i < Buttons.Length; i++)
-            {
-                Buttons[i].SetActive(true);
-            }
-            MyPoweUp.DeactivePowerUp();
-        }
+
     }
 
     private void OnTriggerExit(Collider other)
