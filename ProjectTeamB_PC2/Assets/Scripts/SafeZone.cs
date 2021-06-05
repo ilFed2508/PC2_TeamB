@@ -14,8 +14,12 @@ public class SafeZone : MonoBehaviour
 
     private PlayerController playerController;
 
+    public GameObject[]Buttons;
+    
+    
+
     public void Start()
-    {
+    {        
         playerController = FindObjectOfType<PlayerController>();
     }
 
@@ -33,8 +37,9 @@ public class SafeZone : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
+
         if (other.CompareTag("Player") && playerController.SafeZoneReached != checkpoint)
-        {
+        {          
             mapOut.SetActive(true);
             mapIn.SetActive(false);
             playerController.SafeZoneReached = checkpoint;
@@ -48,6 +53,7 @@ public class SafeZone : MonoBehaviour
             mapIn.SetActive(false);
             PlayerPrefs.SetInt("Checkpoint", checkpoint);
         }
+
     }
 
     private void OnTriggerExit(Collider other)
@@ -57,4 +63,8 @@ public class SafeZone : MonoBehaviour
             playerController.playerScore.SetScore(0);
         }
     }
+
+
+
+
 }

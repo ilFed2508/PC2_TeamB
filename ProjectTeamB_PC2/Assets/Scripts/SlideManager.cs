@@ -29,25 +29,32 @@ public class SlideManager : MonoBehaviour
 
     
     void Update()
-    {     
-        if (isSliding && TimeSlide>0f && controller.isGrounded)
+    {
+        if (isSliding)
         {
-            SlideIcon.SetActive(true);
-            if (Input.GetKey(KeyCode.LeftShift) || Input.GetButton("Xbox_LB"))
+            if (TimeSlide > 0f && controller.isGrounded)
             {
-                Slide();
+                SlideIcon.SetActive(true);
+                if (Input.GetMouseButton(1) || Input.GetButton("Xbox_LB"))
+                {
+                    Slide();
+                }
             }
-        }
-        if(TimeSlide <= 0f)
+            if (TimeSlide <= 0f)
+            {
+                SlideIcon.SetActive(false);
+                TimeToSlide -= Time.deltaTime;
+                if (TimeToSlide <= 0f)
+                {
+                    TimeSlide = CopyTimeSlide;
+                    TimeToSlide = CopyTimeToSlide;
+                }
+            }
+        } 
+        if (!isSliding)
         {
             SlideIcon.SetActive(false);
-            TimeToSlide -= Time.deltaTime;
-            if(TimeToSlide <= 0f)
-            {
-                TimeSlide = CopyTimeSlide;
-                TimeToSlide = CopyTimeToSlide;
-            }
-        }
+        }   
     } 
     
 

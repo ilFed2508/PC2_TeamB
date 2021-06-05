@@ -102,6 +102,11 @@ public class PlayerLifeSystem : MonoBehaviour
         {
             Warning.enabled = false;
         }
+
+        if(PlayerCurrentHP > PlayerStartingHP)
+        {
+            PlayerCurrentHP = PlayerStartingHP;
+        }
     }
 
     public IEnumerator NoiseScreen()

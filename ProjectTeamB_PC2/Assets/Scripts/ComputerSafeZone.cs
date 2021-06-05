@@ -10,14 +10,14 @@ public class ComputerSafeZone : MonoBehaviour
     private SlideManager marketPanel;
     public GameObject HUD, cameraSafe, powerUP;
     public DetectedActDeact HUDReal;
-
-    void Update()
+    private PorcaTroiaProviamo MyCameraMovemant;
+    private void Start()
     {
-        
-        HUD = GameObject.Find("WeaponSlot");
-        HUDReal = GameObject.Find("HUD").GetComponent<DetectedActDeact>();
-        EpickUp = FindObjectOfType<PlayerController>();
-        marketPanel = FindObjectOfType<SlideManager>();
+        MyCameraMovemant = FindObjectOfType<PorcaTroiaProviamo>();
+    }
+    void Update()
+    {      
+        EpickUp = FindObjectOfType<PlayerController>();       
     }
 
     private void OnTriggerStay(Collider other)
@@ -28,24 +28,17 @@ public class ComputerSafeZone : MonoBehaviour
         }
         if (other.CompareTag("Player") && (Input.GetKey(KeyCode.E) || Input.GetButton("Xbox_X")))
         {
-            
-            other.gameObject.SetActive(false);
-            powerUP.SetActive(true);
-            cameraSafe.SetActive(true);
-            //leaderBoard.SetActive(true);
-            //HUD.SetActive(false);
-            //HUDReal.thing.SetActive(false);
-            Cursor.lockState = CursorLockMode.None;
-            Cursor.visible = true;
-            //marketPanel.MarketPanel.SetActive(true);
-            EpickUp.PickUp.SetActive(false);
-            //Time.timeScale = 0f;           
-        }
 
+            MyCameraMovemant.Player.SetActive(false);
+            cameraSafe.SetActive(true);
+            powerUP.SetActive(true);            
+            Cursor.lockState = CursorLockMode.None;
+            Cursor.visible = true;         
+        }
         else
 
         {
-            powerUP.SetActive(false);
+            //powerUP.SetActive(false);
             //leaderBoard.SetActive(false);
         }
     }

@@ -7,10 +7,10 @@ public class PorcaTroiaProviamo : MonoBehaviour
     [HideInInspector]
     public GameObject Player;
 
-    private PlayerController Test;
+    private CameraMovement Test;
     void Start()
     {
-        Test = FindObjectOfType<PlayerController>();
-        Player = Test.Player;
+        Test = FindObjectOfType<CameraMovement>();
+        Player = Test.gameObject;
     }
 }

@@ -6,37 +6,52 @@ using UnityEngine.UI;
 public class MarketShopMenù : MonoBehaviour
 {
     public GameObject marketPanel;   
-    private SlideManager slideScript;
     public GameObject SlideButton;
+    public GameObject MedikitButton;
     public DetectedActDeact HUD;
     public GameObject CrossHair;
+    private PowerUpController MyPowerUp;
+    private ScoreController MyScore;
 
 
 
     void Start()
     {
-        slideScript = FindObjectOfType<SlideManager>();
+        MyScore = FindObjectOfType<ScoreController>();
+        MyPowerUp = FindObjectOfType<PowerUpController>();
         HUD = GameObject.Find("HUD").GetComponent<DetectedActDeact>();
-    }
-
-    
-    void Update()
-    {
-        
     }
     
     public void AddSlide()
     {
-        slideScript.isSliding = true;
-        SlideButton.SetActive(false);
+        if (PlayerPrefs.GetInt("OnePowerUp") == 0)
+        {
+            if (MyScore.CostScore > MyPowerUp.SlideCost)
+            {
+                MyPowerUp.ActiveSlide();
+                SlideButton.SetActive(false);
+            }
+        }           
+    }
+    public void AddMedikit()
+    {
+        if (PlayerPrefs.GetInt("OnePowerUp") == 0)
+        {
+            if (MyScore.CostScore > MyPowerUp.MedikitCost)
+            {
+                MyPowerUp.ActiveMedikit();
+                MedikitButton.SetActive(false);
+            }
+        }
     }
     public void Exit()
     {
         CrossHair.SetActive(true);
         HUD.thing.SetActive(true);
-        Time.timeScale = 1;        
         marketPanel.SetActive(false);
+        Time.timeScale = 1;               
         Cursor.lockState = CursorLockMode.Locked;
         Cursor.visible = false;
     }
+
 }
