@@ -23,10 +23,6 @@ public class EnemyBase : MonoBehaviour
     public float HpSmooth;
     public float TimeLateCall;
 
-    //Animazioni
-    public Animator EnemyAnim;
-    public string Animazione;
-
     //Melee
     public float MeleeDamage;
 
@@ -102,7 +98,6 @@ public class EnemyBase : MonoBehaviour
         HP -= Player.playerShooting.CurrentRagedWeapon.weaponData.Damage;           
         //enemy life bar - Joe
         EnemyLifeBar.value = HP * 10;
-        EnemyAnim.SetBool(Animazione, true);
     }
 
     /// <summary>
@@ -132,7 +127,6 @@ public class EnemyBase : MonoBehaviour
     {
         HP -= MeleeDamage;
         EnemyLifeBar.value = HP * 10;
-        EnemyAnim.SetBool(Animazione, true);
     }
 
     //image feed enemies in shooting - Joe

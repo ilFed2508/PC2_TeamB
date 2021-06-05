@@ -994,8 +994,6 @@ MonoBehaviour:
   CurrentHP: 0
   HpSmooth: 3
   TimeLateCall: 0
-  EnemyAnim: {fileID: 3874350372981997559}
-  Animazione: Hit
   MeleeDamage: 8
 --- !u!1 &7127173533383964825
 GameObject:
@@ -1008,7 +1006,6 @@ GameObject:
   - component: {fileID: 7127173533383964830}
   - component: {fileID: 7127173533383964829}
   - component: {fileID: 402208323069519735}
-  - component: {fileID: 3420964217151028742}
   m_Layer: 0
   m_Name: EnemyGraphics
   m_TagString: Untagged
@@ -1081,25 +1078,6 @@ MonoBehaviour:
   Flash: {fileID: 0}
   Parent: {fileID: 0}
   Suono: 
---- !u!95 &3420964217151028742
-Animator:
-  serializedVersion: 3
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7127173533383964825}
-  m_Enabled: 1
-  m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: 2d0f453e414d3e740b5fb2273a823cb8, type: 2}
-  m_CullingMode: 0
-  m_UpdateMode: 0
-  m_ApplyRootMotion: 0
-  m_LinearVelocityBlending: 0
-  m_WarningMessage: 
-  m_HasTransformHierarchy: 1
-  m_AllowConstantClipSamplingOptimization: 1
-  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!1 &7654755475173737288
 GameObject:
   m_ObjectHideFlags: 0
@@ -1498,8 +1476,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 8606617926700200566}
-  - component: {fileID: 1096782501726794582}
-  - component: {fileID: 3874350372981997559}
   m_Layer: 0
   m_Name: Droni_vivande
   m_TagString: Untagged
@@ -1522,38 +1498,6 @@ Transform:
   m_Father: {fileID: 7127173533383964830}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &1096782501726794582
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8951759452160731340}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: eaa2052dac7f4cf4f9e4fa93c3fa131f, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  EnemyAnim: {fileID: 3874350372981997559}
---- !u!95 &3874350372981997559
-Animator:
-  serializedVersion: 3
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8951759452160731340}
-  m_Enabled: 1
-  m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: 1cb339f0eafcac947aa06ae5b78dfcd9, type: 2}
-  m_CullingMode: 0
-  m_UpdateMode: 0
-  m_ApplyRootMotion: 0
-  m_LinearVelocityBlending: 0
-  m_WarningMessage: 
-  m_HasTransformHierarchy: 1
-  m_AllowConstantClipSamplingOptimization: 1
-  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!1 &9210264953326496670
 GameObject:
   m_ObjectHideFlags: 0
