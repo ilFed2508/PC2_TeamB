@@ -52,6 +52,7 @@ public class PowerUpController : MonoBehaviour
         MyScore.PurchasePowerUp(MedikitCost);
         PlayerPrefs.SetInt("Medikit", 1);
         MyMedikit.CanUseMedikit = true;
+        MyMedikit.NumberOfMedikit = MyMedikit.NumberOfMedikitCopy;
     }
 
     public void DeactivePowerUp()

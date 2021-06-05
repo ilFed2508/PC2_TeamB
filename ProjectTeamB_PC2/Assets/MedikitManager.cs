@@ -14,17 +14,21 @@ public class MedikitManager : MonoBehaviour
     public GameObject MedikitIcon;
     public Text NumberOfMedikitText;
 
+    [HideInInspector]
+    public int NumberOfMedikitCopy;
+
     void Start()
     {
         MyLife = FindObjectOfType<PlayerLifeSystem>();
         CanUseMedikit = false;
+        NumberOfMedikitCopy = NumberOfMedikit;
     }
 
     // Update is called once per frame
     void Update()
     {
         
-        NumberOfMedikitText.text = NumberOfMedikit.ToString();
+        NumberOfMedikitText.text ="X" + NumberOfMedikit.ToString();
         if (CanUseMedikit)
         {
             
