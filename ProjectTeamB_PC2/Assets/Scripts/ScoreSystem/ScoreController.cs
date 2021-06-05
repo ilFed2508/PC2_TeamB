@@ -32,8 +32,9 @@ public class ScoreController : MonoBehaviour
 
     private void Update()
     {
-        CurrentScoreText.text = CurrentScore.ToString();
+        
         CostScore = CurrentScore;
+        CurrentScoreText.text = CostScore.ToString();
     }
 
     #region BehaviourAPI

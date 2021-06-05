@@ -8,5 +8,8 @@ public class TestMenùMain : MonoBehaviour
     void Start()
     {
         Time.timeScale = 1;
+        PlayerPrefs.SetInt("OnePowerUp", 0);
+        PlayerPrefs.SetInt("Slide", 0);
+        PlayerPrefs.SetInt("Medikit", 0);
     }
 }

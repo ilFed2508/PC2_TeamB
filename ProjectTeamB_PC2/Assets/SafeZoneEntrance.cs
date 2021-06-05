@@ -34,8 +34,5 @@ public class SafeZoneEntrance : MonoBehaviour
         }
     }
 
-    private void OnTriggerExit(Collider other)
-    {
-        Destroy(gameObject);
-    }
+    
 }

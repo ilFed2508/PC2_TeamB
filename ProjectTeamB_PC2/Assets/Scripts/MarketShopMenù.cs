@@ -24,18 +24,24 @@ public class MarketShopMenù : MonoBehaviour
     
     public void AddSlide()
     {
-        if (MyScore.CostScore > MyPowerUp.SlideCost)
+        if (PlayerPrefs.GetInt("OnePowerUp") == 0)
         {
-            MyPowerUp.ActiveSlide();
-            SlideButton.SetActive(false);
+            if (MyScore.CostScore > MyPowerUp.SlideCost)
+            {
+                MyPowerUp.ActiveSlide();
+                SlideButton.SetActive(false);
+            }
         }           
     }
     public void AddMedikit()
     {
-        if (MyScore.CostScore > MyPowerUp.MedikitCost)
+        if (PlayerPrefs.GetInt("OnePowerUp") == 0)
         {
-            MyPowerUp.ActiveMedikit();
-            MedikitButton.SetActive(false);
+            if (MyScore.CostScore > MyPowerUp.MedikitCost)
+            {
+                MyPowerUp.ActiveMedikit();
+                MedikitButton.SetActive(false);
+            }
         }
     }
     public void Exit()

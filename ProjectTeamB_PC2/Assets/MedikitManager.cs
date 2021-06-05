@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class MedikitManager : MonoBehaviour
 {
@@ -9,6 +10,9 @@ public class MedikitManager : MonoBehaviour
 
     public int NumberOfMedikit;
     public float MedikitEffect;
+
+    public GameObject MedikitIcon;
+    public Text NumberOfMedikitText;
 
     void Start()
     {
@@ -19,9 +23,13 @@ public class MedikitManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        
+        NumberOfMedikitText.text = NumberOfMedikit.ToString();
         if (CanUseMedikit)
         {
-            if(Input.GetKeyDown(KeyCode.M) && NumberOfMedikit > 0)
+            
+            MedikitIcon.SetActive(true);
+            if(Input.GetMouseButtonDown(1) && NumberOfMedikit > 0)
             {
                 MyLife.PlayerCurrentHP += MedikitEffect;
                 NumberOfMedikit -= 1;
@@ -30,7 +38,13 @@ public class MedikitManager : MonoBehaviour
 
         if (NumberOfMedikit == 0)
         {
+            
             CanUseMedikit = false;
+            MedikitIcon.SetActive(false);
+        }
+        if(!CanUseMedikit)
+        {
+            MedikitIcon.SetActive(false);
         }
     }
 }

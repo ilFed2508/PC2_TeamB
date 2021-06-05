@@ -8,8 +8,6 @@ public class PowerUpController : MonoBehaviour
     private ScoreController MyScore;
     private SlideManager SlideScript;
     private MedikitManager MyMedikit;
-    public bool SlidePurchased;
-    public bool MedikitPurchased;
 
 
 
@@ -42,14 +40,15 @@ public class PowerUpController : MonoBehaviour
 
     public void ActiveSlide()
     {
+        PlayerPrefs.SetInt("OnePowerUp", 1);
         MyScore.PurchasePowerUp(SlideCost);
         PlayerPrefs.SetInt("Slide", 1);
-        SlidePurchased = true;
         SlideScript.isSliding = true;     
     }
 
     public void ActiveMedikit()
     {
+        PlayerPrefs.SetInt("OnePowerUp", 1);
         MyScore.PurchasePowerUp(MedikitCost);
         PlayerPrefs.SetInt("Medikit", 1);
         MyMedikit.CanUseMedikit = true;
@@ -57,9 +56,10 @@ public class PowerUpController : MonoBehaviour
 
     public void DeactivePowerUp()
     {
-        PlayerPrefs.SetInt("Medikit", 0);
-        PlayerPrefs.SetInt("Slide", 0);
         SlideScript.isSliding = false;
         MyMedikit.CanUseMedikit = false;
+        PlayerPrefs.SetInt("OnePowerUp", 0);
+        PlayerPrefs.SetInt("Medikit", 0);
+        PlayerPrefs.SetInt("Slide", 0);
     }
 }
