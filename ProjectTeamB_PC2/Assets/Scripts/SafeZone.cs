@@ -15,8 +15,9 @@ public class SafeZone : MonoBehaviour
     private PlayerController playerController;
 
     public GameObject[]Buttons;
-    
-    
+    public GameObject Directional;
+
+
 
     public void Start()
     {        
@@ -39,20 +40,24 @@ public class SafeZone : MonoBehaviour
     {
 
         if (other.CompareTag("Player") && playerController.SafeZoneReached != checkpoint)
-        {          
+        {
+            Directional.SetActive(true);
             mapOut.SetActive(true);
             mapIn.SetActive(false);
             playerController.SafeZoneReached = checkpoint;
             playerController.playerScore.AddValueScore((int)playerController.playerLife.PlayerCurrentHP * ((checkpoint - 1) * playerController.playerScore.GetActionValue(ScoreAction.EndLevelLifeGain)));
             playerController.playerScore.AddTotalScore(playerController.playerScore.GetCurrentScore());
             PlayerPrefs.SetInt("Checkpoint", checkpoint);
+            
         }
         else if(other.CompareTag("Player") && playerController.SafeZoneReached == checkpoint)
         {
+            Directional.SetActive(true);
             mapOut.SetActive(true);
             mapIn.SetActive(false);
             PlayerPrefs.SetInt("Checkpoint", checkpoint);
-        }
+            
+        }                      
 
     }
 
