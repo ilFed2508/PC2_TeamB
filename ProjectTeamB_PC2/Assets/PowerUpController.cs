@@ -84,6 +84,7 @@ public class PowerUpController : MonoBehaviour
         MyScore.PurchasePowerUp(SlowerCost);
         PlayerPrefs.SetInt("SlowerHp", 1);
         MySlowerPowerUp.SlowerHpIsActive = true;
+        MySlowerPowerUp.SlowerHpIcon.SetActive(true);
     }
 
 
@@ -93,7 +94,7 @@ public class PowerUpController : MonoBehaviour
     {
         SlideScript.isSliding = false;
         MyMedikit.CanUseMedikit = false;
-        MySpeed.Faster = true;
+        MySpeed.Faster = false;
         MySlowerPowerUp.SlowerHpIsActive = false;
         PlayerPrefs.SetInt("OnePowerUp", 0);
         PlayerPrefs.SetInt("Medikit", 0);

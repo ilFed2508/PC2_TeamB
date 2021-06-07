@@ -31,11 +31,11 @@ public class SlowerHpManager : MonoBehaviour
     {
         if(SlowerHpIsActive == true)
         {
-            SlowerHpIcon.SetActive(true);
+            
             if (Input.GetMouseButtonDown(1))
             {
                 MyLife.TimeMultiplier = TimeSpeedMultiplier;
-                Destroy(SlowerHpIcon);
+                SlowerHpIcon.SetActive(false);
             }            
         }
 
