@@ -30,11 +30,15 @@ public class SpeedPowerUpManager : MonoBehaviour
     {
         if(Faster == true )
         {
-            if (CanIncrease == true && Input.GetMouseButtonDown(1) || Input.GetButton("Xbox_LB"))
+          CanIncrease = true;
+            if (CanIncrease == true)
             {
-                MyMovement.GroundSpeed += SpeedIncrease;
-                MyMovement.AirSpeed += AirSpeedIncrease;
-                CanIncrease = false;       
+                if(Input.GetMouseButtonDown(1) || Input.GetButton("Xbox_LB"))
+                {
+                    MyMovement.GroundSpeed += SpeedIncrease;
+                    MyMovement.AirSpeed += AirSpeedIncrease;
+                    CanIncrease = false;
+                }       
             }
            
         }

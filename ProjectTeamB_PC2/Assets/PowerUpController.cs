@@ -21,14 +21,13 @@ public class PowerUpController : MonoBehaviour
     void Start()
     {
         MyScore = FindObjectOfType<ScoreController>();
+        SlideScript = FindObjectOfType<SlideManager>();
+        MyMedikit = FindObjectOfType<MedikitManager>();
+        MySpeed = FindObjectOfType<SpeedPowerUpManager>();
     }
 
     private void Update()
     {
-
-        SlideScript = FindObjectOfType<SlideManager>();
-        MyMedikit = FindObjectOfType<MedikitManager>();
-        MySpeed = FindObjectOfType<SpeedPowerUpManager>();
 
         if (PlayerPrefs.GetInt("Slide") == 1)
         {

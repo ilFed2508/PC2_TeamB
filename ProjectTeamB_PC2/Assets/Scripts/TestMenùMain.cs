@@ -11,5 +11,6 @@ public class TestMenùMain : MonoBehaviour
         PlayerPrefs.SetInt("OnePowerUp", 0);
         PlayerPrefs.SetInt("Slide", 0);
         PlayerPrefs.SetInt("Medikit", 0);
+        PlayerPrefs.SetInt("Speed", 0);
     }
 }

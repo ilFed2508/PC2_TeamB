@@ -41,8 +41,7 @@ public class MedikitManager : MonoBehaviour
         }
 
         if (NumberOfMedikit == 0)
-        {
-            
+        {           
             CanUseMedikit = false;
             MedikitIcon.SetActive(false);
         }
