@@ -13,6 +13,8 @@ public class SpeedPowerUpManager : MonoBehaviour
     private float CopyAirSpeed;
     private bool CanIncrease;
 
+    public GameObject IconPoweUp;
+
     public bool Faster;
 
 
@@ -23,18 +25,24 @@ public class SpeedPowerUpManager : MonoBehaviour
         CopyAirSpeed = MyMovement.AirSpeed;
         CopyGroundSpeed = MyMovement.GroundSpeed;
         Faster = false;
+        CanIncrease = true;
     }
 
     // Update is called once per frame
     void Update()
     {
         if(Faster == true )
-        {
-            if (CanIncrease == true && Input.GetMouseButtonDown(1) || Input.GetButton("Xbox_LB"))
+        {              
+            if (CanIncrease == true)
             {
-                MyMovement.GroundSpeed += SpeedIncrease;
-                MyMovement.AirSpeed += AirSpeedIncrease;
-                CanIncrease = false;       
+               IconPoweUp.SetActive(true);
+                if (Input.GetMouseButtonDown(1) || Input.GetButton("Xbox_LB"))
+                {
+                    MyMovement.GroundSpeed += SpeedIncrease;
+                    MyMovement.AirSpeed += AirSpeedIncrease;
+                    IconPoweUp.SetActive(false);
+                    CanIncrease = false;                   
+                }       
             }
            
         }
@@ -42,6 +50,7 @@ public class SpeedPowerUpManager : MonoBehaviour
         {
             MyMovement.GroundSpeed = CopyGroundSpeed;
             MyMovement.AirSpeed = CopyAirSpeed;
+            IconPoweUp.SetActive(false);
             CanIncrease = true;
         }
     }
