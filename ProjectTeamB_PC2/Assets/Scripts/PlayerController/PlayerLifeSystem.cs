@@ -10,6 +10,8 @@ public class PlayerLifeSystem : MonoBehaviour
     /// Player current Hp
     /// </summary>
     public float PlayerCurrentHP;
+
+    public float TimeMultiplier;
     /// <summary>
     /// Hp value at the start of the game
     /// </summary>
@@ -19,6 +21,7 @@ public class PlayerLifeSystem : MonoBehaviour
     /// </summary>
     public float EnemyTimeGain;
 
+    private SlowerHpManager MyPowerupDamage;
 
     //variabili UI da eliminare in futuro
     public Text LifeText;
@@ -45,11 +48,12 @@ public class PlayerLifeSystem : MonoBehaviour
         crosshair = GameObject.Find("Canvas Cross");
 
         timeLineScreenNoise = GameObject.Find("timeLine_screenNoise");
+        MyPowerupDamage = FindObjectOfType<SlowerHpManager>();
         //timeLineScreenNoise_ = GameObject.Find("DeathAnimation_2");
         //timeLineScreenNoise_.SetActive(false);
 
-      //ScreenNoise = GetComponent<PlayableDirector>();
-      //ScreenNoise.Stop();
+        //ScreenNoise = GetComponent<PlayableDirector>();
+        //ScreenNoise.Stop();
     }
 
     /// <summary>
@@ -60,7 +64,7 @@ public class PlayerLifeSystem : MonoBehaviour
         if (PlayerCurrentHP > 0)
         {
             LifeText.text = PlayerCurrentHP.ToString("F0");
-            PlayerCurrentHP -= Time.deltaTime;
+            PlayerCurrentHP -= Time.deltaTime * TimeMultiplier;
 
             //screenNoise.SetActive(false);
             timeLineScreenNoise.SetActive(false);
@@ -121,7 +125,14 @@ public class PlayerLifeSystem : MonoBehaviour
     }
 
     public void DamagePlayer(float Amount)
-    {
-        PlayerCurrentHP -= Amount;
+    {       
+        if (MyPowerupDamage.SlowerHpIsActive)
+        {
+            PlayerCurrentHP -= Amount + MyPowerupDamage.AddDamage;
+        }
+        else
+        {
+            PlayerCurrentHP -= Amount;
+        }
     }
 }
