@@ -45,8 +45,8 @@ public class PlayerLifeSystem : MonoBehaviour
         crosshair = GameObject.Find("Canvas Cross");
 
         timeLineScreenNoise = GameObject.Find("timeLine_screenNoise");
-        timeLineScreenNoise_ = GameObject.Find("DeathAnimation_2");
-        timeLineScreenNoise_.SetActive(false);
+        //timeLineScreenNoise_ = GameObject.Find("DeathAnimation_2");
+        //timeLineScreenNoise_.SetActive(false);
 
       //ScreenNoise = GetComponent<PlayableDirector>();
       //ScreenNoise.Stop();
@@ -64,7 +64,7 @@ public class PlayerLifeSystem : MonoBehaviour
 
             //screenNoise.SetActive(false);
             timeLineScreenNoise.SetActive(false);
-            timeLineScreenNoise_.SetActive(false);
+            //timeLineScreenNoise_.SetActive(false);
 
             //LifeBar - joe
             LifeBar.maxValue = PlayerStartingHP;
@@ -111,12 +111,12 @@ public class PlayerLifeSystem : MonoBehaviour
 
     public IEnumerator NoiseScreen()
     {
-        yield return new WaitForSecondsRealtime(1.0f);
+        yield return new WaitForSecondsRealtime(2.4f);
         Destroy(timeLineScreenNoise);
-        timeLineScreenNoise_.SetActive(true);
+        //timeLineScreenNoise_.SetActive(true);
 
-        yield return new WaitForSecondsRealtime(1.0f);
-        Destroy(timeLineScreenNoise_);
+        //yield return new WaitForSecondsRealtime(1.0f);
+        //Destroy(timeLineScreenNoise_);
         DeathPanel.SetActive(true);
     }
 
