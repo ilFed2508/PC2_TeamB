@@ -8,6 +8,7 @@ public class MarketShopMenù : MonoBehaviour
     public GameObject marketPanel;   
     public GameObject SlideButton;
     public GameObject MedikitButton;
+    public GameObject SpeedButton;
     public DetectedActDeact HUD;
     public GameObject CrossHair;
     private PowerUpController MyPowerUp;
@@ -52,7 +53,7 @@ public class MarketShopMenù : MonoBehaviour
             if (MyScore.CostScore > MyPowerUp.SpeedCost)
             {
                 MyPowerUp.ActiveSuperSpeed();
-                //MedikitButton.SetActive(false);
+                SpeedButton.SetActive(false);
             }
         }
     }
