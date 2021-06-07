@@ -44,6 +44,18 @@ public class MarketShopMenù : MonoBehaviour
             }
         }
     }
+
+    public void AddSpeed()
+    {
+        if (PlayerPrefs.GetInt("OnePowerUp") == 0)
+        {
+            if (MyScore.CostScore > MyPowerUp.SpeedCost)
+            {
+                MyPowerUp.ActiveSuperSpeed();
+                //MedikitButton.SetActive(false);
+            }
+        }
+    }
     public void Exit()
     {
         CrossHair.SetActive(true);
