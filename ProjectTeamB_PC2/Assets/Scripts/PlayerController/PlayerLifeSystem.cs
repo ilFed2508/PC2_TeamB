@@ -111,7 +111,7 @@ public class PlayerLifeSystem : MonoBehaviour
 
     public IEnumerator NoiseScreen()
     {
-        yield return new WaitForSecondsRealtime(2.4f);
+        yield return new WaitForSecondsRealtime(2.1f);
         Destroy(timeLineScreenNoise);
         //timeLineScreenNoise_.SetActive(true);
 
