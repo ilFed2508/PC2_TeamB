@@ -9,6 +9,7 @@ public class MarketShopMenù : MonoBehaviour
     public GameObject SlideButton;
     public GameObject MedikitButton;
     public GameObject SpeedButton;
+    public GameObject SlowerButton;
     public DetectedActDeact HUD;
     public GameObject CrossHair;
     private PowerUpController MyPowerUp;
@@ -54,6 +55,18 @@ public class MarketShopMenù : MonoBehaviour
             {
                 MyPowerUp.ActiveSuperSpeed();
                 SpeedButton.SetActive(false);
+            }
+        }
+    }
+
+    public void AddSlowerHp()
+    {
+        if (PlayerPrefs.GetInt("OnePowerUp") == 0)
+        {
+            if (MyScore.CostScore > MyPowerUp.SlowerCost)
+            {
+                MyPowerUp.ActiveSlowerHp();
+                SlowerButton.SetActive(false);
             }
         }
     }
