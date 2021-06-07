@@ -6,6 +6,7 @@ public class SlowerHpManager : MonoBehaviour
 {
     public bool SlowerHpIsActive;
 
+
     private PlayerLifeSystem MyLife;
 
     [Range(0.0f, 1.0f)]
@@ -22,6 +23,7 @@ public class SlowerHpManager : MonoBehaviour
         MyLife = FindObjectOfType<PlayerLifeSystem>();
         CopyTimeMultiplier = MyLife.TimeMultiplier;
         SlowerHpIsActive = false;
+
     }
 
     // Update is called once per frame
@@ -33,9 +35,8 @@ public class SlowerHpManager : MonoBehaviour
             if (Input.GetMouseButtonDown(1))
             {
                 MyLife.TimeMultiplier = TimeSpeedMultiplier;
-                SlowerHpIcon.SetActive(false);
-            }
-            
+                Destroy(SlowerHpIcon);
+            }            
         }
 
         if(SlowerHpIsActive == false)
