@@ -39,10 +39,10 @@ public class KatanaPowerUpManager : MonoBehaviour
 
         }
 
-       if(CanUseKatana == false)
-       {          
-           IconIsActive = false;
-       }
+       //if(CanUseKatana == false)
+       //{          
+       //    IconIsActive = false;
+       //}
     }
 
 

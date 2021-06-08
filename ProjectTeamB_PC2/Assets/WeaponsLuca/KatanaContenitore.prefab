@@ -188,7 +188,7 @@ BoxCollider:
   m_GameObject: {fileID: 4344688660069419738}
   m_Material: {fileID: 0}
   m_IsTrigger: 1
-  m_Enabled: 1
+  m_Enabled: 0
   serializedVersion: 2
   m_Size: {x: 0.0073386105, y: 0.20104472, z: 0.023814498}
   m_Center: {x: 0.0012955538, y: 0.06054079, z: 0.0061451774}
@@ -209,6 +209,7 @@ MonoBehaviour:
   HitKill: KillHit
   Hit: Hit1
   KatanaD: 40
+  MyAnim: {fileID: 4975580285335614172}
 --- !u!1 &5387604218145996071
 GameObject:
   m_ObjectHideFlags: 0
@@ -218,6 +219,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4510764885204641653}
+  - component: {fileID: 4975580285335614172}
   m_Layer: 9
   m_Name: Katana
   m_TagString: Untagged
@@ -241,6 +243,25 @@ Transform:
   m_Father: {fileID: 2677642791966898684}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!95 &4975580285335614172
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5387604218145996071}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 93d2ec96a9a28ec48a1bc4391077296c, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!1 &6138422091066352386
 GameObject:
   m_ObjectHideFlags: 0

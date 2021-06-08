@@ -12,15 +12,29 @@ public class KatanaSystem : MonoBehaviour
 
     public float KatanaD;
 
+     public Animator MyAnim;
+
 
     private void Start()
     {
+        
         playerC = GameObject.Find("HitContainer").GetComponent<HitmarkerFather>();
     }
 
     private void Update()
     {
-        
+        if (Input.GetMouseButtonDown(0))
+        {
+            slash();
+        }
+    }
+
+
+
+    void slash()
+    {
+        MyAnim.Play("KatanaSlash");
+        gameObject.GetComponent<BoxCollider>().enabled = true;
     }
 
 
