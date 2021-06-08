@@ -5,6 +5,7 @@ using UnityEngine;
 public class SlowerHpManager : MonoBehaviour
 {
     public bool SlowerHpIsActive;
+    private bool IconIsActive;
 
 
     private PlayerLifeSystem MyLife;
@@ -23,7 +24,7 @@ public class SlowerHpManager : MonoBehaviour
         MyLife = FindObjectOfType<PlayerLifeSystem>();
         CopyTimeMultiplier = MyLife.TimeMultiplier;
         SlowerHpIsActive = false;
-
+        IconIsActive = true;
     }
 
     // Update is called once per frame
@@ -31,18 +32,25 @@ public class SlowerHpManager : MonoBehaviour
     {
         if(SlowerHpIsActive == true)
         {
-            
-            if (Input.GetMouseButtonDown(1))
+
+            if (IconIsActive == true)
             {
-                MyLife.TimeMultiplier = TimeSpeedMultiplier;
-                SlowerHpIcon.SetActive(false);
-            }            
+               SlowerHpIcon.SetActive(true);
+                if (Input.GetMouseButtonDown(1) || Input.GetButton("Xbox_LB"))
+                {
+                    MyLife.TimeMultiplier = TimeSpeedMultiplier;
+                    SlowerHpIcon.SetActive(false);
+                    IconIsActive = false;                    
+                }
+            }  
+            
         }
 
         if(SlowerHpIsActive == false)
         {
             MyLife.TimeMultiplier = CopyTimeMultiplier;
             SlowerHpIcon.SetActive(false);
+            IconIsActive = true;
         }
     }
 }

@@ -84,7 +84,7 @@ public class PowerUpController : MonoBehaviour
         MyScore.PurchasePowerUp(SlowerCost);
         PlayerPrefs.SetInt("SlowerHp", 1);
         MySlowerPowerUp.SlowerHpIsActive = true;
-        MySlowerPowerUp.SlowerHpIcon.SetActive(true);
+        
     }
 
 
