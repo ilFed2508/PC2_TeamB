@@ -179,6 +179,36 @@ MonoBehaviour:
   Flash: {fileID: 0}
   Parent: {fileID: 0}
   Suono: 
+--- !u!65 &3182243800859028227
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4344688660069419738}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 0.0073386105, y: 0.20104472, z: 0.023814498}
+  m_Center: {x: 0.0012955538, y: 0.06054079, z: 0.0061451774}
+--- !u!114 &1453671262178800582
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4344688660069419738}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 831ef3739e8334b408b2db6593d5af0a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Particle: {fileID: 6772490525415757152, guid: 850ca9ec21207574d8bbd56bce8bf4ec,
+    type: 3}
+  HitKill: KillHit
+  Hit: Hit1
+  KatanaD: 40
 --- !u!1 &5387604218145996071
 GameObject:
   m_ObjectHideFlags: 0
@@ -510,6 +540,12 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 9a860bfafafffa145a68c4d0afe49066, type: 3}
+--- !u!1 &4344688660069419738 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 919132149155446097, guid: 9a860bfafafffa145a68c4d0afe49066,
+    type: 3}
+  m_PrefabInstance: {fileID: 3497615211040749451}
+  m_PrefabAsset: {fileID: 0}
 --- !u!4 &3963378768280244320 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: 9a860bfafafffa145a68c4d0afe49066,

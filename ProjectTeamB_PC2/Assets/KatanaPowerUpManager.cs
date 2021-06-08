@@ -19,7 +19,7 @@ public class KatanaPowerUpManager : MonoBehaviour
     {
         playerController = FindObjectOfType<PlayerController>();
         Camera = GameObject.Find("WeaponSlot").GetComponent<Animator>();
-        //CanUseKatana = false;
+        CanUseKatana = false;
         IconIsActive = true;
         
     }

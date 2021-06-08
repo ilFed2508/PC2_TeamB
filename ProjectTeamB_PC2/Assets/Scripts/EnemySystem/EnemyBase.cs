@@ -26,6 +26,8 @@ public class EnemyBase : MonoBehaviour
     //Melee
     public float MeleeDamage;
 
+    
+
     // Start is called before the first frame update
     void Start()
     {
@@ -126,6 +128,12 @@ public class EnemyBase : MonoBehaviour
     public void DamageMelee()
     {
         HP -= MeleeDamage;
+        EnemyLifeBar.value = HP * 10;
+    }
+
+    public void KatanaDamage(float Damage)
+    {
+        HP -= Damage;
         EnemyLifeBar.value = HP * 10;
     }
 
