@@ -10,6 +10,7 @@ public class MarketShopMenù : MonoBehaviour
     public GameObject MedikitButton;
     public GameObject SpeedButton;
     public GameObject SlowerButton;
+    public GameObject KatanaButton;
     public DetectedActDeact HUD;
     public GameObject CrossHair;
     private PowerUpController MyPowerUp;
@@ -67,6 +68,18 @@ public class MarketShopMenù : MonoBehaviour
             {
                 MyPowerUp.ActiveSlowerHp();
                 SlowerButton.SetActive(false);
+            }
+        }
+    }
+
+    public void AddKatana()
+    {
+        if (PlayerPrefs.GetInt("OnePowerUp") == 0)
+        {
+            if (MyScore.CostScore > MyPowerUp.KatanaCost)
+            {
+                MyPowerUp.ActiveKatana();
+                KatanaButton.SetActive(false);
             }
         }
     }

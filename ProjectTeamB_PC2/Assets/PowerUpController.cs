@@ -10,6 +10,7 @@ public class PowerUpController : MonoBehaviour
     private MedikitManager MyMedikit;
     private SpeedPowerUpManager MySpeed;
     private SlowerHpManager MySlowerPowerUp;
+    private KatanaPowerUpManager MyKatana;
 
 
 
@@ -19,6 +20,7 @@ public class PowerUpController : MonoBehaviour
     public int MedikitCost;
     public int SpeedCost;
     public int SlowerCost;
+    public int KatanaCost;
 
     void Start()
     {
@@ -27,6 +29,7 @@ public class PowerUpController : MonoBehaviour
         MyMedikit = FindObjectOfType<MedikitManager>();
         MySpeed = FindObjectOfType<SpeedPowerUpManager>();
         MySlowerPowerUp = FindObjectOfType<SlowerHpManager>();
+        MyKatana = FindObjectOfType<KatanaPowerUpManager>();
     }
 
     private void Update()
@@ -47,6 +50,10 @@ public class PowerUpController : MonoBehaviour
         if (PlayerPrefs.GetInt("SlowerHp") == 1)
         {
             MySlowerPowerUp.SlowerHpIsActive = true;
+        }
+        if (PlayerPrefs.GetInt("Katana") == 1)
+        {
+            MyKatana.CanUseKatana = true;
         }
 
 
@@ -87,6 +94,15 @@ public class PowerUpController : MonoBehaviour
         
     }
 
+    public void ActiveKatana()
+    {
+        PlayerPrefs.SetInt("OnePowerUp", 1);
+        MyScore.PurchasePowerUp(KatanaCost);
+        PlayerPrefs.SetInt("Katana", 1);
+        MyKatana.CanUseKatana = true;
+
+    }
+
 
 
 
@@ -101,5 +117,11 @@ public class PowerUpController : MonoBehaviour
         PlayerPrefs.SetInt("Slide", 0);
         PlayerPrefs.SetInt("Speed", 0);
         PlayerPrefs.SetInt("SlowerHp", 0);
+        PlayerPrefs.SetInt("Katana", 0);
+        if (MyKatana.CanUseKatana == true)
+        {
+            MyKatana.DestroyKatana();
+            MyKatana.CanUseKatana = false;
+        }
     }
 }
