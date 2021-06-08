@@ -9,6 +9,7 @@ public class PowerUpController : MonoBehaviour
     private SlideManager SlideScript;
     private MedikitManager MyMedikit;
     private SpeedPowerUpManager MySpeed;
+    private SlowerHpManager MySlowerPowerUp;
 
 
 
@@ -17,6 +18,7 @@ public class PowerUpController : MonoBehaviour
     public int SlideCost;
     public int MedikitCost;
     public int SpeedCost;
+    public int SlowerCost;
 
     void Start()
     {
@@ -24,6 +26,7 @@ public class PowerUpController : MonoBehaviour
         SlideScript = FindObjectOfType<SlideManager>();
         MyMedikit = FindObjectOfType<MedikitManager>();
         MySpeed = FindObjectOfType<SpeedPowerUpManager>();
+        MySlowerPowerUp = FindObjectOfType<SlowerHpManager>();
     }
 
     private void Update()
@@ -40,6 +43,10 @@ public class PowerUpController : MonoBehaviour
         if (PlayerPrefs.GetInt("Speed") == 1)
         {
             MySpeed.Faster = true;
+        }
+        if (PlayerPrefs.GetInt("SlowerHp") == 1)
+        {
+            MySlowerPowerUp.SlowerHpIsActive = true;
         }
 
 
@@ -71,14 +78,28 @@ public class PowerUpController : MonoBehaviour
         MySpeed.Faster = true;
     }
 
+    public void ActiveSlowerHp()
+    {
+        PlayerPrefs.SetInt("OnePowerUp", 1);
+        MyScore.PurchasePowerUp(SlowerCost);
+        PlayerPrefs.SetInt("SlowerHp", 1);
+        MySlowerPowerUp.SlowerHpIsActive = true;
+        
+    }
+
+
+
+
     public void DeactivePowerUp()
     {
         SlideScript.isSliding = false;
         MyMedikit.CanUseMedikit = false;
-        MySpeed.Faster = true;
+        MySpeed.Faster = false;
+        MySlowerPowerUp.SlowerHpIsActive = false;
         PlayerPrefs.SetInt("OnePowerUp", 0);
         PlayerPrefs.SetInt("Medikit", 0);
         PlayerPrefs.SetInt("Slide", 0);
         PlayerPrefs.SetInt("Speed", 0);
+        PlayerPrefs.SetInt("SlowerHp", 0);
     }
 }
