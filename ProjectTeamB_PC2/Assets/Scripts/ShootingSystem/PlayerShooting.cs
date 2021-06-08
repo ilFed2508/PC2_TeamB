@@ -9,7 +9,7 @@ public class PlayerShooting : MonoBehaviour
     public RangedWeapon CurrentRagedWeapon;
     private bool JoystickInputActivated;
     //Da eliminare più avanti
-    private Animator anim;
+    //private Animator anim;
     //-------------------------
     //temporary UI Variable
     public Text AmmoText;
@@ -37,7 +37,7 @@ public class PlayerShooting : MonoBehaviour
     void Update()
     {
         //Da eliminare più avanti
-        anim = GameObject.FindGameObjectWithTag("Weapon").GetComponent<Animator>();
+        //anim = GameObject.FindGameObjectWithTag("Weapon").GetComponent<Animator>();
         //-----------------------
         CurrentRagedWeapon.UpdateFireRateoValue();
         CurrentRagedWeapon.UpdateTotalDamageValue();

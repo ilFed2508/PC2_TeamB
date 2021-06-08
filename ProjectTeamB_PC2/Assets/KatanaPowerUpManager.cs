@@ -14,6 +14,8 @@ public class KatanaPowerUpManager : MonoBehaviour
     public bool CanUseKatana;
     private bool IconIsActive;
 
+    public GameObject KatanaIcon;
+
 
     void Start()
     {
@@ -31,18 +33,22 @@ public class KatanaPowerUpManager : MonoBehaviour
         {
             if (IconIsActive == true)
             {
+                KatanaIcon.SetActive(true);
                 if (Input.GetMouseButtonDown(1) || Input.GetButton("Xbox_LB"))
                 {
                     SwitchKatanaWeapon();
+                    KatanaIcon.SetActive(false);
+                    IconIsActive = false;
                 }
             }
 
         }
 
-       //if(CanUseKatana == false)
-       //{          
-       //    IconIsActive = false;
-       //}
+       if(CanUseKatana == false)
+       {
+            KatanaIcon.SetActive(false);
+            IconIsActive = true;
+       }
     }
 
 
@@ -62,12 +68,7 @@ public class KatanaPowerUpManager : MonoBehaviour
         playerController.playerShooting.CurrentRagedWeapon.SetupCurrentAmmo();
         //update digetic ammo UI
         playerController.playerShooting.DiegeticAmmo = playerController.playerShooting.CurrentRagedWeapon.GetComponentInChildren<TextMeshProUGUI>();
-        //deactive pickupUI
-        //playerController.UIPickup.gameObject.SetActive(false);
-        //guadagna punti per lo score
-        //playerController.playerScore.AddScore(1);
-        //da modificare
-        //playerController.playerLife.PlayerCurrentHP += PlayerHpGain;
+
     }
     public void DestroyKatana()
     {
@@ -85,11 +86,5 @@ public class KatanaPowerUpManager : MonoBehaviour
         playerController.playerShooting.CurrentRagedWeapon.SetupCurrentAmmo();
         //update digetic ammo UI
         playerController.playerShooting.DiegeticAmmo = playerController.playerShooting.CurrentRagedWeapon.GetComponentInChildren<TextMeshProUGUI>();
-        //deactive pickupUI
-        //playerController.UIPickup.gameObject.SetActive(false);
-        //guadagna punti per lo score
-        //playerController.playerScore.AddScore(1);
-        //da modificare
-        //playerController.playerLife.PlayerCurrentHP += PlayerHpGain;
     }
 }

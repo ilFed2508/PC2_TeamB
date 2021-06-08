@@ -13,6 +13,7 @@ public class TestMenùMain : MonoBehaviour
         PlayerPrefs.SetInt("Medikit", 0);
         PlayerPrefs.SetInt("Speed", 0);
         PlayerPrefs.SetInt("SlowerHp", 0);
+        PlayerPrefs.SetInt("Katana", 0);
 
     }
 }
