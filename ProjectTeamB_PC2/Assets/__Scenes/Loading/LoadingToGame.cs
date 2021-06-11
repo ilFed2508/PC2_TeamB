@@ -15,6 +15,6 @@ public class LoadingToGame : MonoBehaviour
     IEnumerator LoadAsynOperation()
     {
         yield return new WaitForSeconds(3);
-        AsyncOperation gameLevel = SceneManager.LoadSceneAsync(2);
+        AsyncOperation gameLevel = SceneManager.LoadSceneAsync(3);
     }
 }

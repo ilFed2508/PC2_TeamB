@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 
 public class SaveNameUI : MonoBehaviour
 {
@@ -59,6 +60,6 @@ public class SaveNameUI : MonoBehaviour
             }
         }
 
-        this.gameObject.SetActive(false);
+        SceneManager.LoadScene("3DMenuTestP");
     }
 }
