@@ -68,6 +68,8 @@ public class KatanaPowerUpManager : MonoBehaviour
         playerController.playerShooting.CurrentRagedWeapon.SetupCurrentAmmo();
         //update digetic ammo UI
         playerController.playerShooting.DiegeticAmmo = playerController.playerShooting.CurrentRagedWeapon.GetComponentInChildren<TextMeshProUGUI>();
+        //guadagna punti per lo score
+        playerController.playerScore.AddScore(1);
 
     }
     public void DestroyKatana()

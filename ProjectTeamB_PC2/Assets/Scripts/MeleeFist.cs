@@ -34,6 +34,18 @@ public class MeleeFist : MonoBehaviour
             {
                 other.gameObject.GetComponent<WeaponDrop>().DropWeapon();
                 Enemy.PlayerHealOnDeath();
+                if ((int)Enemy.enemyType == 1)
+                {
+                    Enemy.Player.playerScore.AddScore(2);
+                }
+                if ((int)Enemy.enemyType == 2)
+                {
+                    Enemy.Player.playerScore.AddScore(3);
+                }
+                if ((int)Enemy.enemyType == 3)
+                {
+                    Enemy.Player.playerScore.AddScore(4);
+                }
                 AudioManager.instance.Play(HitKill);
                 playerC.hitDeath.SetActive(true);
                 playerC.hitPanel.SetActive(true);
