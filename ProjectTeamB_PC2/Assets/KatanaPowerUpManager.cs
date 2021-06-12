@@ -15,6 +15,7 @@ public class KatanaPowerUpManager : MonoBehaviour
     private bool IconIsActive;
 
     public GameObject KatanaIcon;
+    public bool CanSwitchKatana;
 
 
     void Start()
@@ -23,7 +24,7 @@ public class KatanaPowerUpManager : MonoBehaviour
         Camera = GameObject.Find("WeaponSlot").GetComponent<Animator>();
         CanUseKatana = false;
         IconIsActive = true;
-        
+        CanSwitchKatana = false;
     }
 
     // Update is called once per frame
@@ -39,6 +40,7 @@ public class KatanaPowerUpManager : MonoBehaviour
                     SwitchKatanaWeapon();
                     KatanaIcon.SetActive(false);
                     IconIsActive = false;
+                    CanSwitchKatana = true;
                 }
             }
 
@@ -48,6 +50,7 @@ public class KatanaPowerUpManager : MonoBehaviour
        {
             KatanaIcon.SetActive(false);
             IconIsActive = true;
+            CanSwitchKatana = false;
        }
     }
 

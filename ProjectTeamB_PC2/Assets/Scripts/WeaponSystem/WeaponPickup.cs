@@ -56,7 +56,7 @@ public class WeaponPickup : MonoBehaviour
             //image "E" pick up - joe
             playerController.PickUp.gameObject.SetActive(true);
         }
-        if (MyKatana.CanUseKatana == false && other.gameObject.CompareTag("Player") && Input.GetKey(KeyCode.E)|| Input.GetButtonDown("Xbox_X"))
+        if (MyKatana.CanSwitchKatana == false && other.gameObject.CompareTag("Player") && Input.GetKey(KeyCode.E)|| Input.GetButtonDown("Xbox_X"))
         { 
             SwitchWeapon();
             //image "E" pick up - joe
@@ -78,7 +78,7 @@ public class WeaponPickup : MonoBehaviour
             combo.ComboDamage();
             //-------------------------------------------
         }
-        if (MyKatana.CanUseKatana == true && other.gameObject.CompareTag("Player") && Input.GetKey(KeyCode.E) || Input.GetButtonDown("Xbox_X"))
+        if (MyKatana.CanSwitchKatana == true && other.gameObject.CompareTag("Player") && Input.GetKey(KeyCode.E) || Input.GetButtonDown("Xbox_X"))
         {
             MyKatana.SwitchKatanaWeapon();
 
