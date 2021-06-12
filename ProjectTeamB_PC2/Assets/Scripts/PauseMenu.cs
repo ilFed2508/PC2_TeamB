@@ -9,9 +9,12 @@ public class PauseMenu : MonoBehaviour
     public GameObject HUD, CrossHair, EPickUp;
     public PlayerController playerController;
     public bool IsStopped;
+    public bool IsInTutorial;
+
     // Start is called before the first frame update
     void Start()
     {
+        IsInTutorial = true;
         playerController = GetComponentInParent<PlayerController>();
     }
 
@@ -46,8 +49,11 @@ public class PauseMenu : MonoBehaviour
         IsStopped = false;
         Cursor.lockState = CursorLockMode.Locked;
         Cursor.visible = false;
-
-        HUD.SetActive(true);
+        if(IsInTutorial == false)
+        {
+            HUD.SetActive(true);
+        }
+        //HUD.SetActive(true);
         CrossHair.SetActive(true);
     }
     public void BackToMenu()

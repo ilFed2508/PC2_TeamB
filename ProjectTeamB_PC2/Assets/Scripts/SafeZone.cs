@@ -19,6 +19,8 @@ public class SafeZone : MonoBehaviour
 
 
 
+
+
     public void Start()
     {        
         playerController = FindObjectOfType<PlayerController>();

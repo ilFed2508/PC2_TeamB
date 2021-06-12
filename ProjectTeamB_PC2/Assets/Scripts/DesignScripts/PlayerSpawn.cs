@@ -12,9 +12,11 @@ public class PlayerSpawn : MonoBehaviour
 
     private DetectedActDeact hudOn;
 
+
     // Start is called before the first frame update
     void Start()
     {
+
         //if (PlayerPrefs.HasKey("GodmodeActivated") == false)
         //{
         //    PlayerPrefs.SetInt("GodmodeActivated", 0);
@@ -23,6 +25,8 @@ public class PlayerSpawn : MonoBehaviour
 
         Spawn();
     }
+
+
 
     private void Spawn()
     {
@@ -48,6 +52,7 @@ public class PlayerSpawn : MonoBehaviour
                 PlayerPrefs.Save();                
             }
             scoreController.SetTotalScore(PlayerPrefs.GetInt("PlayerTotalScore"));
+
         }
 
         if (PlayerPrefs.GetInt("Checkpoint") == 2)
@@ -68,11 +73,13 @@ public class PlayerSpawn : MonoBehaviour
             hudOn.thing.SetActive(true);
             //set new totalscore
             PlayerSpawned.GetComponent<ScoreController>().SetTotalScore(PlayerPrefs.GetInt("PlayerTotalScore"));
+            
         }
 
         if (PlayerPrefs.GetInt("Checkpoint") == 3)
         {
             Vector3 position2 = new Vector3(spawn3.transform.position.x, spawn3.transform.position.y, spawn3.transform.position.z);
+            
             GameObject PlayerSpawned;
             if (PlayerPrefs.GetInt("GodmodeActivated") == 1)
             {
@@ -88,6 +95,7 @@ public class PlayerSpawn : MonoBehaviour
             hudOn.thing.SetActive(true);
             //set new totalscore
             PlayerSpawned.GetComponent<ScoreController>().SetTotalScore(PlayerPrefs.GetInt("PlayerTotalScore"));
+            
         }
 
         if (PlayerPrefs.GetInt("Checkpoint") == 4)
@@ -108,6 +116,7 @@ public class PlayerSpawn : MonoBehaviour
             hudOn.thing.SetActive(true);
             //set new totalscore
             PlayerSpawned.GetComponent<ScoreController>().SetTotalScore(PlayerPrefs.GetInt("PlayerTotalScore"));
+            
         }
     }
 }

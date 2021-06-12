@@ -6,9 +6,11 @@ public class ActiveComboCanvas : MonoBehaviour
 {
     
     private PlayerController canvasCombo;
+    private PauseMenu MyMenù;
     // Start is called before the first frame update
     void Start()
     {
+        MyMenù = FindObjectOfType<PauseMenu>();
         canvasCombo = FindObjectOfType<PlayerController>();
     }
 
@@ -16,6 +18,7 @@ public class ActiveComboCanvas : MonoBehaviour
     {
         if (other.tag == "Player")
         {
+            MyMenù.IsInTutorial = false;
             canvasCombo.CanvasCombo.SetActive(true);
         }
     }
