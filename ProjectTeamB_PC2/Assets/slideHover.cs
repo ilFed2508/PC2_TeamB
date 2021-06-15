@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class slideHover : MonoBehaviour
+public class SlideHover : MonoBehaviour
 {
     public GameObject panelDescription;
 

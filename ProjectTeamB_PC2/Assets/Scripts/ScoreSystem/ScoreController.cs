@@ -31,8 +31,7 @@ public class ScoreController : MonoBehaviour
     }
 
     private void Update()
-    {
-        
+    {       
         CostScore = CurrentScore;
         CurrentScoreText.text = CostScore.ToString();
     }

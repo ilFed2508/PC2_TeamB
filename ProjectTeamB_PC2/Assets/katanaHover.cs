@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class katanaHover : MonoBehaviour
+public class KatanaHover : MonoBehaviour
 {
     public GameObject panelDescription;
 

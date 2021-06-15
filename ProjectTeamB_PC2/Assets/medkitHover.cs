@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class medkitHover : MonoBehaviour
+public class MedkitHover : MonoBehaviour
 {
     public GameObject panelDescription;
 

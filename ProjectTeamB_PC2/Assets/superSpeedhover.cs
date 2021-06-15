@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class superSpeedhover : MonoBehaviour
+public class SuperSpeedhover : MonoBehaviour
 {
     public GameObject panelDescription;
 

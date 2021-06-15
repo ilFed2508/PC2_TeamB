@@ -92,5 +92,4 @@ public class MarketShopMenù : MonoBehaviour
         Cursor.lockState = CursorLockMode.Locked;
         Cursor.visible = false;
     }
-
 }

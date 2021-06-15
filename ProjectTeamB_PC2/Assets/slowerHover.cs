@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class slowerHover : MonoBehaviour
+public class SlowerHover : MonoBehaviour
 {
     public GameObject panelDescription;
 
