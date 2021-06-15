@@ -6,7 +6,6 @@ public class ActDeact_PowerUp : MonoBehaviour
 {
     private PowerUpController MyPowerUp;
     private ScoreController MyScore;
-    private MarketShopMenù Market;
 
     public GameObject SlideTXTon, SlideTXToff, MedKitTXTon, MedKitTXToff, SpeedTXTon, SpeedTXToff, SlowerTXTon, SlowerTXToff, KatanaTXTon, KatanaTXToff;
 
