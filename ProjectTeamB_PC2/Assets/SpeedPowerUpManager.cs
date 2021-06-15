@@ -27,7 +27,7 @@ public class SpeedPowerUpManager : MonoBehaviour
         MyMovement = FindObjectOfType<PlayerMovement>();
         CopyAirSpeed = MyMovement.AirSpeed;
         CopyGroundSpeed = MyMovement.GroundSpeed;
-        //Faster = false;
+        Faster = false;
         CanIncrease = true;
     }
 
@@ -52,7 +52,6 @@ public class SpeedPowerUpManager : MonoBehaviour
         }
         if(Faster == false)
         {
-            StartCoroutine(LerpReturnFOV(2f, 4f));
             MyMovement.GroundSpeed = CopyGroundSpeed;
             MyMovement.AirSpeed = CopyAirSpeed;
             IconPoweUp.SetActive(false);
@@ -76,17 +75,17 @@ public class SpeedPowerUpManager : MonoBehaviour
             yield return null;
         }
     }
-    IEnumerator LerpReturnFOV(float Duration, float TimeToLerp)
-    {
-        float TimeC = 0;
-
-        while (TimeC < Duration)
-        {
-            MyFieldOfView.fieldOfView = Mathf.Lerp(NewFieldOfView, 60f, Time.deltaTime * TimeToLerp);
-
-            TimeC += Time.deltaTime;
-
-            yield return null;
-        }
-    }
+   //IEnumerator LerpReturnFOV(float Duration, float TimeToLerp)
+   //{
+   //    float TimeC = 0;
+   //
+   //    while (TimeC < Duration)
+   //    {
+   //        MyFieldOfView.fieldOfView = Mathf.Lerp(NewFieldOfView, 60f, Time.deltaTime * TimeToLerp);
+   //
+   //        TimeC += Time.deltaTime;
+   //
+   //        yield return null;
+   //    }
+   //}
 }
