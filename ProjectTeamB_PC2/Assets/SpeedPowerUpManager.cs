@@ -17,6 +17,9 @@ public class SpeedPowerUpManager : MonoBehaviour
 
     public bool Faster;
 
+    public Camera MyFieldOfView;
+    public float NewFieldOfView;
+
 
     // Start is called before the first frame update
     void Start()
@@ -38,6 +41,7 @@ public class SpeedPowerUpManager : MonoBehaviour
                IconPoweUp.SetActive(true);
                 if (Input.GetMouseButtonDown(1) || Input.GetButton("Xbox_LB"))
                 {
+                    StartCoroutine(LerpFOV(2f, 4f));
                     MyMovement.GroundSpeed += SpeedIncrease;
                     MyMovement.AirSpeed += AirSpeedIncrease;
                     IconPoweUp.SetActive(false);
@@ -52,6 +56,36 @@ public class SpeedPowerUpManager : MonoBehaviour
             MyMovement.AirSpeed = CopyAirSpeed;
             IconPoweUp.SetActive(false);
             CanIncrease = true;
+            MyFieldOfView.fieldOfView = 60f;
+        }
+
+    }
+
+
+    IEnumerator LerpFOV(float Duration, float TimeToLerp)
+    {
+        float TimeC = 0;
+
+        while(TimeC < Duration)
+        {
+            MyFieldOfView.fieldOfView = Mathf.Lerp(MyFieldOfView.fieldOfView, NewFieldOfView, Time.deltaTime * TimeToLerp);
+
+            TimeC += Time.deltaTime;
+
+            yield return null;
         }
     }
+   //IEnumerator LerpReturnFOV(float Duration, float TimeToLerp)
+   //{
+   //    float TimeC = 0;
+   //
+   //    while (TimeC < Duration)
+   //    {
+   //        MyFieldOfView.fieldOfView = Mathf.Lerp(NewFieldOfView, 60f, Time.deltaTime * TimeToLerp);
+   //
+   //        TimeC += Time.deltaTime;
+   //
+   //        yield return null;
+   //    }
+   //}
 }

@@ -74,7 +74,5 @@ public class ActivePanel : MonoBehaviour
     }
 
 
-    //Codice di proprietà di Alessio Manna,Per ogni utilizzo contattare il sottoscritto al numero 3334578956 o tramite il profilo  
-    //Linkedin con nome "Non sono un pagliaccio LO GIURO!" Grazie per aver visionato il mio codice un saluto.
 
 }

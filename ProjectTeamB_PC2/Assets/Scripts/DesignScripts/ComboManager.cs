@@ -23,6 +23,7 @@ public class ComboManager : MonoBehaviour
     private PlayerController playerController;
 
     public GameObject[] Sprite;
+    public GameObject DamageSprite;
 
     [HideInInspector]
     public int i;
@@ -102,6 +103,7 @@ public class ComboManager : MonoBehaviour
             SMG.Damage += aggiuntaDanno;
             MINIGUN.Damage += aggiuntaDanno;
             SHOTGUN.Damage += aggiuntaDanno;
+            DamageSprite.SetActive(true);
             //playerController.playerShooting.CurrentRagedWeapon.weaponData.Damage  += aggiuntaDanno;
         }
 

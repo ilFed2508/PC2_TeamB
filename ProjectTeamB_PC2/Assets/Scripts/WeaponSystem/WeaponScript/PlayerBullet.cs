@@ -33,15 +33,16 @@ public class PlayerBullet : MonoBehaviour
             playerC.hit.SetActive(true);
             AudioManager.instance.Play(Hit);
             EnemyBase Enemy = other.gameObject.GetComponentInChildren<EnemyBase>();
-
             Enemy.DamageEnemy();
+            
 
-            if(Enemy.HP <= 0)
+            if (Enemy.HP <= 0)
             {
                 Instantiate(Particle, spawnPos, gameObject.transform.rotation);
                 other.gameObject.GetComponent<WeaponDrop>().DropWeapon();
                 Enemy.PlayerHealOnDeath();
-                if((int)Enemy.enemyType == 1)
+
+                if ((int)Enemy.enemyType == 1)
                 {
                     Enemy.Player.playerScore.AddScore(2);
                 }
@@ -57,6 +58,7 @@ public class PlayerBullet : MonoBehaviour
                 AudioManager.instance.Play(HitKill);
                 playerC.hitDeath.SetActive(true);
                 playerC.hitPanel.SetActive(true);
+                
             }
 
             Destroy(this.gameObject);

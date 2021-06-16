@@ -26,6 +26,8 @@ public class EnemyBase : MonoBehaviour
     //Melee
     public float MeleeDamage;
 
+    private MedikitManager MyFeed;
+
     
 
     // Start is called before the first frame update
@@ -43,6 +45,8 @@ public class EnemyBase : MonoBehaviour
 
         //shoot
         StartCoroutine(MyWeapon.ShootingType.AIShootCoroutine(MyWeapon, this));
+
+        MyFeed = FindObjectOfType<MedikitManager>();
     }
 
     // Update is called once per frame
@@ -90,6 +94,8 @@ public class EnemyBase : MonoBehaviour
         {
             Player.playerLife.PlayerCurrentHP = Player.playerLife.PlayerStartingHP;
         }
+
+        MyFeed.StartCoroutine("FadeInAndOut");
     }
 
     /// <summary>
