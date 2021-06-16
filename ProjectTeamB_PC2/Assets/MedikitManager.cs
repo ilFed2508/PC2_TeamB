@@ -29,7 +29,7 @@ public class MedikitManager : MonoBehaviour
     void Start()
     {
         MyLife = FindObjectOfType<PlayerLifeSystem>();
-        //CanUseMedikit = false;
+        CanUseMedikit = false;
         NumberOfMedikitCopy = NumberOfMedikit;
     }
 
