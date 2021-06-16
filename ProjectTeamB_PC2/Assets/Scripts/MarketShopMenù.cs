@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using TMPro;
 
 public class MarketShopMenù : MonoBehaviour
 {
@@ -13,6 +14,7 @@ public class MarketShopMenù : MonoBehaviour
     public GameObject KatanaButton, KatanaOFF;
     public DetectedActDeact HUD;
     public GameObject CrossHair;
+    public TextMeshProUGUI MyCurrentScore;
 
     private PowerUpController MyPowerUp;
     private ScoreController MyScore;
@@ -27,6 +29,10 @@ public class MarketShopMenù : MonoBehaviour
         ActiveButtonsOFF();
     }
 
+    public void Update()
+    {
+        MyCurrentScore.text = MyScore.CostScore.ToString();
+    }
 
     public void AddSlide()
     {
