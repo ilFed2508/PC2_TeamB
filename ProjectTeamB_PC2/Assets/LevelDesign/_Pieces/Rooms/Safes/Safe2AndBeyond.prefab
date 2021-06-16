@@ -2597,21 +2597,11 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1525238074732860132}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 73409b98bdb787c4bb5330d3ebe833b5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  SlideTXTon: {fileID: 7277087881416336604}
-  SlideTXToff: {fileID: 8723910375551736401}
-  MedKitTXTon: {fileID: 3698864049873071324}
-  MedKitTXToff: {fileID: 2320311693467178052}
-  SpeedTXTon: {fileID: 5688745236979126759}
-  SpeedTXToff: {fileID: 2543193056107622181}
-  SlowerTXTon: {fileID: 7827745550574362683}
-  SlowerTXToff: {fileID: 7934595968461107928}
-  KatanaTXTon: {fileID: 6269562144552502754}
-  KatanaTXToff: {fileID: 3915518467529259446}
 --- !u!1 &1620082253740778491
 GameObject:
   m_ObjectHideFlags: 0
@@ -3302,7 +3292,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &4438907815572632769
 RectTransform:
   m_ObjectHideFlags: 0
@@ -12853,16 +12843,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 73409b98bdb787c4bb5330d3ebe833b5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  SlideTXTon: {fileID: 0}
-  SlideTXToff: {fileID: 0}
-  MedKitTXTon: {fileID: 0}
-  MedKitTXToff: {fileID: 0}
-  SpeedTXTon: {fileID: 0}
-  SpeedTXToff: {fileID: 0}
-  SlowerTXTon: {fileID: 0}
-  SlowerTXToff: {fileID: 0}
-  KatanaTXTon: {fileID: 0}
-  KatanaTXToff: {fileID: 0}
 --- !u!1 &6598358201265051406
 GameObject:
   m_ObjectHideFlags: 0
@@ -13731,6 +13711,12 @@ MonoBehaviour:
   - {fileID: 5688745236979126759}
   - {fileID: 7827745550574362683}
   - {fileID: 6269562144552502754}
+  ButtonsOFF:
+  - {fileID: 8723910375551736401}
+  - {fileID: 2320311693467178052}
+  - {fileID: 2543193056107622181}
+  - {fileID: 7934595968461107928}
+  - {fileID: 3915518467529259446}
 --- !u!1 &6934745653557443680
 GameObject:
   m_ObjectHideFlags: 0
@@ -18543,12 +18529,23 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   marketPanel: {fileID: 0}
   SlideButton: {fileID: 7277087881416336604}
+  SlideOFF: {fileID: 8723910375551736401}
   MedikitButton: {fileID: 3698864049873071324}
+  MedkitOFF: {fileID: 2320311693467178052}
   SpeedButton: {fileID: 5688745236979126759}
+  SpeedOFF: {fileID: 2543193056107622181}
   SlowerButton: {fileID: 7827745550574362683}
+  SlowerOFF: {fileID: 7934595968461107928}
   KatanaButton: {fileID: 6269562144552502754}
+  KatanaOFF: {fileID: 3915518467529259446}
   HUD: {fileID: 0}
   CrossHair: {fileID: 0}
+  BlockButtons:
+  - {fileID: 0}
+  - {fileID: 3698864049873071324}
+  - {fileID: 5688745236979126759}
+  - {fileID: 7827745550574362683}
+  - {fileID: 6269562144552502754}
 --- !u!1 &9222077838325352781
 GameObject:
   m_ObjectHideFlags: 0

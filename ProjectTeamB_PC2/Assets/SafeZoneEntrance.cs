@@ -7,7 +7,7 @@ public class SafeZoneEntrance : MonoBehaviour
     
     private PowerUpController MyPoweUp;
     public GameObject[] Buttons;
-
+    public GameObject[] ButtonsOFF;
 
 
     public void Start()
@@ -30,9 +30,12 @@ public class SafeZoneEntrance : MonoBehaviour
             for (int i = 0; i < Buttons.Length; i++)
             {
                 Buttons[i].SetActive(true);
-            }           
-        }
-    }
+            }
 
-    
+            //for (int i = 0; i < ButtonsOFF.Length; i++)
+            //{
+            //    ButtonsOFF[i].SetActive(false);
+            //}
+        }
+    }    
 }

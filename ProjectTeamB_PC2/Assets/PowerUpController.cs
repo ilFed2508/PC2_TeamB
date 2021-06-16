@@ -13,14 +13,12 @@ public class PowerUpController : MonoBehaviour
     private KatanaPowerUpManager MyKatana;
 
 
-
-
-
     public int SlideCost;
     public int MedikitCost;
     public int SpeedCost;
     public int SlowerCost;
     public int KatanaCost;
+
 
     void Start()
     {
