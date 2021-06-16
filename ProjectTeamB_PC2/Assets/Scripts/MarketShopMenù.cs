@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using TMPro;
 
 public class MarketShopMenù : MonoBehaviour
 {
@@ -13,22 +14,24 @@ public class MarketShopMenù : MonoBehaviour
     public GameObject KatanaButton, KatanaOFF;
     public DetectedActDeact HUD;
     public GameObject CrossHair;
+    public TextMeshProUGUI MyCurrentScore;
 
     private PowerUpController MyPowerUp;
     private ScoreController MyScore;
 
-    public GameObject[] BlockButtons;
+    public GameObject[] BlockButtons,OFFBlockButtons;
 
     void Start()
     {
         MyScore = FindObjectOfType<ScoreController>();
         MyPowerUp = FindObjectOfType<PowerUpController>();
         HUD = GameObject.Find("HUD").GetComponent<DetectedActDeact>();
+        ActiveButtonsOFF();
     }
 
     public void Update()
     {
-        ActiveButtonsOFF();
+        MyCurrentScore.text = MyScore.CostScore.ToString();
     }
 
     public void AddSlide()
@@ -38,8 +41,7 @@ public class MarketShopMenù : MonoBehaviour
             if (MyScore.CostScore > MyPowerUp.SlideCost)
             {
                 MyPowerUp.ActiveSlide();
-                SlideButton.SetActive(false);
-                SlideOFF.SetActive(true);
+                ActiveButtonsOFF();
             }
         }           
     }
@@ -51,8 +53,7 @@ public class MarketShopMenù : MonoBehaviour
             if (MyScore.CostScore > MyPowerUp.MedikitCost)
             {
                 MyPowerUp.ActiveMedikit();
-                MedikitButton.SetActive(false);
-                MedkitOFF.SetActive(true);
+                ActiveButtonsOFF();
             }
         }
     }
@@ -64,8 +65,7 @@ public class MarketShopMenù : MonoBehaviour
             if (MyScore.CostScore > MyPowerUp.SpeedCost)
             {
                 MyPowerUp.ActiveSuperSpeed();
-                SpeedButton.SetActive(false);
-                SpeedOFF.SetActive(true);
+                ActiveButtonsOFF();
             }
         }
     }
@@ -77,8 +77,7 @@ public class MarketShopMenù : MonoBehaviour
             if (MyScore.CostScore > MyPowerUp.SlowerCost)
             {
                 MyPowerUp.ActiveSlowerHp();
-                SlowerButton.SetActive(false);
-                SlowerOFF.SetActive(true);
+                ActiveButtonsOFF();
             }
         }
     }
@@ -90,8 +89,7 @@ public class MarketShopMenù : MonoBehaviour
             if (MyScore.CostScore > MyPowerUp.KatanaCost)
             {
                 MyPowerUp.ActiveKatana();
-                KatanaButton.SetActive(false);
-                KatanaOFF.SetActive(true);
+                ActiveButtonsOFF();
             }
         }
     }
@@ -104,33 +102,11 @@ public class MarketShopMenù : MonoBehaviour
             {
                 BlockButtons[i].SetActive(false);
             }
-            //SlideButton.SetActive(false);
-            //SlideOFF.SetActive(true);
+            for (int i = 0; i < OFFBlockButtons.Length; i++)
+            {
+                OFFBlockButtons[i].SetActive(true);
+            }
         }
-
-        //if (PlayerPrefs.GetInt("Medikit") == 1)
-        //{
-        //    MedikitButton.SetActive(false);
-        //    MedkitOFF.SetActive(true);
-        //}
-        //
-        //if (PlayerPrefs.GetInt("Speed") == 1)
-        //{
-        //    SpeedButton.SetActive(false);
-        //    SpeedOFF.SetActive(true);
-        //}
-        //
-        //if (PlayerPrefs.GetInt("SlowerHp") == 1)
-        //{
-        //    SlowerButton.SetActive(false);
-        //    SlowerOFF.SetActive(true);
-        //}
-        //
-        //if (PlayerPrefs.GetInt("Katana") == 1)
-        //{
-        //    KatanaButton.SetActive(false);
-        //    KatanaOFF.SetActive(true);
-        //}
     }
 
     public void Exit()
