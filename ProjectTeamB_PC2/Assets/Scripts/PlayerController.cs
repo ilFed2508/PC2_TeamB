@@ -9,6 +9,7 @@ public class PlayerController : MonoBehaviour
 	public PlayerMovement playerMovement;
 	public PlayerLifeSystem playerLife;
 	public ScoreController playerScore;
+	public MedikitManager playerMedikit;
 
 	[HideInInspector]
 	public int SafeZoneReached;
@@ -34,6 +35,7 @@ public class PlayerController : MonoBehaviour
 		playerMovement = GetComponent<PlayerMovement>();
 		playerLife = GetComponent<PlayerLifeSystem>();
 		playerScore = GetComponent<ScoreController>();
+		playerMedikit = GetComponent<MedikitManager>();
 	}
 
 	void Update()

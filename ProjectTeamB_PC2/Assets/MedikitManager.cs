@@ -11,7 +11,7 @@ public class MedikitManager : MonoBehaviour
     public int NumberOfMedikit;
     public float MedikitEffect;
 
-    public GameObject MedikitIcon;
+    public GameObject MedikitIcon,AnimationBar;
     public Text NumberOfMedikitText;
 
     [HideInInspector]
@@ -45,6 +45,7 @@ public class MedikitManager : MonoBehaviour
             if(Input.GetMouseButtonDown(1) && NumberOfMedikit > 0)
             {
                 MyLife.PlayerCurrentHP += MedikitEffect;
+                AnimationBar.SetActive(true);
                 StartCoroutine(FadeInAndOut());
                 NumberOfMedikit -= 1;
             }
