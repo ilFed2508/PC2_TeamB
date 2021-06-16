@@ -32,10 +32,10 @@ public class SafeZoneEntrance : MonoBehaviour
                 Buttons[i].SetActive(true);
             }
 
-            //for (int i = 0; i < ButtonsOFF.Length; i++)
-            //{
-            //    ButtonsOFF[i].SetActive(false);
-            //}
+            for (int i = 0; i < ButtonsOFF.Length; i++)
+            {
+                ButtonsOFF[i].SetActive(false);
+            }
         }
     }    
 }
