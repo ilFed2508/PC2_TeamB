@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class MedkitHover : MonoBehaviour
+public class HoverScripts : MonoBehaviour
 {
     public GameObject panelDescription;
 
@@ -21,4 +21,3 @@ public class MedkitHover : MonoBehaviour
         panelDescription.SetActive(false);
     }
 }
-
