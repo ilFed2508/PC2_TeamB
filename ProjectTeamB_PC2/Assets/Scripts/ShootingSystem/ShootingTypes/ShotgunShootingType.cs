@@ -49,7 +49,7 @@ public class ShotgunShootingType : Shooting
             
             Vector2 randomBloom = new Vector2(GetRandomBloomValue(Bloom), GetRandomBloomValue(Bloom));
 
-            Ray ray = Camera.main.ViewportPointToRay(new Vector3(randomBloom.x, randomBloom.y, 0));
+            Ray ray = Camera.main.ViewportPointToRay(new Vector3(randomBloom.x, randomBloom.y, 1f));
 
             if (Physics.Raycast(ray, out RaycastHit hit))
             {
