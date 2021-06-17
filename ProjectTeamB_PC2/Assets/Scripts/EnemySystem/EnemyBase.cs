@@ -26,7 +26,8 @@ public class EnemyBase : MonoBehaviour
     //Melee
     public float MeleeDamage;
 
-    private MedikitManager MyFeed;
+    [HideInInspector]
+    public MedikitManager MyFeed;
 
     
 

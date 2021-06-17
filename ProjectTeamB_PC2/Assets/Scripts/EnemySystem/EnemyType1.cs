@@ -35,6 +35,7 @@ public class EnemyType1 : EnemyBase
 
         //SetupEnemyType
         enemyType = EnemyType.typeB;
+        MyFeed = FindObjectOfType<MedikitManager>();
 
         //state machine setup
         _stateMachine = new StateMachine();

@@ -13,6 +13,8 @@ public class EnemyType2 : EnemyBase
 
     public float PlayerStopDistance;
 
+    
+
     private void Awake()
     {
         //pick reference
@@ -21,6 +23,8 @@ public class EnemyType2 : EnemyBase
 
         //SetupEnemyType
         enemyType = EnemyType.typeC;
+
+        MyFeed = FindObjectOfType<MedikitManager>();
 
         //state machine setup
         _stateMachine = new StateMachine();
