@@ -17,7 +17,7 @@ public class SlideManager : MonoBehaviour
 
     private Animator weaponSlotCam;
 
-    public GameObject MarketPanel,SlideIcon;
+    public GameObject MarketPanel,SlideIcon,SlideIconOFF;
 
 
     [SerializeField] Image[] images = default;
@@ -44,6 +44,7 @@ public class SlideManager : MonoBehaviour
             if (TimeSlide > 0f && controller.isGrounded)
             {
                 SlideIcon.SetActive(true);
+                SlideIconOFF.SetActive(false);
                 if (Input.GetMouseButton(1) || Input.GetButton("Xbox_LB"))
                 {
                     Slide();
@@ -52,6 +53,7 @@ public class SlideManager : MonoBehaviour
             if (TimeSlide <= 0f)
             {
                 SlideIcon.SetActive(false);
+                SlideIconOFF.SetActive(true);
                 TimeToSlide -= Time.deltaTime;
                 if (TimeToSlide <= 0f)
                 {
@@ -63,6 +65,7 @@ public class SlideManager : MonoBehaviour
         if (!isSliding)
         {
             SlideIcon.SetActive(false);
+            SlideIconOFF.SetActive(false);
         }   
     } 
     
