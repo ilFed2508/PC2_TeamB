@@ -4,8 +4,7 @@ using UnityEngine;
 
 public class Closecamera_Safe : MonoBehaviour
 {
-    public GameObject cameraSafe;
-    public GameObject PowerUpCanvas;
+    public GameObject cameraSafe, PowerUpCanvas, Emote;
 
     private PorcaTroiaProviamo Player;
     public void Start()
@@ -16,6 +15,7 @@ public class Closecamera_Safe : MonoBehaviour
     public void CloseCamera()
     {
         Player.Player.SetActive(true);
+        Emote.SetActive(true);
         cameraSafe.SetActive(false);
         PowerUpCanvas.SetActive(false);
         Cursor.lockState = CursorLockMode.Locked;
