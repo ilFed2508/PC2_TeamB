@@ -42,7 +42,7 @@ public class SingleShotShooting : Shooting
     {
         
 
-        Ray ray = Camera.main.ViewportPointToRay(new Vector3(0.5f, 0.5f, 0));
+        Ray ray = Camera.main.ViewportPointToRay(new Vector3(0.5f, 0.5f, 1f));
         RaycastHit hit;
 
         if (Physics.Raycast(ray, out hit))
