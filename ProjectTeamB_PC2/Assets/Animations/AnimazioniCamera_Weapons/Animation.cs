@@ -22,20 +22,20 @@ public class Animation : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetMouseButton(0))
-        {
-            //anim.SetBool(sparo, true);
-            
+       //if (Input.GetMouseButton(0))
+       //{
+       //    //anim.SetBool(sparo, true);
+       //    
+       //
+       //}
+       //else
+       //{
+       //    anim.SetBool(sparo, false);
+       //    anim.SetBool(vadoAvanti, false);
+       //    
+       //}
 
-        }
-        else
-        {
-            anim.SetBool(sparo, false);
-            anim.SetBool(vadoAvanti, false);
-            
-        }
-
-        if (Input.GetKey(KeyCode.W))
+        if (Input.GetKey(KeyCode.W) || Input.GetKey(KeyCode.S))
         {
             anim.SetBool(vadoAvanti, true);
         }
@@ -64,8 +64,7 @@ public class Animation : MonoBehaviour
         }
         if (Input.GetKeyDown(KeyCode.Space))
         {
-            anim.Play("Camera-Jump");
-            
+            anim.Play("Camera-Jump");          
         }
         else
         {
