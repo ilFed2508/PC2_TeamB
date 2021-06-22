@@ -39,7 +39,7 @@ public class MinigunRotation : MonoBehaviour
             MiniGunAnim.SetBool("Shoot", false);
         }
 
-        if (Input.GetKey(KeyCode.W))
+        if (Input.GetKey(KeyCode.W) || Input.GetKey(KeyCode.S) || Input.GetKey(KeyCode.A) || Input.GetKey(KeyCode.D))
         {
             MiniGunAnim.SetBool(vadoAvanti, true);
         }
@@ -47,32 +47,6 @@ public class MinigunRotation : MonoBehaviour
         {
             MiniGunAnim.SetBool(vadoAvanti, false);
 
-        }
-        if (Input.GetKey(KeyCode.D))
-        {
-            MiniGunAnim.SetBool(destra, true);
-            MiniGunAnim.SetBool(vadoAvanti, true);
-        }
-        else
-        {
-            MiniGunAnim.SetBool(destra, false);
-        }
-        if (Input.GetKey(KeyCode.A))
-        {
-            MiniGunAnim.SetBool(sinistra, true);
-            MiniGunAnim.SetBool(vadoAvanti, true);
-        }
-        else
-        {
-            Camera.SetBool(sinistra, false);
-        }
-        if (Input.GetKeyDown(KeyCode.Space))
-        {
-            MiniGunAnim.Play("Camera-Jump");
-        }
-        else
-        {
-            MiniGunAnim.SetBool(Jump, false);
         }
     }
 }
