@@ -26,7 +26,7 @@ public class ComboManager : MonoBehaviour
     public SpriteDatabase MySprite;
 
     public GameObject[] Sprite;
-    public GameObject DamageSprite;
+    
 
     [HideInInspector]
     public int i;
@@ -83,7 +83,8 @@ public class ComboManager : MonoBehaviour
                     SMG.Damage -= aggiuntaDanno;
                     MINIGUN.Damage -= aggiuntaDanno;
                     SHOTGUN.Damage -= aggiuntaDanno;
-                    DeactiveComboSprite();                   
+                    DeactiveComboSprite();
+                    MySprite.DamageSprite[1].SetActive(true);
                 }               
                 tempoPerScalare = tempoRestart;
 
@@ -106,7 +107,7 @@ public class ComboManager : MonoBehaviour
             SMG.Damage += aggiuntaDanno;
             MINIGUN.Damage += aggiuntaDanno;
             SHOTGUN.Damage += aggiuntaDanno;
-            DamageSprite.SetActive(true);
+            MySprite.DamageSprite[0].SetActive(true);
 
         }
     }

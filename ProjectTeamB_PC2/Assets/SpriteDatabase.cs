@@ -4,5 +4,5 @@ using UnityEngine;
 
 public class SpriteDatabase : MonoBehaviour
 {
-    public GameObject[] SpriteCombo;
+    public GameObject[] SpriteCombo,DamageSprite;
 }
