@@ -6,9 +6,13 @@ using TMPro;
 
 public class WeaponPickup : MonoBehaviour
 {
+    
     public GameObject WeaponToSpawn;
     private PlayerController playerController;
     private KatanaPowerUpManager MyKatana;
+
+
+
     public Text UipickupText;
 
     //Combo LucaDesign
@@ -26,7 +30,8 @@ public class WeaponPickup : MonoBehaviour
         //Combo LucaDesign
         combo = FindObjectOfType<ComboManager>();
         Camera = GameObject.Find("WeaponSlot").GetComponent<Animator>();
-        MyKatana = FindObjectOfType<KatanaPowerUpManager>();
+        MyKatana = FindObjectOfType<KatanaPowerUpManager>();     
+        
         //-------------------------------------------
 
         playerController = FindObjectOfType<PlayerController>();
@@ -76,6 +81,7 @@ public class WeaponPickup : MonoBehaviour
             }
             combo.tempoPerScalare = combo.tempoRestart;
             combo.ComboDamage();
+            
             //-------------------------------------------
         }
         if (MyKatana.CanSwitchKatana == true && other.gameObject.CompareTag("Player") && Input.GetKey(KeyCode.E) || Input.GetButtonDown("Xbox_X"))
@@ -101,6 +107,7 @@ public class WeaponPickup : MonoBehaviour
             }
             combo.tempoPerScalare = combo.tempoRestart;
             combo.ComboDamage();
+            //combo.ActiveComboSprite();
             //-------------------------------------------
         }
     }
@@ -139,7 +146,8 @@ public class WeaponPickup : MonoBehaviour
         playerController.playerLife.PlayerCurrentHP += PlayerHpGain;
 
         //destroy this gameobject
-        Destroy(this.gameObject);
-        
+        Destroy(this.gameObject);         
     }
+
+   
 }
