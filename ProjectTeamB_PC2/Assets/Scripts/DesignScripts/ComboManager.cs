@@ -14,11 +14,11 @@ public class ComboManager : MonoBehaviour
 
     public Text LivelloCombo;
 
-    public int[]Livellocombo;
+    public int[] Livellocombo;
 
     public RangedWeapon CurrentRagedWeapon;
 
-    public WeaponData AR,SMG,MINIGUN,SHOTGUN;
+    public WeaponData AR, SMG, MINIGUN, SHOTGUN;
 
     private PlayerController playerController;
 
@@ -26,18 +26,18 @@ public class ComboManager : MonoBehaviour
     public SpriteDatabase MySprite;
 
     public GameObject[] Sprite;
-    
+
 
     [HideInInspector]
     public int i;
 
-    
+
 
 
     // Start is called before the first frame update
     void Start()
     {
-             
+
         playerController = FindObjectOfType<PlayerController>();
         CurrentRagedWeapon = FindObjectOfType<RangedWeapon>();
         DannoIniziale = playerController.playerShooting.CurrentRagedWeapon.weaponData.Damage;
@@ -53,7 +53,6 @@ public class ComboManager : MonoBehaviour
         ComboSystem();
         ResetComboDamage();
         ActiveComboSprite();
-
     }
 
 
@@ -76,7 +75,7 @@ public class ComboManager : MonoBehaviour
             if (tempoPerScalare < 0f)
             {
                 livelloCombo = livelloCombo - 1;
-                
+
                 if (System.Array.IndexOf(Livellocombo, livelloCombo) != -1)
                 {
                     AR.Damage -= aggiuntaDanno;
@@ -84,8 +83,9 @@ public class ComboManager : MonoBehaviour
                     MINIGUN.Damage -= aggiuntaDanno;
                     SHOTGUN.Damage -= aggiuntaDanno;
                     DeactiveComboSprite();
-                    MySprite.DamageSprite[1].SetActive(true);
-                }               
+
+
+                }
                 tempoPerScalare = tempoRestart;
 
                 if (livelloCombo <= 0f)
@@ -100,15 +100,15 @@ public class ComboManager : MonoBehaviour
 
     public void ComboDamage()
     {
-      
+
         if (System.Array.IndexOf(Livellocombo, livelloCombo) != -1)
         {
+
             AR.Damage += aggiuntaDanno;
             SMG.Damage += aggiuntaDanno;
             MINIGUN.Damage += aggiuntaDanno;
             SHOTGUN.Damage += aggiuntaDanno;
-            MySprite.DamageSprite[0].SetActive(true);
-
+            MySprite.DamageUp.SetActive(true);
         }
     }
 
@@ -124,57 +124,55 @@ public class ComboManager : MonoBehaviour
             {
                 MySprite.SpriteCombo[i].SetActive(false);
             }
+           
 
-            //playerController.playerShooting.CurrentRagedWeapon.weaponData.Damage = playerController.playerShooting.CurrentRagedWeapon.weaponData.StartingDamage;
         }
     }
 
+    #region SpriteComboDamage
     public void ActiveComboSprite()
     {
-       if (livelloCombo >= Livellocombo[0])
-       {
-           MySprite.SpriteCombo[0].SetActive(true);
-       }
-       if (livelloCombo >= Livellocombo[1])
-       {
-           MySprite.SpriteCombo[1].SetActive(true);
-       }
-       if (livelloCombo >= Livellocombo[2])
-       {
-           MySprite.SpriteCombo[2].SetActive(true);
-       }
-       if (livelloCombo >= Livellocombo[3])
-       {
-           MySprite.SpriteCombo[3].SetActive(true);
-       }
-       if (livelloCombo >= Livellocombo[4])
-       {
-           MySprite.SpriteCombo[4].SetActive(true);
-       }
-       if (livelloCombo >= Livellocombo[5])
-       {
-           MySprite.SpriteCombo[5].SetActive(true);
-       }
-       if (livelloCombo >= Livellocombo[6])
-       {
-           MySprite.SpriteCombo[6].SetActive(true);
-       }
-       if (livelloCombo >= Livellocombo[7])
-       {
-           MySprite.SpriteCombo[7].SetActive(true);
-       }
-       if (livelloCombo >= Livellocombo[8])
-       {
-           MySprite.SpriteCombo[8].SetActive(true);
-       }
-       if (livelloCombo >= Livellocombo[9])
-       {
-           MySprite.SpriteCombo[9].SetActive(true);
-       }
-       if (livelloCombo >= Livellocombo[10])
-       {
-           MySprite.SpriteCombo[10].SetActive(true);
-       }
+        if (livelloCombo >= Livellocombo[0])
+        {
+            MySprite.SpriteCombo[0].SetActive(true);
+        }
+        if (livelloCombo >= Livellocombo[1])
+        {
+            MySprite.SpriteCombo[1].SetActive(true);
+        }
+        if (livelloCombo >= Livellocombo[2])
+        {
+            MySprite.SpriteCombo[2].SetActive(true);
+        }
+        if (livelloCombo >= Livellocombo[3])
+        {
+            MySprite.SpriteCombo[3].SetActive(true);
+        }
+        if (livelloCombo >= Livellocombo[4])
+        {
+            MySprite.SpriteCombo[4].SetActive(true);
+        }
+        if (livelloCombo >= Livellocombo[5])
+        {
+            MySprite.SpriteCombo[5].SetActive(true);
+        }
+        if (livelloCombo >= Livellocombo[6])
+        {
+            MySprite.SpriteCombo[6].SetActive(true);
+        }
+        if (livelloCombo >= Livellocombo[7])
+        {
+            MySprite.SpriteCombo[7].SetActive(true);
+        }
+        if (livelloCombo >= Livellocombo[8])
+        {
+            MySprite.SpriteCombo[8].SetActive(true);
+        }
+        if (livelloCombo >= Livellocombo[9])
+        {
+            MySprite.SpriteCombo[9].SetActive(true);
+        }
+
 
     }
 
@@ -220,13 +218,13 @@ public class ComboManager : MonoBehaviour
         {
             MySprite.SpriteCombo[9].SetActive(false);
         }
-        if (livelloCombo < Livellocombo[10])
-        {
-            MySprite.SpriteCombo[10].SetActive(false);
-        }
+
 
     }
 
-
+    #endregion 
 
 }
+
+
+

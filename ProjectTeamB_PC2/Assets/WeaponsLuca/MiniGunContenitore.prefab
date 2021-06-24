@@ -522,9 +522,8 @@ MonoBehaviour:
   - {fileID: 3345067980944705059}
   - {fileID: 8841161753987989203}
   - {fileID: 2241601630046578422}
-  DamageSprite:
-  - {fileID: 7717512415245373800}
-  - {fileID: 5862164103671465015}
+  DamageUp: {fileID: 7717512415245373800}
+  DamageDown: {fileID: 5862164103671465015}
 --- !u!1 &2241601630046578422
 GameObject:
   m_ObjectHideFlags: 0
@@ -2054,14 +2053,13 @@ GameObject:
   m_Component:
   - component: {fileID: 1451894132118770257}
   - component: {fileID: 8623549271846980243}
-  - component: {fileID: 34484990026374841}
   m_Layer: 9
   m_Name: DMG_UP
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &1451894132118770257
 Transform:
   m_ObjectHideFlags: 0
@@ -2127,19 +2125,6 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!114 &34484990026374841
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7717512415245373800}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f6840cd80854807439838190d676c739, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  Tempo: 0.3
 --- !u!1 &8841161753987989203
 GameObject:
   m_ObjectHideFlags: 0

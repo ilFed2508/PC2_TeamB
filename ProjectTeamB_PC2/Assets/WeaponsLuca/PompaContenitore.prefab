@@ -260,7 +260,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1760524510713858599}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: f6840cd80854807439838190d676c739, type: 3}
   m_Name: 
@@ -639,9 +639,8 @@ MonoBehaviour:
   - {fileID: 8932118064913970104}
   - {fileID: 1999731011592779545}
   - {fileID: 7633184403383695983}
-  DamageSprite:
-  - {fileID: 7241139912025610090}
-  - {fileID: 1760524510713858599}
+  DamageUp: {fileID: 7241139912025610090}
+  DamageDown: {fileID: 1760524510713858599}
 --- !u!1 &2891865276488549967
 GameObject:
   m_ObjectHideFlags: 0
@@ -1724,14 +1723,13 @@ GameObject:
   m_Component:
   - component: {fileID: 3151627926179583248}
   - component: {fileID: 1532853710597358673}
-  - component: {fileID: 270969191184241314}
   m_Layer: 9
   m_Name: DMG_UP
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &3151627926179583248
 Transform:
   m_ObjectHideFlags: 0
@@ -1785,30 +1783,17 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: 9593c141034bb8c46aefad4f075c1dce, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 4147d32e6a5709943a9bada273f0b9e2, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
-  m_Size: {x: 1.28, y: 1.92}
+  m_Size: {x: 1.28, y: 1.93}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
-  m_WasSpriteAssigned: 0
+  m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!114 &270969191184241314
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7241139912025610090}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f6840cd80854807439838190d676c739, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  Tempo: 0.3
 --- !u!1 &7369186125798338615
 GameObject:
   m_ObjectHideFlags: 0
