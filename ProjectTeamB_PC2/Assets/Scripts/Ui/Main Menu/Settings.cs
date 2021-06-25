@@ -11,6 +11,7 @@ public class Settings : MonoBehaviour
 
     public AudioMixer AudioMixer;
     public Slider AudioSlider;
+    public Slider SFXSlider;
     //public Dropdown ResolutionDropdown;
     Resolution[] Resolutions;
     [Header("Mouse Sensibility")]
@@ -32,6 +33,7 @@ public class Settings : MonoBehaviour
     void Start()
     {
         AudioSlider.value = PlayerPrefs.GetFloat("GeneraL");
+        SFXSlider.value = PlayerPrefs.GetFloat("SFX");
 
         AugmentedMouseS = MouseSMin - 0;
         RangeMouseS = MouseSMax - MouseSMin;
@@ -65,6 +67,7 @@ public class Settings : MonoBehaviour
     void Update()
     {
         PlayerPrefs.SetFloat("GeneraL", AudioSlider.value);
+        PlayerPrefs.SetFloat("SFX", SFXSlider.value);
         SetMouseS();
         //SetControllerS();
         //CheckBools();
