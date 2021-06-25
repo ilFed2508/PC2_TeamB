@@ -72,6 +72,8 @@ public class SlideManager : MonoBehaviour
 
     public void Slide()
     {
+        AudioManager.instance.Play("Dash");
+
         StartCoroutine(FadeInAndOut());
 
         TimeSlide -= Time.deltaTime;

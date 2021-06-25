@@ -45,6 +45,7 @@ public class MedikitManager : MonoBehaviour
             if(Input.GetMouseButtonDown(1) && NumberOfMedikit > 0)
             {
                 MyLife.PlayerCurrentHP += MedikitEffect;
+                AudioManager.instance.Play("Medikit");
                 AnimationBar.SetActive(true);
                 StartCoroutine(FadeInAndOut());
                 NumberOfMedikit -= 1;
