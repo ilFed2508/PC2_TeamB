@@ -26,7 +26,7 @@ public class SaveNameUI : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if(NameImputField.text.Length > 0)
+        if(NameImputField.text.Length >= 5)
         {
             ButtonNameUI.gameObject.SetActive(true);
         }
