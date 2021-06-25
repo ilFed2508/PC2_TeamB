@@ -34,13 +34,12 @@ public class SafeZone : MonoBehaviour
         }
         if (other.CompareTag("Player") && playerController.playerLife.PlayerCurrentHP < playerController.playerLife.PlayerStartingHP)
         {
-            playerController.playerLife.PlayerCurrentHP += recoverdLife * Time.deltaTime;
+            playerController.playerLife.PlayerCurrentHP -= recoverdLife * Time.deltaTime;
         }
     }
 
     private void OnTriggerEnter(Collider other)
     {
-
         if (other.CompareTag("Player") && playerController.SafeZoneReached != checkpoint)
         {
             Directional.SetActive(true);
@@ -57,10 +56,8 @@ public class SafeZone : MonoBehaviour
             Directional.SetActive(true);
             mapOut.SetActive(true);
             mapIn.SetActive(false);
-            PlayerPrefs.SetInt("Checkpoint", checkpoint);
-            
+            PlayerPrefs.SetInt("Checkpoint", checkpoint);            
         }                      
-
     }
 
     private void OnTriggerExit(Collider other)
@@ -70,8 +67,4 @@ public class SafeZone : MonoBehaviour
             playerController.playerScore.SetScore(0);
         }
     }
-
-
-
-
 }

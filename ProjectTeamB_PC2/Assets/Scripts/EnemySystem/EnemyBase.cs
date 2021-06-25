@@ -57,7 +57,6 @@ public class EnemyBase : MonoBehaviour
         //enemy life bar - Joe
         EnemyLifeBar2.value = CurrentHP * 10;
         Invoke("LateCall", TimeLateCall);
-
     }
         
     /// <summary>
@@ -89,7 +88,7 @@ public class EnemyBase : MonoBehaviour
     /// </summary>
     public void PlayerHealOnDeath()
     {
-        Player.playerLife.PlayerCurrentHP += BonusLifeWhenKilled;
+        Player.playerLife.PlayerCurrentHP -= BonusLifeWhenKilled;
 
         if (Player.playerLife.PlayerCurrentHP > Player.playerLife.PlayerStartingHP)
         {
@@ -128,7 +127,6 @@ public class EnemyBase : MonoBehaviour
         }
 
         return false;
-
     }
 
     //Melee Luca
@@ -185,8 +183,4 @@ public class EnemyBase : MonoBehaviour
     {            
         CurrentHP = Mathf.Lerp(CurrentHP, HP, Time.deltaTime * HpSmooth);
     }
-
-    
-
-   
 }

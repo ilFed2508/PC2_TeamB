@@ -61,18 +61,18 @@ public class PlayerLifeSystem : MonoBehaviour
     /// </summary>
     public void LifeTimer()
     {
-        if (PlayerCurrentHP > 0)
+        if (PlayerCurrentHP < 28)
         {
-            LifeText.text = PlayerCurrentHP.ToString("F0");
-            PlayerCurrentHP -= Time.deltaTime * TimeMultiplier;
+            PlayerCurrentHP += Time.deltaTime * TimeMultiplier;
+            //LifeText.text = PlayerCurrentHP.ToString("F0");
 
             //screenNoise.SetActive(false);
             timeLineScreenNoise.SetActive(false);
             //timeLineScreenNoise_.SetActive(false);
 
             //LifeBar - joe
-            LifeBar.maxValue = PlayerStartingHP;
-            LifeBar.value = PlayerCurrentHP;
+            LifeBar.maxValue = PlayerStartingHP * 100;
+            LifeBar.value = PlayerCurrentHP * 100;
         }
         else
         {
@@ -98,7 +98,7 @@ public class PlayerLifeSystem : MonoBehaviour
         }
 
         //Warning Image_Animation - Joe
-        if (PlayerCurrentHP <= 6)
+        if (PlayerCurrentHP >= 18)
         {
             Warning.enabled = true;
         }
@@ -107,15 +107,15 @@ public class PlayerLifeSystem : MonoBehaviour
             Warning.enabled = false;
         }
 
-        if(PlayerCurrentHP > PlayerStartingHP)
+        if(PlayerCurrentHP < 0 )
         {
-            PlayerCurrentHP = PlayerStartingHP;
+            PlayerCurrentHP = 0;
         }
     }
 
     public IEnumerator NoiseScreen()
     {
-        yield return new WaitForSecondsRealtime(2.1f);
+        yield return new WaitForSecondsRealtime(1.5f);
         Destroy(timeLineScreenNoise);
         //timeLineScreenNoise_.SetActive(true);
 
@@ -128,11 +128,11 @@ public class PlayerLifeSystem : MonoBehaviour
     {       
         if (MyPowerupDamage.SlowerHpIsActive)
         {
-            PlayerCurrentHP -= Amount + MyPowerupDamage.AddDamage;
+            PlayerCurrentHP += Amount + MyPowerupDamage.AddDamage;
         }
         else
         {
-            PlayerCurrentHP -= Amount;
+            PlayerCurrentHP += Amount;
         }
     }
 }
