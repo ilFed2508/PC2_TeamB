@@ -61,7 +61,7 @@ public class PlayerLifeSystem : MonoBehaviour
     /// </summary>
     public void LifeTimer()
     {
-        if (PlayerCurrentHP < 28)
+        if (PlayerCurrentHP < PlayerStartingHP)
         {
             PlayerCurrentHP += Time.deltaTime * TimeMultiplier;
             //LifeText.text = PlayerCurrentHP.ToString("F0");
