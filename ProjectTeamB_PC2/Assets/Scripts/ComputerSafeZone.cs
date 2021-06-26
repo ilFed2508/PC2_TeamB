@@ -8,7 +8,7 @@ public class ComputerSafeZone : MonoBehaviour
     
     private PlayerController EpickUp;
     private SlideManager marketPanel;
-    public GameObject HUD, cameraSafe, powerUP, Emote;
+    public GameObject HUD, cameraSafe, powerUP, Emote, Particle;
     public DetectedActDeact HUDReal;
     private PorcaTroiaProviamo MyCameraMovemant;
     private void Start()
@@ -33,6 +33,8 @@ public class ComputerSafeZone : MonoBehaviour
             Emote.SetActive(false);
             cameraSafe.SetActive(true);
             powerUP.SetActive(true);
+            Particle.SetActive(false);
+
             Cursor.lockState = CursorLockMode.None;
             Cursor.visible = true;         
         }
