@@ -21,6 +21,8 @@ public class PlayerLifeSystem : MonoBehaviour
     /// </summary>
     public float EnemyTimeGain;
 
+    public float PlayerHPscore;
+
     private SlowerHpManager MyPowerupDamage;
 
     //variabili UI da eliminare in futuro
@@ -61,6 +63,8 @@ public class PlayerLifeSystem : MonoBehaviour
     /// </summary>
     public void LifeTimer()
     {
+        PlayerHPscore = PlayerStartingHP - PlayerCurrentHP;
+
         if (PlayerCurrentHP < PlayerStartingHP)
         {
             PlayerCurrentHP += Time.deltaTime * TimeMultiplier;
