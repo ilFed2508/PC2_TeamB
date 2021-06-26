@@ -14,6 +14,6 @@ public class DEATH : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        hp.PlayerCurrentHP = 0;
+        hp.PlayerCurrentHP = 28;
     }
 }
