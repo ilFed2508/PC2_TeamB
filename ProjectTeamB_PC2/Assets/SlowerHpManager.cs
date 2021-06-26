@@ -17,7 +17,7 @@ public class SlowerHpManager : MonoBehaviour
 
     private float CopyTimeMultiplier;
 
-    public GameObject SlowerHpIcon, SlowerFeed;
+    public GameObject SlowerHpIcon;
 
     public Image FeedSHP;
 
@@ -26,7 +26,7 @@ public class SlowerHpManager : MonoBehaviour
     {       
         MyLife = FindObjectOfType<PlayerLifeSystem>();
         CopyTimeMultiplier = MyLife.TimeMultiplier;
-        //SlowerHpIsActive = false;
+        SlowerHpIsActive = false;
         IconIsActive = true;
     }
 
