@@ -5,12 +5,10 @@ using UnityEngine.SceneManagement;
 
 public class LoadScene : MonoBehaviour
 {
-    public void loadScene(string scene)
+    public void LoadScene_(string scene)
     {
         SceneManager.LoadScene(scene);
 
         PlayerPrefs.SetInt("Checkpoint", 1);
     }
-
-
 }

@@ -15,7 +15,7 @@ public class SafeZone : MonoBehaviour
     private PlayerController playerController;
 
     public GameObject[]Buttons;
-    public GameObject Directional;
+    //public GameObject Directional;
 
 
 
@@ -42,7 +42,7 @@ public class SafeZone : MonoBehaviour
     {
         if (other.CompareTag("Player") && playerController.SafeZoneReached != checkpoint)
         {
-            Directional.SetActive(true);
+            //Directional.SetActive(true);
             mapOut.SetActive(true);
             mapIn.SetActive(false);
             playerController.SafeZoneReached = checkpoint;
@@ -53,7 +53,7 @@ public class SafeZone : MonoBehaviour
         }
         else if(other.CompareTag("Player") && playerController.SafeZoneReached == checkpoint)
         {
-            Directional.SetActive(true);
+            //Directional.SetActive(true);
             mapOut.SetActive(true);
             mapIn.SetActive(false);
             PlayerPrefs.SetInt("Checkpoint", checkpoint);            
