@@ -10,14 +10,19 @@ public class KatanaSystem : MonoBehaviour
     private HitmarkerFather playerC;
     public string Hit;
 
-    public float KatanaD;
+    public float KatanaD,SlashSpeed;
 
-     public Animator MyAnim;
+    public Animator MyAnim;
+
+    private PlayerController MyPlayer;
+
+
+    Vector3 HitPoint, VoidPoint;
 
 
     private void Start()
     {
-        
+        MyPlayer = FindObjectOfType<PlayerController>();
         playerC = GameObject.Find("HitContainer").GetComponent<HitmarkerFather>();
     }
 
@@ -27,18 +32,40 @@ public class KatanaSystem : MonoBehaviour
         {
             slash();
         }
+        
+        if(MyPlayer.gameObject.transform.position == HitPoint)
+        {
+            StopAllCoroutines();
+        }
     }
 
 
 
-    void slash()
+    public void slash()
     {
-        MyAnim.Play("KatanaSlash");
-        gameObject.GetComponent<BoxCollider>().enabled = true;
+        //MyAnim.Play("KatanaSlash");
+        //gameObject.GetComponent<BoxCollider>().enabled = true;
+
+        Ray ray = Camera.main.ViewportPointToRay(new Vector3(0.5f, 0.5f, 1f));
+        RaycastHit Hit;
+        //Vector3 HitPoint,VoidPoint;
+
+        if (Physics.Raycast(ray, out Hit))
+        {
+             HitPoint = Hit.point;
+        }
+        else
+        {
+            VoidPoint = ray.GetPoint(80);
+        }
+
+        StartCoroutine(SlashLerp(1f));
+
+               
     }
 
 
-    private void OnTriggerEnter(Collider other)
+    /*private void OnTriggerEnter(Collider other)
     {
         if (other.CompareTag("Enemy"))
         {
@@ -75,5 +102,20 @@ public class KatanaSystem : MonoBehaviour
 
         }
 
+    }*/
+
+    IEnumerator SlashLerp(float Duration)
+    {
+
+        float TimeC = 0;
+
+        while (TimeC < Duration)
+        {
+            MyPlayer.gameObject.transform.position = Vector3.Lerp(MyPlayer.gameObject.transform.position, HitPoint, Time.deltaTime * SlashSpeed);
+
+            TimeC += Time.deltaTime;
+
+            yield return null;
+        }
     }
 }
