@@ -8,6 +8,7 @@ public class SaveNameUI : MonoBehaviour
 {
     public InputField NameImputField;
     public Button ButtonNameUI;
+    public GameObject LoadingAnim;
 
     // Start is called before the first frame update
     void Start()
@@ -60,6 +61,7 @@ public class SaveNameUI : MonoBehaviour
             }
         }
 
-        SceneManager.LoadScene("3DMenuTestP");
+        LoadingAnim.SetActive(true);
+        //SceneManager.LoadScene("3DMenuTestP");
     }
 }

@@ -5,7 +5,7 @@ using UnityEngine;
 public class SkipAnimationNick : MonoBehaviour
 {
     public GameObject Nick, AnimationText, TextImage, FakeBackground;
-    // Start is called before the first frame update
+
     void Start()
     {
         StartCoroutine(Animation());
