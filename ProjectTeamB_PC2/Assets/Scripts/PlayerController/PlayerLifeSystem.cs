@@ -3,6 +3,8 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.Playables;
+using UnityEngine.Rendering;
+using UnityEngine.Rendering.Universal;
 
 public class PlayerLifeSystem : MonoBehaviour
 {
@@ -24,6 +26,9 @@ public class PlayerLifeSystem : MonoBehaviour
     public float PlayerHPscore;
 
     private SlowerHpManager MyPowerupDamage;
+    private Volume MyVolume;
+
+    private ChromaticAberration MyAb;
 
     //variabili UI da eliminare in futuro
     public Text LifeText;
@@ -51,6 +56,8 @@ public class PlayerLifeSystem : MonoBehaviour
 
         timeLineScreenNoise = GameObject.Find("timeLine_screenNoise");
         MyPowerupDamage = FindObjectOfType<SlowerHpManager>();
+        MyVolume = FindObjectOfType<Volume>();
+        MyVolume.profile.TryGet(out MyAb);
         //timeLineScreenNoise_ = GameObject.Find("DeathAnimation_2");
         //timeLineScreenNoise_.SetActive(false);
 
@@ -105,9 +112,11 @@ public class PlayerLifeSystem : MonoBehaviour
         if (PlayerCurrentHP >= 18)
         {
             Warning.enabled = true;
+            StartCoroutine(AberrationLerp(1f));
         }
         else
         {
+            MyAb.intensity.value = 0f;
             Warning.enabled = false;
         }
 
@@ -137,6 +146,21 @@ public class PlayerLifeSystem : MonoBehaviour
         else
         {
             PlayerCurrentHP += Amount;
+        }
+    }
+
+
+    IEnumerator AberrationLerp(float Duration)
+    {
+        float TimeC = 0;
+
+        while (TimeC < Duration)
+        {
+            MyAb.intensity.value = Mathf.Lerp(MyAb.intensity.value, 1 , Time.deltaTime / Duration);
+
+            TimeC += Time.deltaTime;
+
+            yield return null;
         }
     }
 }
