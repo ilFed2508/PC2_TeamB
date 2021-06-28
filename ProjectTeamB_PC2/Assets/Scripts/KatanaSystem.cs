@@ -46,9 +46,9 @@ public class KatanaSystem : MonoBehaviour
         //MyAnim.Play("KatanaSlash");
         //gameObject.GetComponent<BoxCollider>().enabled = true;
 
-        Ray ray = Camera.main.ViewportPointToRay(new Vector3(0.5f, 0.5f, 1f));
+        Ray ray = Camera.main.ViewportPointToRay(new Vector3(0.5f, 0.5f, 3f));
         RaycastHit Hit;
-        //Vector3 HitPoint,VoidPoint;
+        
 
         if (Physics.Raycast(ray, out Hit))
         {
@@ -59,13 +59,13 @@ public class KatanaSystem : MonoBehaviour
             VoidPoint = ray.GetPoint(80);
         }
 
-        StartCoroutine(SlashLerp(1f));
+        StartCoroutine(SlashLerp(0.5f));
 
                
     }
 
 
-    /*private void OnTriggerEnter(Collider other)
+    private void OnTriggerEnter(Collider other)
     {
         if (other.CompareTag("Enemy"))
         {
@@ -102,7 +102,7 @@ public class KatanaSystem : MonoBehaviour
 
         }
 
-    }*/
+    }
 
     IEnumerator SlashLerp(float Duration)
     {
