@@ -9,7 +9,7 @@ public class KatanaSystem : MonoBehaviour
 
     private Animator MyKatanaAnimator;
 
-    public float SlashSpeed;
+    public float SlashSpeed,TimeToUseKatana,CopyTimeToUseKatana;
 
     private PlayerController MyPlayer;
 
@@ -22,6 +22,7 @@ public class KatanaSystem : MonoBehaviour
 
     public CameraShake.Properties testProperties;
 
+    
 
     [SerializeField] Image[] images = default;
     [Min(0)]
@@ -37,11 +38,20 @@ public class KatanaSystem : MonoBehaviour
         MyPlayer = FindObjectOfType<PlayerController>();
         WeaponSlot = GameObject.Find("WeaponSlot").GetComponent<Animator>();
         MyBool = FindObjectOfType<MeleePercentuale>();
+        
     }
 
     private void Update()
     {
-        if (Input.GetMouseButtonDown(1))
+        if(TimeToUseKatana > 0)
+        {
+            TimeToUseKatana -= Time.deltaTime;
+        }
+        if(TimeToUseKatana < 0)
+        {
+            TimeToUseKatana = 0;
+        }
+        if (Input.GetMouseButtonDown(1) && TimeToUseKatana <=0)
         {           
             slash();
         }
@@ -56,11 +66,11 @@ public class KatanaSystem : MonoBehaviour
 
     public void slash()
     {
+        MyBool.NonPossoMenare = true;
+
         WeaponSlot.Play("Melee-WeaponSlot");
         MyKatanaAnimator.Play("KatanaHit");
-
-        MyBool.PossoMenare = false;
-
+       
         FindObjectOfType<CameraShake>().StartShake(testProperties);
 
         Ray ray = Camera.main.ViewportPointToRay(new Vector3(0.5f, 0.5f, 3f));
@@ -82,12 +92,13 @@ public class KatanaSystem : MonoBehaviour
             StartCoroutine(FadeInAndOut());
             //MyKatanaAnimator.Play("KatanaHit");
         }
+        TimeToUseKatana = CopyTimeToUseKatana;
                      
     }
 
     public void UseMelee()
     {
-        MyBool.PossoMenare = true;
+        MyBool.NonPossoMenare = false;
     }
 
     IEnumerator SlashLerp(float Duration)
