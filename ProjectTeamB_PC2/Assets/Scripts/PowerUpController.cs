@@ -110,16 +110,13 @@ public class PowerUpController : MonoBehaviour
         MyMedikit.CanUseMedikit = false;
         MySpeed.Faster = false;
         MySlowerPowerUp.SlowerHpIsActive = false;
+        MyKatana.CanUseKatana = false;
         PlayerPrefs.SetInt("OnePowerUp", 0);
         PlayerPrefs.SetInt("Medikit", 0);
         PlayerPrefs.SetInt("Slide", 0);
         PlayerPrefs.SetInt("Speed", 0);
         PlayerPrefs.SetInt("SlowerHp", 0);
         PlayerPrefs.SetInt("Katana", 0);
-        if (MyKatana.CanUseKatana == true)
-        {
-            MyKatana.DestroyKatana();
-            MyKatana.CanUseKatana = false;
-        }
+       
     }
 }

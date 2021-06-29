@@ -456,8 +456,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2677642791966898684}
-  - component: {fileID: 1649584623643061120}
-  - component: {fileID: 9148882713126325798}
   - component: {fileID: 7407255106421341551}
   m_Layer: 9
   m_Name: KatanaContenitoreDEF
@@ -481,53 +479,6 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &1649584623643061120
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2560970964612476869}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9dd30bda2924e624abca15b479ec55bd, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  weaponData: {fileID: 11400000, guid: 8b43084fd837ba443854b605687ee47f, type: 2}
-  TotalDamage: 0
-  FireRateo: 0
-  CurrentAmmo: 0
-  GunBarrel: {fileID: 0}
-  WeaponBulletPrefab: {fileID: 1509866190927931873, guid: 5503af1c30fe005428f806fe6f0259df,
-    type: 3}
-  ShootingType: {fileID: 9148882713126325798}
-  GunBarrel2: {fileID: 0}
-  WeaponBulletPrefab2: {fileID: 0}
---- !u!114 &9148882713126325798
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2560970964612476869}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 079ca0fe249761744b9525269e9aabd4, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  ShotCooldown: 0.01
-  IsAutomatic: 0
-  testProperties:
-    angle: 0
-    strength: 0
-    speed: 0
-    duration: 0
-    noisePercent: 0
-    dampingPercent: 0
-    rotationPercent: 0
-  Flash: {fileID: 0}
-  Parent: {fileID: 0}
-  Suono: 
 --- !u!95 &7407255106421341551
 Animator:
   serializedVersion: 3
@@ -757,13 +708,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 831ef3739e8334b408b2db6593d5af0a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Particle: {fileID: 6772490525415757152, guid: 850ca9ec21207574d8bbd56bce8bf4ec,
-    type: 3}
-  HitKill: KillHit
-  Hit: Hit1
-  KatanaD: 40
   SlashSpeed: 15
-  MyAnim: {fileID: 0}
+  KatanaContenitore: {fileID: 0}
+  CanUseMelee: 0
+  images: []
+  waitBeforeStartFadeIn: 1
+  timeToFadeIn: 1
+  timeToFadeOut: 1
 --- !u!1 &5854785915464486398
 GameObject:
   m_ObjectHideFlags: 0
