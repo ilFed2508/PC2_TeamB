@@ -23,6 +23,7 @@ public class MeleePercentuale : MonoBehaviour
         PossoMenare = true;
         WeaponSlot = GameObject.Find("WeaponSlot").GetComponent<Animator>();
         Melee = GameObject.Find("Mecha_arm_sx_rigged(Pugno)").GetComponent<Animator>();
+        MyBool.CanUseMelee = true;
     }
     public void Update()
     {
@@ -36,7 +37,7 @@ public class MeleePercentuale : MonoBehaviour
             PossoMenare = true;
         }
 
-        if ((Input.GetKeyDown(KeyCode.Q) || Input.GetButtonDown("Xbox_R3")) && PossoMenare && MyBool.CanUseMelee)
+        if ((MyBool.CanUseMelee == true && Input.GetKeyDown(KeyCode.Q) || Input.GetButtonDown("Xbox_R3")) && PossoMenare)
         {            
             Melee.Play("Melee");
             WeaponSlot.Play("Melee-WeaponSlot");

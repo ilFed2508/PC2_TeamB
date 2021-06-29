@@ -35,7 +35,6 @@ public class KatanaSystem : MonoBehaviour
         MyKatanaAnimator = GetComponent<Animator>();
         MyPlayer = FindObjectOfType<PlayerController>();
         WeaponSlot = GameObject.Find("WeaponSlot").GetComponent<Animator>();
-        CanUseMelee = true;
     }
 
     private void Update()
