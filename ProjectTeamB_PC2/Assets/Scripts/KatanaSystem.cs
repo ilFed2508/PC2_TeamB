@@ -22,7 +22,7 @@ public class KatanaSystem : MonoBehaviour
         MyPlayer = FindObjectOfType<PlayerController>();
     }
 
-    private void FixedUpdate()
+    private void Update()
     {
         if (Input.GetMouseButtonDown(0))
         {           
@@ -40,7 +40,7 @@ public class KatanaSystem : MonoBehaviour
     public void slash()
     {
 
-        
+        MyKatanaAnimator.Play("KatanaHit");
 
         Ray ray = Camera.main.ViewportPointToRay(new Vector3(0.5f, 0.5f, 3f));
         RaycastHit Hit;
@@ -58,7 +58,7 @@ public class KatanaSystem : MonoBehaviour
         if (Hit.collider.CompareTag("Enemy"))
         {
             StartCoroutine(SlashLerp(0.5f));
-            MyKatanaAnimator.Play("KatanaHit");
+            //MyKatanaAnimator.Play("KatanaHit");
         }
                      
     }
