@@ -59,7 +59,11 @@ public class KatanaSystem : MonoBehaviour
             VoidPoint = ray.GetPoint(80);
         }
 
-        StartCoroutine(SlashLerp(0.5f));
+        if (Hit.collider.CompareTag("Enemy"))
+        {
+            StartCoroutine(SlashLerp(0.5f));
+        }
+        
 
                
     }
