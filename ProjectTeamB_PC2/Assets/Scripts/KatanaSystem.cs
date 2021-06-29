@@ -10,8 +10,6 @@ public class KatanaSystem : MonoBehaviour
 
     public float SlashSpeed;
 
-    //public Animator MyAnim;
-
     private PlayerController MyPlayer;
 
     public GameObject KatanaContenitore;
@@ -27,8 +25,7 @@ public class KatanaSystem : MonoBehaviour
     private void FixedUpdate()
     {
         if (Input.GetMouseButtonDown(0))
-        {
-            MyKatanaAnimator.Play("KatanaHit");
+        {           
             slash();
         }
         
@@ -61,7 +58,7 @@ public class KatanaSystem : MonoBehaviour
         if (Hit.collider.CompareTag("Enemy"))
         {
             StartCoroutine(SlashLerp(0.5f));
-            //MyKatanaAnimator.Play("KatanaHit");
+            MyKatanaAnimator.Play("KatanaHit");
         }
                      
     }
