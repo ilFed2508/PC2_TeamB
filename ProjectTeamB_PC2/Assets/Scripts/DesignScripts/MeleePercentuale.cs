@@ -11,19 +11,20 @@ public class MeleePercentuale : MonoBehaviour
     public CameraShake.Properties testProperties;
     public string Suono;
 
-    private KatanaSystem MyBool;
+    
 
     public float TimerForMelee;
     public float CopyTimerForMelee;
-    private bool PossoMenare;
+    [HideInInspector]
+    public bool PossoMenare;
 
     public void Start()
     {
-        MyBool = FindObjectOfType<KatanaSystem>();
+        
         PossoMenare = true;
         WeaponSlot = GameObject.Find("WeaponSlot").GetComponent<Animator>();
         Melee = GameObject.Find("Mecha_arm_sx_rigged(Pugno)").GetComponent<Animator>();
-        MyBool.CanUseMelee = true;
+        
     }
     public void Update()
     {
@@ -37,7 +38,7 @@ public class MeleePercentuale : MonoBehaviour
             PossoMenare = true;
         }
 
-        if ((MyBool.CanUseMelee == true && Input.GetKeyDown(KeyCode.Q) || Input.GetButtonDown("Xbox_R3")) && PossoMenare)
+        if ((Input.GetKeyDown(KeyCode.Q) || Input.GetButtonDown("Xbox_R3")) && PossoMenare)
         {            
             Melee.Play("Melee");
             WeaponSlot.Play("Melee-WeaponSlot");

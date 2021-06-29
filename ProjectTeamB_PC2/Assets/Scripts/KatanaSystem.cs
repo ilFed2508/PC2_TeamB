@@ -18,8 +18,7 @@ public class KatanaSystem : MonoBehaviour
 
     Vector3 HitPoint, VoidPoint;
 
-    [HideInInspector]
-    public bool CanUseMelee;
+    private MeleePercentuale MyBool;
 
 
     [SerializeField] Image[] images = default;
@@ -35,6 +34,7 @@ public class KatanaSystem : MonoBehaviour
         MyKatanaAnimator = GetComponent<Animator>();
         MyPlayer = FindObjectOfType<PlayerController>();
         WeaponSlot = GameObject.Find("WeaponSlot").GetComponent<Animator>();
+        MyBool = FindObjectOfType<MeleePercentuale>();
     }
 
     private void Update()
@@ -57,7 +57,7 @@ public class KatanaSystem : MonoBehaviour
         WeaponSlot.Play("Melee-WeaponSlot");
         MyKatanaAnimator.Play("KatanaHit");
 
-        CanUseMelee = false;
+        MyBool.PossoMenare = false;
 
         Ray ray = Camera.main.ViewportPointToRay(new Vector3(0.5f, 0.5f, 3f));
         RaycastHit Hit;
@@ -83,7 +83,7 @@ public class KatanaSystem : MonoBehaviour
 
     public void UseMelee()
     {
-        CanUseMelee = true;
+        MyBool.PossoMenare = true;
     }
 
     IEnumerator SlashLerp(float Duration)
