@@ -12,7 +12,7 @@ public class Shooting : MonoBehaviour
     /// <summary>
     /// Let you know if the weapon can perform the shooting action
     /// </summary>
-    protected bool CanWeaponShoot = true;
+    public bool CanWeaponShoot = true;
     /// <summary>
     /// Value that enable the automatic fire mode 
     /// </summary>
