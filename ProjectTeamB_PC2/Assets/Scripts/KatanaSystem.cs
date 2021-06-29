@@ -22,7 +22,9 @@ public class KatanaSystem : MonoBehaviour
 
     public CameraShake.Properties testProperties;
 
-    
+    public string VoidHit;
+
+
 
     [SerializeField] Image[] images = default;
     [Min(0)]
@@ -72,6 +74,8 @@ public class KatanaSystem : MonoBehaviour
         MyKatanaAnimator.Play("KatanaHit");
        
         FindObjectOfType<CameraShake>().StartShake(testProperties);
+
+        AudioManager.instance.Play(VoidHit);
 
         Ray ray = Camera.main.ViewportPointToRay(new Vector3(0.5f, 0.5f, 3f));
         RaycastHit Hit;

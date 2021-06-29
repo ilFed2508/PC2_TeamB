@@ -8,7 +8,7 @@ public class KatanaTrigger : MonoBehaviour
     public string HitKill;
 
     private HitmarkerFather playerC;
-    public string Hit;
+    public string Hit,VoidHit,WallHit;
 
     public float KatanaD;
 
