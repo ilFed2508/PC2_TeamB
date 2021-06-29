@@ -20,7 +20,7 @@ public class KatanaSystem : MonoBehaviour
 
     private MeleePercentuale MyBool;
 
-    public CameraShake.Properties testProperties;
+    
 
     public string VoidHit;
 
@@ -73,7 +73,7 @@ public class KatanaSystem : MonoBehaviour
         WeaponSlot.Play("Melee-WeaponSlot");
         MyKatanaAnimator.Play("KatanaHit");
        
-        FindObjectOfType<CameraShake>().StartShake(testProperties);
+
 
         AudioManager.instance.Play(VoidHit);
 
