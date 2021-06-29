@@ -13,6 +13,7 @@ public class KatanaSystem : MonoBehaviour
     private PlayerController MyPlayer;
 
     public GameObject KatanaContenitore;
+    private Animator WeaponSlot;
 
     Vector3 HitPoint, VoidPoint;
 
@@ -20,11 +21,12 @@ public class KatanaSystem : MonoBehaviour
     {
         MyKatanaAnimator = GetComponent<Animator>();
         MyPlayer = FindObjectOfType<PlayerController>();
+        WeaponSlot = GameObject.Find("WeaponSlot").GetComponent<Animator>();
     }
 
     private void Update()
     {
-        if (Input.GetMouseButtonDown(0))
+        if (Input.GetMouseButtonDown(1))
         {           
             slash();
         }
@@ -39,7 +41,7 @@ public class KatanaSystem : MonoBehaviour
 
     public void slash()
     {
-
+        WeaponSlot.Play("Melee-WeaponSlot");
         MyKatanaAnimator.Play("KatanaHit");
 
         Ray ray = Camera.main.ViewportPointToRay(new Vector3(0.5f, 0.5f, 3f));
