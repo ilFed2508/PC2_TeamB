@@ -4,26 +4,24 @@ using UnityEngine;
 
 public class KatanaSystem : MonoBehaviour
 {
-    public ParticleSystem Particle;
-    public string HitKill;
 
-    private HitmarkerFather playerC;
-    public string Hit;
 
-    public float KatanaD,SlashSpeed;
+    private Animator MyKatanaAnimator;
 
-    public Animator MyAnim;
+    public float SlashSpeed;
+
+    //public Animator MyAnim;
 
     private PlayerController MyPlayer;
 
+    public GameObject KatanaContenitore;
 
     Vector3 HitPoint, VoidPoint;
 
-
     private void Start()
     {
+        MyKatanaAnimator = GetComponent<Animator>();
         MyPlayer = FindObjectOfType<PlayerController>();
-        playerC = GameObject.Find("HitContainer").GetComponent<HitmarkerFather>();
     }
 
     private void Update()
@@ -31,6 +29,7 @@ public class KatanaSystem : MonoBehaviour
         if (Input.GetMouseButtonDown(0))
         {
             slash();
+
         }
         
         if(MyPlayer.gameObject.transform.position == HitPoint)
@@ -43,8 +42,8 @@ public class KatanaSystem : MonoBehaviour
 
     public void slash()
     {
-        //MyAnim.Play("KatanaSlash");
-        //gameObject.GetComponent<BoxCollider>().enabled = true;
+
+        //MyKatanaAnimator.Play("KatanaHit");
 
         Ray ray = Camera.main.ViewportPointToRay(new Vector3(0.5f, 0.5f, 3f));
         RaycastHit Hit;
@@ -62,55 +61,19 @@ public class KatanaSystem : MonoBehaviour
         if (Hit.collider.CompareTag("Enemy"))
         {
             StartCoroutine(SlashLerp(0.5f));
+            MyKatanaAnimator.Play("KatanaHit");
         }
-        
-
-               
+                     
     }
 
-
-    private void OnTriggerEnter(Collider other)
+    public void DeactiveKatana()
     {
-        if (other.CompareTag("Enemy"))
-        {
-            Vector3 spawnPos = new Vector3(gameObject.transform.position.x, gameObject.transform.position.y, gameObject.transform.position.z);
-            Instantiate(Particle, spawnPos, other.transform.rotation);
-            playerC.hit.SetActive(true);
-            EnemyBase Enemy = other.gameObject.GetComponentInChildren<EnemyBase>();
-
-            Enemy.KatanaDamage(KatanaD);
-            AudioManager.instance.Play(Hit);
-
-            if (Enemy.HP <= 0)
-            {
-                other.gameObject.GetComponent<WeaponDrop>().DropWeapon();
-                Enemy.PlayerHealOnDeath();
-                if ((int)Enemy.enemyType == 1)
-                {
-                    Enemy.Player.playerScore.AddScore(2);
-                }
-                if ((int)Enemy.enemyType == 2)
-                {
-                    Enemy.Player.playerScore.AddScore(3);
-                }
-                if ((int)Enemy.enemyType == 3)
-                {
-                    Enemy.Player.playerScore.AddScore(4);
-                }
-                AudioManager.instance.Play(HitKill);
-                playerC.hitDeath.SetActive(true);
-                playerC.hitPanel.SetActive(true);
-                Destroy(other.gameObject);
-            }
-
-
-        }
-
+        
     }
 
     IEnumerator SlashLerp(float Duration)
     {
-
+        
         float TimeC = 0;
 
         while (TimeC < Duration)
