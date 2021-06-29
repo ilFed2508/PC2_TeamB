@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class SkipAnimationNick : MonoBehaviour
 {
-    public GameObject Nick, AnimationText, TextImage, FakeBackground;
+    public GameObject Nick, AnimationText, TextImage, FakeBackground, Skip;
 
     void Start()
     {
@@ -21,6 +21,7 @@ public class SkipAnimationNick : MonoBehaviour
             Destroy(AnimationText);
             FakeBackground.SetActive(false);
             TextImage.SetActive(true);
+            Skip.SetActive(false);
         }
     }
 
@@ -30,5 +31,6 @@ public class SkipAnimationNick : MonoBehaviour
         Destroy(AnimationText);
         FakeBackground.SetActive(false);
         TextImage.SetActive(true);
+        Skip.SetActive(false);
     }
 }
