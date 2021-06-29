@@ -16,10 +16,11 @@ public class KatanaPowerUpManager : MonoBehaviour
     public GameObject KatanaIcon;
     public bool CanSwitchKatana;
 
+    
 
     void Start()
     {
-        CanUseKatana = false;
+        //CanUseKatana = false;
         IconIsActive = true;
     }
 

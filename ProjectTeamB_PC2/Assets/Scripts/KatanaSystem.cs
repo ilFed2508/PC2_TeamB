@@ -20,6 +20,8 @@ public class KatanaSystem : MonoBehaviour
 
     private MeleePercentuale MyBool;
 
+    public CameraShake.Properties testProperties;
+
 
     [SerializeField] Image[] images = default;
     [Min(0)]
@@ -58,6 +60,8 @@ public class KatanaSystem : MonoBehaviour
         MyKatanaAnimator.Play("KatanaHit");
 
         MyBool.PossoMenare = false;
+
+        FindObjectOfType<CameraShake>().StartShake(testProperties);
 
         Ray ray = Camera.main.ViewportPointToRay(new Vector3(0.5f, 0.5f, 3f));
         RaycastHit Hit;
