@@ -10,19 +10,15 @@ public class SingleShotShooting : Shooting
     public Transform Parent;
     public string Suono;
 
-    
-
     //Da eliminare più avanti
     private Animator anim;
-    //-------------------------
 
     private void Start()
-    {
-        
+    {  
         //Da eliminare più avanti
         anim = GetComponent<Animator>();
-        //-----------------------
     }
+
     public override void ShootingAction(RangedWeapon currentWeapon)
     {
 
