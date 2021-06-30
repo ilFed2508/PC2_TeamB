@@ -11,12 +11,14 @@ public class EnemyBase : MonoBehaviour
     public float HP;
     public RangedWeapon MyWeapon;
     public EnemyType enemyType;
+    public GameObject elecFeed;
 
     //image feed enemies in shooting - Joe
     public Image Attention;
     public Image RedEye;
 
     //enemy life bar - Joe
+    [Header("UI Stuffs")]
     public Slider EnemyLifeBar;
     public Slider EnemyLifeBar2;
     public float CurrentHP;
@@ -103,6 +105,7 @@ public class EnemyBase : MonoBehaviour
     /// </summary>
     public void DamageEnemy()
     {
+        elecFeed.SetActive(true);
         HP -= Player.playerShooting.CurrentRagedWeapon.weaponData.Damage;           
         //enemy life bar - Joe
         EnemyLifeBar.value = HP * 10;
@@ -125,19 +128,20 @@ public class EnemyBase : MonoBehaviour
                 return true;
             }
         }
-
         return false;
     }
 
     //Melee Luca
     public void DamageMelee()
     {
+        elecFeed.SetActive(true);
         HP -= MeleeDamage;
         EnemyLifeBar.value = HP * 10;
     }
 
     public void KatanaDamage(float Damage)
     {
+        elecFeed.SetActive(true);
         HP -= Damage;
         EnemyLifeBar.value = HP * 10;
     }
