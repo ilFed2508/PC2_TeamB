@@ -11,11 +11,10 @@ public class EnemyBase : MonoBehaviour
     public float HP;
     public RangedWeapon MyWeapon;
     public EnemyType enemyType;
-    public GameObject elecFeed;
 
-    //image feed enemies in shooting - Joe
-    public Image Attention;
-    public Image RedEye;
+    [Header("Base Feedbacks")]
+    public GameObject elecFeed;
+    public DroneShake sauce;
 
     //enemy life bar - Joe
     [Header("UI Stuffs")]
@@ -31,8 +30,6 @@ public class EnemyBase : MonoBehaviour
     [HideInInspector]
     public MedikitManager MyFeed;
 
-    
-
     // Start is called before the first frame update
     void Start()
     {
@@ -41,8 +38,7 @@ public class EnemyBase : MonoBehaviour
         MyWeapon = GetComponent<RangedWeapon>();
         CurrentHP = HP;
         enemyType = EnemyType.typeA;
-        StartCoroutine(ImageFeed());
-
+        sauce = gameObject.GetComponent<DroneShake>();
         
         //EnemyAnim = GameObject.Find("Droni_vivande").GetComponent<Animator>();
 
@@ -106,6 +102,7 @@ public class EnemyBase : MonoBehaviour
     public void DamageEnemy()
     {
         elecFeed.SetActive(true);
+        sauce.enabled = true;
         HP -= Player.playerShooting.CurrentRagedWeapon.weaponData.Damage;           
         //enemy life bar - Joe
         EnemyLifeBar.value = HP * 10;
@@ -135,6 +132,7 @@ public class EnemyBase : MonoBehaviour
     public void DamageMelee()
     {
         elecFeed.SetActive(true);
+        sauce.enabled = true;
         HP -= MeleeDamage;
         EnemyLifeBar.value = HP * 10;
     }
@@ -142,45 +140,9 @@ public class EnemyBase : MonoBehaviour
     public void KatanaDamage(float Damage)
     {
         elecFeed.SetActive(true);
+        sauce.enabled = true;
         HP -= Damage;
         EnemyLifeBar.value = HP * 10;
-    }
-
-    //image feed enemies in shooting - Joe
-    public IEnumerator ImageFeed()
-    {
-        RedEye.enabled = false;
-        Attention.enabled = true;
-        yield return new WaitForSeconds(2f);
-        RedEye.enabled = true;
-        Attention.enabled = false;
-        yield return new WaitForSeconds(2f);
-        RedEye.enabled = false;
-        Attention.enabled = true;
-        yield return new WaitForSeconds(1f);
-        RedEye.enabled = true;
-        Attention.enabled = false;
-        yield return new WaitForSeconds(2f);
-        RedEye.enabled = false;
-        Attention.enabled = true;
-        yield return new WaitForSeconds(1f);
-        RedEye.enabled = true;
-        Attention.enabled = false;
-        yield return new WaitForSeconds(2f);
-        RedEye.enabled = false;
-        Attention.enabled = true;
-        yield return new WaitForSeconds(1f);
-        RedEye.enabled = true;
-        Attention.enabled = false;
-        yield return new WaitForSeconds(2f);
-        RedEye.enabled = false;
-        Attention.enabled = true;
-        yield return new WaitForSeconds(1f);
-        RedEye.enabled = true;
-        Attention.enabled = false;
-        yield return new WaitForSeconds(2f);
-        RedEye.enabled = false;
-        Attention.enabled = true;
     }
 
     public void LateCall()
