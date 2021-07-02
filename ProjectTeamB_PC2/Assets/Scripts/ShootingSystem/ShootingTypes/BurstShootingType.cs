@@ -19,6 +19,7 @@ public class BurstShootingType : Shooting
     public GameObject Flash;
     public Transform Parent;
     public string Suono;
+    private DroneShake MyLevelZero;
 
     //Da eliminare più avanti
     private Animator anim;
@@ -31,6 +32,7 @@ public class BurstShootingType : Shooting
         StartCoroutine("PORCODIO");
         //Da eliminare più avanti
         anim = GetComponent<Animator>();
+        MyLevelZero = GameObject.Find("Combo Level").GetComponent<DroneShake>();
     }
 
     public override void ShootingAction(RangedWeapon currentWeapon)
@@ -96,6 +98,11 @@ public class BurstShootingType : Shooting
                 //Luca
                 Instantiate(Flash, Parent);
                 currentWeapon.CurrentAmmo -= 1;
+                if (currentWeapon.CurrentAmmo == 0)
+                {
+                    AudioManager.instance.Play("ZeroFeed");
+                    MyLevelZero.enabled = true;
+                }
                 yield return new WaitForSeconds(shotCooldown);
             }
         }
