@@ -62,7 +62,7 @@ public class WeaponPickup : MonoBehaviour
             //image "E" pick up - joe
             playerController.PickUp.gameObject.SetActive(true);
         }
-        if (MyKatana.CanSwitchKatana == false && other.gameObject.CompareTag("Player") && Input.GetKey(KeyCode.E)|| Input.GetButtonDown("Xbox_X"))
+        if (other.gameObject.CompareTag("Player") && Input.GetKey(KeyCode.E)|| Input.GetButtonDown("Xbox_X"))
         { 
             SwitchWeapon();
             //image "E" pick up - joe
@@ -82,37 +82,6 @@ public class WeaponPickup : MonoBehaviour
             }
             combo.tempoPerScalare = combo.tempoRestart;
             combo.ComboDamage();
-
-            
-
-
-            //-------------------------------------------
-        }
-        if (MyKatana.CanSwitchKatana == true && other.gameObject.CompareTag("Player") && Input.GetKey(KeyCode.E) || Input.GetButtonDown("Xbox_X"))
-        {
-            MyKatana.SwitchKatanaWeapon();
-
-            //destroy this gameobject
-            Destroy(this.gameObject);
-
-            playerController.PickUp.gameObject.SetActive(false);
-
-            //Combo LucaDesign
-            combo.livelloCombo = combo.livelloCombo + 1;
-
-            if (combo.livelloCombo > 0)
-            {
-                if (combo.livelloCombo > 1)
-                {
-                    combo.Sprite[combo.i - 1].SetActive(false);
-                }
-
-                combo.Sprite[combo.i].SetActive(true);
-            }
-            combo.tempoPerScalare = combo.tempoRestart;
-            combo.ComboDamage();
-
-
         }
     }
 
