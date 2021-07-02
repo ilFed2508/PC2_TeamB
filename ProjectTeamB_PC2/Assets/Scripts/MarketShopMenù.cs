@@ -79,6 +79,7 @@ public class MarketShopMenù : MonoBehaviour
         {
             if (MyScore.CostScore > MyPowerUp.SlideCost)
             {
+                //AudioManager.instance.Play("ButtonPU");
                 MyPowerUp.ActiveSlide();
                 ActiveButtonsOFF();
             }
@@ -91,6 +92,7 @@ public class MarketShopMenù : MonoBehaviour
         {
             if (MyScore.CostScore > MyPowerUp.MedikitCost)
             {
+                //AudioManager.instance.Play("ButtonPU");
                 MyPowerUp.ActiveMedikit();
                 ActiveButtonsOFF();
             }
@@ -103,6 +105,7 @@ public class MarketShopMenù : MonoBehaviour
         {
             if (MyScore.CostScore > MyPowerUp.SpeedCost)
             {
+                //AudioManager.instance.Play("ButtonPU");
                 MyPowerUp.ActiveSuperSpeed();
                 ActiveButtonsOFF();
             }
@@ -115,6 +118,7 @@ public class MarketShopMenù : MonoBehaviour
         {
             if (MyScore.CostScore > MyPowerUp.SlowerCost)
             {
+                //AudioManager.instance.Play("ButtonPU");
                 MyPowerUp.ActiveSlowerHp();
                 ActiveButtonsOFF();
             }
@@ -127,6 +131,7 @@ public class MarketShopMenù : MonoBehaviour
         {
             if (MyScore.CostScore > MyPowerUp.KatanaCost)
             {
+                //AudioManager.instance.Play("ButtonPU");
                 MyPowerUp.ActiveKatana();
                 ActiveButtonsOFF();
             }
