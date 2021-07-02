@@ -27,7 +27,7 @@ public class ComboManager : MonoBehaviour
 
     public GameObject[] Sprite;
 
-    public DroneShake MyLevelZero;
+    private DroneShake MyLevelZero;
 
     [HideInInspector]
     public int i;
@@ -42,7 +42,7 @@ public class ComboManager : MonoBehaviour
         playerController = FindObjectOfType<PlayerController>();
         CurrentRagedWeapon = FindObjectOfType<RangedWeapon>();
         DannoIniziale = playerController.playerShooting.CurrentRagedWeapon.weaponData.Damage;
-        MyLevelZero = GetComponent<DroneShake>();
+        MyLevelZero = GameObject.Find("Combo Level").GetComponent<DroneShake>();
 
     }
 
