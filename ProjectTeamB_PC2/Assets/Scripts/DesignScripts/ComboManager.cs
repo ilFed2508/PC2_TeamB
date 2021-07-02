@@ -97,6 +97,8 @@ public class ComboManager : MonoBehaviour
                 {
                     AudioManager.instance.Play("ZeroFeed");
                     MyLevelZero.enabled = true;
+                    MyLevelZero.gameObject.GetComponent<Text>().color = Color.red;
+                    StartCoroutine(lateCall());
                 }
 
             }
@@ -228,8 +230,16 @@ public class ComboManager : MonoBehaviour
 
     }
 
-    #endregion 
 
+
+
+
+    #endregion
+    IEnumerator lateCall()
+    {
+        yield return new WaitForSeconds(MyLevelZero.shakeDuration);
+        MyLevelZero.gameObject.GetComponent<Text>().color = Color.white;
+    }
 }
 
 

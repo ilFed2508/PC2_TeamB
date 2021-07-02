@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class SingleShotShooting : Shooting
 {
@@ -33,6 +34,8 @@ public class SingleShotShooting : Shooting
             {
                 AudioManager.instance.Play("ZeroFeed");
                 MyLevelZero.enabled = true;
+                MyLevelZero.gameObject.GetComponent<Text>().color = Color.red;
+                StartCoroutine(lateCall());
             }
         }
         
@@ -113,5 +116,10 @@ public class SingleShotShooting : Shooting
     public override float CalculateTotalDamage(RangedWeapon CurrentWeapon)
     {
         return base.CalculateTotalDamage(CurrentWeapon);
+    }
+    IEnumerator lateCall()
+    {
+        yield return new WaitForSeconds(MyLevelZero.shakeDuration);
+        MyLevelZero.gameObject.GetComponent<Text>().color = Color.white;
     }
 }

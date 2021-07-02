@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class ShotgunShootingType : Shooting
 {
@@ -43,6 +44,8 @@ public class ShotgunShootingType : Shooting
             {
                 AudioManager.instance.Play("ZeroFeed");
                 MyLevelZero.enabled = true;
+                MyLevelZero.gameObject.GetComponent<Text>().color = Color.red;
+                StartCoroutine(lateCall());
             }
         }
     }
@@ -121,5 +124,11 @@ public class ShotgunShootingType : Shooting
         float totalDamage = CurrentWeapon.weaponData.Damage * PalletShotNumber;
 
         return totalDamage;
+    }
+
+    IEnumerator lateCall()
+    {
+        yield return new WaitForSeconds(MyLevelZero.shakeDuration);
+        MyLevelZero.gameObject.GetComponent<Text>().color = Color.white;
     }
 }
