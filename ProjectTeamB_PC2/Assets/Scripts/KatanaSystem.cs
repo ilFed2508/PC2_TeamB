@@ -54,10 +54,6 @@ public class KatanaSystem : MonoBehaviour
         }
 
         slash();
-        //if (Input.GetMouseButtonDown(1) && TimeToUseKatana <=0)
-        //{           
-        //    slash();
-        //}
         
         if(MyPlayer.gameObject.transform.position == HitPoint)
         {
@@ -70,20 +66,20 @@ public class KatanaSystem : MonoBehaviour
     public void slash()
     {
 
-        Ray ray = Camera.main.ViewportPointToRay(new Vector3(0.5f, 0.5f, 3f));
-        RaycastHit Hit;
-        
+       Ray ray = Camera.main.ViewportPointToRay(new Vector3(0.5f, 0.5f, 3f));
+       RaycastHit Hit;
+       
 
-        if (Physics.Raycast(ray, out Hit))
-        {
-             HitPoint = Hit.point;
-        }
-        else
-        {
-            VoidPoint = ray.GetPoint(80);
-        }
+       if (Physics.Raycast(ray, out Hit))
+       {
+            HitPoint = Hit.point;
+       }
+       else
+       {
+           VoidPoint = ray.GetPoint(80);
+       }
 
-       if (Hit.collider.CompareTag("Enemy") && TimeToUseKatana <= 0)
+       if (Hit.collider.CompareTag("Enemy"))
        {
             IconSlashHUD.SetActive(true);
        }
@@ -91,27 +87,31 @@ public class KatanaSystem : MonoBehaviour
        {
            IconSlashHUD.SetActive(false);
        }
-        if (Input.GetMouseButtonDown(1))
-        {
-            if (Hit.collider.CompareTag("Enemy") && TimeToUseKatana <= 0)
-            {
-                MyBool.NonPossoMenare = true;
-                WeaponSlot.Play("Melee-WeaponSlot");
-                MyKatanaAnimator.Play("KatanaHit");
-                AudioManager.instance.Play(VoidHit);
-                StartCoroutine(SlashLerp(0.5f));
-                StartCoroutine(FadeInAndOut());
-                TimeToUseKatana = CopyTimeToUseKatana;
-            }
-            else
-            {
-                MyBool.NonPossoMenare = true;
-                WeaponSlot.Play("Melee-WeaponSlot");
-                MyKatanaAnimator.Play("KatanaHit");
-                AudioManager.instance.Play(VoidHit);
-                TimeToUseKatana = CopyTimeToUseKatana;
-            }
-        }
+
+
+       if (Input.GetMouseButtonDown(1) && TimeToUseKatana <= 0)
+       {
+           if (Hit.collider.CompareTag("Enemy"))
+           {
+               MyBool.NonPossoMenare = true;
+               WeaponSlot.Play("Melee-WeaponSlot");
+               MyKatanaAnimator.Play("KatanaHit");
+               AudioManager.instance.Play(VoidHit);
+               StartCoroutine(SlashLerp(0.5f));
+               StartCoroutine(FadeInAndOut());
+               
+           }
+           else
+           {
+               MyBool.NonPossoMenare = true;
+               WeaponSlot.Play("Melee-WeaponSlot");
+               MyKatanaAnimator.Play("KatanaHit");
+               AudioManager.instance.Play(VoidHit);
+               
+           }
+
+           TimeToUseKatana = CopyTimeToUseKatana;
+       }
 
 
     }

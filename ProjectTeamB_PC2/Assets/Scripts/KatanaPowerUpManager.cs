@@ -18,7 +18,7 @@ public class KatanaPowerUpManager : MonoBehaviour
 
     void Start()
     {
-        CanUseKatana = false;
+        //CanUseKatana = false;
         IconIsActive = true;
     }
 
