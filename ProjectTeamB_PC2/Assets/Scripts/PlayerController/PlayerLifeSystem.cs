@@ -111,7 +111,7 @@ public class PlayerLifeSystem : MonoBehaviour
         if (PlayerCurrentHP >= 18)
         {
             Warning.enabled = true;
-            StartCoroutine(AberrationLerp(1f));
+            //StartCoroutine(AberrationLerp(1f));
         }
         else
         {

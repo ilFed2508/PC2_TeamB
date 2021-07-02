@@ -5,8 +5,6 @@ using TMPro;
 
 public class KatanaPowerUpManager : MonoBehaviour
 {
-    public GameObject WeaponToSpawn;
-    public GameObject SecondWeaponToSpawn;
 
     public GameObject KatanaContenitore;
 
