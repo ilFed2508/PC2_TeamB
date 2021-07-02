@@ -1136,6 +1136,7 @@ GameObject:
   - component: {fileID: 3885857879363170877}
   - component: {fileID: 8365074346099621235}
   - component: {fileID: 7133077337855752425}
+  - component: {fileID: 4448405224327146335}
   m_Layer: 0
   m_Name: EnemyGraphics
   m_TagString: Untagged
@@ -1232,6 +1233,11 @@ MonoBehaviour:
   enemyType: 0
   elecFeed: {fileID: 6904468812993508766}
   sauce: {fileID: 7133077337855752425}
+  floatTimes:
+  - 0.5
+  - 1
+  - 2
+  floatAnim: {fileID: 4448405224327146335}
   EnemyLifeBar: {fileID: 3482557719802627135}
   EnemyLifeBar2: {fileID: 2142499425554302254}
   CurrentHP: 0
@@ -1268,6 +1274,25 @@ MonoBehaviour:
   shakeDuration: 0.2
   shakeAmount: 0.2
   decreaseFactor: 1
+--- !u!95 &4448405224327146335
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7923269200869693503}
+  m_Enabled: 0
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 136db59d10cb9784b81f631842567d0b, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!1 &8752162476583604558
 GameObject:
   m_ObjectHideFlags: 0
@@ -1754,15 +1779,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 5b8a3be290ee0d048b11d7f76b2f37e5, type: 3}
---- !u!1 &6904468812993508766 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 919132149155446097, guid: 5b8a3be290ee0d048b11d7f76b2f37e5,
-    type: 3}
-  m_PrefabInstance: {fileID: 5985547908717512911}
-  m_PrefabAsset: {fileID: 0}
 --- !u!4 &6096265727827636004 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: 5b8a3be290ee0d048b11d7f76b2f37e5,
+    type: 3}
+  m_PrefabInstance: {fileID: 5985547908717512911}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &6904468812993508766 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 919132149155446097, guid: 5b8a3be290ee0d048b11d7f76b2f37e5,
     type: 3}
   m_PrefabInstance: {fileID: 5985547908717512911}
   m_PrefabAsset: {fileID: 0}

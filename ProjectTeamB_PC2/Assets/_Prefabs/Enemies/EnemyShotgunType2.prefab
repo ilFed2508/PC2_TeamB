@@ -186,6 +186,7 @@ GameObject:
   - component: {fileID: 8824075159692321944}
   - component: {fileID: 2092284164050402165}
   - component: {fileID: 3230151846060655623}
+  - component: {fileID: 7441168803874532358}
   m_Layer: 0
   m_Name: EnemyGraphics
   m_TagString: Enemy
@@ -279,6 +280,11 @@ MonoBehaviour:
   enemyType: 0
   elecFeed: {fileID: 1658047418409723284}
   sauce: {fileID: 3230151846060655623}
+  floatTimes:
+  - 0.5
+  - 1
+  - 2
+  floatAnim: {fileID: 7441168803874532358}
   EnemyLifeBar: {fileID: 8401524035444168595}
   EnemyLifeBar2: {fileID: 6939604459208519655}
   CurrentHP: 0
@@ -304,6 +310,25 @@ MonoBehaviour:
   shakeDuration: 0.2
   shakeAmount: 0.2
   decreaseFactor: 1
+--- !u!95 &7441168803874532358
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2092284164050402166}
+  m_Enabled: 0
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 136db59d10cb9784b81f631842567d0b, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!1 &2092284164118461873
 GameObject:
   m_ObjectHideFlags: 0

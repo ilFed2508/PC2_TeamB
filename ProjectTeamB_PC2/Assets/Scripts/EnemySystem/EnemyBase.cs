@@ -15,6 +15,8 @@ public class EnemyBase : MonoBehaviour
     [Header("Base Feedbacks")]
     public GameObject elecFeed;
     public DroneShake sauce;
+    public float[] floatTimes;
+    public Animator floatAnim;
 
     //enemy life bar - Joe
     [Header("UI Stuffs")]
@@ -39,8 +41,8 @@ public class EnemyBase : MonoBehaviour
         CurrentHP = HP;
         enemyType = EnemyType.typeA;
         sauce = gameObject.GetComponent<DroneShake>();
-        
-        //EnemyAnim = GameObject.Find("Droni_vivande").GetComponent<Animator>();
+        StartCoroutine("floating");
+
 
         //shoot
         StartCoroutine(MyWeapon.ShootingType.AIShootCoroutine(MyWeapon, this));
@@ -148,5 +150,12 @@ public class EnemyBase : MonoBehaviour
     public void LateCall()
     {            
         CurrentHP = Mathf.Lerp(CurrentHP, HP, Time.deltaTime * HpSmooth);
+    }
+
+    public IEnumerator floating()
+    {
+        float floatIndex = Random.Range(0, floatTimes.Length);
+        yield return new WaitForSeconds(floatIndex);
+        floatAnim.enabled = true;
     }
 }
