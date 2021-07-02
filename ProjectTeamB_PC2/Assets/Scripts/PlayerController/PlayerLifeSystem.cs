@@ -10,8 +10,8 @@ public class PlayerLifeSystem : MonoBehaviour
     /// Player current Hp
     /// </summary>
     public float PlayerCurrentHP;
-
     public float TimeMultiplier;
+    public Text HealthPercentage;
     /// <summary>
     /// Hp value at the start of the game
     /// </summary>
@@ -20,7 +20,6 @@ public class PlayerLifeSystem : MonoBehaviour
     /// time gain for killing an enemy
     /// </summary>
     public float EnemyTimeGain;
-
     public float PlayerHPscore;
 
     private SlowerHpManager MyPowerupDamage;
@@ -34,11 +33,9 @@ public class PlayerLifeSystem : MonoBehaviour
 
     //Warning Image_Animation - Joe
     public Image Warning;
-
     public GameObject HUD, WarningDeactiveted, WeaponSlots, EPickUP, HitContainer, PausePanel;
     
     //public PlayableDirector ScreenNoise;
-
     private GameObject comboCounter, timeLineScreenNoise, timeLineScreenNoise_ , crosshair;
 
 
@@ -77,6 +74,8 @@ public class PlayerLifeSystem : MonoBehaviour
             //LifeBar - joe
             LifeBar.maxValue = PlayerStartingHP * 100;
             LifeBar.value = PlayerCurrentHP * 100;
+
+            HealthPercentage.text = (int)((PlayerCurrentHP/PlayerStartingHP) * 100) + "%";
         }
         else
         {
