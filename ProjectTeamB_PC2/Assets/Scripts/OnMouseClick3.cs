@@ -18,4 +18,9 @@ public class OnMouseClick3 : MonoBehaviour
         SceneManager.LoadScene("Loading");
         PlayerPrefs.SetInt("Checkpoint", 3);
     }
+
+    public void OnMouseEnter()
+    {
+        AudioManager.instance.Play("Interact");
+    }
 }
