@@ -3238,7 +3238,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &1708620102013525697
 RectTransform:
   m_ObjectHideFlags: 0
@@ -9124,6 +9124,7 @@ GameObject:
   - component: {fileID: 2798419203681643016}
   - component: {fileID: 2798419203681643022}
   - component: {fileID: 2798419203681643023}
+  - component: {fileID: 7975959712007103562}
   m_Layer: 5
   m_Name: Combo Level
   m_TagString: Untagged
@@ -9191,6 +9192,22 @@ MonoBehaviour:
     m_VerticalOverflow: 1
     m_LineSpacing: 1
   m_Text: X5
+--- !u!114 &7975959712007103562
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2798419203681643017}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a7d35ed0fcb51b941bbd55498aca7e4e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  camTransform: {fileID: 2798419203681643016}
+  shakeDuration: 1
+  shakeAmount: 3
+  decreaseFactor: 1
 --- !u!1 &2798419203709161818
 GameObject:
   m_ObjectHideFlags: 0
@@ -20122,7 +20139,7 @@ RectTransform:
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 0, y: 1}
+  m_AnchorMax: {x: 0, y: 0}
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: -16, y: -16}
   m_Pivot: {x: 0.5, y: 0.5}
