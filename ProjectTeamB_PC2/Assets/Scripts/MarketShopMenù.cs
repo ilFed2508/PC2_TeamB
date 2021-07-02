@@ -32,6 +32,45 @@ public class MarketShopMenù : MonoBehaviour
     public void Update()
     {
         MyCurrentScore.text = MyScore.CostScore.ToString();
+
+        if (PlayerPrefs.GetInt("OnePowerUp") == 0)
+        {
+            if (MyScore.CostScore > MyPowerUp.SlideCost)
+            {
+                SlideButton.SetActive(true);
+                SlideOFF.SetActive(false);
+            }
+            else { SlideOFF.SetActive(true); SlideButton.SetActive(false); }
+
+            if (MyScore.CostScore > MyPowerUp.MedikitCost)
+            {
+                MedikitButton.SetActive(true);
+                MedkitOFF.SetActive(false);
+            }
+            else { MedkitOFF.SetActive(true); MedikitButton.SetActive(false); }
+
+            if (MyScore.CostScore > MyPowerUp.SpeedCost)
+            {
+                SpeedButton.SetActive(true);
+                SpeedOFF.SetActive(false);
+            }
+            else { SpeedOFF.SetActive(true); SpeedButton.SetActive(false); }
+
+            if (MyScore.CostScore > MyPowerUp.SlowerCost)
+            {
+                SlowerButton.SetActive(true);
+                SlowerOFF.SetActive(false);
+            }
+            else { SlowerOFF.SetActive(true); SlowerButton.SetActive(false); }
+
+            if (MyScore.CostScore > MyPowerUp.KatanaCost)
+            {
+                KatanaButton.SetActive(true);
+                KatanaOFF.SetActive(false);
+            }
+            else { KatanaOFF.SetActive(true); KatanaButton.SetActive(false);}
+        }
+
     }
 
     public void AddSlide()
