@@ -6,26 +6,19 @@ public class SingleShotShooting : Shooting
 {
     //Luca
     public CameraShake.Properties testProperties;
-
     public GameObject Flash;
-    
     public Transform Parent;
-
     public string Suono;
-
-    
 
     //Da eliminare più avanti
     private Animator anim;
-    //-------------------------
 
     private void Start()
-    {
-        
+    {  
         //Da eliminare più avanti
         anim = GetComponent<Animator>();
-        //-----------------------
     }
+
     public override void ShootingAction(RangedWeapon currentWeapon)
     {
 
@@ -40,8 +33,6 @@ public class SingleShotShooting : Shooting
 
     public override void Shoot(RangedWeapon currentWeapon)
     {
-        
-
         Ray ray = Camera.main.ViewportPointToRay(new Vector3(0.5f, 0.5f, 1f));
         RaycastHit hit;
 

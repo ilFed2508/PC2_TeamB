@@ -32,6 +32,7 @@ public class EnemyType1 : EnemyBase
         //pick reference
         Player = FindObjectOfType<PlayerController>();
         MyWeapon = GetComponent<RangedWeapon>();
+        StartCoroutine("floating");
 
         //SetupEnemyType
         enemyType = EnemyType.typeB;

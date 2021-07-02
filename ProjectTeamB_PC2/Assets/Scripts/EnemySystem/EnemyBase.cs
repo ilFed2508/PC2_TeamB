@@ -12,11 +12,14 @@ public class EnemyBase : MonoBehaviour
     public RangedWeapon MyWeapon;
     public EnemyType enemyType;
 
-    //image feed enemies in shooting - Joe
-    public Image Attention;
-    public Image RedEye;
+    [Header("Base Feedbacks")]
+    public GameObject elecFeed;
+    public DroneShake sauce;
+    public float[] floatTimes;
+    public Animator floatAnim;
 
     //enemy life bar - Joe
+    [Header("UI Stuffs")]
     public Slider EnemyLifeBar;
     public Slider EnemyLifeBar2;
     public float CurrentHP;
@@ -29,8 +32,6 @@ public class EnemyBase : MonoBehaviour
     [HideInInspector]
     public MedikitManager MyFeed;
 
-    
-
     // Start is called before the first frame update
     void Start()
     {
@@ -39,10 +40,9 @@ public class EnemyBase : MonoBehaviour
         MyWeapon = GetComponent<RangedWeapon>();
         CurrentHP = HP;
         enemyType = EnemyType.typeA;
-        StartCoroutine(ImageFeed());
+        sauce = gameObject.GetComponent<DroneShake>();
+        StartCoroutine("floating");
 
-        
-        //EnemyAnim = GameObject.Find("Droni_vivande").GetComponent<Animator>();
 
         //shoot
         StartCoroutine(MyWeapon.ShootingType.AIShootCoroutine(MyWeapon, this));
@@ -103,6 +103,8 @@ public class EnemyBase : MonoBehaviour
     /// </summary>
     public void DamageEnemy()
     {
+        elecFeed.SetActive(true);
+        sauce.enabled = true;
         HP -= Player.playerShooting.CurrentRagedWeapon.weaponData.Damage;           
         //enemy life bar - Joe
         EnemyLifeBar.value = HP * 10;
@@ -125,62 +127,35 @@ public class EnemyBase : MonoBehaviour
                 return true;
             }
         }
-
         return false;
     }
 
     //Melee Luca
     public void DamageMelee()
     {
+        elecFeed.SetActive(true);
+        sauce.enabled = true;
         HP -= MeleeDamage;
         EnemyLifeBar.value = HP * 10;
     }
 
     public void KatanaDamage(float Damage)
     {
+        elecFeed.SetActive(true);
+        sauce.enabled = true;
         HP -= Damage;
         EnemyLifeBar.value = HP * 10;
-    }
-
-    //image feed enemies in shooting - Joe
-    public IEnumerator ImageFeed()
-    {
-        RedEye.enabled = false;
-        Attention.enabled = true;
-        yield return new WaitForSeconds(2f);
-        RedEye.enabled = true;
-        Attention.enabled = false;
-        yield return new WaitForSeconds(2f);
-        RedEye.enabled = false;
-        Attention.enabled = true;
-        yield return new WaitForSeconds(1f);
-        RedEye.enabled = true;
-        Attention.enabled = false;
-        yield return new WaitForSeconds(2f);
-        RedEye.enabled = false;
-        Attention.enabled = true;
-        yield return new WaitForSeconds(1f);
-        RedEye.enabled = true;
-        Attention.enabled = false;
-        yield return new WaitForSeconds(2f);
-        RedEye.enabled = false;
-        Attention.enabled = true;
-        yield return new WaitForSeconds(1f);
-        RedEye.enabled = true;
-        Attention.enabled = false;
-        yield return new WaitForSeconds(2f);
-        RedEye.enabled = false;
-        Attention.enabled = true;
-        yield return new WaitForSeconds(1f);
-        RedEye.enabled = true;
-        Attention.enabled = false;
-        yield return new WaitForSeconds(2f);
-        RedEye.enabled = false;
-        Attention.enabled = true;
     }
 
     public void LateCall()
     {            
         CurrentHP = Mathf.Lerp(CurrentHP, HP, Time.deltaTime * HpSmooth);
+    }
+
+    public IEnumerator floating()
+    {
+        float floatIndex = Random.Range(0, floatTimes.Length);
+        yield return new WaitForSeconds(floatIndex);
+        floatAnim.enabled = true;
     }
 }

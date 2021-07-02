@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Animations;
 
 public class BurstShootingType : Shooting
 {
@@ -19,16 +20,17 @@ public class BurstShootingType : Shooting
     public Transform Parent;
     public string Suono;
 
-
     //Da eliminare più avanti
     private Animator anim;
-    //-------------------------
+
+    //FeedDelCristoDiCuiNonCiSarebbeBisognoSeLaGenteSapesseFareIlProprioLavoro
+    public GameObject feedAnime;
 
     private void Start()
     {
+        StartCoroutine("PORCODIO");
         //Da eliminare più avanti
         anim = GetComponent<Animator>();
-        //-----------------------
     }
 
     public override void ShootingAction(RangedWeapon currentWeapon)
@@ -41,8 +43,7 @@ public class BurstShootingType : Shooting
     }
 
     public override void Shoot(RangedWeapon currentWeapon)
-    {
-        
+    {   
         Ray ray = Camera.main.ViewportPointToRay(new Vector3(0.5f, 0.5f, 1f));
 
         if (Physics.Raycast(ray, out RaycastHit hit))
@@ -154,5 +155,12 @@ public class BurstShootingType : Shooting
         float totalDamage = CurrentWeapon.weaponData.Damage * SingleBurstShotNumber;
 
         return totalDamage;
+    }
+
+    public IEnumerator PORCODIO()
+    {
+        yield return new WaitForSeconds(0.6f);
+        feedAnime.SetActive(true);
+        print("PORCAMADONNADELDIOCANEEEEEEEEEEEE");
     }
 }
