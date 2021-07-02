@@ -185,7 +185,6 @@ GameObject:
   - component: {fileID: 2092284164050402162}
   - component: {fileID: 8824075159692321944}
   - component: {fileID: 2092284164050402165}
-  - component: {fileID: 3230151846060655623}
   - component: {fileID: 7441168803874532358}
   m_Layer: 0
   m_Name: EnemyGraphics
@@ -279,7 +278,7 @@ MonoBehaviour:
   MyWeapon: {fileID: 2092284164050402162}
   enemyType: 0
   elecFeed: {fileID: 1658047418409723284}
-  sauce: {fileID: 3230151846060655623}
+  sauce: {fileID: 4473638115270221468}
   floatTimes:
   - 0.5
   - 1
@@ -294,22 +293,6 @@ MonoBehaviour:
   MyFeed: {fileID: 0}
   agent: {fileID: 4481890260992737925}
   PlayerStopDistance: 10
---- !u!114 &3230151846060655623
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2092284164050402166}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a7d35ed0fcb51b941bbd55498aca7e4e, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  camTransform: {fileID: 2092284164050402161}
-  shakeDuration: 0.2
-  shakeAmount: 0.2
-  decreaseFactor: 1
 --- !u!95 &7441168803874532358
 Animator:
   serializedVersion: 3
@@ -1078,6 +1061,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4856009794932111807}
+  - component: {fileID: 4473638115270221468}
   m_Layer: 0
   m_Name: Droni_vivande
   m_TagString: Untagged
@@ -1102,6 +1086,22 @@ Transform:
   m_Father: {fileID: 2092284164050402161}
   m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &4473638115270221468
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3776885973389557979}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a7d35ed0fcb51b941bbd55498aca7e4e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  camTransform: {fileID: 4856009794932111807}
+  shakeDuration: 0.2
+  shakeAmount: 5
+  decreaseFactor: 1
 --- !u!1 &4273237836643779351
 GameObject:
   m_ObjectHideFlags: 0

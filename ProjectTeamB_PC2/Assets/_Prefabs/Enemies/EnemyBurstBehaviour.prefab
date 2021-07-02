@@ -776,6 +776,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 7900111593535909062}
+  - component: {fileID: 9188424537187071906}
   m_Layer: 0
   m_Name: Droni_vivande
   m_TagString: Untagged
@@ -800,6 +801,22 @@ Transform:
   m_Father: {fileID: 7923269200869693496}
   m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &9188424537187071906
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6318668514554556089}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a7d35ed0fcb51b941bbd55498aca7e4e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  camTransform: {fileID: 7900111593535909062}
+  shakeDuration: 0.2
+  shakeAmount: 5
+  decreaseFactor: 1
 --- !u!1 &6486900631125018506
 GameObject:
   m_ObjectHideFlags: 0
@@ -1135,7 +1152,6 @@ GameObject:
   - component: {fileID: 7923269200869693499}
   - component: {fileID: 3885857879363170877}
   - component: {fileID: 8365074346099621235}
-  - component: {fileID: 7133077337855752425}
   - component: {fileID: 4448405224327146335}
   m_Layer: 0
   m_Name: EnemyGraphics
@@ -1232,7 +1248,7 @@ MonoBehaviour:
   MyWeapon: {fileID: 7923269200869693499}
   enemyType: 0
   elecFeed: {fileID: 6904468812993508766}
-  sauce: {fileID: 7133077337855752425}
+  sauce: {fileID: 9188424537187071906}
   floatTimes:
   - 0.5
   - 1
@@ -1258,22 +1274,6 @@ MonoBehaviour:
   counterUP: 0
   ShootingDuration: 2.26
   ShootingTimer: 0
---- !u!114 &7133077337855752425
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7923269200869693503}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a7d35ed0fcb51b941bbd55498aca7e4e, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  camTransform: {fileID: 7923269200869693496}
-  shakeDuration: 0.2
-  shakeAmount: 0.2
-  decreaseFactor: 1
 --- !u!95 &4448405224327146335
 Animator:
   serializedVersion: 3
@@ -1779,15 +1779,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 5b8a3be290ee0d048b11d7f76b2f37e5, type: 3}
---- !u!4 &6096265727827636004 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: 5b8a3be290ee0d048b11d7f76b2f37e5,
-    type: 3}
-  m_PrefabInstance: {fileID: 5985547908717512911}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1 &6904468812993508766 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 919132149155446097, guid: 5b8a3be290ee0d048b11d7f76b2f37e5,
+    type: 3}
+  m_PrefabInstance: {fileID: 5985547908717512911}
+  m_PrefabAsset: {fileID: 0}
+--- !u!4 &6096265727827636004 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: 5b8a3be290ee0d048b11d7f76b2f37e5,
     type: 3}
   m_PrefabInstance: {fileID: 5985547908717512911}
   m_PrefabAsset: {fileID: 0}

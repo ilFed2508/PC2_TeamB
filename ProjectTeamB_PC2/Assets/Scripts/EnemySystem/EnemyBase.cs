@@ -40,9 +40,7 @@ public class EnemyBase : MonoBehaviour
         MyWeapon = GetComponent<RangedWeapon>();
         CurrentHP = HP;
         enemyType = EnemyType.typeA;
-        sauce = gameObject.GetComponent<DroneShake>();
         StartCoroutine("floating");
-
 
         //shoot
         StartCoroutine(MyWeapon.ShootingType.AIShootCoroutine(MyWeapon, this));
@@ -105,6 +103,7 @@ public class EnemyBase : MonoBehaviour
     {
         elecFeed.SetActive(true);
         sauce.enabled = true;
+        print("PORCODDIO");
         HP -= Player.playerShooting.CurrentRagedWeapon.weaponData.Damage;           
         //enemy life bar - Joe
         EnemyLifeBar.value = HP * 10;

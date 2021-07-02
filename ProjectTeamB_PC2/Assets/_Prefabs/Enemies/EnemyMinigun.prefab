@@ -398,7 +398,6 @@ GameObject:
   - component: {fileID: 1350470162954226203}
   - component: {fileID: 8485333321236059633}
   - component: {fileID: 4277556744132181852}
-  - component: {fileID: 2810633602611043344}
   - component: {fileID: 1832773486839364072}
   m_Layer: 0
   m_Name: EnemyGraphics
@@ -491,7 +490,7 @@ MonoBehaviour:
   MyWeapon: {fileID: 1350470162954226203}
   enemyType: 0
   elecFeed: {fileID: 7327232378815015129}
-  sauce: {fileID: 2810633602611043344}
+  sauce: {fileID: 852916457935509415}
   floatTimes:
   - 0.5
   - 1
@@ -504,22 +503,6 @@ MonoBehaviour:
   TimeLateCall: 0
   MeleeDamage: 8
   MyFeed: {fileID: 0}
---- !u!114 &2810633602611043344
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1350470162954226207}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a7d35ed0fcb51b941bbd55498aca7e4e, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  camTransform: {fileID: 1350470162954226200}
-  shakeDuration: 0.2
-  shakeAmount: 0.2
-  decreaseFactor: 1
 --- !u!95 &1832773486839364072
 Animator:
   serializedVersion: 3
@@ -794,6 +777,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 6953608963278378807}
+  - component: {fileID: 852916457935509415}
   m_Layer: 0
   m_Name: DroneVivandeBIG
   m_TagString: Untagged
@@ -817,6 +801,22 @@ Transform:
   m_Father: {fileID: 1350470162954226200}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &852916457935509415
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3061533480940128786}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a7d35ed0fcb51b941bbd55498aca7e4e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  camTransform: {fileID: 6953608963278378807}
+  shakeDuration: 0.2
+  shakeAmount: 5
+  decreaseFactor: 1
 --- !u!1 &3663161416569885911
 GameObject:
   m_ObjectHideFlags: 0
