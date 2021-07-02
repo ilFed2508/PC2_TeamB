@@ -117,6 +117,7 @@ public class ComboManager : MonoBehaviour
             MINIGUN.Damage += aggiuntaDanno;
             SHOTGUN.Damage += aggiuntaDanno;
             MySprite.DamageUp.SetActive(true);
+            AudioManager.instance.Play("ComboUP");
         }
     }
 
