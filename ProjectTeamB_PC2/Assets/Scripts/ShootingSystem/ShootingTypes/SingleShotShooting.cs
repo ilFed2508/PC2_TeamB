@@ -9,7 +9,7 @@ public class SingleShotShooting : Shooting
     public GameObject Flash;
     public Transform Parent;
     public string Suono;
-
+    private DroneShake MyLevelZero;
     //Da eliminare più avanti
     private Animator anim;
 
@@ -17,6 +17,8 @@ public class SingleShotShooting : Shooting
     {  
         //Da eliminare più avanti
         anim = GetComponent<Animator>();
+        MyLevelZero = GameObject.Find("Combo Level").GetComponent<DroneShake>();
+
     }
 
     public override void ShootingAction(RangedWeapon currentWeapon)
@@ -27,6 +29,11 @@ public class SingleShotShooting : Shooting
             Shoot(currentWeapon);
             currentWeapon.CurrentAmmo -= 1;
             StartCoroutine(WaitShotCooldown(ShotCooldown));
+            if(currentWeapon.CurrentAmmo == 0)
+            {
+                AudioManager.instance.Play("ZeroFeed");
+                MyLevelZero.enabled = true;
+            }
         }
         
     }
