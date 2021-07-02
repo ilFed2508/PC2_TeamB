@@ -14,6 +14,7 @@ public class HoverScripts : MonoBehaviour
     public void OnMouseEnter()
     {
         panelDescription.SetActive(true);
+        AudioManager.instance.Play("Interact");
     }
 
     public void OnMouseExit()
