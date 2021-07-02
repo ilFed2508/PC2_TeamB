@@ -34,7 +34,7 @@ public class ComputerSafeZone : MonoBehaviour
             cameraSafe.SetActive(true);
             powerUP.SetActive(true);
             Particle.SetActive(false);
-
+            AudioManager.instance.Play("Interact");
             Cursor.lockState = CursorLockMode.None;
             Cursor.visible = true;         
         }

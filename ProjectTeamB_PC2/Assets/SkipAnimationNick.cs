@@ -8,6 +8,7 @@ public class SkipAnimationNick : MonoBehaviour
 
     void Start()
     {
+        AudioManager.instance.Play("StartUp");
         StartCoroutine(Animation());
         TextImage.SetActive(false);
         FakeBackground.SetActive(true);
@@ -22,12 +23,13 @@ public class SkipAnimationNick : MonoBehaviour
             FakeBackground.SetActive(false);
             TextImage.SetActive(true);
             Skip.SetActive(false);
+            AudioManager.instance.Stop("StartUp");
         }
     }
 
     IEnumerator Animation()
     {
-        yield return new WaitForSeconds(4);
+        yield return new WaitForSeconds(3);
         Destroy(AnimationText);
         FakeBackground.SetActive(false);
         TextImage.SetActive(true);
