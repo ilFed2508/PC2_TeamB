@@ -55,10 +55,10 @@ public class KatanaSystem : MonoBehaviour
 
         slash();
         
-        if(MyPlayer.gameObject.transform.position == HitPoint)
-        {
-            StopAllCoroutines();
-        }
+        //if(MyPlayer.gameObject.transform.position == HitPoint)
+        //{
+        //    StopAllCoroutines();
+        //}
     }
 
 
@@ -112,6 +112,13 @@ public class KatanaSystem : MonoBehaviour
 
            TimeToUseKatana = CopyTimeToUseKatana;
        }
+
+        if (MyPlayer.gameObject.transform.position == HitPoint)
+        {
+            StopAllCoroutines();
+        }
+
+
 
 
     }
