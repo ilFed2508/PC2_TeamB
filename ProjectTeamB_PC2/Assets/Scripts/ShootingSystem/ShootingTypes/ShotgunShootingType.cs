@@ -36,6 +36,10 @@ public class ShotgunShootingType : Shooting
             Shoot(currentWeapon);
             currentWeapon.CurrentAmmo -= 1;
             StartCoroutine(WaitShotCooldown(ShotCooldown));
+            if (currentWeapon.CurrentAmmo == 0)
+            {
+                AudioManager.instance.Play("ZeroFeed");
+            }
         }
     }
 

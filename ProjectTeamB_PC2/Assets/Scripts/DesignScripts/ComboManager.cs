@@ -62,7 +62,7 @@ public class ComboManager : MonoBehaviour
 
         if (CurrentRagedWeapon.CurrentAmmo <= 0)
         {
-            livelloCombo = 0;
+            livelloCombo = 0;           
         }
 
         //Debug.Log("Scalo" + tempoPerScalare);
@@ -83,14 +83,17 @@ public class ComboManager : MonoBehaviour
                     MINIGUN.Damage -= aggiuntaDanno;
                     SHOTGUN.Damage -= aggiuntaDanno;
                     DeactiveComboSprite();
-
-
                 }
                 tempoPerScalare = tempoRestart;
 
                 if (livelloCombo <= 0f)
                 {
                     livelloCombo = 0;
+                }
+
+                if(livelloCombo == 0f)
+                {
+                    AudioManager.instance.Play("ZeroFeed");
                 }
 
             }
