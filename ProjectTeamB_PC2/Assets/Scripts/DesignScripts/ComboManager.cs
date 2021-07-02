@@ -27,7 +27,7 @@ public class ComboManager : MonoBehaviour
 
     public GameObject[] Sprite;
 
-    public DroneShake MyLevelZero;
+    private DroneShake MyLevelZero;
 
     [HideInInspector]
     public int i;
@@ -42,7 +42,7 @@ public class ComboManager : MonoBehaviour
         playerController = FindObjectOfType<PlayerController>();
         CurrentRagedWeapon = FindObjectOfType<RangedWeapon>();
         DannoIniziale = playerController.playerShooting.CurrentRagedWeapon.weaponData.Damage;
-        MyLevelZero = GetComponent<DroneShake>();
+        MyLevelZero = GameObject.Find("Combo Level").GetComponent<DroneShake>();
 
     }
 
@@ -97,6 +97,8 @@ public class ComboManager : MonoBehaviour
                 {
                     AudioManager.instance.Play("ZeroFeed");
                     MyLevelZero.enabled = true;
+                    MyLevelZero.gameObject.GetComponent<Text>().color = Color.red;
+                    StartCoroutine(lateCall());
                 }
 
             }
@@ -115,6 +117,7 @@ public class ComboManager : MonoBehaviour
             MINIGUN.Damage += aggiuntaDanno;
             SHOTGUN.Damage += aggiuntaDanno;
             MySprite.DamageUp.SetActive(true);
+            AudioManager.instance.Play("ComboUP");
         }
     }
 
@@ -228,8 +231,16 @@ public class ComboManager : MonoBehaviour
 
     }
 
-    #endregion 
 
+
+
+
+    #endregion
+    IEnumerator lateCall()
+    {
+        yield return new WaitForSeconds(MyLevelZero.shakeDuration);
+        MyLevelZero.gameObject.GetComponent<Text>().color = Color.white;
+    }
 }
 
 

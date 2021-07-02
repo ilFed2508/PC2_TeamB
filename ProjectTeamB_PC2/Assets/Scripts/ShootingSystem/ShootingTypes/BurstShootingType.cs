@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Animations;
+using UnityEngine.UI;
 
 public class BurstShootingType : Shooting
 {
@@ -19,6 +20,7 @@ public class BurstShootingType : Shooting
     public GameObject Flash;
     public Transform Parent;
     public string Suono;
+    private DroneShake MyLevelZero;
 
     //Da eliminare più avanti
     private Animator anim;
@@ -31,6 +33,7 @@ public class BurstShootingType : Shooting
         StartCoroutine("PORCODIO");
         //Da eliminare più avanti
         anim = GetComponent<Animator>();
+        MyLevelZero = GameObject.Find("Combo Level").GetComponent<DroneShake>();
     }
 
     public override void ShootingAction(RangedWeapon currentWeapon)
@@ -96,6 +99,13 @@ public class BurstShootingType : Shooting
                 //Luca
                 Instantiate(Flash, Parent);
                 currentWeapon.CurrentAmmo -= 1;
+                if (currentWeapon.CurrentAmmo == 0)
+                {
+                    AudioManager.instance.Play("ZeroFeed");
+                    MyLevelZero.enabled = true;
+                    MyLevelZero.gameObject.GetComponent<Text>().color = Color.red;
+                    StartCoroutine(lateCall());
+                }
                 yield return new WaitForSeconds(shotCooldown);
             }
         }
@@ -162,5 +172,10 @@ public class BurstShootingType : Shooting
         yield return new WaitForSeconds(0.6f);
         feedAnime.SetActive(true);
         print("PORCAMADONNADELDIOCANEEEEEEEEEEEE");
+    }
+    IEnumerator lateCall()
+    {
+        yield return new WaitForSeconds(MyLevelZero.shakeDuration);
+        MyLevelZero.gameObject.GetComponent<Text>().color = Color.white;
     }
 }
