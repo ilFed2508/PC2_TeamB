@@ -6,7 +6,6 @@ using UnityEngine.UI;
 public class KatanaSystem : MonoBehaviour
 {
 
-
     private Animator MyKatanaAnimator;
 
     public float SlashSpeed,TimeToUseKatana,CopyTimeToUseKatana;
@@ -20,7 +19,7 @@ public class KatanaSystem : MonoBehaviour
 
     private MeleePercentuale MyBool;
 
-    
+    public GameObject IconSlashHUD;
 
     public string VoidHit;
 
@@ -53,10 +52,12 @@ public class KatanaSystem : MonoBehaviour
         {
             TimeToUseKatana = 0;
         }
-        if (Input.GetMouseButtonDown(1) && TimeToUseKatana <=0)
-        {           
-            slash();
-        }
+
+        slash();
+        //if (Input.GetMouseButtonDown(1) && TimeToUseKatana <=0)
+        //{           
+        //    slash();
+        //}
         
         if(MyPlayer.gameObject.transform.position == HitPoint)
         {
@@ -68,14 +69,6 @@ public class KatanaSystem : MonoBehaviour
 
     public void slash()
     {
-        MyBool.NonPossoMenare = true;
-
-        WeaponSlot.Play("Melee-WeaponSlot");
-        MyKatanaAnimator.Play("KatanaHit");
-       
-
-
-        AudioManager.instance.Play(VoidHit);
 
         Ray ray = Camera.main.ViewportPointToRay(new Vector3(0.5f, 0.5f, 3f));
         RaycastHit Hit;
@@ -90,20 +83,45 @@ public class KatanaSystem : MonoBehaviour
             VoidPoint = ray.GetPoint(80);
         }
 
-        if (Hit.collider.CompareTag("Enemy"))
+       if (Hit.collider.CompareTag("Enemy") && TimeToUseKatana <= 0)
+       {
+            IconSlashHUD.SetActive(true);
+       }
+       else
+       {
+           IconSlashHUD.SetActive(false);
+       }
+        if (Input.GetMouseButtonDown(1))
         {
-            StartCoroutine(SlashLerp(0.5f));
-            StartCoroutine(FadeInAndOut());
-            //MyKatanaAnimator.Play("KatanaHit");
+            if (Hit.collider.CompareTag("Enemy") && TimeToUseKatana <= 0)
+            {
+                MyBool.NonPossoMenare = true;
+                WeaponSlot.Play("Melee-WeaponSlot");
+                MyKatanaAnimator.Play("KatanaHit");
+                AudioManager.instance.Play(VoidHit);
+                StartCoroutine(SlashLerp(0.5f));
+                StartCoroutine(FadeInAndOut());
+                TimeToUseKatana = CopyTimeToUseKatana;
+            }
+            else
+            {
+                MyBool.NonPossoMenare = true;
+                WeaponSlot.Play("Melee-WeaponSlot");
+                MyKatanaAnimator.Play("KatanaHit");
+                AudioManager.instance.Play(VoidHit);
+                TimeToUseKatana = CopyTimeToUseKatana;
+            }
         }
-        TimeToUseKatana = CopyTimeToUseKatana;
-                     
+
+
     }
 
     public void UseMelee()
     {
         MyBool.NonPossoMenare = false;
     }
+
+    
 
     IEnumerator SlashLerp(float Duration)
     {
