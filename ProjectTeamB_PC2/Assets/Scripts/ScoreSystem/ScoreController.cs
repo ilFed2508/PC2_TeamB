@@ -22,7 +22,8 @@ public class ScoreController : MonoBehaviour
 
 
     //text momentaneo
-    public Text CurrentScoreText;
+    public Text CurrentScoreText, AddText;
+    public GameObject AddScoreObj;
 
     // Start is called before the first frame update
     void Start()
@@ -82,6 +83,8 @@ public class ScoreController : MonoBehaviour
     public void AddScore(int ActionID)
     {
         CurrentScore += GetActionValue(ActionID);
+        AddScoreObj.SetActive(true);
+        AddText.text = "+" + GetActionValue(ActionID).ToString();
     }
 
     public void AddValueScore(int value)
