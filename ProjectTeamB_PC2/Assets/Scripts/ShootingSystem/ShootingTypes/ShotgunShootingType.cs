@@ -22,6 +22,7 @@ public class ShotgunShootingType : Shooting
     public Transform Parent;
     public string Suono;
     private DroneShake MyLevelZero;
+    private ComboManager MyComboZero;
 
 
 
@@ -31,6 +32,7 @@ public class ShotgunShootingType : Shooting
         Pompa.GetComponent<Animator>();
 
         MyLevelZero = GameObject.Find("Combo Level").GetComponent<DroneShake>();
+        MyComboZero = FindObjectOfType<ComboManager>();
     }
 
     public override void ShootingAction(RangedWeapon currentWeapon)
@@ -46,6 +48,7 @@ public class ShotgunShootingType : Shooting
                 MyLevelZero.enabled = true;
                 MyLevelZero.gameObject.GetComponent<Text>().color = Color.red;
                 StartCoroutine(lateCall());
+                MyComboZero.ZeroVFX.SetActive(true);
             }
         }
     }

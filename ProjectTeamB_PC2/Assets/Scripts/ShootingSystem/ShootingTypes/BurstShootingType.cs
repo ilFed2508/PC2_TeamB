@@ -21,7 +21,7 @@ public class BurstShootingType : Shooting
     public Transform Parent;
     public string Suono;
     private DroneShake MyLevelZero;
-
+    private ComboManager MyComboZero;
     //Da eliminare più avanti
     private Animator anim;
 
@@ -34,6 +34,7 @@ public class BurstShootingType : Shooting
         //Da eliminare più avanti
         anim = GetComponent<Animator>();
         MyLevelZero = GameObject.Find("Combo Level").GetComponent<DroneShake>();
+        MyComboZero = FindObjectOfType<ComboManager>();
     }
 
     public override void ShootingAction(RangedWeapon currentWeapon)
@@ -105,6 +106,7 @@ public class BurstShootingType : Shooting
                     MyLevelZero.enabled = true;
                     MyLevelZero.gameObject.GetComponent<Text>().color = Color.red;
                     StartCoroutine(lateCall());
+                    MyComboZero.ZeroVFX.SetActive(true);
                 }
                 yield return new WaitForSeconds(shotCooldown);
             }

@@ -15,6 +15,7 @@ public class ComboManager : MonoBehaviour
     public Text LivelloCombo;
 
     public int[] Livellocombo;
+    public float ComboTime;
 
     public RangedWeapon CurrentRagedWeapon;
 
@@ -26,6 +27,8 @@ public class ComboManager : MonoBehaviour
     public SpriteDatabase MySprite;
 
     public GameObject[] Sprite;
+
+    public GameObject ZeroVFX;
 
     private DroneShake MyLevelZero;
 
@@ -73,7 +76,7 @@ public class ComboManager : MonoBehaviour
         if (livelloCombo > 0f)
         {
 
-            tempoPerScalare -= Time.deltaTime;
+            tempoPerScalare -= Time.deltaTime * ComboTime;
             if (tempoPerScalare < 0f)
             {
                 livelloCombo = livelloCombo - 1;
@@ -99,6 +102,7 @@ public class ComboManager : MonoBehaviour
                     MyLevelZero.enabled = true;
                     MyLevelZero.gameObject.GetComponent<Text>().color = Color.red;
                     StartCoroutine(lateCall());
+                    ZeroVFX.SetActive(true);
                 }
 
             }

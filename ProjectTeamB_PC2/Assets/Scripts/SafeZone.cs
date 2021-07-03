@@ -11,7 +11,7 @@ public class SafeZone : MonoBehaviour
     [Header("Other Things")]
     public float recoverdLife;
     public int checkpoint;
-
+    private ComboManager MyTime;
     private PlayerController playerController;
 
     public GameObject[]Buttons;
@@ -24,10 +24,15 @@ public class SafeZone : MonoBehaviour
     public void Start()
     {        
         playerController = FindObjectOfType<PlayerController>();
+        MyTime = FindObjectOfType<ComboManager>();
     }
 
     private void OnTriggerStay(Collider other)
     {
+        if (other.CompareTag("Player") )
+        {
+            MyTime.ComboTime = 0f;
+        }
         if (other.CompareTag("Player") && playerController.SafeZoneReached != checkpoint)
         {
             playerController.SafeZoneReached = checkpoint;
@@ -35,6 +40,7 @@ public class SafeZone : MonoBehaviour
         if (other.CompareTag("Player") && playerController.playerLife.PlayerCurrentHP < playerController.playerLife.PlayerStartingHP)
         {
             playerController.playerLife.PlayerCurrentHP -= recoverdLife * Time.deltaTime;
+            
         }
     }
 
@@ -49,6 +55,7 @@ public class SafeZone : MonoBehaviour
             playerController.playerScore.AddValueScore((int)playerController.playerLife.PlayerHPscore * ((checkpoint - 1) * playerController.playerScore.GetActionValue(ScoreAction.EndLevelLifeGain)));
             playerController.playerScore.AddTotalScore(playerController.playerScore.GetCurrentScore());
             PlayerPrefs.SetInt("Checkpoint", checkpoint);
+            MyTime.ComboTime = 0f;
             
         }
         else if(other.CompareTag("Player") && playerController.SafeZoneReached == checkpoint)
@@ -56,7 +63,8 @@ public class SafeZone : MonoBehaviour
             //Directional.SetActive(true);
             mapOut.SetActive(true);
             mapIn.SetActive(false);
-            PlayerPrefs.SetInt("Checkpoint", checkpoint);            
+            PlayerPrefs.SetInt("Checkpoint", checkpoint);
+            MyTime.ComboTime = 0f;
         }                      
     }
 
@@ -65,6 +73,7 @@ public class SafeZone : MonoBehaviour
         if (other.CompareTag("Player"))
         {
             playerController.playerScore.SetScore(0);
+            MyTime.ComboTime = 1f;
         }
     }
 }
