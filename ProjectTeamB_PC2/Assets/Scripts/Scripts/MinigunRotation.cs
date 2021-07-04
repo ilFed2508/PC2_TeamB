@@ -66,6 +66,14 @@ public class MinigunRotation : MonoBehaviour
         {
             Camera.SetBool(sinistra, false);
         }
+        if (Input.GetKey(KeyCode.S))
+        {
+            MiniGunAnim.SetBool(vadoAvanti, true);
+        }
+        else
+        {
+            MiniGunAnim.SetBool(vadoAvanti, false);
+        }
         if (Input.GetKeyDown(KeyCode.Space))
         {
             MiniGunAnim.Play("Camera-Jump");

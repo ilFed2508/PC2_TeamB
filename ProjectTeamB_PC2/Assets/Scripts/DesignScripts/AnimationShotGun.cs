@@ -62,6 +62,14 @@ public class AnimationShotGun : MonoBehaviour
         {
             anim.SetBool(sinistra, false);
         }
+        if (Input.GetKey(KeyCode.S))
+        {
+            anim.SetBool(vadoAvanti, true);
+        }
+        else
+        {
+            anim.SetBool(vadoAvanti, false);
+        }
         if (Input.GetKey(KeyCode.Space))
         {
             anim.SetBool(Jump, true);
