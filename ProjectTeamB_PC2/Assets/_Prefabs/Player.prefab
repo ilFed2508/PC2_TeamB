@@ -92,13 +92,13 @@ MonoBehaviour:
   m_RequiresOpaqueTextureOption: 2
   m_CameraType: 0
   m_Cameras: []
-  m_RendererIndex: -1
+  m_RendererIndex: 3
   m_VolumeLayerMask:
     serializedVersion: 2
     m_Bits: 1
   m_VolumeTrigger: {fileID: 0}
   m_RenderPostProcessing: 0
-  m_Antialiasing: 0
+  m_Antialiasing: 2
   m_AntialiasingQuality: 2
   m_StopNaN: 0
   m_Dithering: 0
@@ -258,13 +258,13 @@ MonoBehaviour:
   m_RequiresOpaqueTextureOption: 2
   m_CameraType: 0
   m_Cameras: []
-  m_RendererIndex: -1
+  m_RendererIndex: 3
   m_VolumeLayerMask:
     serializedVersion: 2
     m_Bits: 1
   m_VolumeTrigger: {fileID: 0}
   m_RenderPostProcessing: 0
-  m_Antialiasing: 0
+  m_Antialiasing: 2
   m_AntialiasingQuality: 2
   m_StopNaN: 0
   m_Dithering: 0
@@ -322,6 +322,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ViewSensitivity: 100
+  JoystickSensitivity: 0
   Player: {fileID: 8803713986406179110}
 --- !u!95 &8803713986292738107
 Animator:
@@ -481,6 +482,9 @@ MonoBehaviour:
   playerShooting: {fileID: 0}
   playerMovement: {fileID: 0}
   playerLife: {fileID: 0}
+  playerScore: {fileID: 0}
+  playerMedikit: {fileID: 0}
+  SafeZoneReached: 0
   WeaponSlot: {fileID: 8803713985567520568}
   UIPickup: {fileID: 89307443392365630}
   Melee: {fileID: 7324986407517732561}
@@ -539,8 +543,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   PlayerCurrentHP: 2
+  TimeMultiplier: 0
+  HealthPercentage: {fileID: 0}
   PlayerStartingHP: 20
   EnemyTimeGain: 0
+  PlayerHPscore: 0
   LifeText: {fileID: 89307443750260669}
   DeathPanel: {fileID: 89307444029448097}
   LifeBar: {fileID: 8172429181100204293}
@@ -568,8 +575,16 @@ MonoBehaviour:
   tempoPerScalare: 3
   tempoRestart: 3
   LivelloCombo: {fileID: 89307444928634544}
+  Livellocombo: 
+  ComboTime: 0
   CurrentRagedWeapon: {fileID: 3030722376600288342}
+  AR: {fileID: 0}
+  SMG: {fileID: 0}
+  MINIGUN: {fileID: 0}
+  SHOTGUN: {fileID: 0}
+  MySprite: {fileID: 0}
   Sprite: []
+  ZeroVFX: {fileID: 0}
   i: 0
 --- !u!114 &8803713986406179135
 MonoBehaviour:
@@ -594,6 +609,8 @@ MonoBehaviour:
   Suono: 
   TimerForMelee: 0
   CopyTimerForMelee: 0
+  PossoMenare: 0
+  NonPossoMenare: 0
 --- !u!1001 &2875746091814859967
 PrefabInstance:
   m_ObjectHideFlags: 0
