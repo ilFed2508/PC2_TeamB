@@ -11,7 +11,7 @@ public class MedikitManager : MonoBehaviour
     public int NumberOfMedikit;
     public float MedikitEffect;
 
-    public GameObject MedikitIcon,AnimationBar;
+    public GameObject MedikitIcon,AnimationBar, EmptyIcon;
     public Text NumberOfMedikitText;
 
     [HideInInspector]
@@ -40,7 +40,7 @@ public class MedikitManager : MonoBehaviour
         NumberOfMedikitText.text ="X" + NumberOfMedikit.ToString();
         if (CanUseMedikit)
         {
-            
+            EmptyIcon.SetActive(false);
             MedikitIcon.SetActive(true);
             if(Input.GetMouseButtonDown(1) && NumberOfMedikit > 0)
             {
@@ -56,10 +56,12 @@ public class MedikitManager : MonoBehaviour
         {           
             CanUseMedikit = false;
             MedikitIcon.SetActive(false);
+            EmptyIcon.SetActive(true);
         }
         if(!CanUseMedikit)
         {
             MedikitIcon.SetActive(false);
+            EmptyIcon.SetActive(true);
         }
     }
 
