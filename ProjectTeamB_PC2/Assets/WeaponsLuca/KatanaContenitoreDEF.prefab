@@ -457,6 +457,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2677642791966898684}
   - component: {fileID: 7407255106421341551}
+  - component: {fileID: 5288428005806678118}
   m_Layer: 9
   m_Name: KatanaContenitoreDEF
   m_TagString: Untagged
@@ -498,6 +499,19 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
+--- !u!114 &5288428005806678118
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2560970964612476869}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 42af747ea20c8bb41b84dea9b3387c4a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  IconSlashHUD: {fileID: 0}
 --- !u!1 &3189459751404478184
 GameObject:
   m_ObjectHideFlags: 0
@@ -694,8 +708,8 @@ BoxCollider:
   m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 0.0024470314, y: 0.051509954, z: 0.0064028413}
-  m_Center: {x: -3.2418718e-10, y: 0.009891243, z: 7.552963e-10}
+  m_Size: {x: 0.06973938, y: 0.051509954, z: 0.006402841}
+  m_Center: {x: -0.03364608, y: 0.009891212, z: -0.0000000052522338}
 --- !u!114 &5526260655322978091
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -709,8 +723,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   SlashSpeed: 15
+  TimeToUseKatana: 0
+  CopyTimeToUseKatana: 0
   KatanaContenitore: {fileID: 0}
-  CanUseMelee: 0
+  IconSlashHUD: {fileID: 0}
+  VoidHit: 
   images: []
   waitBeforeStartFadeIn: 1
   timeToFadeIn: 1

@@ -2287,7 +2287,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: ". Slower Hp                                     (icon) 1200\n "
+  m_text: ". Slower Hp                                     unlock at 1200\n "
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: f100a92784c2e134bb36ba70f81eca7c, type: 2}
   m_sharedMaterial: {fileID: -3859236054256037424, guid: f100a92784c2e134bb36ba70f81eca7c,
@@ -2402,6 +2402,17 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 6925150593188532319}
         m_MethodName: AddSlowerHp
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 679473302847366768}
+        m_MethodName: SelectButton_
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -2689,20 +2700,6 @@ MonoBehaviour:
   m_hasFontAssetChanged: 0
   m_baseMaterial: {fileID: 0}
   m_maskOffset: {x: 0, y: 0, z: 0, w: 0}
---- !u!64 &5638187404100356030
-MeshCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2042684375072176137}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 4
-  m_Convex: 0
-  m_CookingOptions: 30
-  m_Mesh: {fileID: 7156952095860167058, guid: 6859da30a157511488b5cb65a7e07ba6, type: 3}
 --- !u!1 &1078818549933550824
 GameObject:
   m_ObjectHideFlags: 0
@@ -2794,7 +2791,7 @@ GameObject:
   - component: {fileID: 711562370504383508}
   - component: {fileID: 4759926267439918850}
   m_Layer: 8
-  m_Name: LeaderBoard (TMP/Button)
+  m_Name: LeaderBoard (TMP)
   m_TagString: Walls
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -4115,7 +4112,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: . Slide                                            (icon) 500
+  m_text: . Slide                                            unlock at 500
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: f100a92784c2e134bb36ba70f81eca7c, type: 2}
   m_sharedMaterial: {fileID: -3859236054256037424, guid: f100a92784c2e134bb36ba70f81eca7c,
@@ -4230,6 +4227,17 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 6925150593188532319}
         m_MethodName: AddSlide
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 679473302847366768}
+        m_MethodName: SelectButton_
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -4383,6 +4391,20 @@ MonoBehaviour:
   m_hasFontAssetChanged: 0
   m_baseMaterial: {fileID: 0}
   m_maskOffset: {x: 0, y: 0, z: 0, w: 0}
+--- !u!64 &5638187404100356030
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2042684375072176137}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 4
+  m_Convex: 0
+  m_CookingOptions: 30
+  m_Mesh: {fileID: 7156952095860167058, guid: 6859da30a157511488b5cb65a7e07ba6, type: 3}
 --- !u!1 &2070626218879107434
 GameObject:
   m_ObjectHideFlags: 0
@@ -4697,6 +4719,7 @@ GameObject:
   - component: {fileID: 1478760232649123891}
   - component: {fileID: 2907687597602475537}
   - component: {fileID: 6646942830940721933}
+  - component: {fileID: 584635684539966068}
   m_Layer: 8
   m_Name: LeaderBoard (TMP/Button)
   m_TagString: Walls
@@ -4874,6 +4897,45 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+      - m_Target: {fileID: 679473302847366768}
+        m_MethodName: SelectButton_
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+--- !u!114 &584635684539966068
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2155179844208451085}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d0b148fe25e99eb48b9724523833bab1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Delegates:
+  - eventID: 0
+    callback:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 679473302847366768}
+          m_MethodName: SoundHover_
+          m_Mode: 1
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
 --- !u!1 &2173704975464496344
 GameObject:
   m_ObjectHideFlags: 0
@@ -5924,7 +5986,18 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 7743422960218091653}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 679473302847366768}
+        m_MethodName: DeniedButton_
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!1 &2592587177146472018
 GameObject:
   m_ObjectHideFlags: 0
@@ -6827,6 +6900,7 @@ GameObject:
   - component: {fileID: 4265183821784557951}
   - component: {fileID: 6278744408924389180}
   - component: {fileID: 3293493953696857685}
+  - component: {fileID: 6540382945904951597}
   m_Layer: 8
   m_Name: Icon_back
   m_TagString: Walls
@@ -6944,6 +7018,45 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+      - m_Target: {fileID: 679473302847366768}
+        m_MethodName: PCInteractOFF_
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+--- !u!114 &6540382945904951597
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2908711352225593073}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d0b148fe25e99eb48b9724523833bab1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Delegates:
+  - eventID: 0
+    callback:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 679473302847366768}
+          m_MethodName: SoundHover_
+          m_Mode: 1
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
 --- !u!1 &2911239668923182711
 GameObject:
   m_ObjectHideFlags: 0
@@ -7201,7 +7314,18 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 596023802668528056}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 679473302847366768}
+        m_MethodName: DeniedButton_
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!1 &2942589145982544891
 GameObject:
   m_ObjectHideFlags: 0
@@ -7929,7 +8053,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: ". Katana                                        (icon) 2500\n "
+  m_text: ". Katana                                         unlock at 2500\n "
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: f100a92784c2e134bb36ba70f81eca7c, type: 2}
   m_sharedMaterial: {fileID: -3859236054256037424, guid: f100a92784c2e134bb36ba70f81eca7c,
@@ -8044,6 +8168,17 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 6925150593188532319}
         m_MethodName: AddKatana
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 679473302847366768}
+        m_MethodName: SelectButton_
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -9098,6 +9233,7 @@ GameObject:
   - component: {fileID: 8204046080499273057}
   - component: {fileID: 1830290764362261209}
   - component: {fileID: 3954258178941160289}
+  - component: {fileID: 6854240943807862813}
   m_Layer: 2
   m_Name: Safe2AndBeyond
   m_TagString: Untagged
@@ -9165,6 +9301,19 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 07c267571afb6da4b9e64d8d6a97cc8f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!65 &6854240943807862813
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4056183839591004755}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 60, y: 26, z: 60}
+  m_Center: {x: 0, y: 12.5, z: 20}
 --- !u!1 &4067950032231264940
 GameObject:
   m_ObjectHideFlags: 0
@@ -12992,7 +13141,18 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 3426505057341573326}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 679473302847366768}
+        m_MethodName: DeniedButton_
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!1 &6054896664204705573
 GameObject:
   m_ObjectHideFlags: 0
@@ -15043,7 +15203,18 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 2201665086695148689}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 679473302847366768}
+        m_MethodName: DeniedButton_
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!1 &6728992834987390049
 GameObject:
   m_ObjectHideFlags: 0
@@ -16090,6 +16261,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 7128782470611026097}
+  - component: {fileID: 679473302847366768}
   m_Layer: 8
   m_Name: Canvas_SafeZone
   m_TagString: Walls
@@ -16112,6 +16284,18 @@ Transform:
   m_Father: {fileID: 43055970666216105}
   m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &679473302847366768
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7237989520683761163}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c2e8f9dc30dafb0409efd4430842b876, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &7261642883634562788
 GameObject:
   m_ObjectHideFlags: 0
@@ -16271,6 +16455,7 @@ GameObject:
   - component: {fileID: 8801399084788175516}
   - component: {fileID: 7255649465077677157}
   - component: {fileID: 5225201789068223849}
+  - component: {fileID: 211988627318764178}
   m_Layer: 8
   m_Name: Icon_back
   m_TagString: Walls
@@ -16388,6 +16573,45 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+      - m_Target: {fileID: 679473302847366768}
+        m_MethodName: PCInteractOFF_
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+--- !u!114 &211988627318764178
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7380359282342165135}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d0b148fe25e99eb48b9724523833bab1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Delegates:
+  - eventID: 0
+    callback:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 679473302847366768}
+          m_MethodName: SoundHover_
+          m_Mode: 1
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
 --- !u!1 &7434073202052191385
 GameObject:
   m_ObjectHideFlags: 0
@@ -16567,7 +16791,18 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 860453263544019028}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 679473302847366768}
+        m_MethodName: DeniedButton_
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!1 &7437036997970912528
 GameObject:
   m_ObjectHideFlags: 0
@@ -16834,7 +17069,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: ". Medkit                                          (icon) 1500\n "
+  m_text: ". Medkit                                          unlock at 1500\n "
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: f100a92784c2e134bb36ba70f81eca7c, type: 2}
   m_sharedMaterial: {fileID: -3859236054256037424, guid: f100a92784c2e134bb36ba70f81eca7c,
@@ -16949,6 +17184,17 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 6925150593188532319}
         m_MethodName: AddMedikit
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 679473302847366768}
+        m_MethodName: SelectButton_
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -17103,7 +17349,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &8372500947201034175
 RectTransform:
   m_ObjectHideFlags: 0
@@ -18870,7 +19116,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: ". SuperSpeed                                   (icon) 1000\n "
+  m_text: ". SuperSpeed                                   unlock at 1000\n "
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: f100a92784c2e134bb36ba70f81eca7c, type: 2}
   m_sharedMaterial: {fileID: -3859236054256037424, guid: f100a92784c2e134bb36ba70f81eca7c,
@@ -18985,6 +19231,17 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 6925150593188532319}
         m_MethodName: AddSpeed
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 679473302847366768}
+        m_MethodName: SelectButton_
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -19643,8 +19900,9 @@ GameObject:
   - component: {fileID: 5436523142375358023}
   - component: {fileID: 7707965779961063557}
   - component: {fileID: 1666221967405417391}
+  - component: {fileID: 7608055791841584938}
   m_Layer: 8
-  m_Name: PowerUp (TMP)
+  m_Name: PowerUp (TMP/Button)
   m_TagString: Walls
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -19820,6 +20078,45 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+      - m_Target: {fileID: 679473302847366768}
+        m_MethodName: SelectButton_
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+--- !u!114 &7608055791841584938
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8839153965667181858}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d0b148fe25e99eb48b9724523833bab1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Delegates:
+  - eventID: 0
+    callback:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 679473302847366768}
+          m_MethodName: SoundHover_
+          m_Mode: 1
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
 --- !u!1 &8849025272982022870
 GameObject:
   m_ObjectHideFlags: 0

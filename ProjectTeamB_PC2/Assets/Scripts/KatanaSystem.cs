@@ -44,81 +44,54 @@ public class KatanaSystem : MonoBehaviour
 
     private void Update()
     {
-        if(TimeToUseKatana > 0)
+
+        if (TimeToUseKatana > 0)
         {
             TimeToUseKatana -= Time.deltaTime;
         }
-        if(TimeToUseKatana < 0)
+        if (TimeToUseKatana < 0)
         {
             TimeToUseKatana = 0;
         }
 
-        slash();
-        
-        //if(MyPlayer.gameObject.transform.position == HitPoint)
-        //{
-        //    StopAllCoroutines();
-        //}
+        if (Input.GetMouseButtonDown(1) && TimeToUseKatana <= 0)
+        {
+            slash();
+        }
+
+
     }
 
 
 
     public void slash()
     {
+        MyBool.NonPossoMenare = true;
 
-       Ray ray = Camera.main.ViewportPointToRay(new Vector3(0.5f, 0.5f, 3f));
-       RaycastHit Hit;
-       
+        WeaponSlot.Play("Melee-WeaponSlot");
+        MyKatanaAnimator.Play("KatanaHit");
+        AudioManager.instance.Play(VoidHit);
 
-       if (Physics.Raycast(ray, out Hit))
-       {
-            HitPoint = Hit.point;
-       }
-       else
-       {
-           VoidPoint = ray.GetPoint(80);
-       }
-
-       if (Hit.collider.CompareTag("Enemy"))
-       {
-            IconSlashHUD.SetActive(true);
-       }
-       else
-       {
-           IconSlashHUD.SetActive(false);
-       }
+        Ray ray = Camera.main.ViewportPointToRay(new Vector3(0.5f, 0.5f, 2f));
+        RaycastHit Hit;
 
 
-       if (Input.GetMouseButtonDown(1) && TimeToUseKatana <= 0)
-       {
-           if (Hit.collider.CompareTag("Enemy"))
-           {
-               MyBool.NonPossoMenare = true;
-               WeaponSlot.Play("Melee-WeaponSlot");
-               MyKatanaAnimator.Play("KatanaHit");
-               AudioManager.instance.Play(VoidHit);
-               StartCoroutine(SlashLerp(0.5f));
-               StartCoroutine(FadeInAndOut());
-               
-           }
-           else
-           {
-               MyBool.NonPossoMenare = true;
-               WeaponSlot.Play("Melee-WeaponSlot");
-               MyKatanaAnimator.Play("KatanaHit");
-               AudioManager.instance.Play(VoidHit);
-               
-           }
-
-           TimeToUseKatana = CopyTimeToUseKatana;
-       }
-
-        if (MyPlayer.gameObject.transform.position == HitPoint)
+        if (Physics.Raycast(ray, out Hit))
         {
-            StopAllCoroutines();
+            HitPoint = Hit.collider.gameObject.transform.position;
+        }
+        else
+        {
+            VoidPoint = ray.GetPoint(80);
         }
 
+        if (Hit.collider.CompareTag("Enemy"))
+        {
+            StartCoroutine(SlashLerp(0.5f));
+            StartCoroutine(FadeInAndOut());
+        }
 
+        TimeToUseKatana = CopyTimeToUseKatana;
 
 
     }

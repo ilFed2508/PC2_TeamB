@@ -14,8 +14,14 @@ public class OnMouseClick : MonoBehaviour
         //LevelSelectionCanvas.SetActive(true);
         //backCanvas.SetActive(false);
         //LevelSelectionopen.Play();
+        AudioManager.instance.Play("SelectButton");
         godModeUI.ActiveGodmode();
         SceneManager.LoadScene("Loading");
         PlayerPrefs.SetInt("Checkpoint", 1);
+    }
+
+    public void OnMouseEnter()
+    {
+        AudioManager.instance.Play("Interact");
     }
 }
