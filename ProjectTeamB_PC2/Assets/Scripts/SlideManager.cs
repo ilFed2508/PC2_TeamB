@@ -17,7 +17,7 @@ public class SlideManager : MonoBehaviour
 
     private Animator weaponSlotCam;
 
-    public GameObject MarketPanel,SlideIcon,SlideIconOFF;
+    public GameObject MarketPanel,SlideIcon,SlideIconOFF, EmptyIcon;
 
 
     [SerializeField] Image[] images = default;
@@ -41,6 +41,7 @@ public class SlideManager : MonoBehaviour
     {
         if (isSliding)
         {
+            EmptyIcon.SetActive(false);
             if (TimeSlide > 0f && controller.isGrounded)
             {
                 SlideIcon.SetActive(true);
@@ -66,6 +67,7 @@ public class SlideManager : MonoBehaviour
         {
             SlideIcon.SetActive(false);
             SlideIconOFF.SetActive(false);
+            EmptyIcon.SetActive(true);
         }   
     } 
     

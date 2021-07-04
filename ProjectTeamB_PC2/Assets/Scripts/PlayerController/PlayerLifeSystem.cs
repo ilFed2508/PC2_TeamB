@@ -119,7 +119,7 @@ public class PlayerLifeSystem : MonoBehaviour
             Warning.enabled = false;
         }
 
-        if(PlayerCurrentHP < 0 )
+        if(PlayerCurrentHP < 0)
         {
             PlayerCurrentHP = 0;
         }

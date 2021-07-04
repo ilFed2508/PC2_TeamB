@@ -13,7 +13,7 @@ public class SpeedPowerUpManager : MonoBehaviour
     private float CopyAirSpeed;
     private bool CanIncrease;
 
-    public GameObject IconPoweUp;
+    public GameObject IconPoweUp,EmptyIcon;
 
     public bool Faster;
 
@@ -35,7 +35,8 @@ public class SpeedPowerUpManager : MonoBehaviour
     void Update()
     {
         if(Faster == true )
-        {              
+        {
+            EmptyIcon.SetActive(false);
             if (CanIncrease == true)
             {
                IconPoweUp.SetActive(true);
@@ -56,6 +57,7 @@ public class SpeedPowerUpManager : MonoBehaviour
             MyMovement.AirSpeed = CopyAirSpeed;
             IconPoweUp.SetActive(false);
             CanIncrease = true;
+            EmptyIcon.SetActive(true);
             MyFieldOfView.fieldOfView = 60f;
         }
 

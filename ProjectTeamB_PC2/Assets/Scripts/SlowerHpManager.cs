@@ -17,7 +17,7 @@ public class SlowerHpManager : MonoBehaviour
 
     private float CopyTimeMultiplier;
 
-    public GameObject SlowerHpIcon;
+    public GameObject SlowerHpIcon,EmptyIcon;
 
     public Image FeedSHP;
 
@@ -36,7 +36,7 @@ public class SlowerHpManager : MonoBehaviour
 
         if(SlowerHpIsActive == true)
         {
-
+            EmptyIcon.SetActive(false);
             if (IconIsActive == true)
             {
                SlowerHpIcon.SetActive(true);
@@ -57,6 +57,7 @@ public class SlowerHpManager : MonoBehaviour
             MyLife.TimeMultiplier = CopyTimeMultiplier;
             SlowerHpIcon.SetActive(false);
             IconIsActive = true;
+            EmptyIcon.SetActive(true);
             StartCoroutine(FeedAnim2(3f, 3f));
         }
     }
