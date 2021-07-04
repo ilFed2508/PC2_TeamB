@@ -11,7 +11,7 @@ public class KatanaPowerUpManager : MonoBehaviour
     public bool CanUseKatana;
     private bool IconIsActive;
 
-    public GameObject KatanaIcon,EmptyIcon;
+    public GameObject KatanaIcon;
     public bool CanSwitchKatana;
 
     
@@ -28,18 +28,18 @@ public class KatanaPowerUpManager : MonoBehaviour
         if(CanUseKatana == true)
         {
             //EmptyIcon.SetActive(false);
-            if (IconIsActive == true)
-            {
-                KatanaIcon.SetActive(true);
-                if (Input.GetMouseButtonDown(1) || Input.GetButton("Xbox_LB"))
-                {
-                    KatanaContenitore.SetActive(true);
-                    KatanaIcon.SetActive(false);
-                    IconIsActive = false;
-
-                }
-            }
-
+            //if (IconIsActive == true)
+            //{
+            //    KatanaIcon.SetActive(true);
+            //    //if (Input.GetMouseButtonDown(1) || Input.GetButton("Xbox_LB"))
+            //    //{
+            //    //    KatanaContenitore.SetActive(true);
+            //    //    KatanaIcon.SetActive(false);
+            //    //    IconIsActive = false;
+            //    //
+            //    //}
+            //}
+            KatanaContenitore.SetActive(true);
         }
 
        if(CanUseKatana == false)

@@ -20,6 +20,7 @@ public class KatanaSystem : MonoBehaviour
     private MeleePercentuale MyBool;
 
     public GameObject IconSlashHUD;
+    public GameObject KatanaIcon, KatanaOFF;
 
     public string VoidHit;
 
@@ -48,6 +49,13 @@ public class KatanaSystem : MonoBehaviour
         if (TimeToUseKatana > 0)
         {
             TimeToUseKatana -= Time.deltaTime;
+            KatanaIcon.SetActive(false);
+            KatanaOFF.SetActive(true);           
+        }
+        else
+        {
+            KatanaIcon.SetActive(true);
+            KatanaOFF.SetActive(false);
         }
         if (TimeToUseKatana < 0)
         {
@@ -66,6 +74,8 @@ public class KatanaSystem : MonoBehaviour
 
     public void slash()
     {
+        KatanaIcon.SetActive(false);
+        KatanaOFF.SetActive(true);
         MyBool.NonPossoMenare = true;
 
         WeaponSlot.Play("Melee-WeaponSlot");
