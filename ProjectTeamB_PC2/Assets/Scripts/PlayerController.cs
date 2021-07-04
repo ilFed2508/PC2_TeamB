@@ -20,6 +20,7 @@ public class PlayerController : MonoBehaviour
 	public GameObject Melee;
 	public GameObject Player;
 	public GameObject CanvasCombo;
+	public GameObject EmptyIcon;
 
     //image "E" pick up - joe
     public GameObject PickUp;

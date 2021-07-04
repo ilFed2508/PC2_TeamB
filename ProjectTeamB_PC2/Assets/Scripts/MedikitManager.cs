@@ -40,7 +40,7 @@ public class MedikitManager : MonoBehaviour
         NumberOfMedikitText.text ="X" + NumberOfMedikit.ToString();
         if (CanUseMedikit)
         {
-            EmptyIcon.SetActive(false);
+            //EmptyIcon.SetActive(false);
             MedikitIcon.SetActive(true);
             if(Input.GetMouseButtonDown(1) && NumberOfMedikit > 0)
             {
@@ -56,12 +56,12 @@ public class MedikitManager : MonoBehaviour
         {           
             CanUseMedikit = false;
             MedikitIcon.SetActive(false);
-            EmptyIcon.SetActive(true);
+            //EmptyIcon.SetActive(true);
         }
         if(!CanUseMedikit)
         {
             MedikitIcon.SetActive(false);
-            EmptyIcon.SetActive(true);
+            //EmptyIcon.SetActive(true);
         }
     }
 

@@ -11,6 +11,7 @@ public class PowerUpController : MonoBehaviour
     private SpeedPowerUpManager MySpeed;
     private SlowerHpManager MySlowerPowerUp;
     private KatanaPowerUpManager MyKatana;
+    private PlayerController MyEmptyIcon;
 
 
     public int SlideCost;
@@ -22,6 +23,7 @@ public class PowerUpController : MonoBehaviour
 
     void Start()
     {
+        MyEmptyIcon = FindObjectOfType<PlayerController>();
         MyScore = FindObjectOfType<ScoreController>();
         SlideScript = FindObjectOfType<SlideManager>();
         MyMedikit = FindObjectOfType<MedikitManager>();
@@ -36,22 +38,27 @@ public class PowerUpController : MonoBehaviour
         if (PlayerPrefs.GetInt("Slide") == 1)
         {
             SlideScript.isSliding = true;
+            MyEmptyIcon.EmptyIcon.SetActive(false);
         }
         if (PlayerPrefs.GetInt("Medikit") == 1)
         {
             MyMedikit.CanUseMedikit = true;
+            MyEmptyIcon.EmptyIcon.SetActive(false);
         }
         if (PlayerPrefs.GetInt("Speed") == 1)
         {
             MySpeed.Faster = true;
+            MyEmptyIcon.EmptyIcon.SetActive(false);
         }
         if (PlayerPrefs.GetInt("SlowerHp") == 1)
         {
             MySlowerPowerUp.SlowerHpIsActive = true;
+            MyEmptyIcon.EmptyIcon.SetActive(false);
         }
         if (PlayerPrefs.GetInt("Katana") == 1)
         {
             MyKatana.CanUseKatana = true;
+            MyEmptyIcon.EmptyIcon.SetActive(false);
         }
 
 
@@ -63,7 +70,8 @@ public class PowerUpController : MonoBehaviour
         PlayerPrefs.SetInt("OnePowerUp", 1);
         MyScore.PurchasePowerUp(SlideCost);
         PlayerPrefs.SetInt("Slide", 1);
-        SlideScript.isSliding = true;     
+        SlideScript.isSliding = true;
+        MyEmptyIcon.EmptyIcon.SetActive(false);
     }
 
     public void ActiveMedikit()
@@ -73,6 +81,7 @@ public class PowerUpController : MonoBehaviour
         PlayerPrefs.SetInt("Medikit", 1);
         MyMedikit.CanUseMedikit = true;
         MyMedikit.NumberOfMedikit = MyMedikit.NumberOfMedikitCopy;
+        MyEmptyIcon.EmptyIcon.SetActive(false);
     }
 
     public void ActiveSuperSpeed()
@@ -81,6 +90,7 @@ public class PowerUpController : MonoBehaviour
         MyScore.PurchasePowerUp(SpeedCost);
         PlayerPrefs.SetInt("Speed", 1);
         MySpeed.Faster = true;
+        MyEmptyIcon.EmptyIcon.SetActive(false);
     }
 
     public void ActiveSlowerHp()
@@ -89,7 +99,8 @@ public class PowerUpController : MonoBehaviour
         MyScore.PurchasePowerUp(SlowerCost);
         PlayerPrefs.SetInt("SlowerHp", 1);
         MySlowerPowerUp.SlowerHpIsActive = true;
-        
+        MyEmptyIcon.EmptyIcon.SetActive(false);
+
     }
 
     public void ActiveKatana()
@@ -98,6 +109,7 @@ public class PowerUpController : MonoBehaviour
         MyScore.PurchasePowerUp(KatanaCost);
         PlayerPrefs.SetInt("Katana", 1);
         MyKatana.CanUseKatana = true;
+        MyEmptyIcon.EmptyIcon.SetActive(false);
 
     }
 
@@ -111,6 +123,7 @@ public class PowerUpController : MonoBehaviour
         MySpeed.Faster = false;
         MySlowerPowerUp.SlowerHpIsActive = false;
         MyKatana.CanUseKatana = false;
+        MyEmptyIcon.EmptyIcon.SetActive(true);
         PlayerPrefs.SetInt("OnePowerUp", 0);
         PlayerPrefs.SetInt("Medikit", 0);
         PlayerPrefs.SetInt("Slide", 0);

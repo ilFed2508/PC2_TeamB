@@ -27,7 +27,7 @@ public class KatanaPowerUpManager : MonoBehaviour
     {
         if(CanUseKatana == true)
         {
-            EmptyIcon.SetActive(false);
+            //EmptyIcon.SetActive(false);
             if (IconIsActive == true)
             {
                 KatanaIcon.SetActive(true);
@@ -47,7 +47,7 @@ public class KatanaPowerUpManager : MonoBehaviour
             KatanaIcon.SetActive(false);
             IconIsActive = true;
             KatanaContenitore.SetActive(false);
-            EmptyIcon.SetActive(true);
+            //EmptyIcon.SetActive(true);
         }
     }
 

@@ -39,7 +39,7 @@ public class SlowerHpManager : MonoBehaviour
             EmptyIcon.SetActive(false);
             if (IconIsActive == true)
             {
-               SlowerHpIcon.SetActive(true);
+               //SlowerHpIcon.SetActive(true);
                 if (Input.GetMouseButtonDown(1) || Input.GetButton("Xbox_LB"))
                 {
                     AudioManager.instance.Play("SlowerHP");
@@ -57,7 +57,7 @@ public class SlowerHpManager : MonoBehaviour
             MyLife.TimeMultiplier = CopyTimeMultiplier;
             SlowerHpIcon.SetActive(false);
             IconIsActive = true;
-            EmptyIcon.SetActive(true);
+            //EmptyIcon.SetActive(true);
             StartCoroutine(FeedAnim2(3f, 3f));
         }
     }

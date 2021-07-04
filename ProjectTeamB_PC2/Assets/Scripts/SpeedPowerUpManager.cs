@@ -36,7 +36,7 @@ public class SpeedPowerUpManager : MonoBehaviour
     {
         if(Faster == true )
         {
-            EmptyIcon.SetActive(false);
+            //EmptyIcon.SetActive(false);
             if (CanIncrease == true)
             {
                IconPoweUp.SetActive(true);
@@ -57,7 +57,7 @@ public class SpeedPowerUpManager : MonoBehaviour
             MyMovement.AirSpeed = CopyAirSpeed;
             IconPoweUp.SetActive(false);
             CanIncrease = true;
-            EmptyIcon.SetActive(true);
+            //EmptyIcon.SetActive(true);
             MyFieldOfView.fieldOfView = 60f;
         }
 

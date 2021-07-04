@@ -41,7 +41,7 @@ public class SlideManager : MonoBehaviour
     {
         if (isSliding)
         {
-            EmptyIcon.SetActive(false);
+            //EmptyIcon.SetActive(false);
             if (TimeSlide > 0f && controller.isGrounded)
             {
                 SlideIcon.SetActive(true);
@@ -67,7 +67,7 @@ public class SlideManager : MonoBehaviour
         {
             SlideIcon.SetActive(false);
             SlideIconOFF.SetActive(false);
-            EmptyIcon.SetActive(true);
+            //EmptyIcon.SetActive(true);
         }   
     } 
     
