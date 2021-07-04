@@ -77,11 +77,10 @@ public class KatanaSystem : MonoBehaviour
         KatanaIcon.SetActive(false);
         KatanaOFF.SetActive(true);
         MyBool.NonPossoMenare = true;
-
         WeaponSlot.Play("Melee-WeaponSlot");
         MyKatanaAnimator.Play("KatanaHit");
         AudioManager.instance.Play(VoidHit);
-
+        TimeToUseKatana = CopyTimeToUseKatana;
         Ray ray = Camera.main.ViewportPointToRay(new Vector3(0.5f, 0.5f, 2f));
         RaycastHit Hit;
 
