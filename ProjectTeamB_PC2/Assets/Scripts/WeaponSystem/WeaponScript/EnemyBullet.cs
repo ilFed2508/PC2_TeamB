@@ -20,6 +20,7 @@ public class EnemyBullet : MonoBehaviour
         {            
             other.GetComponent<PlayerController>().playerLife.DamagePlayer(Damage);
             other.GetComponent<ActivePanel>().StartCoroutine("FadeInAndOut");
+            AudioManager.instance.Play("DamagePlayer");
             Destroy(this.gameObject);
             Debug.Log("Colpisco");
         }

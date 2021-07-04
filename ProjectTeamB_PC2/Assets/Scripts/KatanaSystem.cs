@@ -88,7 +88,7 @@ public class KatanaSystem : MonoBehaviour
 
         if (Physics.Raycast(ray, out Hit))
         {
-            HitPoint = Hit.collider.gameObject.transform.position;
+            HitPoint = Hit.collider.GetComponentInChildren<Barrel>().gameObject.transform.position;
         }
         else
         {

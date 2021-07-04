@@ -34,20 +34,25 @@ public class OpenDoor : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        if (other.gameObject.CompareTag("Player"))
-        {
-            isOpen = true;
-            AudioManager.instance.Play(SuonoApertura);
-        }
+
+        isOpen = true;
+        AudioManager.instance.Play(SuonoApertura);
+        //if (other.gameObject.CompareTag("Player"))
+        //{
+        //    isOpen = true;
+        //    AudioManager.instance.Play(SuonoApertura);
+        //}
         
     }
 
     private void OnTriggerExit(Collider other)
     {
-        if (other.gameObject.CompareTag("Player"))
-        {
-            isOpen = false;
-            AudioManager.instance.Play(SuonoChiusura);
-        }
+        isOpen = false;
+        AudioManager.instance.Play(SuonoChiusura);
+       //if (other.gameObject.CompareTag("Player"))
+       //{
+       //    isOpen = false;
+       //    AudioManager.instance.Play(SuonoChiusura);
+       //}
     }
 }
