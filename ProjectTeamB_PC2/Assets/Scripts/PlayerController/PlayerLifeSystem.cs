@@ -82,7 +82,7 @@ public class PlayerLifeSystem : MonoBehaviour
             LifeBar.maxValue = PlayerStartingHP * 100;
             LifeBar.value = PlayerCurrentHP * 100;
 
-            HealthPercentage.text = (int)((PlayerCurrentHP/PlayerStartingHP) * 100) + "%";
+            HealthPercentage.text = (int)((PlayerCurrentHP/PlayerStartingHP) * 100) + "";
         }
         else
         {
