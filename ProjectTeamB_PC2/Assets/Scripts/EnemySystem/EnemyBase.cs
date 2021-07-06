@@ -60,7 +60,7 @@ public class EnemyBase : MonoBehaviour
     /// <summary>
     /// keep Watching the player
     /// </summary>
-    public void WatchPlayer()
+    public virtual void WatchPlayer()
     {
         transform.LookAt(Player.gameObject.transform);
     }
