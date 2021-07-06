@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class TestMenùMain : MonoBehaviour
 {
+    public GameObject VideoLvl2, VideoLvl3, VideoLvl4, Noiselv2, Noiselv3, Noiselv4;
     // Start is called before the first frame update
     void Start()
     {
@@ -14,6 +15,23 @@ public class TestMenùMain : MonoBehaviour
         PlayerPrefs.SetInt("Speed", 0);
         PlayerPrefs.SetInt("SlowerHp", 0);
         PlayerPrefs.SetInt("Katana", 0);
+
+
+        if (PlayerPrefs.GetInt("SafeZone") > 0)
+        {
+            VideoLvl2.SetActive(true);
+            Noiselv2.SetActive(false);
+        }
+        if (PlayerPrefs.GetInt("SafeZone") > 1)
+        {
+            VideoLvl3.SetActive(true);
+            Noiselv3.SetActive(false);
+        }
+        if (PlayerPrefs.GetInt("SafeZone") > 2)
+        {
+            VideoLvl4.SetActive(true);
+            Noiselv4.SetActive(false);
+        }
 
     }
 }
