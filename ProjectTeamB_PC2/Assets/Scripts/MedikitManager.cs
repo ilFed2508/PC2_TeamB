@@ -17,6 +17,10 @@ public class MedikitManager : MonoBehaviour
     [HideInInspector]
     public int NumberOfMedikitCopy;
 
+    //Fill SlideBar change color - Feed, joe
+    public GameObject fillSlider;
+    Color colorGreen = new Color (0f / 255f, 255f / 255f, 0f / 255f);
+    Color colorWhite = new Color(255f / 255f, 255f / 255f, 255f / 255f);
 
     [SerializeField] Image[] images = default;
     [Min(0)]
@@ -48,6 +52,7 @@ public class MedikitManager : MonoBehaviour
                 AudioManager.instance.Play("Medikit");
                 AnimationBar.SetActive(true);
                 StartCoroutine(FadeInAndOut());
+                StartCoroutine(ChangeColorSlidebar());
                 NumberOfMedikit -= 1;
             }
         }
@@ -68,9 +73,15 @@ public class MedikitManager : MonoBehaviour
 
 
 
-
-
-
+    //Fill SlideBar change color - Feed, joe
+    IEnumerator ChangeColorSlidebar()
+    {
+        yield return new WaitForSeconds(0f);
+        fillSlider.GetComponent<Image>().color = colorGreen;
+        yield return new WaitForSeconds(1f);
+        fillSlider.GetComponent<Image>().color = colorWhite;
+        yield return null;
+    }
 
 
     IEnumerator FadeInAndOut()

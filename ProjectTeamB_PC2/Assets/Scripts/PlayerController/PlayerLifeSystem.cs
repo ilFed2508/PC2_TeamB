@@ -43,6 +43,11 @@ public class PlayerLifeSystem : MonoBehaviour
     //public PlayableDirector ScreenNoise;
     private GameObject comboCounter, timeLineScreenNoise, timeLineScreenNoise_ , crosshair;
 
+    //Fill SlideBar change color - Feed, joe
+    public GameObject fillSlider;
+    Color colorRed = new Color(255f / 255f, 0f / 255f, 0f / 255f);
+    Color colorWhite = new Color(255f / 255f, 255f / 255f, 255f / 255f);
+
 
     // Start is called before the first frame update
     void Start()
@@ -141,13 +146,24 @@ public class PlayerLifeSystem : MonoBehaviour
         if (MyPowerupDamage.SlowerHpIsActive)
         {
             PlayerCurrentHP += Amount + MyPowerupDamage.AddDamage;
+            StartCoroutine(ChangeColorSlidebar());
         }
         else
         {
             PlayerCurrentHP += Amount;
+            StartCoroutine(ChangeColorSlidebar());
         }
     }
 
+    //Fill SlideBar change color - Feed, joe
+    IEnumerator ChangeColorSlidebar()
+    {
+        yield return new WaitForSeconds(0f);
+        fillSlider.GetComponent<Image>().color = colorRed;
+        yield return new WaitForSeconds(1f);
+        fillSlider.GetComponent<Image>().color = colorWhite;
+        yield return null;
+    }
 
     IEnumerator AberrationLerp(float Duration)
     {
