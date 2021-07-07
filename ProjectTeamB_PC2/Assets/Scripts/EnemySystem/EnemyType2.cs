@@ -13,12 +13,14 @@ public class EnemyType2 : EnemyBase
 
     public float PlayerStopDistance;
 
-    
+    //TEST
+    private GameObject target;
 
     private void Awake()
     {
         //pick reference
         Player = FindObjectOfType<PlayerController>();
+        target = GameObject.Find("TARGET");
         MyWeapon = GetComponent<RangedWeapon>();
         StartCoroutine("floating");
 
@@ -52,6 +54,11 @@ public class EnemyType2 : EnemyBase
     void Update()
     {
         _stateMachine.Tick();
+    }
+
+    public override void WatchPlayer()
+    {
+        transform.LookAt(target.gameObject.transform);
     }
 
     public void FollowPlayer()
