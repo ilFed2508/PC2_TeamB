@@ -137,8 +137,8 @@ public class ComboManager : MonoBehaviour
             {
                 MySprite.SpriteCombo[i].SetActive(false);
             }
-           
 
+            StartCoroutine(lateCall());
         }
     }
 

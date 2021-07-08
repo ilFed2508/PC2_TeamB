@@ -105,7 +105,7 @@ public class BurstShootingType : Shooting
                     AudioManager.instance.Play("ZeroFeed");
                     MyLevelZero.enabled = true;
                     MyLevelZero.gameObject.GetComponent<Text>().color = Color.red;
-                    StartCoroutine(lateCall());
+                    MyComboZero.ResetComboDamage();
                     MyComboZero.ZeroVFX.SetActive(true);
                 }
                 yield return new WaitForSeconds(shotCooldown);
@@ -175,9 +175,9 @@ public class BurstShootingType : Shooting
         feedAnime.SetActive(true);
         print("PORCAMADONNADELDIOCANEEEEEEEEEEEE");
     }
-    IEnumerator lateCall()
-    {
-        yield return new WaitForSeconds(MyLevelZero.shakeDuration);
-        MyLevelZero.gameObject.GetComponent<Text>().color = Color.white;
-    }
+    //IEnumerator lateCall()
+    //{
+    //    yield return new WaitForSeconds(MyLevelZero.shakeDuration);
+    //    MyLevelZero.gameObject.GetComponent<Text>().color = Color.white;
+    //}
 }

@@ -36,7 +36,7 @@ public class SingleShotShooting : Shooting
                 AudioManager.instance.Play("ZeroFeed");
                 MyLevelZero.enabled = true;
                 MyLevelZero.gameObject.GetComponent<Text>().color = Color.red;
-                StartCoroutine(lateCall());
+                MyComboZero.ResetComboDamage();
                 MyComboZero.ZeroVFX.SetActive(true);
             }
         }
@@ -119,9 +119,9 @@ public class SingleShotShooting : Shooting
     {
         return base.CalculateTotalDamage(CurrentWeapon);
     }
-    IEnumerator lateCall()
-    {
-        yield return new WaitForSeconds(MyLevelZero.shakeDuration);
-        MyLevelZero.gameObject.GetComponent<Text>().color = Color.white;
-    }
+    //IEnumerator lateCall()
+    //{
+    //    yield return new WaitForSeconds(MyLevelZero.shakeDuration);
+    //    MyLevelZero.gameObject.GetComponent<Text>().color = Color.white;
+    //}
 }
