@@ -22,7 +22,7 @@ public class ScoreController : MonoBehaviour
 
 
     //text momentaneo
-    public Text CurrentScoreText, AddText;
+    public Text CurrentScoreText, AddText,FinalScore,FinalScoreLeaderboard;
     public GameObject AddScoreObj;
 
     // Start is called before the first frame update
@@ -35,6 +35,8 @@ public class ScoreController : MonoBehaviour
     {       
         CostScore = CurrentScore;
         CurrentScoreText.text = CostScore.ToString();
+        FinalScore.text = "YOUR SCORE :" + TotalScore;
+        FinalScoreLeaderboard.text = "YOUR SCORE :" + TotalScore;
     }
 
     #region BehaviourAPI
