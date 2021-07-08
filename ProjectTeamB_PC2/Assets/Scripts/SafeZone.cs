@@ -29,11 +29,7 @@ public class SafeZone : MonoBehaviour
 
     private void OnTriggerStay(Collider other)
     {
-        //if (other.CompareTag("Player"))
-        //{
-        //    MyTime.ComboTime = 0f;
-        //}
-        MyTime.ComboTime = 0f;
+
         if (other.CompareTag("Player") && playerController.SafeZoneReached != checkpoint)
         {
             playerController.SafeZoneReached = checkpoint;
@@ -41,6 +37,7 @@ public class SafeZone : MonoBehaviour
         if (other.CompareTag("Player") && playerController.playerLife.PlayerCurrentHP < playerController.playerLife.PlayerStartingHP)
         {
             playerController.playerLife.PlayerCurrentHP -= recoverdLife * Time.deltaTime;
+
             MyTime.ComboTime = 0f;
         }
     }

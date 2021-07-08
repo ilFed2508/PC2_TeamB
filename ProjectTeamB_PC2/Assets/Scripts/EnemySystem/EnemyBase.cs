@@ -32,6 +32,9 @@ public class EnemyBase : MonoBehaviour
     [HideInInspector]
     public MedikitManager MyFeed;
 
+    //Fill SlideBar change color - Feed, joe
+
+
     // Start is called before the first frame update
     void Start()
     {
@@ -87,6 +90,8 @@ public class EnemyBase : MonoBehaviour
     public void PlayerHealOnDeath()
     {
         Player.playerLife.PlayerCurrentHP -= BonusLifeWhenKilled;
+
+        MyFeed.StartCoroutine("ChangeColorSlidebar");
 
         if (Player.playerLife.PlayerCurrentHP > Player.playerLife.PlayerStartingHP)
         {
@@ -157,4 +162,5 @@ public class EnemyBase : MonoBehaviour
         yield return new WaitForSeconds(floatIndex);
         floatAnim.enabled = true;
     }
+
 }
