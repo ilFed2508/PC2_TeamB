@@ -21,13 +21,17 @@ public class Settings : MonoBehaviour
     public float AugmentedMouseS;
     public float RangeMouseS;
     public float MouseSens;
-   //[Header("Controller Sensibility")]
-   //public Slider ControllerS;
-   //public float ControllerSMin;
-   //public float ControllerSMax;
-   //public float AugmentedControllerS;
-   //public float RangeControllerS;
-   //public float ControllerSens;
+    //[Header("Controller Sensibility")]
+    //public Slider ControllerS;
+    //public float ControllerSMin;
+    //public float ControllerSMax;
+    //public float AugmentedControllerS;
+    //public float RangeControllerS;
+    //public float ControllerSens;
+
+    [Header("Resolution lists")]
+    public List<int> widths = new List<int>();
+    public List<int> heights = new List<int>();
 
     // Start is called before the first frame update
     void Start()
@@ -98,6 +102,9 @@ public class Settings : MonoBehaviour
 
     public void SetResolution(int ResolutionIndex)
     {
+        int width = widths[ResolutionIndex];
+        int height = heights[ResolutionIndex];
+        Screen.SetResolution(width, height, Screen.fullScreen);
         //Resolution resolution = Resolutions[ResolutionIndex];
         //Screen.SetResolution(resolution.width, resolution.height, Screen.fullScreen);
     }
