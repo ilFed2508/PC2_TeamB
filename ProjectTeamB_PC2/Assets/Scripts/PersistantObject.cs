@@ -6,6 +6,7 @@ public class PersistantObject : MonoBehaviour
 {
     public static float MouseS;
     public static float ControllerS;
+    public static int ResolutionDropdownValue;
     // Start is called before the first frame update
     void Start()
     {
