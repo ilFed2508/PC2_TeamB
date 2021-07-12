@@ -12,7 +12,7 @@ public class Settings : MonoBehaviour
     public AudioMixer AudioMixer;
     public Slider AudioSlider;
     public Slider SFXSlider;
-    //public Dropdown ResolutionDropdown;
+    public Dropdown ResolutionDropdown;
     Resolution[] Resolutions;
     [Header("Mouse Sensibility")]
     public Slider MouseS;
@@ -21,28 +21,35 @@ public class Settings : MonoBehaviour
     public float AugmentedMouseS;
     public float RangeMouseS;
     public float MouseSens;
-   //[Header("Controller Sensibility")]
-   //public Slider ControllerS;
-   //public float ControllerSMin;
-   //public float ControllerSMax;
-   //public float AugmentedControllerS;
-   //public float RangeControllerS;
-   //public float ControllerSens;
+    //[Header("Controller Sensibility")]
+    //public Slider ControllerS;
+    //public float ControllerSMin;
+    //public float ControllerSMax;
+    //public float AugmentedControllerS;
+    //public float RangeControllerS;
+    //public float ControllerSens;
+
+    [Header("Resolution lists")]
+    public List<int> widths = new List<int>();
+    public List<int> heights = new List<int>();
 
     // Start is called before the first frame update
     void Start()
     {
         AudioSlider.value = PlayerPrefs.GetFloat("GeneraL");
         SFXSlider.value = PlayerPrefs.GetFloat("SFX");
+        ResolutionDropdown.value = PlayerPrefs.GetInt("Resolution");
 
         AugmentedMouseS = MouseSMin - 0;
         RangeMouseS = MouseSMax - MouseSMin;
         MouseS.value = (PlayerPrefs.GetFloat("MouseS") - AugmentedMouseS) / RangeMouseS;
         PersistantObject.MouseS = MouseSens;
-       // AugmentedControllerS = ControllerSMin - 0;
-       // RangeControllerS = ControllerSMax - ControllerSMin;
-       // ControllerS.value = (PlayerPrefs.GetFloat("ControllerS") - AugmentedControllerS) / RangeControllerS;
-       // PersistantObject.ControllerS = ControllerSens;
+        // AugmentedControllerS = ControllerSMin - 0;
+        // RangeControllerS = ControllerSMax - ControllerSMin;
+        // ControllerS.value = (PlayerPrefs.GetFloat("ControllerS") - AugmentedControllerS) / RangeControllerS;
+        // PersistantObject.ControllerS = ControllerSens;
+
+        PersistantObject.ResolutionDropdownValue = ResolutionDropdown.value;
 
         Resolutions = Screen.resolutions;
         //ResolutionDropdown.ClearOptions();
@@ -71,6 +78,8 @@ public class Settings : MonoBehaviour
         SetMouseS();
         //SetControllerS();
         //CheckBools();
+        PlayerPrefs.SetInt("Resolution", ResolutionDropdown.value);
+        PersistantObject.ResolutionDropdownValue = ResolutionDropdown.value;
     }
 
     public void SetFullScreen(bool IsFullScreen)
@@ -98,6 +107,9 @@ public class Settings : MonoBehaviour
 
     public void SetResolution(int ResolutionIndex)
     {
+        int width = widths[ResolutionIndex];
+        int height = heights[ResolutionIndex];
+        Screen.SetResolution(width, height, Screen.fullScreen);
         //Resolution resolution = Resolutions[ResolutionIndex];
         //Screen.SetResolution(resolution.width, resolution.height, Screen.fullScreen);
     }
