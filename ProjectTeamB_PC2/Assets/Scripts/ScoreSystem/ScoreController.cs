@@ -35,8 +35,8 @@ public class ScoreController : MonoBehaviour
     {       
         CostScore = CurrentScore;
         CurrentScoreText.text = CostScore.ToString();
-        FinalScore.text = "YOUR SCORE :" + TotalScore;
-        FinalScoreLeaderboard.text = "YOUR SCORE :" + TotalScore;
+        FinalScore.text = "YOUR SCORE - " + TotalScore;
+        FinalScoreLeaderboard.text = "YOUR SCORE - " + TotalScore;
     }
 
     #region BehaviourAPI
