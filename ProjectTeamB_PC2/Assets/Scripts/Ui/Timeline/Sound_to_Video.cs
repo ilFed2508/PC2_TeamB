@@ -7,7 +7,7 @@ public class Sound_to_Video : MonoBehaviour
 {
     public PlayableDirector Sound_to_VideoSettings;
 
-    void start()
+    void Start()
     {
         Sound_to_VideoSettings = GetComponent<PlayableDirector>();
     }
