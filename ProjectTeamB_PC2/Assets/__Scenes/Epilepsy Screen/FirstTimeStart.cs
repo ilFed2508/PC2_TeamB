@@ -12,6 +12,7 @@ public class FirstTimeStart : MonoBehaviour
         if(NofStarts==0)
         {
             Screen.SetResolution(1920, 1080, Screen.fullScreen);
+            PlayerPrefs.SetInt("Resolution", 1);
         }
         NofStarts++;
         PlayerPrefs.SetInt("BootsUp", NofStarts);
