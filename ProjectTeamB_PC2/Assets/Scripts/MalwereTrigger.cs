@@ -13,19 +13,13 @@ public class MalwereTrigger : MonoBehaviour
         tutorial = GameObject.Find(toFind).GetComponent<DetectedActDeact>();
     }
 
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
-
     private void OnTriggerEnter(Collider other)
     {
         if (other.tag == "Player")
         {
             tutorial.thing.SetActive(true);
 
-            Destroy(gameObject, 1);
+            Destroy(gameObject);
         }
     }
 }
