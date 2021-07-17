@@ -58,6 +58,7 @@ public class ComboManager : MonoBehaviour
         ComboSystem();
         ResetComboDamage();
         ActiveComboSprite();
+        FixDataStartingDamage();
     }
 
 
@@ -245,6 +246,28 @@ public class ComboManager : MonoBehaviour
         yield return new WaitForSeconds(MyLevelZero.shakeDuration);
         MyLevelZero.gameObject.GetComponent<Text>().color = Color.white;
     }
+
+
+    public void FixDataStartingDamage()
+    {
+        if(AR.Damage < AR.StartingDamage)
+        {
+            AR.Damage = AR.StartingDamage;
+        }
+        if (SMG.Damage < SMG.StartingDamage)
+        {
+            SMG.Damage = SMG.StartingDamage;
+        }
+        if (MINIGUN.Damage < MINIGUN.StartingDamage)
+        {
+            MINIGUN.Damage = MINIGUN.StartingDamage;
+        }
+        if (SHOTGUN.Damage < SHOTGUN.StartingDamage)
+        {
+            SHOTGUN.Damage = SHOTGUN.StartingDamage;
+        }
+    }
+
 }
 
 

@@ -14,6 +14,10 @@ public class DEATH : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        hp.PlayerCurrentHP = 28;
+        if (other.CompareTag("Player"))
+        {
+            hp.PlayerCurrentHP = 28;
+        }
+        
     }
 }
