@@ -10,9 +10,10 @@ public class SafeZone : MonoBehaviour
     public GameObject mapOut;
     [Header("Other Things")]
     public float recoverdLife;
-    public int checkpoint,SafeZonePref;
+    public int checkpoint;
     private ComboManager MyTime;
     private PlayerController playerController;
+    public string SafeZoneNamePref;
 
     public GameObject[]Buttons;
     //public GameObject Directional;
@@ -53,7 +54,7 @@ public class SafeZone : MonoBehaviour
             playerController.playerScore.AddValueScore((int)playerController.playerLife.PlayerHPscore * ((checkpoint - 1) * playerController.playerScore.GetActionValue(ScoreAction.EndLevelLifeGain)));
             playerController.playerScore.AddTotalScore(playerController.playerScore.GetCurrentScore());
             PlayerPrefs.SetInt("Checkpoint", checkpoint);
-            PlayerPrefs.SetInt("SafeZone", SafeZonePref);
+            PlayerPrefs.SetInt(SafeZoneNamePref, 1);
             MyTime.ComboTime = 0f;
             
 
@@ -64,7 +65,7 @@ public class SafeZone : MonoBehaviour
             mapOut.SetActive(true);
             mapIn.SetActive(false);
             PlayerPrefs.SetInt("Checkpoint", checkpoint);
-            PlayerPrefs.SetInt("SafeZone", SafeZonePref);
+            PlayerPrefs.SetInt(SafeZoneNamePref, 1);
             MyTime.ComboTime = 0f;
         }                      
     }

@@ -17,17 +17,17 @@ public class TestMenùMain : MonoBehaviour
         PlayerPrefs.SetInt("Katana", 0);
 
 
-        if (PlayerPrefs.GetInt("SafeZone") > 0)
+        if (PlayerPrefs.GetInt("UNO") == 1)
         {
             VideoLvl2.SetActive(true);
             Noiselv2.SetActive(false);
         }
-        if (PlayerPrefs.GetInt("SafeZone") > 1)
+        if (PlayerPrefs.GetInt("DUE") == 1)
         {
             VideoLvl3.SetActive(true);
             Noiselv3.SetActive(false);
         }
-        if (PlayerPrefs.GetInt("SafeZone") > 2)
+        if (PlayerPrefs.GetInt("TRE") == 1)
         {
             VideoLvl4.SetActive(true);
             Noiselv4.SetActive(false);
