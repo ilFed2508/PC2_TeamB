@@ -33,6 +33,7 @@ public class SaveNameUI : MonoBehaviour
 
             if (Input.GetKey(KeyCode.Return))
             {
+                AudioManager.instance.Play("SelectButton");
                 LoadingAnim.SetActive(true);
             }
         }
