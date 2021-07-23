@@ -30,6 +30,11 @@ public class SaveNameUI : MonoBehaviour
         if(NameImputField.text.Length >= 5)
         {
             ButtonNameUI.gameObject.SetActive(true);
+
+            if (Input.GetKey(KeyCode.Return))
+            {
+                LoadingAnim.SetActive(true);
+            }
         }
         else
         {

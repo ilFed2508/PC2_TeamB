@@ -1,10 +1,13 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class SkipAnimationNick : MonoBehaviour
 {
     public GameObject Nick, AnimationText, TextImage, FakeBackground, Skip;
+
+    public InputField InputField;
 
     void Start()
     {
@@ -21,6 +24,7 @@ public class SkipAnimationNick : MonoBehaviour
             StopCoroutine(Animation());
             Destroy(AnimationText);
             FakeBackground.SetActive(false);
+            InputField.ActivateInputField();
             TextImage.SetActive(true);
             Skip.SetActive(false);
             AudioManager.instance.Stop("StartUp");
@@ -32,6 +36,7 @@ public class SkipAnimationNick : MonoBehaviour
         yield return new WaitForSeconds(3);
         Destroy(AnimationText);
         FakeBackground.SetActive(false);
+        InputField.ActivateInputField();
         TextImage.SetActive(true);
         Skip.SetActive(false);
     }
