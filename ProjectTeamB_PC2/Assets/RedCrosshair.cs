@@ -5,7 +5,7 @@ using UnityEngine.UI;
 
 public class RedCrosshair : MonoBehaviour
 {
-    public Image crosshair;
+    public Image[]crosshair;
 
     // Update is called once per frame
     void Update()
@@ -15,11 +15,17 @@ public class RedCrosshair : MonoBehaviour
 
         if (Physics.Raycast(ray, out Hit) && Hit.collider.CompareTag("Enemy"))
         {
-            crosshair.color = Color.red;
+            for (int i = 0; i < crosshair.Length; i++)
+            {
+                crosshair[i].color = Color.red;
+            }         
         }
         else
         {
-            crosshair.color = Color.white;
+            for (int i = 0; i < crosshair.Length; i++)
+            {
+                crosshair[i].color = Color.white;
+            }
         }
     }
 }
