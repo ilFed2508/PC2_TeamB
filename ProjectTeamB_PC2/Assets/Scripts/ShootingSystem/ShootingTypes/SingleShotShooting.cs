@@ -77,6 +77,7 @@ public class SingleShotShooting : Shooting
 
         //Audio Luca
         AudioManager.instance.Play(Suono);
+        
     }
 
     public override void AIShoot(RangedWeapon currentWeapon)
@@ -119,6 +120,8 @@ public class SingleShotShooting : Shooting
     {
         return base.CalculateTotalDamage(CurrentWeapon);
     }
+
+
     //IEnumerator lateCall()
     //{
     //    yield return new WaitForSeconds(MyLevelZero.shakeDuration);

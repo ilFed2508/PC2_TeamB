@@ -47,9 +47,10 @@ public class PlayerShooting : MonoBehaviour
         //Execute shooting
         if ((Input.GetAxis("Xbox_RT") > 0 || Input.GetMouseButtonDown(0)) && CurrentRagedWeapon.ShootingType.IsAutomatic == false)
         {
-            if(JoystickInputActivated == false)
+            
+            if (JoystickInputActivated == false)
             {
-                CurrentRagedWeapon.ShootingType.ShootingAction(CurrentRagedWeapon);
+                CurrentRagedWeapon.ShootingType.ShootingAction(CurrentRagedWeapon);             
                 JoystickInputActivated = true;
             }            
             //Da eliminare più avanti
