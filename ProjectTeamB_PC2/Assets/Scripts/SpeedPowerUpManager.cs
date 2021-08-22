@@ -42,6 +42,7 @@ public class SpeedPowerUpManager : MonoBehaviour
                 if (Input.GetMouseButtonDown(1) || Input.GetButton("Xbox_LB"))
                 {
                     StartCoroutine(LerpFOV(2f, 4f));
+                    AudioManager.instance.Play("AdrenalineActivated");
                     MyMovement.GroundSpeed += SpeedIncrease;
                     MyMovement.AirSpeed += AirSpeedIncrease;
                     IconPoweUp.SetActive(false);
