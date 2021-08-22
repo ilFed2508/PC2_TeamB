@@ -33,6 +33,7 @@ public class HUDActivated : MonoBehaviour
         {
             Time.timeScale = 0;
             WeaponSlot.SetActive(false);
+            AudioManager.instance.Play("TutorialUnlocked");
             HUD.SetActive(true);
             BlackPanel.SetActive(true);
             MalwareText.SetActive(true);
@@ -71,6 +72,7 @@ public class HUDActivated : MonoBehaviour
         {
             OvalMalware.SetActive(false);
             MalwareText.SetActive(false);
+            AudioManager.instance.Play("TutorialUnlocked");
             ComboText.SetActive(true);
             ComboCounter.SetActive(true);
             OvalCombo.SetActive(true);
