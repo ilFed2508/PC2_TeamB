@@ -43,6 +43,7 @@ public class SlowerHpManager : MonoBehaviour
                 if (Input.GetMouseButtonDown(1) || Input.GetButton("Xbox_LB"))
                 {
                     AudioManager.instance.Play("SlowerHP");
+                    AudioManager.instance.Play("FirewallActivated");
                     MyLife.TimeMultiplier = TimeSpeedMultiplier;
                     SlowerHpIcon.SetActive(false);
                     IconIsActive = false;
