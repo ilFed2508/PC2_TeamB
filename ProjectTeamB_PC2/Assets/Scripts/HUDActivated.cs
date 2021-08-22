@@ -13,6 +13,10 @@ public class HUDActivated : MonoBehaviour
     public GameObject BlackPanel;
     public GameObject MalwareText;
     public GameObject ComboText;
+    public GameObject ContinueLife_Tutorial;
+    public GameObject MouseRight;
+    public GameObject MouseLeft;
+    public GameObject ContinueCombo_Tutorial;
 
 
     // Start is called before the first frame update
@@ -25,6 +29,10 @@ public class HUDActivated : MonoBehaviour
         BlackPanel.SetActive(false);
         MalwareText.SetActive(false);
         ComboText.SetActive(false);
+        MouseRight.SetActive(false);
+        ContinueLife_Tutorial.SetActive(false);
+        MouseLeft.SetActive(false);
+        ContinueCombo_Tutorial.SetActive(false);
     }
 
     private void OnTriggerEnter(Collider other)
@@ -33,12 +41,10 @@ public class HUDActivated : MonoBehaviour
         {
             Time.timeScale = 0;
             WeaponSlot.SetActive(false);
-            AudioManager.instance.Play("TutorialUnlocked");
             HUD.SetActive(true);
             BlackPanel.SetActive(true);
-            MalwareText.SetActive(true);
             MalwarePercentage.SetActive(true);
-            OvalMalware.SetActive(true);
+            StartCoroutine(TutorialLife());
         }
 
         //if (other.tag == "ActiveHUD" && Input.GetMouseButtonDown(1))
@@ -60,6 +66,18 @@ public class HUDActivated : MonoBehaviour
         //OvalCombo.SetActive(false);
     }
 
+    IEnumerator TutorialLife()
+    {
+        yield return new WaitForSecondsRealtime(0.8f);
+        AudioManager.instance.Play("TutorialUnlocked");
+        OvalMalware.SetActive(true);
+        yield return new WaitForSecondsRealtime(0.8f);
+        MalwareText.SetActive(true);
+        yield return new WaitForSecondsRealtime(2f);
+        ContinueLife_Tutorial.SetActive(true);
+        MouseRight.SetActive(true);
+    }
+
     private void Update()
     {
         //if (HUD.activeInHierarchy && Input.GetMouseButtonDown(1))
@@ -70,21 +88,33 @@ public class HUDActivated : MonoBehaviour
 
         if (Input.GetMouseButtonDown(1) && HUD.activeInHierarchy && MalwarePercentage.activeInHierarchy && OvalMalware.activeInHierarchy)
         {
-            OvalMalware.SetActive(false);
-            MalwareText.SetActive(false);
-            AudioManager.instance.Play("TutorialUnlocked");
-            ComboText.SetActive(true);
+            Destroy(OvalMalware);
+            Destroy(MalwareText);
             ComboCounter.SetActive(true);
-            OvalCombo.SetActive(true);
+            StartCoroutine(TutorialCombo());
+            //AudioManager.instance.Play("TutorialUnlocked");
+            //ComboText.SetActive(true);
+            //OvalCombo.SetActive(true);
         }
 
         if (Input.GetMouseButtonDown(0) && HUD.activeInHierarchy && ComboCounter.activeInHierarchy && OvalCombo.activeInHierarchy)
         {
-            Destroy(OvalCombo);
-            Destroy(OvalMalware);
             Destroy(BlackPanel);
+            Destroy(OvalCombo);
             WeaponSlot.SetActive(true);
             Time.timeScale = 1;
         }
+    }
+
+    IEnumerator TutorialCombo()
+    {
+        yield return new WaitForSecondsRealtime(0.8f);
+        AudioManager.instance.Play("TutorialUnlocked");
+        OvalCombo.SetActive(true);
+        yield return new WaitForSecondsRealtime(0.8f);
+        ComboText.SetActive(true);
+        yield return new WaitForSecondsRealtime(2f);
+        ContinueCombo_Tutorial.SetActive(true);
+        MouseLeft.SetActive(true);
     }
 }
