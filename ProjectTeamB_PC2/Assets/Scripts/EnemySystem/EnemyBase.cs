@@ -156,7 +156,7 @@ public class EnemyBase : MonoBehaviour
         CurrentHP = Mathf.Lerp(CurrentHP, HP, Time.deltaTime * HpSmooth);
     }
 
-    public IEnumerator floating()
+    public IEnumerator Floating()
     {
         float floatIndex = Random.Range(0, floatTimes.Length);
         yield return new WaitForSeconds(floatIndex);
